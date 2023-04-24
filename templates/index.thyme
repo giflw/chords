@@ -7,21 +7,36 @@
 		<div th:replace="menu.thyme::menu"/>
 		<div class="container">
 			<div class="page-header">
+				<h1>Chords</h1>
+			</div>
+
+			<div th:each="post : ${published_content}" th:if="${#strings.equals(post.type, 'chords')}">
+				<a th:href='${post.uri}' href='href'>
+                    <h1><i class="fa-fw fas fa-music"></i> [[ ${post.title} ]]</h1>
+                </a>
+                <h2>[[ ${post.artista} ?: 'Desconhecido' ]]</h2>
+                <p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
+				<p th:utext='${post.body}'>body</p>
+			</div>
+
+            <hr />
+
+            <div class="page-header">
 				<h1>Blog</h1>
 			</div>
-			
+
 			<div th:each="post : ${published_posts}">
 				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
 				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
 				<p th:utext='${post.body}'>body</p>
 			</div>
-				
+
 			<hr />
-			
+
 			<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
 		</div>
 	</div>
-	
+
 	<div th:replace="footer.thyme::footer"></div>
     </body>
 </html>

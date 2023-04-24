@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Meslo-LG-S-DZ';
+    src:url('../fonts/meslo/Meslo-LG-S-DZ-Regular1.ttf.woff') format('woff'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Regular1.ttf.svg#Meslo-LG-S-DZ-Regular1') format('svg'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Regular1.ttf.eot'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Regular1.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Meslo-LG-S-DZ';
+    src:url('../fonts/meslo/Meslo-LG-S-DZ-Italic1.ttf.woff') format('woff'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Italic1.ttf.svg#Meslo-LG-S-DZ-Italic1') format('svg'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Italic1.ttf.eot'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Italic1.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Meslo-LG-S-DZ';
+    src:url('../fonts/meslo/Meslo-LG-S-DZ-Bold1.ttf.woff') format('woff'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold1.ttf.svg#Meslo-LG-S-DZ-Bold1') format('svg'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold1.ttf.eot'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold1.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Meslo-LG-S-DZ-Bold';
+    src:url('../fonts/meslo/Meslo-LG-S-DZ-Bold-Italic1.ttf.woff') format('woff'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold-Italic1.ttf.svg#Meslo-LG-S-DZ-Bold-Italic1') format('svg'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold-Italic1.ttf.eot'),
+        url('../fonts/meslo/Meslo-LG-S-DZ-Bold-Italic1.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: bold;
+    font-style: italic;
+}

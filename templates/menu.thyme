@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<body>
 	<div th:fragment="menu">
-	
+
 	  <!-- Fixed navbar -->
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
