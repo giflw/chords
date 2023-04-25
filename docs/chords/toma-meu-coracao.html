@@ -53,79 +53,113 @@
             </div>
         </div>
         <div class="container">
-            <div class="">
-                <div class="columns is-vcentered mb-0">
-                    <div class="column has-text-left pb-0">
-                        <h3 class="title" title="Título (Title)">
-                            <i class="fa-fw fal fa-music"></i>
-                            Toma Meu Coração
-                        </h3>
-                        <h4 class="subtitle mb-0" title="Artista (Artist)">
-                            <i class="fa-fw fal fa-microphone-alt"></i>
-                            <strong>Desconhecido</strong>
-                        </h4>
-                        <p class="has-text-grey has-text-left"><small>https://giflw.github.io/chords/chords/toma-meu-coracao.html</small></p>
-                    </div>
-                    <div class="column has-text-right is-screen-only" style="white-space: nowrap">
-                        <div title="Áudio">
-                            <a href="https://deezer.page.link/5AUMCcH2CZL9t2r78">https://deezer.page.link/5AUMCcH2CZL9t2r78</a>
-                            <!-- <audio controls th:src="${content.audio}">audio</audio> -->
-                            <i class="fa-fw fal fa-waveform has-text-info"></i>
-                        </div>
-                        <div title="Vídeo">
-                            <a href="https://www.youtube.com/watch?v=EWf3R77jqMg">https://www.youtube.com/watch?v=EWf3R77jqMg</a>
-                            <i class="fa-fw fal fa-tv-music has-text-info"></i>
-                            <!-- <iframe width="200" height="150" src="https://www.youtube.com/embed/9u-4H5qycgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-                        </div>
-                    </div>
+            <div class="columns is-vcentered mb-0">
+                <div class="column has-text-left pb-0">
+                    <h3 class="title" title="Título (Title)">
+                        <i class="fa-fw fal fa-music"></i>
+                        Toma Meu Coração
+                    </h3>
+                    <h4 class="subtitle mb-0" title="Artista (Artist)">
+                        <i class="fa-fw fal fa-microphone-alt"></i>
+                        <strong>Desconhecido</strong>
+                    </h4>
+                    <p class="subtitle" title="Compositor">
+                        <i class="fa-fw fal fa-user-music"></i>
+                        <strong>Desconhecido</strong>
+                    </p>
                 </div>
-                <hr class="my-1"/>
-                <div class="has-text-centered">
-                    <span class="mx-2" title="Tom">
-                        <i class="fa-fw fal fa-list-music has-text-info"></i>
-                        <strong>A</strong>
-                    </span>
-                    <span class="mx-2" title="Compasso">
-                        <i class="fa-fw fal fa-triangle-music has-text-info"></i>
-                        <strong>4/4</strong>
-                    </span>
-                    <span class="mx-2" title="Dedilhado">
-                        <i class="fa-fw fal fa-hand-paper has-text-info"></i>
-                        <strong>P I M A I M A I</strong>
-                    </span>
-                    <span class="mx-2" title="Batida/Ritmo">
-                        <i class="fa-fw fal fa-sort-alt has-text-info"></i>
-                        <strong>não dãrãgãdã</strong>
-                    </span>
-                    <span class="mx-2" title="Instrumentos">
-                        <i class="fa-fw fad fa-guitars has-text-info"></i>
-                        
-                            
-                                <i class="fa-fw fal fa-guitar" title="Violão"></i>
-                            
-                            
-                            
-                            
-                            
-                            
-                        
-                    </span>
-                    <span class="mx-2" title="Álbum">
-                        <i class="fa-fw fal fa-album has-text-info"></i>
-                        <strong>N/I</strong>
-                    </span>
-
-                    <a href="#chords">
-                        <i class="fa-fw fal fa-border-top"></i>
-                    </a>
-                    <a onclick="document.querySelector('.chords').requestFullscreen()">
-                        <i class="fa-fw fal fa-expand-wide"></i>
-                    </a>
+                <div class="column has-text-right is-size-7" style="white-space: nowrap">
+                    <div>
+                        <a title="Áudio" href="https://deezer.page.link/5AUMCcH2CZL9t2r78">
+                            <i class="fa-fw fal fa-waveform has-text-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a title="Vídeo" href="https://www.youtube.com/watch?v=EWf3R77jqMg">
+                            <i class="fa-fw fal fa-tv-music has-text-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a title="URL" href="https://giflw.github.io/chords/chords/toma-meu-coracao.html">
+                            <i class="fa-fw fal fa-link has-text-link"></i>
+                        </a>
+                    </div>
+                    <p class="has-text-grey">
+                        Atualizado em
+                        <em>22 abril 2023</em>
+                    </p>
                 </div>
             </div>
-            <hr class="my-1" />
-            <div id="chords" class="chords cloak">
-                <div class="listingblock"> 
+
+            <!-- <p class="has-text-centered">
+                <span class="tag mx-1" th:each="tag: ${content.tags}">
+                    
+                </span>
+            </p> -->
+
+            <hr class="my-1"/>
+            <div id="chords">
+                <div>
+                    <div class="has-text-centered">
+                        <span class="mx-2 is-screen-only" title="Título">
+                            <i class="fa-fw fal fa-music has-text-info"></i>
+                            Toma Meu Coração
+                        </span>
+                        <span class="mx-2" title="Tom">
+                            <i class="fa-fw fal fa-list-music has-text-info"></i>
+                            <strong>A</strong>
+                        </span>
+                        <span class="mx-2" title="Compasso">
+                            <i class="fa-fw fal fa-triangle-music has-text-info"></i>
+                            <strong>4/4</strong>
+                        </span>
+                        <span class="mx-2" title="Dedilhado">
+                            <i class="fa-fw fal fa-hand-paper has-text-info"></i>
+                            <strong>P I M A I M A I</strong>
+                        </span>
+                        <span class="mx-2" title="Batida/Ritmo">
+                            <i class="fa-fw fal fa-sort-alt has-text-info"></i>
+                            <strong>não dãrãgãdã</strong>
+                        </span>
+                        <span class="mx-2" title="Instrumentos">
+                            <i class="fa-fw fad fa-guitars has-text-info"></i>
+                            
+                                
+                                    <i class="fa-fw fal fa-guitar" title="Violão"></i>
+                                
+                                
+                                
+                                
+                                
+                                
+                            
+                        </span>
+
+                        <a class="mx-2 is-screen-only" href="#chords" title="Focar cifra">
+                            <i class="fa-fw fal fa-border-top"></i>
+                        </a>
+                        <a class="mx-2 is-screen-only" onclick="document.fullscreenElement ? document.exitFullscreen() : document.querySelector('#chords').requestFullscreen()">
+                            <span class="fa-stack">
+                                <i class="fa-fw fal fa-expand-wide fa-stack-1x"></i>
+                                <i class="fa-fw fal fa-arrows fa-stack-1x"></i>
+                            </span>
+                        </a>
+
+                        <span class="is-screen-only" title="Tamanho do texto">
+                            <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) - 1 + 'px'">
+                                <i class="fa-fw fal fa-minus"></i>
+                            </a>
+                            <a onclick="document.querySelector('.chords').style.fontSize = 'var(--chords-font-size)'">
+                                <i class="fa-fw fad fa-text-size"></i>
+                            </a>
+                            <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) + 1 + 'px'">
+                                <i class="fa-fw fal fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
+                <hr class="my-1" />
+                <div class="chords cloak">
+                    <div class="listingblock"> 
  <div class="content"> 
   <pre>[Intro]
 
@@ -213,18 +247,10 @@ Faz o Teu querer em mim
 ( G  Em  C9  D4 * D G )</pre> 
  </div> 
 </div>
+                </div>
             </div>
 
-
-            <p class="has-text-right" title="Compositor (Composer)">
-                <i class="fa-fw fal fa-user-music has-text-info"></i>
-                <strong>Desconhecido</strong>
-            </p>
-
-            <p class="has-text-right">Atualizado em <em>22 abril 2023</em></p>
-
             <hr />
-
         </div>
         
             <footer class="footer text-center is-screen-only">
@@ -232,7 +258,7 @@ Faz o Teu querer em mim
                     &copy; 2023
                     |
                     Última atualização
-                    25/04/2023 01:21:48
+                    25/04/2023 02:15:28
                 </p>
             </footer>
 

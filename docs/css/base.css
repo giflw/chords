@@ -11,22 +11,24 @@ body {
 }
 
 :root {
-    --chords-font-size: 16px;
+    --chords-font-size: 12px;
 }
 
 .chords.cloak {
     display: none;
 }
+.chords, #chords {
+    background-color: white;
+}
 .chords {
     font-size: var(--chords-font-size);
-    columns: 40rex 3;
-    column-gap: 2rex;
+    columns: 40ex 3;
+    column-gap: 2ex;
     column-rule: 1px solid lightgray;
     column-fill: balance;
     font-family: 'MesloLGSDZ Nerd Font Mono', monospace;
     text-align: left;
-    line-height: 1.1rem;
-    background-color: white;
+    line-height: 1.1em;
     padding: 1ex;
 }
 

@@ -7,7 +7,7 @@ let section = document.createElement('div')
 let sections = 0;
 for(let i = 0; i < lines.length; i++) {
     let text = lines[i]
-    console.log(text)
+    // console.log(text)
     let line = document.createElement('p')
     line.textContent = text
 
@@ -16,7 +16,7 @@ for(let i = 0; i < lines.length; i++) {
     }
 
     if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9]+\]$/.test(text)) {
-        console.log('section', text)
+        // console.log('section', text)
         sections++;
         if (section.children.length > 0) {
             chords.appendChild(section)
@@ -28,7 +28,7 @@ for(let i = 0; i < lines.length; i++) {
         line.classList.add('has-text-weight-bold')
         line.classList.add('my-2')
     } else if (/^[A-H1-9m#b()*~v^| ></]+$/.test(text)) {
-        console.log('chords', text)
+        // console.log('chords', text)
         line.classList.add('mt-2')
         line.classList.add('has-text-danger')
         line.classList.add('has-text-weight-bold')

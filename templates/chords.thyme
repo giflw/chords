@@ -3,101 +3,127 @@
         xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <body>
         <section class="section">
-            <div class="">
-                <div class="columns is-vcentered mb-0">
-                    <div class="column has-text-left pb-0">
-                        <h3 class="title" title="Título (Title)">
-                            <i class="fa-fw fal fa-music"></i>
+            <div class="columns is-vcentered mb-0">
+                <div class="column has-text-left pb-0">
+                    <h3 class="title" title="Título (Title)">
+                        <i class="fa-fw fal fa-music"></i>
+                        [[ ${content.title} ]]
+                    </h3>
+                    <h4 class="subtitle mb-0" title="Artista (Artist)">
+                        <i class="fa-fw fal fa-microphone-alt"></i>
+                        <strong>[[ ${#strings.isEmpty(content.artista)} ? 'Desconhecido' : ${content.artista} ]]</strong>
+                    </h4>
+                    <p class="subtitle" title="Compositor">
+                        <i class="fa-fw fal fa-user-music"></i>
+                        <strong>[[ ${#strings.isEmpty(content.compositor)} ? 'Desconhecido' : ${content.compositor} ]]</strong>
+                    </p>
+                </div>
+                <div class="column has-text-right is-size-7" style="white-space: nowrap">
+                    <div>
+                        <a title="Áudio" th:if="${!#strings.isEmpty(content.audio)}" th:href="${content.audio}">
+                            <i class="fa-fw fal fa-waveform has-text-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a title="Vídeo" th:if="${!#strings.isEmpty(content.video)}" th:href="${content.video}">
+                            <i class="fa-fw fal fa-tv-music has-text-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a title="URL" th:href="${config.site_host} + ${content.uri}">
+                            <i class="fa-fw fal fa-link has-text-link"></i>
+                        </a>
+                    </div>
+                    <p class="has-text-grey">
+                        Atualizado em
+                        <em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>date</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- <p class="has-text-centered">
+                <span class="tag mx-1" th:each="tag: ${content.tags}">
+                    [[ ${tag} ]]
+                </span>
+            </p> -->
+
+            <hr class="my-1"/>
+            <div id="chords">
+                <div>
+                    <div class="has-text-centered">
+                        <span class="mx-2 is-screen-only" title="Título">
+                            <i class="fa-fw fal fa-music has-text-info"></i>
                             [[ ${content.title} ]]
-                        </h3>
-                        <h4 class="subtitle mb-0" title="Artista (Artist)">
-                            <i class="fa-fw fal fa-microphone-alt"></i>
-                            <strong>[[ ${#strings.isEmpty(content.artista)} ? 'Desconhecido' : ${content.artista} ]]</strong>
-                        </h4>
-                        <p class="has-text-grey has-text-left"><small>[[ ${config.site_host} + ${content.uri} ]]</small></p>
-                    </div>
-                    <div class="column has-text-right is-screen-only" style="white-space: nowrap">
-                        <div title="Áudio" th:if="${!#strings.isEmpty(content.audio)}">
-                            <a th:href="${content.audio}" th:text="${content.audio}">audio link</a>
-                            <!-- <audio controls th:src="${content.audio}">audio</audio> -->
-                            <i class="fa-fw fal fa-waveform has-text-info"></i>
-                        </div>
-                        <div title="Vídeo" th:if="${!#strings.isEmpty(content.video)}">
-                            <a th:href="${content.video}" th:text="${content.video}">video link</a>
-                            <i class="fa-fw fal fa-tv-music has-text-info"></i>
-                            <!-- <iframe width="200" height="150" src="https://www.youtube.com/embed/9u-4H5qycgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-                        </div>
-                    </div>
-                </div>
-                <hr class="my-1"/>
-                <div class="has-text-centered">
-                    <span class="mx-2" title="Tom">
-                        <i class="fa-fw fal fa-list-music has-text-info"></i>
-                        <strong>[[ ${#strings.isEmpty(content.tom)} ? 'N/I' : ${content.tom} ]]</strong>
-                    </span>
-                    <span class="mx-2" title="Compasso">
-                        <i class="fa-fw fal fa-triangle-music has-text-info"></i>
-                        <strong>[[ ${#strings.isEmpty(content.compasso)} ? 'N/I' : ${content.compasso} ]]</strong>
-                    </span>
-                    <span class="mx-2" title="Dedilhado">
-                        <i class="fa-fw fal fa-hand-paper has-text-info"></i>
-                        <strong>[[ ${#strings.isEmpty(content.dedilhado)} ? 'N/I' : ${content.dedilhado} ]]</strong>
-                    </span>
-                    <span class="mx-2" title="Batida/Ritmo">
-                        <i class="fa-fw fal fa-sort-alt has-text-info"></i>
-                        <strong>[[ ${#strings.isEmpty(content.batida)} ? 'N/I' : ${content.batida} ]]</strong>
-                    </span>
-                    <span class="mx-2" title="Instrumentos">
-                        <i class="fa-fw fad fa-guitars has-text-info"></i>
-                        <th:block th:if="${!#strings.isEmpty(content.instrumentos)}">
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'violão')}">
-                                <i class="fa-fw fal fa-guitar" title="Violão"></i>
+                        </span>
+                        <span class="mx-2" title="Tom">
+                            <i class="fa-fw fal fa-list-music has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.tom)} ? 'N/I' : ${content.tom} ]]</strong>
+                        </span>
+                        <span class="mx-2" title="Compasso">
+                            <i class="fa-fw fal fa-triangle-music has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.compasso)} ? 'N/I' : ${content.compasso} ]]</strong>
+                        </span>
+                        <span class="mx-2" title="Dedilhado">
+                            <i class="fa-fw fal fa-hand-paper has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.dedilhado)} ? 'N/I' : ${content.dedilhado} ]]</strong>
+                        </span>
+                        <span class="mx-2" title="Batida/Ritmo">
+                            <i class="fa-fw fal fa-sort-alt has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.batida)} ? 'N/I' : ${content.batida} ]]</strong>
+                        </span>
+                        <span class="mx-2" title="Instrumentos">
+                            <i class="fa-fw fad fa-guitars has-text-info"></i>
+                            <th:block th:if="${!#strings.isEmpty(content.instrumentos)}">
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'violão')}">
+                                    <i class="fa-fw fal fa-guitar" title="Violão"></i>
+                                </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'guitarra')}">
+                                    <i class="fa-fw fal fa-guitar-electric" title="Guitarra"></i>
+                                </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'baixo')}">
+                                    <i class="fas fa-guitar-electric" title="Baixo"></i>
+                                </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'teclado')}">
+                                    <i class="fa-fw fal fa-piano-keyboard" title="Teclado"></i>
+                                </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'bateria')}">
+                                    <i class="fa-fw fal fa-drum" title="Bateria"></i>
+                                </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'violino')}">
+                                    <i class="fa-fw fal fa-violin" title="Violino"></i>
+                                </th:block>
                             </th:block>
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'guitarra')}">
-                                <i class="fa-fw fal fa-guitar-electric" title="Guitarra"></i>
-                            </th:block>
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'baixo')}">
-                                <i class="fas fa-guitar-electric" title="Baixo"></i>
-                            </th:block>
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'teclado')}">
-                                <i class="fa-fw fal fa-piano-keyboard" title="Teclado"></i>
-                            </th:block>
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'bateria')}">
-                                <i class="fa-fw fal fa-drum" title="Bateria"></i>
-                            </th:block>
-                            <th:block th:if="${#strings.contains(content.instrumentos, 'violino')}">
-                                <i class="fa-fw fal fa-violin" title="Violino"></i>
-                            </th:block>
-                        </th:block>
-                    </span>
-                    <span class="mx-2" title="Álbum">
-                        <i class="fa-fw fal fa-album has-text-info"></i>
-                        <strong>[[ ${#strings.isEmpty(content.album)} ? 'N/I' : ${content.album} ]]</strong>
-                    </span>
+                        </span>
 
-                    <a href="#chords">
-                        <i class="fa-fw fal fa-border-top"></i>
-                    </a>
-                    <a onclick="document.querySelector('.chords').requestFullscreen()">
-                        <i class="fa-fw fal fa-expand-wide"></i>
-                    </a>
+                        <a class="mx-2 is-screen-only" href="#chords" title="Focar cifra">
+                            <i class="fa-fw fal fa-border-top"></i>
+                        </a>
+                        <a class="mx-2 is-screen-only" onclick="document.fullscreenElement ? document.exitFullscreen() : document.querySelector('#chords').requestFullscreen()">
+                            <span class="fa-stack">
+                                <i class="fa-fw fal fa-expand-wide fa-stack-1x"></i>
+                                <i class="fa-fw fal fa-arrows fa-stack-1x"></i>
+                            </span>
+                        </a>
+
+                        <span class="is-screen-only" title="Tamanho do texto">
+                            <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) - 1 + 'px'">
+                                <i class="fa-fw fal fa-minus"></i>
+                            </a>
+                            <a onclick="document.querySelector('.chords').style.fontSize = 'var(--chords-font-size)'">
+                                <i class="fa-fw fad fa-text-size"></i>
+                            </a>
+                            <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) + 1 + 'px'">
+                                <i class="fa-fw fal fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
+                <hr class="my-1" />
+                <div class="chords cloak">
+                    [( ${content.body} )]
                 </div>
             </div>
-            <hr class="my-1" />
-            <div id="chords" class="chords cloak">
-                [( ${content.body} )]
-            </div>
-
-
-            <p class="has-text-right" title="Compositor (Composer)">
-                <i class="fa-fw fal fa-user-music has-text-info"></i>
-                <strong>[[ ${#strings.isEmpty(content.compositor)} ? 'Desconhecido' : ${content.compositor} ]]</strong>
-            </p>
-
-            <p class="has-text-right">Atualizado em <em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>date</em></p>
 
             <hr />
-
         </section>
     </body>
 </html>
