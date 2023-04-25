@@ -30,7 +30,7 @@ for(let i = 0; i < lines.length; i++) {
     } else if (/^[A-H1-9m#b()*~v^| ></]+$/.test(text)) {
         // console.log('chords', text)
         line.classList.add('mt-2')
-        line.classList.add('has-text-danger')
+        line.classList.add('has-text-primary')
         line.classList.add('has-text-weight-bold')
     }
     section.appendChild(line)

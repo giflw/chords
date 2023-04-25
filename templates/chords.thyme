@@ -6,7 +6,7 @@
             <div class="columns is-vcentered mb-0">
                 <div class="column has-text-left pb-0">
                     <h3 class="title" title="Título (Title)">
-                        <i class="fa-fw fal fa-music"></i>
+                        <i class="fa-fw fal fa-music has-text-primary"></i>
                         [[ ${content.title} ]]
                     </h3>
                     <h4 class="subtitle mb-0" title="Artista (Artist)">

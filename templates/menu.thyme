@@ -8,8 +8,8 @@
                     <div class="navbar-brand">
                         <a class="navbar-item" th:href="${baseUrl}">
                             <span class="fa-stack">
-                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-warning" style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
-                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger" style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
+                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger" style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
+                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-primary" style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
                             </span>
                             GiFlw
                         </a>
