@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://giflw.github.io/chords/about.html</loc>
+        <loc>https://giflw.github.io/chords//about.html</loc>
         <lastmod>2013-09-24</lastmod>
     </url><url>
-        <loc>https://giflw.github.io/chords/chords/toma-meu-coracao.html</loc>
+        <loc>https://giflw.github.io/chords//chords/toma-meu-coracao.html</loc>
         <lastmod>2023-04-22</lastmod>
     </url><url>
-        <loc>https://giflw.github.io/chords/chords/imaginacao.html</loc>
+        <loc>https://giflw.github.io/chords//chords/imaginacao.html</loc>
         <lastmod>2023-04-21</lastmod>
     </url>
 </urlset>

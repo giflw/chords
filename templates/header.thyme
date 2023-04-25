@@ -1,6 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
 <html lang="en">
-	<head th:fragment="head" th:with="rootpath=(${config.site_url})">
+	<head th:fragment="head" th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
 	    <meta charset="utf-8"/>
 	    <title th:with="title=(${content.title != null} ? ${content.title} : 'GiFlw')" th:text="${title}"></title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
