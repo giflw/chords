@@ -12,9 +12,9 @@
                 </p>
             </footer>
 
-            <th:block  th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
-                <script th:src="${rootpath} + 'js/prettify.js'"></script>
-                <script th:src="${rootpath} + 'js/chords.js'"></script>
+            <th:block  th:with="baseUrl=${config.site_host}">
+                <script th:src="${baseUrl} + 'js/prettify.js'"></script>
+                <script th:src="${baseUrl} + 'js/chords.js'"></script>
             </th:block>
         </div>
     </body>

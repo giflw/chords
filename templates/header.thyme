@@ -1,6 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
 <html lang="en">
-	<head th:fragment="head" th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+	<head th:fragment="head" th:with="baseUrl=${config.site_host}">
 	    <meta charset="utf-8"/>
 	    <title th:with="title=(${content.title != null} ? ${content.title} : 'GiFlw')" th:text="${title}"></title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,19 +9,19 @@
 	    <meta name="keywords" content="chords lyrics acordes letras música"/>
 	    <meta name="generator" content="JBake"/>
 
-	    <link th:href="${rootpath}+'css/bulma.css'" rel="stylesheet"/>
-	    <link th:href="${rootpath}+'css/bulmaswatch.css'" rel="stylesheet"/>
-	    <link th:href="${rootpath}+'css/asciidoctor.css'" rel="stylesheet"/>
-	    <link th:href="${rootpath}+'css/base.css'" rel="stylesheet"/>
-	    <link th:href="${rootpath}+'css/meslo-nerd.css'" rel="stylesheet"/>
-	    <link th:href="${rootpath}+'css/prettify.css'" rel="stylesheet"/>
-        <link th:href="${rootpath}+'css/fontawesome.min.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/bulma.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/bulmaswatch.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/asciidoctor.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/base.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/meslo-nerd.css'" rel="stylesheet"/>
+	    <link th:href="${baseUrl} + 'css/prettify.css'" rel="stylesheet"/>
+        <link th:href="${baseUrl} + 'css/fontawesome.min.css'" rel="stylesheet"/>
 
 	    <!-- Fav and touch icons -->
 	    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"/>
 	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"/>
 	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"/>
 	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>-->
-	    <link rel="shortcut icon" th:href="${rootpath}+'favicon.ico'"/>
+	    <link rel="shortcut icon" th:href="${baseUrl} + 'favicon.ico'"/>
 	</head>
 </html>
