@@ -8,6 +8,10 @@ Guilherme I F L Weizenmann
 :jbake-type: chords
 :jbake-tags: cifra, letra, clj, desconhecido, mensagem musical, agradecimento, ação de graças
 
+--
+pass:[[Intro]]
+
+A9  Bm  F#m
 
 Pensei que a chuva era prata pensei que o céu tinha chão
 Se eu tive medo da mata e medo da escuridão
@@ -31,3 +35,4 @@ E retornarei, e retornarei, ao tempo em que o chão,
 ao tempo em que um chão, ficava no céu, ÔÔÔ
 E eu num balão, a chuva era prata, a chuva era prata, na escuridão, na escuridão,
 E eu era acrobata , de lata e de imaginação.
+--

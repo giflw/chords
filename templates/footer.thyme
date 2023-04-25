@@ -1,25 +1,21 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-	<body>
-		<div th:fragment="footer">
-		    <footer class="footer text-center">
-		        <p>
+    <body>
+        <div th:fragment="footer">
+            <footer class="footer text-center is-screen-only">
+                <p>
                     &copy; 2023
                     |
-                    Mixed with <a href="http://bulma.io/">Bulma</a>
-                    |
-                    Baked with
-                    <a href="http://jbake.org">
-                        JBake <span th:text='${version}'>version</span>
-                    </a>
+                    Última atualização
+                    [[ ${#dates.format(#dates.createNow(), 'dd/MM/YYYY HH:mm:ss')} ]]
                 </p>
-		    </div>
+            </footer>
 
-		    <!-- javascript =============================================== -->
-		    <!-- Placed at the end of the document so the pages load faster -->
-		    <script th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="${rootpath} + 'js/prettify.js'"></script>
-
-    	</div>
-  	</body>
+            <th:block  th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+                <script th:src="${rootpath} + 'js/prettify.js'"></script>
+                <script th:src="${rootpath} + 'js/chords.js'"></script>
+            </th:block>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
+<html lang="pt_BR" th:fragment="layout(body)">
+    <head th:replace="header.thyme::head"/>
+	<body onload="prettyPrint()" class="px-5">
+        <div th:replace="menu.thyme::menu"/>
+        <div class="container" th:include="${body}"></div>
+        <th:block th:include="footer.thyme::footer"/>
+    </body>
+</html>

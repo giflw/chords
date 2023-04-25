@@ -1,0 +1,101 @@
+= Toma Meu Coração
+Guilherme I F L Weizenmann
+2023-04-22
+:artist: Prisma Brasil
+:audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
+:video: https://www.youtube.com/watch?v=EWf3R77jqMg
+:tom: A
+:compasso: 4/4
+:dedilhado: P I M A I M A I
+:batida: não dãrãgãdã
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: cifra, letra, clj, desconhecido, mensagem musical, agradecimento, ação de graças
+
+----
+[Intro]
+
+G  Em  C9  C/D
+
+G  Em  C9  D4 * D
+
+[Verso]
+
+G            Em
+Este é meu desejo:
+   C9 *  G    D4 * D
+Senhor, Te honrar
+Em       D/F# * G
+Com meu cora---ção,
+       F   D4 * D
+Te adorar
+
+G                 Em
+Tudo o que há em mim
+   C9 * G  D4 * D
+Te dá  louvor
+Em      D/F#  * G
+Só a Ti  a-----doro,
+       F    D4 * D
+meu Senhor
+
+[Refrão]
+
+G                D/F#
+  Toma o meu coração
+                Am
+E toda a minha alma
+    C * C/D      G
+Eu vivo só  pra Ti
+                   D/F#
+Sempre que eu respirar
+                    Am
+Cada vez que eu acordar
+        C  *  C/D     G
+Faz o Teu querer em mim
+
+[Interlúdio]
+
+( G  Em  C9  C/D )
+
+[Verso]
+
+G            Em
+Este é meu desejo:
+   C9 *  G    D4 * D
+Senhor, Te honrar
+Em       D/F# * G
+Com meu cora---ção,
+       F   D4 * D
+Te adorar
+
+G                 Em
+Tudo o que há em mim
+   C9 * G  D4 * D
+Te dá  louvor
+Em      D/F#  * G
+Só a Ti  a-----doro,
+       F    D4 * D
+meu Senhor
+
+[Refrão]
+
+G                D/F#
+  Toma o meu coração
+                Am
+E toda a minha alma
+    C * C/D      G
+Eu vivo só  pra Ti
+                   D/F#
+Sempre que eu respirar
+                    Am
+Cada vez que eu acordar
+        C  *  C/D     G
+Faz o Teu querer em mim
+
+
+[Final]
+
+( G  Em  C9  D4 * D G )
+
+----

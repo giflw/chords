@@ -1,23 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
+<html lang="pt_BR">
+    <head>
 	    <meta charset="utf-8"/>
 	    <title>Imaginação</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	    <meta name="description" content=""/>
-	    <meta name="author" content=""/>
-	    <meta name="keywords" content=""/>
+	    <meta name="author" content="Guilherme I F L Weizenmann"/>
+	    <meta name="keywords" content="chords lyrics acordes letras música"/>
 	    <meta name="generator" content="JBake"/>
 
-	    <!-- Le styles -->
 	    <link href="../../css/bulma.css" rel="stylesheet"/>
 	    <link href="../../css/bulmaswatch.css" rel="stylesheet"/>
 	    <link href="../../css/asciidoctor.css" rel="stylesheet"/>
 	    <link href="../../css/base.css" rel="stylesheet"/>
-	    <link href="../../css/fonts.css" rel="stylesheet"/>
+	    <link href="../../css/meslo-nerd.css" rel="stylesheet"/>
 	    <link href="../../css/prettify.css" rel="stylesheet"/>
-
         <link href="../../css/fontawesome.min.css" rel="stylesheet"/>
 
 	    <!-- Fav and touch icons -->
@@ -27,78 +24,80 @@
 	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>-->
 	    <link rel="shortcut icon" href="../../favicon.ico"/>
 	</head>
-	<body onload="prettyPrint()">
-	<div class="container">
-		<div>
-
-	  <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../../">JBake</a>
+	<body onload="prettyPrint()" class="px-5">
+        <div>
+            <div class="navbar is-white is-screen-only">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="">
+                            <span class="fa-stack">
+                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-warning" style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
+                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger" style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
+                            </span>
+                            GiFlw
+                        </a>
+                        <a class="navbar-burger" data-target="navbar-top">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div id="navbar-top" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="../../index.html">Home</a>
+                            <a class="navbar-item" href="../../about.html">About</a>
+                            <!-- <a class="navbar-item" th:href="${rootpath}+${config.feed_file}">Subscribe</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="../../about.html">About</a></li>
-            <li><a href="../../feed.xml">Subscribe</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-	</div>
-		<div class="section">
-			<div class="">
-                <div class="columns is-vcentered">
-                    <div class="column has-text-left">
+        <div class="container">
+            <div class="">
+                <div class="columns is-vcentered mb-0">
+                    <div class="column has-text-left pb-0">
                         <h3 class="title" title="Título (Title)">
                             <i class="fa-fw fal fa-music"></i>
                             Imaginação
                         </h3>
-                        <h4 class="subtitle" title="Artista (Artist)">
+                        <h4 class="subtitle mb-0" title="Artista (Artist)">
                             <i class="fa-fw fal fa-microphone-alt"></i>
                             <strong>Desconhecido</strong>
                         </h4>
+                        <p class="has-text-grey has-text-left"><small>https://giflw.github.io/chordschords/imaginacao.html</small></p>
                     </div>
-                    <div class="column has-text-right">
+                    <div class="column has-text-right is-screen-only" style="white-space: nowrap">
                         <div title="Áudio">
                             <a href="https://www.w3schools.com/html/horse.mp3">https://www.w3schools.com/html/horse.mp3</a>
                             <!-- <audio controls th:src="${content.audio}">audio</audio> -->
-                            <i class="fa-fw fal fa-waveform"></i>
+                            <i class="fa-fw fal fa-waveform has-text-info"></i>
                         </div>
                         <div title="Vídeo">
                             <a href="https://www.youtube.com/watch?v=9u-4H5qycgw">https://www.youtube.com/watch?v=9u-4H5qycgw</a>
-                            <i class="fa-fw fal fa-tv-music"></i>
+                            <i class="fa-fw fal fa-tv-music has-text-info"></i>
                             <!-- <iframe width="200" height="150" src="https://www.youtube.com/embed/9u-4H5qycgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
                         </div>
                     </div>
                 </div>
-                <div class="columns has-text-centered">
-                    <div class="column has-text-left" title="Tom">
+                <hr class="my-1"/>
+                <div class="has-text-centered">
+                    <span class="mx-2" title="Tom">
                         <i class="fa-fw fal fa-list-music has-text-info"></i>
-                        
                         <strong>A</strong>
-                    </div>
-                    <div class="column has-text-centered" title="Instrumentos">
+                    </span>
+                    <span class="mx-2" title="Compasso">
+                        <i class="fa-fw fal fa-triangle-music has-text-info"></i>
+                        <strong>N/I</strong>
+                    </span>
+                    <span class="mx-2" title="Dedilhado">
+                        <i class="fa-fw fal fa-hand-paper has-text-info"></i>
+                        <strong>N/I</strong>
+                    </span>
+                    <span class="mx-2" title="Batida/Ritmo">
+                        <i class="fa-fw fal fa-sort-alt has-text-info"></i>
+                        <strong>N/I</strong>
+                    </span>
+                    <span class="mx-2" title="Instrumentos">
                         <i class="fa-fw fad fa-guitars has-text-info"></i>
                         
                             
@@ -110,56 +109,74 @@
                             
                             
                         
-                    </div>
-                    <div class="column has-text-right" title="Álbum">
+                    </span>
+                    <span class="mx-2" title="Álbum">
                         <i class="fa-fw fal fa-album has-text-info"></i>
                         <strong>N/I</strong>
-                    </div>
+                    </span>
+
+                    <a href="#chords">
+                        <i class="fa-fw fal fa-border-top"></i>
+                    </a>
+                    <a onclick="document.querySelector('.chords').requestFullscreen()">
+                        <i class="fa-fw fal fa-expand-wide"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="chords">
-                <div class="paragraph"> 
- <p>Pensei que a chuva era prata pensei que o céu tinha chão Se eu tive medo da mata e medo da escuridão Pensei em ser acrobata e até voar num balão Com uma espada de lata enfrentaria o dragão.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Hoje eu me faço pequeno, cantado essa canção E o mundo se faz sereno nas infância é sempre verão E brinco nesse acordes, irmão mais velho bobão Brincando se ser criança nas notas dessa canção.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
-</div> 
-<div class="paragraph"> 
- <p>E retornarei, e retornarei, ao tempo em que o chão, ao tempo em que um chão, ficava no céu, ÔÔÔ E eu num balão, a chuva era prata, a chuva era prata, na escuridão, na escuridão, E eu era acrobata , de lata e de imaginação.</p> 
+            <hr class="my-1" />
+            <div id="chords" class="chords cloak">
+                <div class="openblock"> 
+ <div class="content"> 
+  <div class="paragraph"> 
+   <p>[Intro]</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>A9 Bm F#m</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Pensei que a chuva era prata pensei que o céu tinha chão Se eu tive medo da mata e medo da escuridão Pensei em ser acrobata e até voar num balão Com uma espada de lata enfrentaria o dragão.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Hoje eu me faço pequeno, cantado essa canção E o mundo se faz sereno nas infância é sempre verão E brinco nesse acordes, irmão mais velho bobão Brincando se ser criança nas notas dessa canção.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>E retornarei, e retornarei, ao tempo em que o chão, ao tempo em que um chão, ficava no céu, ÔÔÔ E eu num balão, a chuva era prata, a chuva era prata, na escuridão, na escuridão, E eu era acrobata , de lata e de imaginação.</p> 
+  </div> 
+ </div> 
 </div>
             </div>
 
 
-            <p class="text-right" title="Compositor (Composer)">
+            <p class="has-text-right" title="Compositor (Composer)">
                 <i class="fa-fw fal fa-user-music has-text-info"></i>
                 <strong>Desconhecido</strong>
             </p>
 
-            <p><em>21 abril 2023</em></p>
+            <p class="has-text-right">Atualizado em <em>21 abril 2023</em></p>
 
-			<hr />
+            <hr />
 
-		</div>
-	</div>
-	<div>
-		    <footer class="footer text-center">
-		        <p>
+        </div>
+        
+            <footer class="footer text-center is-screen-only">
+                <p>
                     &copy; 2023
                     |
-                    Mixed with <a href="http://bulma.io/">Bulma</a>
-                    |
-                    Baked with
-                    <a href="http://jbake.org">
-                        JBake <span>v2.6.7</span>
-                    </a>
+                    Última atualização
+                    25/04/2023 00:36:05
                 </p>
-		    </div>
+            </footer>
+
+            
+                <script src="../../js/prettify.js"></script>
+                <script src="../../js/chords.js"></script>
+            
+        
     </body>
 </html>
