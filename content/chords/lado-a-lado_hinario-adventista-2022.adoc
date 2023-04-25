@@ -1,0 +1,65 @@
+= Lado a Lado (245)
+Guilherme I F L Weizenmann
+2023-04-25
+:artista: Hinário Adventista do Sétimo Dia (2022)
+:tom: E
+:compasso: 4/4
+:dedilhado: P I MA I
+:batida: não dãrãgãdã
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: louvor, hasd, hasd 2022
+
+----
+[Intro]
+
+D A D G Am7 [vv] * D7 [v^]
+
+[Parte I]
+
+Em              A    D  *  A/C#  Bm
+Lado a lado aqui, crendo em Seu amor
+G           A       D   D7
+Adorando o Rei, Senhor
+G             A     D *  A/C#    Bm
+Avançando em fé, movidos pelo amor
+G          A       D  Am7 * D7
+Deus nos acompanhará
+
+[Refrão]
+
+G                A    D  *   A/C#  Bm
+Vamos para o Céu, com mãos e mãos unidas
+G            A     D  D7
+Lado a lado com Jesus
+     G                A    D * A/C#     Bm
+Nós vamos para o Céu cantar canções em coro
+G       A        D   Am7 * D7
+Eu e você vamos lá!
+
+[Parte I]
+
+Em              A    D * A/C#  Bm
+Jóias somos nós da Pedra angular
+   G             A            D D7
+Fazendo o mundo ver quem é Jesus
+G                A    D  *   A/C#  Bm
+Para erguer murais, colunas e palácios
+G          A          D    Am7 * D7
+Lá nas mansões celestiais
+
+[Refrão]
+
+G                A    D  *   A/C#  Bm
+Vamos para o Céu, com mãos e mãos unidas
+G            A     D  D7
+Lado a lado com Jesus
+     G                A    D * A/C#     Bm
+Nós vamos para o Céu cantar canções em coro
+G       A        D   Am7 * D7
+Eu e você vamos lá!
+
+>  G         A         D * D4 D ~
+Lá nas mansões celestiais
+
+----

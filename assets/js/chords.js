@@ -16,7 +16,7 @@ if (chords) {
             continue
         }
 
-        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9]+\]$/.test(text)) {
+        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]+\]$/.test(text)) {
             // console.log('section', text)
             sections++;
             if (section.children.length > 0) {
@@ -28,7 +28,7 @@ if (chords) {
             section.dataset.name = line.textContent.substring(1, line.textContent.length - 1)
             line.classList.add('has-text-weight-bold')
             line.classList.add('my-5')
-        } else if (/^[A-H1-9m#b()*~v^| ></]+$/.test(text)) {
+        } else if (/^[A-H1-9m#bsu\%()*~v^| ><\[\]/]+$/.test(text)) {
             // console.log('chords', text)
             line.classList.add('mt-2')
             line.classList.add('has-text-primary')

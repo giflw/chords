@@ -1,5 +1,3 @@
-/* Sticky footer styles
--------------------------------------------------- */
 * {
     border-radius: 0 !important;
 }
@@ -11,7 +9,7 @@ body {
 }
 
 :root {
-    --chords-font-size: 12px;
+    --chords-font-size: 14px;
 }
 
 .chords.cloak {
@@ -22,8 +20,8 @@ body {
 }
 .chords {
     font-size: var(--chords-font-size);
-    columns: 30ex 4;
-    column-gap: 2ex;
+    columns: 40ex 4;
+    column-gap: 1ex;
     column-rule: 1px solid lightgray;
     column-fill: balance;
     font-family: 'MesloLGSDZ Nerd Font Mono', monospace;
@@ -37,7 +35,7 @@ body {
 }
 
 .chords p {
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .chords > *:first-child > p:first-child {

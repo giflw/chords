@@ -7,15 +7,17 @@
                 <div class="column has-text-left pb-0">
                     <h3 class="title" title="Título (Title)">
                         <i class="fa-fw fal fa-music has-text-primary"></i>
-                        [[ ${content.title} ]]
+                        <span class="font-variant: small-caps">
+                            [[ ${content.title} ]]
+                        </span>
                     </h3>
                     <h4 class="subtitle mb-0" title="Artista (Artist)">
                         <i class="fa-fw fal fa-microphone-alt"></i>
                         <strong>[[ ${#strings.isEmpty(content.artista)} ? 'Desconhecido' : ${content.artista} ]]</strong>
                     </h4>
-                    <p class="subtitle" title="Compositor">
+                    <p class="subtitle" title="Compositor" th:unless="${#strings.isEmpty(content.compositor)}">
                         <i class="fa-fw fal fa-user-music"></i>
-                        <strong>[[ ${#strings.isEmpty(content.compositor)} ? 'N/I' : ${content.compositor} ]]</strong>
+                        <strong>[[ ${content.compositor} ]]</strong>
                     </p>
                 </div>
                 <div class="column has-text-right is-size-7" style="white-space: nowrap">

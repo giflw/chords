@@ -1,46 +1,53 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="header.thyme::head"/>
-	<body onload="prettyPrint()">
-	<div id="wrap">
-		<div th:replace="menu.thyme::menu"/>
+    <head th:replace="header.thyme::head"/>
+    <body onload="prettyPrint()">
+    <div>
+        <div th:replace="menu.thyme::menu"/>
 
-<div>
-<h1>EM CONSTRUÇÃO!!!!!</h1>
-</div>
+        <div class="container">
+            <h3 class="title">Cifras</h3>
 
-		<div class="container">
-			<div class="page-header">
-				<h1>Chords</h1>
-			</div>
+            <ul id="chords-list">
+                <li th:each="post: ${published_content}" th:if="${#strings.equals(post.type, 'chords')}" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a th:href="${post.uri}" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                [[ ${post.title} ]]
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            [[ ${post.artista} ?: 'Desconhecido' ]]
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const list = document.getElementById('chords-list');
 
-			<div th:each="post : ${published_content}" th:if="${#strings.equals(post.type, 'chords')}">
-				<a th:href='${post.uri}' href='href'>
-                    <h1><i class="fa-fw fas fa-music"></i> [[ ${post.title} ]]</h1>
-                </a>
-                <h2>[[ ${post.artista} ?: 'Desconhecido' ]]</h2>
-                <p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
-				<p th:utext='${post.body}'>body</p>
-			</div>
+        const items = list.childNodes;
+        const itemsArr = [];
+        for (let i in items) {
+            if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
+                itemsArr.push(items[i]);
+            }
+        }
 
-            <hr />
+        itemsArr.sort((a, b) => {
+            return a.innerHTML == b.innerHTML
+                ? 0
+                : (a.innerHTML > b.innerHTML ? 1 : -1);
+        });
 
-            <div class="page-header">
-				<h1>Blog</h1>
-			</div>
+        for (i = 0; i < itemsArr.length; ++i) {
+            list.appendChild(itemsArr[i]);
+        }
+    </script>
 
-			<div th:each="post : ${published_posts}">
-				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
-				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
-				<p th:utext='${post.body}'>body</p>
-			</div>
-
-			<hr />
-
-			<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
-		</div>
-	</div>
-
-	<div th:replace="footer.thyme::footer"></div>
+    <div th:replace="footer.thyme::footer"></div>
     </body>
 </html>

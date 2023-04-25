@@ -4,13 +4,13 @@ Guilherme I F L Weizenmann
 :artista: Prisma Brasil
 :audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
 :video: https://www.youtube.com/watch?v=EWf3R77jqMg
-:tom: A
+:tom: G
 :compasso: 4/4
 :dedilhado: P I M A I M A I
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: cifra, letra, clj, desconhecido, mensagem musical, agradecimento, ação de graças
+:jbake-tags: ofertório
 
 ----
 [Intro]

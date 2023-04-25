@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
+    <head>
 	    <meta charset="utf-8"/>
 	    <title>GiFlw</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,9 +24,9 @@
 	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>-->
 	    <link rel="shortcut icon" href="https://giflw.github.io/chords/favicon.ico"/>
 	</head>
-	<body onload="prettyPrint()">
-	<div id="wrap">
-		<div>
+    <body onload="prettyPrint()">
+    <div>
+        <div>
             <div class="navbar is-white is-screen-only">
                 <div class="container">
                     <div class="navbar-brand">
@@ -56,169 +56,128 @@
             </div>
         </div>
 
-<div>
-<h1>EM CONSTRUÇÃO!!!!!</h1>
-</div>
+        <div class="container">
+            <h3 class="title">Cifras</h3>
 
-		<div class="container">
-			<div class="page-header">
-				<h1>Chords</h1>
-			</div>
+            <ul id="chords-list">
+                
+                
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/teu-santo-nome_adoradores-novo-tempo.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Teu Santo Nome
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Adoradores Novo Tempo
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/sede_jeferson-pillar.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Sede
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Jeferson Pillar
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/nao-ha-o-que-temer_adoradores-novo-tempo.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Não Há o Que Temer
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Adoradores Novo Tempo
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/lado-a-lado_hinario-adventista-2022.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Lado a Lado (245)
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Hinário Adventista do Sétimo Dia (2022)
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/toma-meu-coracao_prisma-brasil.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Toma Meu Coração
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Prisma Brasil
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+                <li style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/imaginacao_desconhecido.html" class="columns" style="line-height: 3em">
+                        <span class="column">
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Imaginação
+                            </span>
+                        </span>
+                        <span class="column has-text-right">
+                            Desconhecido
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const list = document.getElementById('chords-list');
 
-			
+        const items = list.childNodes;
+        const itemsArr = [];
+        for (let i in items) {
+            if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
+                itemsArr.push(items[i]);
+            }
+        }
 
-			
+        itemsArr.sort((a, b) => {
+            return a.innerHTML == b.innerHTML
+                ? 0
+                : (a.innerHTML > b.innerHTML ? 1 : -1);
+        });
 
-			<div>
-				<a href='chords/toma-meu-coracao.html'>
-                    <h1><i class="fa-fw fas fa-music"></i> Toma Meu Coração</h1>
-                </a>
-                <h2>Prisma Brasil</h2>
-                <p>22 abril 2023</p>
-				<p><div class="listingblock"> 
- <div class="content"> 
-  <pre>[Intro]
+        for (i = 0; i < itemsArr.length; ++i) {
+            list.appendChild(itemsArr[i]);
+        }
+    </script>
 
-G  Em  C9  C/D
-
-G  Em  C9  D4 * D
-
-[Verso]
-
-G            Em
-Este é meu desejo:
-   C9 *  G    D4 * D
-Senhor, Te honrar
-Em       D/F# * G
-Com meu cora---ção,
-       F   D4 * D
-Te adorar
-
-G                 Em
-Tudo o que há em mim
-   C9 * G  D4 * D
-Te dá  louvor
-Em      D/F#  * G
-Só a Ti  a-----doro,
-       F    D4 * D
-meu Senhor
-
-[Refrão]
-
-G                D/F#
-  Toma o meu coração
-                Am
-E toda a minha alma
-    C * C/D      G
-Eu vivo só  pra Ti
-                   D/F#
-Sempre que eu respirar
-                    Am
-Cada vez que eu acordar
-        C  *  C/D     G
-Faz o Teu querer em mim
-
-[Interlúdio]
-
-( G  Em  C9  C/D )
-
-[Verso]
-
-G            Em
-Este é meu desejo:
-   C9 *  G    D4 * D
-Senhor, Te honrar
-Em       D/F# * G
-Com meu cora---ção,
-       F   D4 * D
-Te adorar
-
-G                 Em
-Tudo o que há em mim
-   C9 * G  D4 * D
-Te dá  louvor
-Em      D/F#  * G
-Só a Ti  a-----doro,
-       F    D4 * D
-meu Senhor
-
-[Refrão]
-
-G                D/F#
-  Toma o meu coração
-                Am
-E toda a minha alma
-    C * C/D      G
-Eu vivo só  pra Ti
-                   D/F#
-Sempre que eu respirar
-                    Am
-Cada vez que eu acordar
-        C  *  C/D     G
-Faz o Teu querer em mim
-
-
-[Final]
-
-( G  Em  C9  D4 * D G )</pre> 
- </div> 
-</div></p>
-			</div>
-
-			<div>
-				<a href='chords/imaginacao.html'>
-                    <h1><i class="fa-fw fas fa-music"></i> Imaginação</h1>
-                </a>
-                <h2>Desconhecido</h2>
-                <p>21 abril 2023</p>
-				<p><div class="openblock"> 
- <div class="content"> 
-  <div class="paragraph"> 
-   <p>[Intro]</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>A9 Bm F#m</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Pensei que a chuva era prata pensei que o céu tinha chão Se eu tive medo da mata e medo da escuridão Pensei em ser acrobata e até voar num balão Com uma espada de lata enfrentaria o dragão.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Hoje eu me faço pequeno, cantado essa canção E o mundo se faz sereno nas infância é sempre verão E brinco nesse acordes, irmão mais velho bobão Brincando se ser criança nas notas dessa canção.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Todo dia eu agradeço então , por Deus ter me dado a imaginação E hoje grande eu pensarei com o coração E me farei criança amando a criação.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>E retornarei, e retornarei, ao tempo em que o chão, ao tempo em que um chão, ficava no céu, ÔÔÔ E eu num balão, a chuva era prata, a chuva era prata, na escuridão, na escuridão, E eu era acrobata , de lata e de imaginação.</p> 
-  </div> 
- </div> 
-</div></p>
-			</div>
-
-            <hr />
-
-            <div class="page-header">
-				<h1>Blog</h1>
-			</div>
-
-			
-
-			<hr />
-
-			<p>Older posts are available in the <a href='archive.html'>archive</a>.</p>
-		</div>
-	</div>
-
-	<div>
+    <div>
             <footer class="footer text-center is-screen-only">
                 <p>
                     &copy; 2023
                     |
                     Última atualização
-                    25/04/2023 15:28:36
+                    25/04/2023 20:36:21
                 </p>
             </footer>
 
