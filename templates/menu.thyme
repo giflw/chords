@@ -3,10 +3,10 @@
     <body>
         <div th:fragment="menu">
             <div class="navbar is-white is-screen-only"
-            th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+            th:with="baseUrl=${config.site_host}">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a class="navbar-item" th:href="${config.site_url}">
+                        <a class="navbar-item" th:href="${baseUrl}">
                             <span class="fa-stack">
                                 <i class="fa-fw fad fa-guitars fa-stack-1x has-text-warning" style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
                                 <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger" style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
@@ -21,9 +21,9 @@
                     </div>
                     <div id="navbar-top" class="navbar-menu">
                         <div class="navbar-start">
-                            <a class="navbar-item" th:href="${rootpath}+'index.html'">Home</a>
-                            <a class="navbar-item" th:href="${rootpath}+'about.html'">About</a>
-                            <!-- <a class="navbar-item" th:href="${rootpath}+${config.feed_file}">Subscribe</a> -->
+                            <a class="navbar-item" th:href="${baseUrl} + 'index.html'">Início</a>
+                            <a class="navbar-item" th:href="${baseUrl} + 'about.html'">Sobre</a>
+                            <!-- <a class="navbar-item" th:href="${baseUrl}+${config.feed_file}">Subscribe</a> -->
                         </div>
                     </div>
                 </div>
