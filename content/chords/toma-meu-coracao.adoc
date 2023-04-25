@@ -1,7 +1,7 @@
 = Toma Meu Coração
 Guilherme I F L Weizenmann
 2023-04-22
-:artist: Prisma Brasil
+:artista: Prisma Brasil
 :audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
 :video: https://www.youtube.com/watch?v=EWf3R77jqMg
 :tom: A

@@ -22,7 +22,7 @@ body {
 }
 .chords {
     font-size: var(--chords-font-size);
-    columns: 40ex 3;
+    columns: 35ex 4;
     column-gap: 2ex;
     column-rule: 1px solid lightgray;
     column-fill: balance;

@@ -22,6 +22,8 @@
                     <div id="navbar-top" class="navbar-menu">
                         <div class="navbar-start">
                             <a class="navbar-item" th:href="${baseUrl} + 'index.html'">Início</a>
+                            <a class="navbar-item" th:href="${baseUrl} + 'batidas.html'">Batidas</a>
+                            <a class="navbar-item" th:href="${baseUrl} + 'dedilhados.html'">Dedilhados</a>
                             <a class="navbar-item" th:href="${baseUrl} + 'about.html'">Sobre</a>
                             <!-- <a class="navbar-item" th:href="${baseUrl}+${config.feed_file}">Subscribe</a> -->
                         </div>

@@ -1,0 +1,26 @@
+= Batidas
+Guilherme I F L Weizenmann
+2023-04-26
+:jbake-type: page
+
+== Notação
+
+Cada símbolo representa 1 subdivisão da batida ("1 tempo", repare as aspas....)
+
+[horizontal]
+V (pass:[<i class="fa-fw fal fa-long-arrow-down fa-2x" style="width: .5em"></i>]):: Batida forte para baixo
+v (pass:[<i class="fa-fw far fa-long-arrow-down"></i>]):: Batida para baixo
+pass:[.] (pass:[<i class="fad fa-dot-circle" style="--fa-secondary-opacity: 0;"></i>]):: (ponto) Não tocar (recomendado)
+^ (pass:[<i class="fa-fw far fa-long-arrow-up"></i>]):: Batida para cima
+A (pass:[<i class="fa-fw fal fa-long-arrow-up fa-2x" style="width: .5em"></i>]):: Batida forte para cima
+x (pass:[<i class="fa-fw fal fa-times"></i>]):: Batida "fantasma"
+X (pass:[<i class="fa-fw fas fa-times"></i>]):: Batida fantasma forte
+
+== Exemplos
+
+=== Rock
+
+[.batida]
+----
+V.v^.^v^xX
+----
