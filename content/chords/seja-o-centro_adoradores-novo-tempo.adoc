@@ -1,0 +1,92 @@
+= Seja o Centro
+Guilherme I F L Weizenmann
+2023-04-25
+:artista: Adoradores Novo Tempo
+:tom: Am
+:compasso: 4/4
+:dedilhado: P I M A I M A I
+:batida: não dãrãgãdã
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: Louvor
+
+----
+[Intro]
+
+Am  F  C
+
+[Verso]
+
+ Am                      F
+Aquele que em suas mãos detém a força e
+          C    C4  C
+todo o poder
+ Am                         F
+Aquele que promete a vida eterna a todo o
+          C   C4  C
+que nele crê
+  Am                       F
+É ele quem nos guarda e que operando quem
+       C   C4  C
+impedirá
+   Dm                  F
+Ao guarda de Israel clamamos ouça nossa voz
+    C  C4  C
+ aqui
+
+[Refrão]
+
+          Dm          F           C
+Reina em nós, venha a nós seu reino
+          Dm          F                 C
+Reina em nós, venha a nós sua gloria ó Deus
+C4  C
+
+        Dm            F           C  C4  C
+Seja o centro, seja tudo a todos nós
+        Dm           F             C  C4  C
+Seja o centro, seja tudo a todos nós
+
+[Verso]
+
+  Am                      F
+Aquele que em suas mãos detém a força e
+           C    C4  C
+todo o poder
+ Am                         F
+Aquele que promete a vida eterna a todo o
+          C   C4  C
+que nele crê
+  Am                       F
+É ele quem nos guarda e que operando quem
+       C   C4  C
+impedirá
+   Dm                  F
+Ao guarda de Israel clamamos ouça nossa voz
+    C  C4  C
+ aqui
+
+[Refrão]
+
+          Dm          F           C
+Reina em nós, venha a nós seu reino
+          Dm          F                 C
+Reina em nós, venha a nós sua gloria ó Deus
+C4  C
+
+        Dm            F           C  C4  C
+Seja o centro, seja tudo a todos nós
+        Dm           F             C  C4  C
+Seja o centro, seja tudo a todos nós
+
+          Dm          F           C
+Reina em nós, venha a nós seu reino
+          Dm          F                 C
+Reina em nós, venha a nós sua gloria ó Deus
+C4  C
+
+        Dm            F           C  C4  C
+Seja o centro, seja tudo a todos nós
+        Dm           F             C  C4  C
+Seja o centro, seja tudo a todos nós
+----
