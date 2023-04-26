@@ -14,7 +14,7 @@ Guilherme I F L Weizenmann
 
 [Intro]
 
-G9    Em7    C7+    Bb   F/A   C/G
+G9    Em7    C7+    Bb v* F/A v* C/G v
 
 E|---------------------------------|
 B|---------------------------------|
