@@ -7,6 +7,8 @@ if (chords) {
     let section = document.createElement('div')
     let sections = 0;
     let blanks = 0;
+    let lastWasSession = false;
+
     for(let i = 0; i < lines.length; i++) {
         let text = lines[i]
         // console.log(text)
@@ -15,14 +17,16 @@ if (chords) {
 
         if (text.trim() === '') {
             blanks++;
-            if (blanks == 1 && sections > 0) {
+            if (!lastWasSession && blanks == 1 && sections > 0) {
                 section.appendChild(document.createElement('br'));
             }
             continue;
         }
         blanks = 0;
+        lastWasSession = false
 
         if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]+\]$/.test(text)) {
+            lastWasSession = true
             // console.log('section', text)
             sections++;
             if (section.children.length > 0) {
