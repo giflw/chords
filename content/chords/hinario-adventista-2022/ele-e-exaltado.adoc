@@ -11,6 +11,42 @@ Guilherme I F L Weizenmann
 :jbake-tags: Louvor, HASD, 2022
 
 ----
+
+[Estrofe]
+
+  D              D/F#
+Ele é exaltado, o Rei exaltado nos
+ G            A
+Céus, eu o louvarei
+    D               D/F#
+Ele é exaltado, pra sempre
+Exaltado
+      G    A          Bm
+Seu nome  lou   va   rei
+
+[Ponte]
+
+ G            A            D         A/C#
+Ele é o Senhor, sua verdade vai sempre
+   Bm  A
+Reinar
+ G          A       D         A/C#
+Terra e céu glorificam seu santo
+Bm   A
+Nome
+
+[Refrão]
+
+G                  A                D
+Ele é exaltado, o Rei exaltado nos céus
+G                  A                D
+Ele é exaltado,o Rei exaltado nos céus
+----
+
+
+
+++++
+<!--
 [Estrofe]
 
 F               F/A              Bb       Dm7     C/E
@@ -28,12 +64,10 @@ Ter__ra e  céus         glorificam Seu Santo no____me
 [Outro]
 
 Gm7       F/A    Bb      C7(4)     F    Bb/F      C/F
-Ele é exaltado, o Rei é exaltado nos céus       
+Ele é exaltado, o Rei é exaltado nos céus
 Dm  Dm7
 Céus
 Gm7       F/A    Bb      C7(4)     F
 Ele é exaltado, o Rei é exaltado nos céus
-
-----
-
-
+-->
+++++
