@@ -6,7 +6,7 @@ Guilherme I F L Weizenmann
 :tom: A
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: clj, mensagem musical
+:jbake-tags: Mensagem Musical, CLJ
 
 ----
 [Intro]

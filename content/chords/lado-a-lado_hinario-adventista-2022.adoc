@@ -1,14 +1,14 @@
 = Lado a Lado (245)
 Guilherme I F L Weizenmann
 2023-04-25
-:artista: Hinário Adventista do Sétimo Dia (2022)
+:artista: Hinário Adventista 7º Dia (2022)
 :tom: E
 :compasso: 4/4
 :dedilhado: P I MA I
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: louvor, hasd, hasd 2022
+:jbake-tags: Louvor, HASD, 2022
 
 ----
 [Intro]

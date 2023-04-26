@@ -8,7 +8,7 @@ Guilherme I F L Weizenmann
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: oração
+:jbake-tags: Oração
 
 ----
 [Intro]

@@ -10,6 +10,7 @@
 	    <meta name="generator" content="JBake"/>
 
 	    <link th:href="${baseUrl} + 'css/bulma.css'" rel="stylesheet"/>
+        <link th:href="${baseUrl} + 'css/bulma-badge.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/bulmaswatch.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/asciidoctor.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/base.css'" rel="stylesheet"/>
