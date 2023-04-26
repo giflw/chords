@@ -15,8 +15,10 @@ if (chords) {
 
         if (text.trim() === '') {
             blanks++;
-            if (blanks > 1) {
+            if (blanks > 1 && sections > 0) {
                 continue;
+            } else {
+                section.appendChild(document.createElement('br'))
             }
         }
         blanks = 0;
