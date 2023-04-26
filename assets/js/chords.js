@@ -6,6 +6,7 @@ if (chords) {
     const lines = content.split('\n')
     let section = document.createElement('div')
     let sections = 0;
+    let blanks = 0;
     for(let i = 0; i < lines.length; i++) {
         let text = lines[i]
         // console.log(text)
@@ -13,8 +14,12 @@ if (chords) {
         line.textContent = text
 
         if (text.trim() === '') {
-            continue
+            blanks++;
+            if (blanks > 1) {
+                continue;
+            }
         }
+        blanks = 0;
 
         if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]+\]$/.test(text)) {
             // console.log('section', text)
