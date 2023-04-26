@@ -1,0 +1,39 @@
+= Ele é Exaltado (035)
+Guilherme I F L Weizenmann
+2023-04-25
+:artista: Hinário Adventista 7º Dia (2022)
+:tom: F
+:compasso: 4/4
+:dedilhado: P I MA I
+:batida: não dãrãgãdã
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: Louvor, HASD, 2022
+
+----
+[Estrofe]
+
+F               F/A              Bb       Dm7     C/E
+Ele é exaltado, o Rei é exaltado nos céus eu o lou__va_rei
+F                 F/A                 Bb  C/Bb C7(4)      C7  D7(4)
+Ele é exaltado, pra sempre exaltado o Seu no__me       lou____va__rei
+
+[Refrão]
+
+Gm      Bb    C7(4)      C7          F      Am7         Dm
+Ele     é o Se_nhor           Sua verdade vai sempre rei__nar
+Gm7   Bb    C              F         C/E  D7(4)  D7
+Ter__ra e  céus         glorificam Seu Santo no____me
+
+[Outro]
+
+Gm7       F/A    Bb      C7(4)     F    Bb/F      C/F
+Ele é exaltado, o Rei é exaltado nos céus       
+Dm  Dm7
+Céus
+Gm7       F/A    Bb      C7(4)     F
+Ele é exaltado, o Rei é exaltado nos céus
+
+----
+
+

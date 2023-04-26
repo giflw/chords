@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <body>
         <div th:fragment="footer">
-            <footer class="footer text-center is-screen-only">
+            <!--<footer class="footer text-center is-screen-only">
                 <p>
                     &copy; 2023
                     |
                     Última atualização
                     [[ ${#dates.format(#dates.createNow(), 'dd/MM/YYYY HH:mm:ss')} ]]
                 </p>
-            </footer>
+            </footer>-->
 
             <th:block  th:with="baseUrl=${config.site_host}">
                 <script th:src="${baseUrl} + 'js/prettify.js'"></script>
