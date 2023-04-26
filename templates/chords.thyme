@@ -57,6 +57,10 @@
                             <i class="fa-fw fal fa-music has-text-info"></i>
                             [[ ${content.title} ]]
                         </span>
+                        <span class="mx-2">
+                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado" th:if="${content.verificado}"></i>
+                            <i class="fa-fw fal fa-badge has-text-grey" title="Não verificado" th:unless="${content.verificado}"></i>
+                       </span>
                         <span class="mx-2" title="Tom">
                             <i class="fa-fw fal fa-list-music has-text-info"></i>
                             <strong>[[ ${#strings.isEmpty(content.tom)} ? 'N/I' : ${content.tom} ]]</strong>
