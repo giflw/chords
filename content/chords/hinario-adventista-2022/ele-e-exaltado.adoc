@@ -12,6 +12,10 @@ Guilherme I F L Weizenmann
 
 ----
 
+[Intro]
+
+G  A  D  % ~
+
 [Estrofe]
 
   D              D/F#
@@ -39,6 +43,9 @@ Nome
 
 G                  A                D
 Ele é exaltado, o Rei exaltado nos céus
+
+[Outro]
+
 G                  A                D
 Ele é exaltado,o Rei exaltado nos céus
 ----
