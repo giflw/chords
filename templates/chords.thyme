@@ -78,7 +78,7 @@
                             </span>
                             <strong class="bpm">[[ ${#strings.isEmpty(content.bpm)} ? 'N/I' : ${content.bpm} ]]</strong>
                             <audio id="bpm-audio"
-                                th:src="${compBpm} ? ${config.site_host} + 'bpms/' + ${#strings.replace(#strings.replace(content.compasso + '_' + content.bpm, '/', '-'), ' ', '_')} + '.ogg' : ''"
+                                th:src="${compBpm} ? ${config.site_host} + 'bpms/' + ${#strings.replace(#strings.replace(content.compasso + '_' + content.bpm, '/', '-'), ' ', '_')} + '.mp3' : ''"
                             ></audio>
                         </span>
                         <span class="mx-2" title="Dedilhado">
