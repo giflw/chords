@@ -24,3 +24,13 @@ X (pass:[<i class="fa-fw fas fa-times"></i>]):: Batida fantasma forte
 ----
 V.v^.^v^xX
 ----
+
+++++
+<pre style="font-size: 36px; letter-spacing: -.5rem">
+&#x2193;&#x21e3;&#x2191;&#x21e1;&#x219d;&#x21e1;
+</pre>
+
+A <span style="font-size: 1.5em; line-height: 1em; font-family: monospace; display: inline;">&#x2933;</span> E
+
+</pre>
+++++

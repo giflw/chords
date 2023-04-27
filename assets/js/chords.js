@@ -58,41 +58,68 @@ if (chords) {
     chords.classList.remove('cloak')
 }
 
-const strummings = document.querySelectorAll('.batida .content pre')
+let strummings = document.querySelectorAll('.batida .content pre')
+strummings = strummings.length > 0 ? strummings : document.querySelectorAll('.batida')
+console.log('strummings', strummings)
 strummings.forEach(strumming => {
-    const signs = document.createElement('div')
-    strumming.textContent.split('').forEach(sign => {
-        const node = document.createElement('i')
+    const text = strumming.textContent.trim()
+    if (text === 'N/I') {
+        return;
+    }
+    const signs = text.split('').map(sign => {
         switch(sign){
             case 'V':
-                node.className = "fa-fw fal fa-long-arrow-down fa-2x"
-                node.style = "width: .5em"
-                break
+                return '&#x2193;'
+                // '&#x21a1;'
             case 'v':
-                node.className = "fa-fw far fa-long-arrow-down"
-                break
+                return '&#x21e3;'
             case 'A':
-                node.className = "fa-fw fal fa-long-arrow-up fa-2x"
-                node.style = "width: .5em"
-                break
+                return '&#x2191;'
+                // '&#x219f;'
             case '^':
-                node.className = "fa-fw far fa-long-arrow-up"
-                break
+                return '&#x21e1';
             case 'x':
-                node.className = "fa-fw fal fa-times"
-                break
-            case 'X':
-                node.className = "fa-fw fas fa-times"
-                break
+                return '&#x2093;'
             case '.':
-            case ' ':
-                node.className = "fad fa-dot-circle"
-                node.style = "--fa-secondary-opacity: 0"
+                return '&#x2e;'
+            default:
+                return '?'
+        }
+    }).join('')
+    strumming.style.fontFamily = "'MesloLGSDZ Nerd Font Mono', monospace"
+    strumming.style.fontSize = '2em'
+    strumming.style.letterSpacing = '-.25em'
+    strumming.style.lineHeight = '0.4em'
+    strumming.style.verticalAlign = 'text-top'
+    strumming.innerHTML = signs
+})
+
+
+
+const bpmNote = document.querySelectorAll('.bpm')
+bpmNote.forEach(node => {
+    const text = node.textContent
+    const parts = text.split(' ')
+    if (/[0-9\/ ]+/.test(text) && parts.length == 2) {
+        note = parts[0]
+        bpm = parts[1]
+        switch (note) {
+            case '1':
+                note = "&#x1d15d;"
+                break
+            case '1/2':
+                note = "&#x1d15e;"
+                break
+            case '1/4':
+                note = "&#x1d15f;"
+                break
+            case '1/8':
+                note = "&#x1d160;"
+                break
+            case '1/16':
+                note = "&#x1d161;"
                 break
         }
-        signs.appendChild(node)
-    })
-    const parent = strumming.parentNode
-    parent.removeChild(strumming)
-    parent.appendChild(signs)
+        node.innerHTML = `<span style="letter-spacing: .5em">${note}</span> ${bpm}`
+    }
 })

@@ -2,10 +2,11 @@
 Guilherme I F L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
-:tom: F
-:compasso: 4/4
-:dedilhado: P I MA I
-:batida: não dãrãgãdã
+:tom: G
+:compasso: 6/8
+:bpm: 1/4 85
+:dedilhado: P I M A M I
+:batida: V..^v^V.^.v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022

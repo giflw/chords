@@ -9,7 +9,7 @@
             <h3 class="title">Cifras</h3>
 
             <ul id="chords-list">
-                <li th:each="post: ${published_content}" th:if="${#strings.equals(post.type, 'chords')}" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                <li th:each="post: ${published_content}" th:if="${#strings.equals(post.type, 'chords')}" class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a th:href="${post.uri}" style="padding: 0 3em;">
                         <span>
                             <i class="fa-fw fas fa-badge-check has-text-success" th:if="${post.verificado}"></i>
@@ -29,6 +29,7 @@
                             <i class="fa-fw fas fa-microphone"></i>
                         </span>
                     </a>
+                    <div style="clear: both;"></div>
                 </li>
             </ul>
         </div>
