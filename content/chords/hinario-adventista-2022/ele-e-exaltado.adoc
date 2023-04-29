@@ -10,6 +10,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022
+:verificado:
 
 ++++
 <!-- intro hinario

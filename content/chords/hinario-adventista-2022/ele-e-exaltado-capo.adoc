@@ -1,4 +1,4 @@
-= Ele é Exaltado (035) - Simplificada
+= Ele é Exaltado (035) - Capo 1a casa
 Guilherme I E L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
@@ -10,12 +10,13 @@ Guilherme I E L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022
+:verificado:
 
 ----
 
 [Observações]
 
-Capo na primeira casa
+Capo na 1a casa
 Tom de fá - Forma de E
 
 [Intro]
