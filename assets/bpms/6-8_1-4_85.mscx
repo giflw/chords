@@ -285,7 +285,7 @@
           <Tempo>
             <tempo>1.41667</tempo>
             <followText>1</followText>
-            <text><b></b><font face="ScoreText"/><b><font face="FreeSerif"/> = 85</b></text>
+            <text><b></b><font face="ScoreText"></font><b><font face="FreeSerif"></font> = 85</b></text>
             </Tempo>
           <Chord>
             <dots>1</dots>

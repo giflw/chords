@@ -1,8 +1,8 @@
-= Ele é Exaltado (035)
-Guilherme I F L Weizenmann
+= Ele é Exaltado (035) - Simplificada
+Guilherme I E L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
-:tom: F
+:tom: E |1 E
 :compasso: 6/8
 :bpm: 1/4. 60
 :dedilhado: P I M A M I
@@ -11,96 +11,85 @@ Guilherme I F L Weizenmann
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022
 
-++++
-<!-- intro hinario
-Gm7  *  Bb    C7sus  *  C7
-F    *  Am7   Dm
-Gm7  *  Bb    C
-F    *  C/E   D7sus  *  D7
-Gm7  *  Bb    C7sus  *  C7
-F    *  Bb/F  C/F
--->
-++++
-
 ----
 
 [Observações]
 
-C7sus = F4/C = C7(4) na 3a casa
+Capo na primeira casa
+Tom de fá - Forma de E
 
 [Intro]
 
-F  F/A  Bb  Dm7 * C/E
+E  E/G#  A  C#m7 * B/D#
 
 
 [Verso]
 
-F                 F/A
+E                 E/G#
 Ele é exaltado, o Rei é exaltado
-     Bb         Dm7 * C/E
+     A         C#m7 * B/D#
 nos Céus, eu o lou-varei
-F                    F/A
+E                    E/G#
 Ele é exaltado, pra sempre é exaltado
-     Bb * C/Bb C7sus * C7  D7sus
+     A * B/A B7sus * B7  C#7sus
 Seu no---me   lou-----va--rei
 
 [Ponte]
 
-Gm7 * Bb     C7sus   *   C7
+F#m7 * A     B7sus   *   B7
 Ele  é_o Senhor,
-        F    *   Am7       Dm
+        E    *   G#m7       C#m
 sua verdade vai sempre reinar
- Gm7  *  Bb   C
+ F#m7  *  A   B
 Ter-----ra e céus
-      F    *  C/E     D7sus * D7
+      E    *  B/D#     C#7sus * C#7
 glorificam seu santo no------me
 
 [Refrão]
 
-Gm7    *   F/A
+F#m7    *   E/G#
 Ele é exaltado,
-   Bb    *   C7sus    F
+   A    *   B7sus    E
 o Rei é exaltado nos Céus
 
-(  Bb/F   *   C/F  )
+(  A/E   *   B/E  )
 
 [Verso]
 
-F                 F/A
+E                 E/G#
 Ele é exaltado, o Rei é exaltado
-     Bb         Dm7 * C/E
+     A         C#m7 * B/D#
 nos Céus, eu o lou-varei
-F                    F/A
+E                    E/G#
 Ele é exaltado, pra sempre é exaltado
-     Bb * C/Bb C7sus * C7  D7sus
+     A * B/A B7sus * B7  C#7sus
 Seu no---me   lou-----va--rei
 
 [Ponte]
 
-Gm7 * Bb     C7sus   *   C7
+F#m7 * A     B7sus   *   B7
 Ele  é_o Senhor,
-        F    *   Am7       Dm
+        E    *   G#m7       C#m
 sua verdade vai sempre reinar
- Gm7  *  Bb   C
+ F#m7  *  A   B
 Ter-----ra e céus
-      F    *  C/E     D7sus * D7
+      E    *  B/D#     C#7sus * C#7
 glorificam seu santo no------me
 
 [Refrão]
 
-Gm7    *   F/A
+F#m7    *   E/G#
 Ele é exaltado,
-   Bb    *   C7sus    Dm
+   A    *   B7sus    C#m
 o Rei é exaltado nos Céus
 
-Gm7    *   F/A
+F#m7    *   E/G#
 Ele é exaltado,
-   Bb    *   C7sus    F
+   A    *   B7sus    E
 o Rei é exaltado nos Céus
 
 [Final]
 
-Gm7    *   F/A
-Bb    *   C7sus    F
+A    *   B7sus    E
 
 ----

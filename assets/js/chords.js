@@ -100,7 +100,7 @@ const bpmNote = document.querySelectorAll('.bpm')
 bpmNote.forEach(node => {
     const text = node.textContent
     const parts = text.split(' ')
-    if (/[0-9\/ ]+/.test(text) && parts.length == 2) {
+    if (/[0-9\/ \.]+/.test(text) && parts.length == 2) {
         note = parts[0]
         bpm = parts[1]
         switch (note) {
