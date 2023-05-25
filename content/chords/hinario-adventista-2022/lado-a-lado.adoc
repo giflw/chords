@@ -1,7 +1,8 @@
-= Lado a Lado (245)
+= Lado a Lado (H245)
 Guilherme I F L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
+:duracao: 2:53
 :tom: E
 :compasso: 4/4
 :dedilhado: P I MA I
@@ -9,6 +10,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022
+:verificacao: parcial
 
 ----
 [Intro]
@@ -28,12 +30,16 @@ Deus nos acompanhará
 
 [Refrão]
 
-G                A    D  *   A/C#  Bm
-Vamos para o Céu, com mãos e mãos unidas
-G            A     D  D7
+ G               A
+Vamos para o Céu,
+     D  *   A/C#  Bm
+Com mãos e mãos unidas
+ G           A     D  D7
 Lado a lado com Jesus
-     G                A    D * A/C#     Bm
-Nós vamos para o Céu cantar canções em coro
+     G            A
+Nós vamos para o Céu
+    D   *  A/C#   Bm
+Cantar canções em coro
 G       A        D   Am7 * D7
 Eu e você vamos lá!
 
@@ -50,12 +56,17 @@ Lá nas mansões celestiais
 
 [Refrão]
 
-G                A    D  *   A/C#  Bm
-Vamos para o Céu, com mãos e mãos unidas
-G            A     D  D7
+
+ G               A
+Vamos para o Céu,
+     D  *   A/C#  Bm
+Com mãos e mãos unidas
+ G           A     D  D7
 Lado a lado com Jesus
-     G                A    D * A/C#     Bm
-Nós vamos para o Céu cantar canções em coro
+     G            A
+Nós vamos para o Céu
+    D   *  A/C#   Bm
+Cantar canções em coro
 G       A        D   Am7 * D7
 Eu e você vamos lá!
 

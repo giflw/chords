@@ -1,4 +1,4 @@
-= Ele é Exaltado (035)
+= Ele é Exaltado (H035)
 Guilherme I F L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
@@ -10,7 +10,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD, 2022
-:verificado:
+:verificacao: total
 
 ++++
 <!-- intro hinario

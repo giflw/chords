@@ -2,6 +2,7 @@
 Guilherme I F L Weizenmann
 2023-04-25
 :artista: Adoradores Novo Tempo
+:duracao: 4:52
 :tom: Em (modo grego?)
 :compasso: 4/4
 :dedilhado: P I M A I M A I
@@ -9,12 +10,13 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor
+:verificacao: parcial
 
 ----
 
 [Intro]
 
-Em  C7M  Em  C7M  * //
+Em  C7M  Em  C7M  v* //
 
 [Primeira Parte]
 
@@ -59,7 +61,9 @@ Louvado seja o teu nome
            D
 Teu santo nome
 
-( Em  C7M  G  D  G  *  // )
+[Interlúdio]
+
+Em  C7M  Em  C7M  v*  //
 
 [Primeira Parte]
 
@@ -141,6 +145,8 @@ Louvado seja o teu nome
            D
 Teu santo nome
 
-[Final] Em [^]
+[Final]
+
+Em ^
 
 ----

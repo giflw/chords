@@ -15,6 +15,10 @@
                         <i class="fa-fw fal fa-microphone-alt"></i>
                         <strong>[[ ${#strings.isEmpty(content.artista)} ? 'Desconhecido' : ${content.artista} ]]</strong>
                     </h4>
+                    <p class="subtitle" title="Álbum" th:unless="${#strings.isEmpty(content.album)}">
+                        <i class="fa-fw fal fa-compact-disc"></i>
+                        <strong>[[ ${content.album} ]]</strong>
+                    </p>
                     <p class="subtitle" title="Compositor" th:unless="${#strings.isEmpty(content.compositor)}">
                         <i class="fa-fw fal fa-user-music"></i>
                         <strong>[[ ${content.compositor} ]]</strong>
@@ -58,9 +62,15 @@
                             [[ ${content.title} ]]
                         </span>
                         <span class="mx-2">
-                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado" th:if="${content.verificado}"></i>
-                            <i class="fa-fw fal fa-badge has-text-grey" title="Não verificado" th:unless="${content.verificado}"></i>
-                       </span>
+                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)" th:if="${content.verificacao == 'total'}"></i>
+                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)" th:if="${content.verificacao == 'parcial'}"></i>
+                            <i class="fa-fw fas fa-badge-percent has-text-warning" title="Verificado Parcialmente (Inicial)" th:if="${content.verificacao == 'inicial'}"></i>
+                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado" th:if="${#strings.isEmpty(content.verificacao)}"></i>
+                        </span>
+                        <span class="mx-2" title="Duração">
+                            <i class="fa-fw fal fa-clock has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.duracao)} ? 'N/I' : ${content.duracao} ]]</strong>
+                        </span>
                         <span class="mx-2" title="Tom">
                             <i class="fa-fw fal fa-list-music has-text-info"></i>
                             <strong>[[ ${#strings.isEmpty(content.tom)} ? 'N/I' : ${content.tom} ]]</strong>

@@ -25,7 +25,7 @@ if (chords) {
         blanks = 0;
         lastWasSession = false
 
-        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]+\]$/.test(text)) {
+        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 -]+\]$/.test(text)) {
             lastWasSession = true
             // console.log('section', text)
             sections++;
@@ -38,8 +38,9 @@ if (chords) {
             section.dataset.name = line.textContent.substring(1, line.textContent.length - 1)
             line.classList.add('has-text-weight-bold')
             line.classList.add('my-5')
-        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^| ><\[\]/]+$/.test(text)) {
+        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^| ><\[\]/ mpf]+$/.test(text)) {
             // console.log('chords', text)
+            //line.innerHTML = text.replace('v', '&#x2193;').replace('^', '&#x2191;')
             line.classList.add('mt-2')
             line.classList.add('has-text-primary')
             line.classList.add('has-text-weight-bold')

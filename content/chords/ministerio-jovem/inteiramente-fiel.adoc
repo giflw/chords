@@ -1,27 +1,39 @@
-= Inteiramente Fiel (311)
+= Inteiramente Fiel (H311)
 Guilherme I F L Weizenmann
 2023-04-25
-:artista: Hinário Adventista 7º Dia (2022)
+:artista: Ministério Jovem
+:album: CD Jovem Aventista 2017
 :tom: E
 :compasso: 4/4
 :dedilhado: P I MA I
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Louvor, HASD, 2022
+:jbake-tags: Louvor, HASD, 2022, Arautos do Rei
+:verificacao: inicial
 
 ----
 
 [Intro]
 
-G9    Em7    C7+    Bb v* F/A v* C/G v
+  G9          Em7             C7+
 
-E|---------------------------------|
+e|---------------------------------|
 B|---------------------------------|
 G|---7/9-9-------------------------|
 D|--------12-9----10-10-9----------|
-A|------------10--------10--7/10---|
+A|------------10--------10--7-7/10-|
 E|---------------------------------|
+
+   Bb   v**   F/A   v*   C/G   v
+
+e|---------------------------------|
+B|---------------------------------|
+G|---------------------------------|
+D|---------------------------------|
+A|-8----------7----------3/5--5----|
+E|-6----------5----------1/3--3----|
+
 
 [Estrofe]
 

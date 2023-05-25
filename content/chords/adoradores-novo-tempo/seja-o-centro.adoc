@@ -2,6 +2,7 @@
 Guilherme I F L Weizenmann
 2023-04-25
 :artista: Adoradores Novo Tempo
+:duracao: 5:00
 :tom: Am
 :compasso: 4/4
 :dedilhado: P I M A I M A I
@@ -9,6 +10,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor
+:verificacao: parcial
 
 ----
 [Intro]
@@ -29,7 +31,7 @@ que nele crê
 É ele quem nos guarda e que operando quem
        C   C4 * C
 impedirá
-   Dm                  F
+   Am                  F
 Ao guarda de Israel clamamos ouça nossa voz
     C  C4 * C
  aqui
@@ -64,7 +66,7 @@ que nele crê
 É ele quem nos guarda e que operando quem
        C   C4 * C
 impedirá
-   Dm                  F
+   Am                  F
 Ao guarda de Israel clamamos ouça nossa voz
     C  C4 * C
  aqui
@@ -90,6 +92,6 @@ Reina em nós, venha a nós sua gloria ó Deus
 
         Dm            F           C  C4 * C
 Seja o centro, seja tudo a todos nós
-        Dm           F             C  % ~^
+        Dm           F            C  C4 * C ~^
 Seja o centro, seja tudo a todos nós
 ----

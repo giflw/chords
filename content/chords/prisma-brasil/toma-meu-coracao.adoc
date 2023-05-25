@@ -2,6 +2,7 @@
 Guilherme I F L Weizenmann
 2023-04-22
 :artista: Prisma Brasil
+:duracao: 1:45|4:03
 :audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
 :video: https://www.youtube.com/watch?v=EWf3R77jqMg
 :tom: G
@@ -11,6 +12,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Ofertório
+:verificacao: parcial
 
 ----
 [Intro]
@@ -45,7 +47,7 @@ G            Em
 Este é meu desejo:
    C9 *  G    D4 * D
 Senhor, Te honrar
-Em       D/F# * G
+Em   *   D/F#   G
 Com meu cora---ção,
        F   D4 * D
 Te adorar
@@ -54,7 +56,7 @@ G                 Em
 Tudo o que há em mim
    C9 * G  D4 * D
 Te dá  louvor
-Em      D/F#  * G
+Em  *   D/F#    G
 Só a Ti  a-----doro,
        F    D4 * D
 meu Senhor
@@ -76,7 +78,7 @@ Faz o Teu querer em mim
 
 [Interlúdio]
 
-( G  Em  C9  C/D )
+G  Em  C9  C/D
 
 [Verso]
 
@@ -84,7 +86,7 @@ G            Em
 Este é meu desejo:
    C9 *  G    D4 * D
 Senhor, Te honrar
-Em       D/F# * G
+Em   *   D/F#   G
 Com meu cora---ção,
        F   D4 * D
 Te adorar
@@ -93,7 +95,7 @@ G                 Em
 Tudo o que há em mim
    C9 * G  D4 * D
 Te dá  louvor
-Em      D/F#  * G
+Em  *   D/F#    G
 Só a Ti  a-----doro,
        F    D4 * D
 meu Senhor
@@ -116,6 +118,6 @@ Faz o Teu querer em mim
 
 [Final]
 
-( G  Em  C9  D4 * D G )
+G  Em  C9  D4 * D G [v]
 
 ----
