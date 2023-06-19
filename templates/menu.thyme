@@ -13,7 +13,7 @@
                             </span>
                             GiFlw
                         </a>
-                        <a class="navbar-burger" data-target="navbar-top">
+                        <a class="navbar-burger" data-target="navbar-top" onclick="document.querySelector('#navbar-top').style.display = 'block'">
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
