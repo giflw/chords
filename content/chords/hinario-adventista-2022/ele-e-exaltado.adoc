@@ -9,7 +9,7 @@ Guilherme I F L Weizenmann
 :batida: V..^v^V.^.v.
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Louvor, HASD, 2022
+:jbake-tags: Louvor, HASD 2022, repertorio:louvor-moinhos, repertorio:banda-moinhos
 :verificacao: total
 
 ++++

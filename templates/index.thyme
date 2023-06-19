@@ -8,9 +8,9 @@
         <div class="container">
             <h3 class="title">Cifras</h3>
 
-            <ul id="chords-list">
+            <ol id="chords-list" class="searchable">
                 <li th:each="post: ${published_content}" th:if="${#strings.equals(post.type, 'chords')}" class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a th:href="${post.uri}" style="padding: 0 3em;">
+                    <a th:href="${post.uri}">
                         <span>
                             <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)" th:if="${post.verificacao == 'total'}"></i>
                             <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)" th:if="${post.verificacao == 'parcial'}"></i>
@@ -23,7 +23,7 @@
                             </span>
                         </span>
                         <span>
-                            <span class="tag is-primary is-light mx-1" th:each="tag: ${post.tags}">
+                            <span class="tag is-primary is-light mx-1" th:each="tag: ${post.tags}" th:if="${!#strings.startsWith(tag, 'repertorio:')}">
                                 <small>[[ ${tag} ]]</small>
                             </span>
                         </span>
@@ -34,13 +34,13 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-            </ul>
+            </ol>
         </div>
     </div>
     <script>
         const list = document.getElementById('chords-list');
 
-        const items = list.childNodes;
+        const items = list?.childNodes || [];
         const itemsArr = [];
         for (let i in items) {
             if (items[i].nodeType == 1) { // get rid of the whitespace text nodes

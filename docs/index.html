@@ -46,11 +46,43 @@
                     </div>
                     <div id="navbar-top" class="navbar-menu">
                         <div class="navbar-start">
-                            <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Início</a>
+                            <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Músicas</a>
+                            <a class="navbar-item" href="https://giflw.github.io/chords/repertorio.html">Repertórios</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/batidas.html">Batidas</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/dedilhados.html">Dedilhados</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/about.html">Sobre</a>
-                            <!-- <a class="navbar-item" th:href="${baseUrl}+${config.feed_file}">Subscribe</a> -->
+                            <a class="navbar-item" href="https://giflw.github.io/chords/feed.xml">Feed RSS</a>
+                            <span id="search-input" class="navbar-item cloak">
+                                <span class="control has-icons-right">
+                                    <input class="input is-primary is-small" type="text" title="Filtrar" oninput="search(this)" />
+                                    <span class="icon is-right">
+                                        <i class="fas fa-fw fa-search"></i>
+                                    </span>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            let searchables = document.querySelectorAll('.searchable');
+                                            console.log(searchables.length)
+                                            if (searchables.length > 0) {
+                                                document.getElementById('search-input').classList.remove('cloak')
+                                            }
+                                            let searchTimeoutHandler;
+
+                                            function hideAndSeek(searchable,text) {
+                                                console.log(text, searchable);
+                                            }
+
+                                            function doSearch(text) {
+                                                searchables.forEach(searchable => hideAndSeek(searchable,text));
+                                            }
+
+                                            function search(input) {
+                                                clearTimeout(searchTimeoutHandler);
+                                                searchTimeoutHandler = setTimeout(() => doSearch(input.value), 250);
+                                            }
+                                        });
+                                    </script>
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -60,121 +92,11 @@
         <div class="container">
             <h3 class="title">Cifras</h3>
 
-            <ul id="chords-list">
+            <ol id="chords-list" class="searchable">
                 
                 
                 <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/adoradores-novo-tempo/nao-ha-o-que-temer.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            
-                            
-                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Não Há o Que Temer
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Adoradores Novo Tempo
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/ministerio-jovem/inteiramente-fiel.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            
-                            <i class="fa-fw fas fa-badge-percent has-text-warning" title="Verificado Parcialmente (Inicial)"></i>
-                            
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Inteiramente Fiel (H311)
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>HASD</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>2022</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>Arautos-do-Rei</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Ministério Jovem
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/jeferson-pillar/sede.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            
-                            
-                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Sede
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Oração</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Jeferson Pillar
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/hinario-adventista-2022/pes-na-terra-olhos-no-ceu.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            
-                            
-                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Pés na Terra, Olhos no Céu (H406)
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>HASD</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>2022</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Hinário Adventista 7º Dia (2022)
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/hinario-adventista-2022/lado-a-lado.html" style="padding: 0 3em;">
+                    <a href="chords/nadson-portugal/serei-contingo.html">
                         <span>
                             
                             <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
@@ -183,85 +105,23 @@
 
                             <i class="fa-fw fas fa-music"></i>
                             <span style="font-variant: small-caps">
-                                Lado a Lado (H245)
+                                Serei Contigo
                             </span>
                         </span>
                         <span>
                             <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>HASD</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>2022</small>
+                                <small>Mensagem-Musical</small>
                             </span>
                         </span>
                         <span style="float: right">
-                            Hinário Adventista 7º Dia (2022)
+                            Nadson Portugal
                             <i class="fa-fw fas fa-microphone"></i>
                         </span>
                     </a>
                     <div style="clear: both;"></div>
                 </li>
                 <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/hinario-adventista-2022/ele-e-exaltado.html" style="padding: 0 3em;">
-                        <span>
-                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
-                            
-                            
-                            
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Ele é Exaltado (H035)
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>HASD</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>2022</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Hinário Adventista 7º Dia (2022)
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/hinario-adventista-2022/ele-e-exaltado-capo.html" style="padding: 0 3em;">
-                        <span>
-                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
-                            
-                            
-                            
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Ele é Exaltado (H035) - Capo 1a casa
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>HASD</small>
-                            </span><span class="tag is-primary is-light mx-1">
-                                <small>2022</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Hinário Adventista 7º Dia (2022)
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/adoradores-novo-tempo/teu-santo-nome.html" style="padding: 0 3em;">
+                    <a href="chords/nadson-portugal/ouca-os-coracoes.html">
                         <span>
                             
                             <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
@@ -270,73 +130,23 @@
 
                             <i class="fa-fw fas fa-music"></i>
                             <span style="font-variant: small-caps">
-                                Teu Santo Nome
+                                Ouça os Corações
                             </span>
                         </span>
                         <span>
                             <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
+                                <small>Mensagem-Musical</small>
                             </span>
                         </span>
                         <span style="float: right">
-                            Adoradores Novo Tempo
+                            Nadson Portugal
                             <i class="fa-fw fas fa-microphone"></i>
                         </span>
                     </a>
                     <div style="clear: both;"></div>
                 </li>
                 <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/adoradores-novo-tempo/seja-o-centro.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
-                            
-                            
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Seja o Centro
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Louvor</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Adoradores Novo Tempo
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/prisma-brasil/toma-meu-coracao.html" style="padding: 0 3em;">
-                        <span>
-                            
-                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
-                            
-                            
-
-                            <i class="fa-fw fas fa-music"></i>
-                            <span style="font-variant: small-caps">
-                                Toma Meu Coração
-                            </span>
-                        </span>
-                        <span>
-                            <span class="tag is-primary is-light mx-1">
-                                <small>Ofertório</small>
-                            </span>
-                        </span>
-                        <span style="float: right">
-                            Prisma Brasil
-                            <i class="fa-fw fas fa-microphone"></i>
-                        </span>
-                    </a>
-                    <div style="clear: both;"></div>
-                </li>
-                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/retrovisor.html" style="padding: 0 3em;">
+                    <a href="chords/deise-jacinto/retrovisor.html">
                         <span>
                             
                             <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
@@ -361,7 +171,269 @@
                     <div style="clear: both;"></div>
                 </li>
                 <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
-                    <a href="chords/desconhecido/imaginacao.html" style="padding: 0 3em;">
+                    <a href="chords/adoradores-novo-tempo/nao-ha-o-que-temer.html">
+                        <span>
+                            
+                            
+                            
+                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Não Há o Que Temer
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Adoradores Novo Tempo
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/ministerio-jovem/inteiramente-fiel.html">
+                        <span>
+                            
+                            
+                            <i class="fa-fw fas fa-badge-percent has-text-warning" title="Verificado Parcialmente (Inicial)"></i>
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Inteiramente Fiel (H311)
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>HASD-2022</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>Arautos-do-Rei</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Ministério Jovem
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/jeferson-pillar/sede.html">
+                        <span>
+                            
+                            
+                            
+                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Sede
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Oração</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Jeferson Pillar
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/hinario-adventista-2022/pes-na-terra-olhos-no-ceu.html">
+                        <span>
+                            
+                            
+                            
+                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Pés na Terra, Olhos no Céu (H406)
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>HASD-2022</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Hinário Adventista 7º Dia (2022)
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/hinario-adventista-2022/lado-a-lado.html">
+                        <span>
+                            
+                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Lado a Lado (H245)
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>HASD-2022</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Hinário Adventista 7º Dia (2022)
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/hinario-adventista-2022/ele-e-exaltado.html">
+                        <span>
+                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
+                            
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Ele é Exaltado (H035)
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>HASD-2022</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Hinário Adventista 7º Dia (2022)
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/hinario-adventista-2022/ele-e-exaltado-capo.html">
+                        <span>
+                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
+                            
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Ele é Exaltado (H035) - Capo 1a casa
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span><span class="tag is-primary is-light mx-1">
+                                <small>HASD-2022</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Hinário Adventista 7º Dia (2022)
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/adoradores-novo-tempo/teu-santo-nome.html">
+                        <span>
+                            
+                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Teu Santo Nome
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Adoradores Novo Tempo
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/adoradores-novo-tempo/seja-o-centro.html">
+                        <span>
+                            
+                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Seja o Centro
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Louvor</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Adoradores Novo Tempo
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/prisma-brasil/toma-meu-coracao.html">
+                        <span>
+                            
+                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)"></i>
+                            
+                            
+
+                            <i class="fa-fw fas fa-music"></i>
+                            <span style="font-variant: small-caps">
+                                Toma Meu Coração
+                            </span>
+                        </span>
+                        <span>
+                            <span class="tag is-primary is-light mx-1">
+                                <small>Ofertório</small>
+                            </span>
+                        </span>
+                        <span style="float: right">
+                            Prisma Brasil
+                            <i class="fa-fw fas fa-microphone"></i>
+                        </span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </li>
+                <li class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+                    <a href="chords/desconhecido/imaginacao.html">
                         <span>
                             
                             
@@ -387,13 +459,17 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-            </ul>
+                
+                
+                
+                
+            </ol>
         </div>
     </div>
     <script>
         const list = document.getElementById('chords-list');
 
-        const items = list.childNodes;
+        const items = list?.childNodes || [];
         const itemsArr = [];
         for (let i in items) {
             if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
@@ -418,7 +494,7 @@
                     &copy; 2023
                     |
                     Última atualização
-                    19/06/2023 14:39:12
+                    19/06/2023 18:17:41
                 </p>
             </footer>-->
 

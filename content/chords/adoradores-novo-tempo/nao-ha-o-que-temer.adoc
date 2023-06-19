@@ -8,7 +8,7 @@ Guilherme I F L Weizenmann
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Louvor
+:jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
 
 ----
 [Intro]

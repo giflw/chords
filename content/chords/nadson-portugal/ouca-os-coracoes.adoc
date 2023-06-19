@@ -1,7 +1,7 @@
-= Retrovisor
+= Ouça os Corações
 Guilherme I F L Weizenmann
-2023-04-21
-:artista: Deise Jacinto
+2023-06-19
+:artista: Nadson Portugal
 :tom: C (F Lídio)
 :duracao: 3:37
 :compasso: 4/4
@@ -9,7 +9,7 @@ Guilherme I F L Weizenmann
 :batida: ???
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Mensagem Musical
+:jbake-tags: Mensagem Musical, repertorio:contralto
 :verificacao: parcial
 
 ----

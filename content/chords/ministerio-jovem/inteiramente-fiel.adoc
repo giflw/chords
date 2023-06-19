@@ -9,7 +9,7 @@ Guilherme I F L Weizenmann
 :batida: não dãrãgãdã
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Louvor, HASD, 2022, Arautos do Rei
+:jbake-tags: Louvor, HASD 2022, Arautos do Rei, repertorio:louvor-moinhos, repertorio:banda-moinhos
 :verificacao: inicial
 
 ----

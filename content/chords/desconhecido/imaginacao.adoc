@@ -1,12 +1,11 @@
 = Imaginação
 Guilherme I F L Weizenmann
 2023-04-21
-:audio: https://www.w3schools.com/html/horse.mp3
-:video: https://www.youtube.com/watch?v=9u-4H5qycgw
+:artista: Desconhecido
 :tom: A
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Mensagem Musical, CLJ
+:jbake-tags: Mensagem Musical, CLJ, repertorio:tenor
 
 
 ----

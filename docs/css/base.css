@@ -12,7 +12,11 @@ body {
     --chords-font-size: 14px;
 }
 
-.chords.cloak {
+ol {
+    list-style: decimal-leading-zero inside;
+}
+
+.cloak {
     display: none;
 }
 .chords, #chords {

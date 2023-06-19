@@ -45,11 +45,43 @@
                     </div>
                     <div id="navbar-top" class="navbar-menu">
                         <div class="navbar-start">
-                            <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Início</a>
+                            <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Músicas</a>
+                            <a class="navbar-item" href="https://giflw.github.io/chords/repertorio.html">Repertórios</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/batidas.html">Batidas</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/dedilhados.html">Dedilhados</a>
                             <a class="navbar-item" href="https://giflw.github.io/chords/about.html">Sobre</a>
-                            <!-- <a class="navbar-item" th:href="${baseUrl}+${config.feed_file}">Subscribe</a> -->
+                            <a class="navbar-item" href="https://giflw.github.io/chords/feed.xml">Feed RSS</a>
+                            <span id="search-input" class="navbar-item cloak">
+                                <span class="control has-icons-right">
+                                    <input class="input is-primary is-small" type="text" title="Filtrar" oninput="search(this)" />
+                                    <span class="icon is-right">
+                                        <i class="fas fa-fw fa-search"></i>
+                                    </span>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            let searchables = document.querySelectorAll('.searchable');
+                                            console.log(searchables.length)
+                                            if (searchables.length > 0) {
+                                                document.getElementById('search-input').classList.remove('cloak')
+                                            }
+                                            let searchTimeoutHandler;
+
+                                            function hideAndSeek(searchable,text) {
+                                                console.log(text, searchable);
+                                            }
+
+                                            function doSearch(text) {
+                                                searchables.forEach(searchable => hideAndSeek(searchable,text));
+                                            }
+
+                                            function search(input) {
+                                                clearTimeout(searchTimeoutHandler);
+                                                searchTimeoutHandler = setTimeout(() => doSearch(input.value), 250);
+                                            }
+                                        });
+                                    </script>
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -256,7 +288,7 @@ Vem saciar</pre>
                     &copy; 2023
                     |
                     Última atualização
-                    19/06/2023 14:39:12
+                    19/06/2023 18:17:40
                 </p>
             </footer>-->
 
