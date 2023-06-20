@@ -1,21 +1,30 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="header.thyme::head"/>
-    <body onload="prettyPrint()">
+
+<head th:replace="header.thyme::head" />
+
+<body onload="prettyPrint()">
     <div>
-        <div th:replace="menu.thyme::menu"/>
+        <div th:replace="menu.thyme::menu" />
 
         <div class="container">
             <h3 class="title">Cifras</h3>
-
-            <ol id="chords-list" class="searchable">
-                <li th:each="post: ${published_content}" th:if="${#strings.equals(post.type, 'chords')}" class="py-3" style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
+            <ol id="chords-list" class="searchable" th:with="counter = ${ {} }">
+                <li th:each="post, iterator: ${published_content.{? #this.type == 'chords' }}"
+                    th:value="${counter.add(0), counter.size()}" class="py-3"
+                    style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a th:href="${post.uri}">
                         <span>
-                            <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)" th:if="${post.verificacao == 'total'}"></i>
-                            <i class="fa-fw fas fa-badge-percent has-text-info" title="Verificado Parcialmente (Letra e Acordes)" th:if="${post.verificacao == 'parcial'}"></i>
-                            <i class="fa-fw fas fa-badge-percent has-text-warning" title="Verificado Parcialmente (Inicial)" th:if="${post.verificacao == 'inicial'}"></i>
-                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado" th:if="${#strings.isEmpty(post.verificacao)}"></i>
+                            <i class="fa-fw fas fa-badge-check has-text-success"
+                                title="Verificado (Letra, acordes e ritmica)"
+                                th:if="${post.verificacao == 'total'}"></i>
+                            <i class="fa-fw fas fa-badge-percent has-text-info"
+                                title="Verificado Parcialmente (Letra e Acordes)"
+                                th:if="${post.verificacao == 'parcial'}"></i>
+                            <i class="fa-fw fas fa-badge-percent has-text-warning"
+                                title="Verificado Parcialmente (Inicial)" th:if="${post.verificacao == 'inicial'}"></i>
+                            <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"
+                                th:if="${#strings.isEmpty(post.verificacao)}"></i>
 
                             <i class="fa-fw fas fa-music"></i>
                             <span style="font-variant: small-caps">
@@ -23,7 +32,8 @@
                             </span>
                         </span>
                         <span>
-                            <span class="tag is-primary is-light mx-1" th:each="tag: ${post.tags}" th:if="${!#strings.startsWith(tag, 'repertorio:')}">
+                            <span class="tag is-primary is-light mx-1" th:each="tag: ${post.tags}"
+                                th:if="${!#strings.startsWith(tag, 'repertorio:')}">
                                 <small>[[ ${tag} ]]</small>
                             </span>
                         </span>
@@ -55,10 +65,13 @@
         });
 
         for (i = 0; i < itemsArr.length; ++i) {
-            list.appendChild(itemsArr[i]);
+            let item = itemsArr[i];
+            item.value = i + 1;
+            list.appendChild(item);
         }
     </script>
 
     <div th:replace="footer.thyme::footer"></div>
-    </body>
+</body>
+
 </html>

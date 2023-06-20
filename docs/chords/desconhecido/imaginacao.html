@@ -27,66 +27,120 @@
 	</head>
 	<body onload="prettyPrint()" class="px-5">
         <div>
-            <div class="navbar is-white is-screen-only">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="https://giflw.github.io/chords/">
-                            <span class="fa-stack">
-                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger" style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
-                                <i class="fa-fw fad fa-guitars fa-stack-1x has-text-primary" style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
+        <div class="navbar is-white is-screen-only">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://giflw.github.io/chords/">
+                        <span class="fa-stack">
+                            <i class="fa-fw fad fa-guitars fa-stack-1x has-text-danger"
+                                style="--fa-primary-opacity: 0; --fa-secondary-opacity: 1.0"></i>
+                            <i class="fa-fw fad fa-guitars fa-stack-1x has-text-primary"
+                                style="--fa-primary-opacity: 1;--fa-secondary-opacity: 0"></i>
+                        </span>
+                        GiFlw
+                    </a>
+                    <span class="navbar-item cloak">
+                        <span class="control has-icons-right">
+                            <input class="input is-primary is-small search-input" type="text" title="Filtrar" />
+                            <span class="icon is-right">
+                                <i class="fas fa-fw fa-search"></i>
                             </span>
-                            GiFlw
-                        </a>
-                        <a class="navbar-burger" data-target="navbar-top">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                        </a>
+                        </span>
+                    </span>
+                    <a class="navbar-burger" data-target="navbar-top">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div id="navbar-top" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Músicas</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/repertorio.html">Repertórios</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/batidas.html">Batidas</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/dedilhados.html">Dedilhados</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/about.html">Sobre</a>
                     </div>
-                    <div id="navbar-top" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Músicas</a>
-                            <a class="navbar-item" href="https://giflw.github.io/chords/repertorio.html">Repertórios</a>
-                            <a class="navbar-item" href="https://giflw.github.io/chords/batidas.html">Batidas</a>
-                            <a class="navbar-item" href="https://giflw.github.io/chords/dedilhados.html">Dedilhados</a>
-                            <a class="navbar-item" href="https://giflw.github.io/chords/about.html">Sobre</a>
-                            <a class="navbar-item" href="https://giflw.github.io/chords/feed.xml">Feed RSS</a>
-                            <span id="search-input" class="navbar-item cloak">
-                                <span class="control has-icons-right">
-                                    <input class="input is-primary is-small" type="text" title="Filtrar" oninput="search(this)" />
-                                    <span class="icon is-right">
-                                        <i class="fas fa-fw fa-search"></i>
-                                    </span>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            let searchables = document.querySelectorAll('.searchable');
-                                            console.log(searchables.length)
-                                            if (searchables.length > 0) {
-                                                document.getElementById('search-input').classList.remove('cloak')
-                                            }
-                                            let searchTimeoutHandler;
-
-                                            function hideAndSeek(searchable,text) {
-                                                console.log(text, searchable);
-                                            }
-
-                                            function doSearch(text) {
-                                                searchables.forEach(searchable => hideAndSeek(searchable,text));
-                                            }
-
-                                            function search(input) {
-                                                clearTimeout(searchTimeoutHandler);
-                                                searchTimeoutHandler = setTimeout(() => doSearch(input.value), 250);
-                                            }
-                                        });
-                                    </script>
-                                </span>
-                            </span>
-                        </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="https://giflw.github.io/chords/feed.xml">Feed RSS</a>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // Get all "navbar-burger" elements
+                const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+
+            });
+
+            String.prototype.isNormalized = function() {
+                return /^[A-Z0-9 -\.]+$/.test(this);
+            }
+
+            String.prototype.unacent = function() {
+                console.log('NORMAL?', this.isNormalized())
+                return (this.isNormalized() ? this : this.normalize("NFKD")).replace(/\p{Diacritic}/gu, "");
+            }
+
+            String.prototype.includesIgnoreCase = function (other) {
+                return this.unacent().toLowerCase().includes(other.unacent().toLowerCase());
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                let searchables = document.querySelectorAll('.searchable');
+                let searchTimeoutHandler;
+
+                function hideAndSeek(searchable, text) {
+                    [...searchable.children].forEach(el => {
+                        el.dataset.displayOriginal = el.dataset.displayOriginal || window.getComputedStyle(el).display;
+                        el.style.display =  el.textContent.includesIgnoreCase(text) ? el.dataset.displayOriginal : 'none';
+                    })
+                }
+
+                function doSearch(text) {
+                    searchables.forEach(searchable => hideAndSeek(searchable, text));
+                }
+
+                function search(input) {
+                    clearTimeout(searchTimeoutHandler);
+                    searchTimeoutHandler = setTimeout(() => doSearch(input.target.value), 250);
+                }
+
+                console.log('searchables', searchables)
+                if (searchables.length > 0) {
+                    document.querySelectorAll('.search-input').forEach(el => {
+                        el.oninput = search;
+                        let cloacked = el;
+                        while (!cloacked.classList.contains('cloak')) {
+                            cloacked = cloacked.parentNode
+                        }
+                        cloacked.classList.remove('cloak');
+                    });
+                }
+
+            });
+
+
+        </script>
+
+    </div>
         <div class="container">
             <div class="columns is-vcentered mb-0">
                 <div class="column has-text-left pb-0">
@@ -264,7 +318,7 @@ E eu era acrobata , de lata e de imaginação.</pre>
                     &copy; 2023
                     |
                     Última atualização
-                    19/06/2023 18:17:40
+                    20/06/2023 16:11:54
                 </p>
             </footer>-->
 
