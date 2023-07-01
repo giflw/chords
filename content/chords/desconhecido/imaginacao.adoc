@@ -6,7 +6,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Mensagem Musical, CLJ, repertorio:tenor
-
+:jbake-status: draft
 
 ----
 [Intro]
