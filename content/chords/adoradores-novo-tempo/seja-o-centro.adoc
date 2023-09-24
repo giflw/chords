@@ -11,6 +11,7 @@ Guilherme I F L Weizenmann
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
 :verificacao: parcial
+:colunas: 3
 
 ----
 [Intro]

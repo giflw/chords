@@ -2,16 +2,6 @@
     border-radius: 0 !important;
 }
 
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-}
-
-:root {
-    --chords-font-size: 14px;
-}
-
 ol {
     list-style: decimal-leading-zero inside;
 }
@@ -24,7 +14,6 @@ ol {
 }
 .chords {
     font-size: var(--chords-font-size);
-    columns: 40ex 4;
     column-gap: 1ex;
     column-rule: 1px solid lightgray;
     column-fill: balance;
@@ -32,6 +21,18 @@ ol {
     text-align: left;
     line-height: 1.1em;
     padding: 1ex;
+}
+
+.chords.chords-cols-4 {
+    columns: 40ex 4;
+}
+
+.chords.chords-cols-3 {
+    columns: 53ex 3;
+}
+
+.chords.chords-cols-2 {
+    columns: 80ex 2;
 }
 
 .chords > * {
@@ -44,19 +45,4 @@ ol {
 
 .chords > *:first-child > p:first-child {
     margin-top: 0 !important;
-}
-
-@media print {
-    .is-screen-only {
-        display: none;
-    }
-    body > .container {
-        margin: 5mm;
-    }
-    html {
-        padding: 0 !important;
-    }
-    .chords {
-        column-width: 30ex;
-    }
 }

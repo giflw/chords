@@ -14,9 +14,12 @@
 	    <link th:href="${baseUrl} + 'css/bulmaswatch.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/asciidoctor.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/base.css'" rel="stylesheet"/>
+        <link th:href="${baseUrl} + 'css/base-print.css'" rel="stylesheet" media="print"/>
+	    <link th:href="${baseUrl} + 'css/base-screen.css'" rel="stylesheet" media="screen"/>
 	    <link th:href="${baseUrl} + 'css/meslo-nerd.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/prettify.css'" rel="stylesheet"/>
         <link th:href="${baseUrl} + 'css/fontawesome.min.css'" rel="stylesheet"/>
+
 
 	    <!-- Fav and touch icons -->
 	    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"/>

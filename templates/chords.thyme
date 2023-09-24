@@ -144,7 +144,7 @@
                             </span>
                         </a>
 
-                        <span class="is-screen-only" title="Tamanho do texto">
+                        <span class="is-screen-only is-print-preview" title="Tamanho do texto">
                             <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) - 1 + 'px'">
                                 <i class="fa-fw fal fa-minus"></i>
                             </a>
@@ -155,9 +155,13 @@
                                 <i class="fa-fw fal fa-plus"></i>
                             </a>
                         </span>
+
+                        <a class="mx-2 is-screen-only" href="?print=true" title="Imprimir">
+                            <i class="fa-fw fal fa-print"></i>
+                        </a>
                     </div>
                 <hr class="my-1" />
-                <div class="chords cloak">
+                <div th:class="${content.colunas > 0 ? 'chords-cols-' + content.colunas: 'chords-cols-4' } + ' chords cloak'">
                     [( ${content.body} )]
                 </div>
             </div>

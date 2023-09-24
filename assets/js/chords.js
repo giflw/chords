@@ -124,3 +124,26 @@ bpmNote.forEach(node => {
         node.innerHTML = `<span style="letter-spacing: .5em">${note}</span> ${bpm}`
     }
 })
+
+
+// print preview
+if (location.search.includes("print=true")) {
+    console.log("PRINT MODE")
+    document.querySelectorAll('head>link[rel=stylesheet]').forEach( css => {
+        /*if ("screen" == css.media) {
+            console.log("PRINT MODE :: Removing", css)
+            css.remove()
+        } else*/ if ("print" == css.media) {
+            let link = document.createElement('link')
+            link.media = 'screen'
+            link.href = css.href
+            link.rel = css.rel
+            document.querySelector('head').appendChild(link)
+            console.log("PRINT MODE :: adding print link to screen", css)
+        } else {
+            console.log("PRINT MODE :: skipping", css)
+        }
+    });
+} else {
+    console.log("SCREEN MODE")
+}
