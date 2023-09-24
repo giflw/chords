@@ -14,9 +14,12 @@
 	    <link href="https://giflw.github.io/chords/css/bulmaswatch.css" rel="stylesheet"/>
 	    <link href="https://giflw.github.io/chords/css/asciidoctor.css" rel="stylesheet"/>
 	    <link href="https://giflw.github.io/chords/css/base.css" rel="stylesheet"/>
+        <link href="https://giflw.github.io/chords/css/base-print.css" rel="stylesheet" media="print"/>
+	    <link href="https://giflw.github.io/chords/css/base-screen.css" rel="stylesheet" media="screen"/>
 	    <link href="https://giflw.github.io/chords/css/meslo-nerd.css" rel="stylesheet"/>
 	    <link href="https://giflw.github.io/chords/css/prettify.css" rel="stylesheet"/>
         <link href="https://giflw.github.io/chords/css/fontawesome.min.css" rel="stylesheet"/>
+
 
 	    <!-- Fav and touch icons -->
 	    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"/>
@@ -171,7 +174,7 @@
                     </div>
                     <p class="has-text-grey">
                         Atualizado em
-                        <em>25 Abril 2023</em>
+                        <em>25 abril 2023</em>
                     </p>
                 </div>
             </div>
@@ -253,7 +256,7 @@
                             </span>
                         </a>
 
-                        <span class="is-screen-only" title="Tamanho do texto">
+                        <span class="is-screen-only is-print-preview" title="Tamanho do texto">
                             <a onclick="document.querySelector('.chords').style.fontSize = parseInt(window.getComputedStyle(document.querySelector('.chords')).fontSize.replace('px', '')) - 1 + 'px'">
                                 <i class="fa-fw fal fa-minus"></i>
                             </a>
@@ -264,9 +267,13 @@
                                 <i class="fa-fw fal fa-plus"></i>
                             </a>
                         </span>
+
+                        <a class="mx-2 is-screen-only" href="?print=true" title="Imprimir">
+                            <i class="fa-fw fal fa-print"></i>
+                        </a>
                     </div>
                 <hr class="my-1" />
-                <div class="chords cloak">
+                <div class="chords-cols-4 chords cloak">
                     <div class="listingblock"> 
  <div class="content"> 
   <pre>[Intro]
@@ -369,7 +376,7 @@ Am7  Bb  F/A  C</pre>
                     &copy; 2023
                     |
                     Última atualização
-                    30/06/2023 22:40:48
+                    24/09/2023 08:19:30
                 </p>
             </footer>-->
 
