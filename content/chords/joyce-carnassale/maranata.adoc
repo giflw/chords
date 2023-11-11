@@ -1,0 +1,111 @@
+= Maranata
+Guilherme I F L Weizenmann
+2023-11-10
+:artista: Joyce Carnassale
+:duracao: 5:42
+:tom: Bm
+:compasso: 4/4
+:dedilhado: P I M A I M A I
+:batida: não dãrãgãdã
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
+:verificacao:
+:colunas: 3
+
+
+
+----
+
+[Intro] Bm7  G9  D  A4
+
+Bm7                  G9                    D   
+   Tu és a minha luz, a minha salvação e a Ti me 
+        A4
+renderei
+Bm7                    G9                      D  
+  Se ao Teu lado estou, seguro em Tuas mãos eu nada 
+       A4
+temerei
+
+G  A  Bm        D           A4
+Oh oh oh Tu és santo oh Senhor
+G  A  Bm        D            A4
+Oh oh oh, Tu és digno de louvor
+
+G              D                Bm7
+Só em Ti confiarei, eu nada temerei
+              A4                          G
+Em frente eu irei, pois eu sei que vivo estás
+              D                      Bm7
+E um dia voltarás, do céu pra nos buscar
+                A4
+Pra sempre reinarás aleluia!
+
+( G9  A4  D  D )
+( G9  A4  D  D )
+
+Bm7                  G9                    D   
+   Tu és a minha luz, a minha salvação e a Ti me 
+        A4
+renderei
+Bm7                    G9                      D  
+  Se ao Teu lado estou, seguro em Tuas mãos eu nada 
+       A4
+temerei
+
+G  A  Bm        D           A4
+Oh oh oh Tu és santo oh Senhor
+G  A  Bm         D           A4  A
+Oh oh oh, Tu és digno de louvor
+
+G              D                Bm7
+Só em Ti confiarei, eu nada temerei
+              A4                          G
+Em frente eu irei, pois eu sei que vivo estás
+              D                      Bm7
+E um dia voltarás, do Céu pra nos buscar
+                A4
+Pra sempre reinarás aleluia!
+
+( G9  A4  D  D )
+( G9  A4  D  D )
+
+       D          G       Bm7                     A4
+Vem Jesus, vem Jesus! Maranata, ora vem Senhor Jesus
+       D          G       Bm7                     A4
+Vem Jesus, vem Jesus! Maranata, ora vem Senhor Jesus
+       D          G       Bm7                     A4
+Vem Jesus, vem Jesus! Maranata, ora vem Senhor Jesus
+       D          G       Bm7                     A4
+Vem Jesus, vem Jesus! Maranata, ora vem Senhor Jesus
+
+G              D                Bm7
+Só em Ti confiarei, eu nada temerei
+              A4                          G
+Em frente eu irei, pois eu sei que vivo estás
+              D                      Bm7
+E um dia voltarás, do céu pra nos buscar
+                A4
+Pra sempre reinarás aleluia!
+
+G              D                Bm7
+Só em Ti confiarei, eu nada temerei
+              A4                          G
+Em frente eu irei, pois eu sei que vivo estás
+              D                      Bm7
+E um dia voltarás, do céu pra nos buscar
+                A4
+Pra sempre reinarás aleluia!
+
+G              D                Bm7
+Só em Ti confiarei, eu nada temerei
+              A4                          G
+Em frente eu irei, pois eu sei que vivo estás
+              D                      Bm7
+E um dia voltarás, do céu pra nos buscar
+                A4
+Pra sempre reinarás aleluia!
+
+
+----

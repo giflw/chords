@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	    <meta charset="utf-8"/>
-	    <title>Batidas</title>
+	    <title>Chord Dictionary</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	    <meta name="description" content=""/>
 	    <meta name="author" content="Guilherme I F L Weizenmann"/>
@@ -150,67 +150,26 @@
 		<div class="container">
 	
 			<div class="page-header">
-				<h1>Batidas</h1>
+				<h1>Chord Dictionary</h1>
 			</div>
 		
-			<p><em>26 abril 2023</em></p>
+			<p><em>10 novembro 2023</em></p>
 		
-			<p><div class="sect1"> 
- <h2 id="_notação">Notação</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Cada símbolo representa 1 subdivisão da batida ("1 tempo", repare as aspas…​.)</p> 
-  </div> 
-  <div class="hdlist"> 
-   <table> 
-    <tbody>
-     <tr> 
-      <td class="hdlist1"> V (<i class="fa-fw fal fa-long-arrow-down fa-2x" style="width: .5em"></i>) </td> 
-      <td class="hdlist2"> <p>Batida forte para baixo</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> v (<i class="fa-fw far fa-long-arrow-down"></i>) </td> 
-      <td class="hdlist2"> <p>Batida para baixo</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> . (<i class="fad fa-dot-circle" style="--fa-secondary-opacity: 0;"></i>) </td> 
-      <td class="hdlist2"> <p>(ponto) Não tocar (recomendado)</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> ^ (<i class="fa-fw far fa-long-arrow-up"></i>) </td> 
-      <td class="hdlist2"> <p>Batida para cima</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> A (<i class="fa-fw fal fa-long-arrow-up fa-2x" style="width: .5em"></i>) </td> 
-      <td class="hdlist2"> <p>Batida forte para cima</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> x (<i class="fa-fw fal fa-times"></i>) </td> 
-      <td class="hdlist2"> <p>Batida "fantasma"</p> </td> 
-     </tr> 
-     <tr> 
-      <td class="hdlist1"> X (<i class="fa-fw fas fa-times"></i>) </td> 
-      <td class="hdlist2"> <p>Batida fantasma forte</p> </td> 
-     </tr> 
-    </tbody>
-   </table> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="_exemplos">Exemplos</h2> 
- <div class="sectionbody"> 
-  <div class="sect2"> 
-   <h3 id="_rock">Rock</h3> 
-   <div class="listingblock batida"> 
-    <div class="content"> 
-     <pre>V.v^.^v^xX</pre> 
-    </div> 
-   </div> 
-   <pre style="font-size: 36px; letter-spacing: -.5rem">↓⇣↑⇡↝⇡
-</pre> A <span style="font-size: 1.5em; line-height: 1em; font-family: monospace; display: inline;">⤳</span> E  
-  </div> 
- </div> 
+			<p><div> <span class="chord-tab">A = X 0 2 2 2 0</span> <span class="chord-tab">A4 = X 0 2 2 3 0</span> <span class="chord-tab">Bm = X 2 4 4 3 2</span> <span class="chord-tab">Bm7 = X 2 4 2 3 2</span> <span class="chord-tab">Dm = X X 0 2 3 1</span> <span class="chord-tab">G = 3 2 0 0 0 3</span> <span class="chord-tab">G9 = 3 X 0 2 0 X</span> 
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let instrument = new chordictionary.Instrument('EADGBE', 24, 5, 4);
+    document.querySelectorAll('.chord-tab').forEach(chordTabEl => {
+        let chordTab = chordTabEl.innerText.split('=');
+        let options = {
+            name: chordTab[0].trim() + ' (' + chordTab[1].trim() + ')'
+        }
+        chordTab = chordTab[1].trim().replaceAll(' ', '' );
+        let chordTable = instrument.getChordLayout(chordTab, options);
+        chordTabEl.innerHTML = chordTable;
+    });
+});
+</script> 
 </div></p>
 		
 			<hr />

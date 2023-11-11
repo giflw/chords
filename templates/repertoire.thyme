@@ -12,20 +12,35 @@
                 <h3 class="title">Repertórios</h3>
                 <ul id="music-list">
                     <li th:each="post: ${all_content.{? #this.type == 'repertoire' && #this.status != 'not-listed'}}">
-                        <a th:href="${baseUrl} + ${post.uri }">
-                            <p th:utext='${post.title}'>body</p>
+                        <a th:href="${baseUrl} + ${post.uri }" th:title="${post.title}">
+                            <i class="-badge-check has-text-success"
+                                th:class="${'fa-fw far fa-' + (#strings.isEmpty(post.icon) ? 'list-music' : post.icon)}"></i>
+                            <span th:utext='${#strings.isEmpty(post.label) ? post.title : post.label}'>body</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="column" th:if="${!#strings.equals(content.status, 'not-listed')}">
                 <h3 class="title" th:utext="${content.title}">title</h3>
+                <div th:utext="${content.body}"></div>
+                <hr />
+                <h4>Repertório:</h4>
                 <ol class="searchable" th:with="counter = ${ {} }">
                     <th:block th:each="post: ${published_content.{? #this.type == 'chords'}}">
                         <th:block th:each="tag: ${post.tags}"
                             th:if="${#strings.equals(tag, 'repertorio:' + content.repertorio)}">
                             <li th:value="${counter.add(0), counter.size()}">
                                 <a th:href="${baseUrl} + ${post.uri}">
+                                    <i class="fa-fw fas fa-badge-check has-text-success"
+                                        title="Verificado (Letra, acordes e ritmica)"
+                                        th:if="${post.verificacao == 'total'}"></i>
+                                    <i class="fa-fw fas fa-badge-percent has-text-info"
+                                        title="Verificado Parcialmente (Letra e Acordes)"
+                                        th:if="${post.verificacao == 'parcial'}"></i>
+                                    <i class="fa-fw fas fa-badge-percent has-text-warning"
+                                        title="Verificado Parcialmente (Inicial)" th:if="${post.verificacao == 'inicial'}"></i>
+                                    <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"
+                                        th:if="${#strings.isEmpty(post.verificacao)}"></i>
                                     [[ ${post.title} ]] <span class="tag is-light">[[ ${post.artista} ]]</span>
                                 </a>
                             </li>

@@ -19,6 +19,7 @@
 	    <link th:href="${baseUrl} + 'css/meslo-nerd.css'" rel="stylesheet"/>
 	    <link th:href="${baseUrl} + 'css/prettify.css'" rel="stylesheet"/>
         <link th:href="${baseUrl} + 'css/fontawesome.min.css'" rel="stylesheet"/>
+        <link th:href="${baseUrl} + 'css/chordictionary.css'" rel="stylesheet"/>
 
 
 	    <!-- Fav and touch icons -->

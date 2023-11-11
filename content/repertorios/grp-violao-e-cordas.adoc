@@ -1,0 +1,11 @@
+= Grupo de Estudos de Violão e Cordas
+Guilherme I F L Weizenmann
+2023-11-10
+:jbake-type: repertoire
+:repertorio: grp-violao-e-cordas
+:icon: guitars
+:label: Grp Estudos de Violão e Cordas
+
+[horizontal]
+Local:: IASD Moinhos de Vento - Porto Alegre/RS
+Horário:: Sábados as 15h30

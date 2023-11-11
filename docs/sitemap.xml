@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>https://giflw.github.io/chords//dictionary.html</loc>
+        <lastmod>2023-11-10</lastmod>
+    </url><url>
         <loc>https://giflw.github.io/chords//batidas.html</loc>
         <lastmod>2023-04-26</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//about.html</loc>
         <lastmod>2023-04-25</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//chords/joyce-carnassale/maranata.html</loc>
+        <lastmod>2023-11-10</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//chords/deise-jacinto/retrovisor.html</loc>
         <lastmod>2023-06-19</lastmod>
@@ -39,6 +45,9 @@
     </url><url>
         <loc>https://giflw.github.io/chords//chords/prisma-brasil/toma-meu-coracao.html</loc>
         <lastmod>2023-04-22</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//repertorios/grp-violao-e-cordas.html</loc>
+        <lastmod>2023-11-10</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//repertorios/banda-moinhos.html</loc>
         <lastmod>2023-06-19</lastmod>

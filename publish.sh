@@ -6,7 +6,7 @@ if [ "$1" = '-a' ]; then
     auto=true
 fi
 
-rm -r docs output
+rm -rf docs output
 jbake . docs
 git add .
 if [ "$auto" = 'true' ]; then
