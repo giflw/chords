@@ -5,8 +5,9 @@ Guilherme I F L Weizenmann
 :duracao: 5:42
 :tom: Bm
 :compasso: 4/4
+:bpm: 140
 :dedilhado: P I M A I M A I
-:batida: não dãrãgãdã
+:batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
@@ -17,21 +18,23 @@ Guilherme I F L Weizenmann
 
 ----
 
-[Intro] Bm7  G9  D  A4
+[Intro]
 
-Bm7                  G9                    D   
-   Tu és a minha luz, a minha salvação e a Ti me 
-        A4
-renderei
-Bm7                    G9                      D  
-  Se ao Teu lado estou, seguro em Tuas mãos eu nada 
-       A4
-temerei
+Bm7  G9  D  A4
 
-G  A  Bm        D           A4
-Oh oh oh Tu és santo oh Senhor
-G  A  Bm        D            A4
-Oh oh oh, Tu és digno de louvor
+[Verso 1]
+
+Bm7                  G9                    D             A4   
+   Tu és a minha luz, a minha salvação e a Ti me renderei
+Bm7                    G9                      D           A4
+  Se ao Teu lado estou, seguro em Tuas mãos eu nada temerei
+
+G * A  Bm        D           A4
+Oh  oh oh Tu és santo oh Senhor
+G * A  Bm        D            A4
+Oh  oh oh, Tu és digno de louvor
+
+[Refrão]
 
 G              D                Bm7
 Só em Ti confiarei, eu nada temerei
@@ -42,8 +45,12 @@ E um dia voltarás, do céu pra nos buscar
                 A4
 Pra sempre reinarás aleluia!
 
+[Interlúdio]
+
 ( G9  A4  D  D )
 ( G9  A4  D  D )
+
+[????]
 
 Bm7                  G9                    D   
    Tu és a minha luz, a minha salvação e a Ti me 
