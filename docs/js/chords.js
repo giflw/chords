@@ -25,7 +25,7 @@ if (chords) {
         blanks = 0;
         lastWasSession = false
 
-        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9 -]+\]$/.test(text)) {
+        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9? -]+\]$/.test(text)) {
             lastWasSession = true
             // console.log('section', text)
             sections++;

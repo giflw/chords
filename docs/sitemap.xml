@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>https://giflw.github.io/chords//theory/music-parts.html</loc>
+        <lastmod>2023-11-18</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//theory/index.html</loc>
+        <lastmod>2023-11-18</lastmod>
+    </url><url>
         <loc>https://giflw.github.io/chords//dictionary.html</loc>
         <lastmod>2023-11-10</lastmod>
     </url><url>
-        <loc>https://giflw.github.io/chords//batidas.html</loc>
+        <loc>https://giflw.github.io/chords//theory/batidas.html</loc>
         <lastmod>2023-04-26</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//about.html</loc>
@@ -16,31 +22,31 @@
         <loc>https://giflw.github.io/chords//chords/deise-jacinto/retrovisor.html</loc>
         <lastmod>2023-06-19</lastmod>
     </url><url>
-        <loc>https://giflw.github.io/chords//chords/adoradores-novo-tempo/nao-ha-o-que-temer.html</loc>
-        <lastmod>2023-04-25</lastmod>
-    </url><url>
-        <loc>https://giflw.github.io/chords//chords/ministerio-jovem/inteiramente-fiel.html</loc>
-        <lastmod>2023-04-25</lastmod>
-    </url><url>
-        <loc>https://giflw.github.io/chords//chords/jeferson-pillar/sede.html</loc>
-        <lastmod>2023-04-25</lastmod>
-    </url><url>
-        <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/pes-na-terra-olhos-no-ceu.html</loc>
-        <lastmod>2023-04-25</lastmod>
-    </url><url>
-        <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/lado-a-lado.html</loc>
-        <lastmod>2023-04-25</lastmod>
-    </url><url>
         <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/ele-e-exaltado.html</loc>
         <lastmod>2023-04-25</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/ele-e-exaltado-capo.html</loc>
         <lastmod>2023-04-25</lastmod>
     </url><url>
+        <loc>https://giflw.github.io/chords//chords/ministerio-jovem/inteiramente-fiel.html</loc>
+        <lastmod>2023-04-25</lastmod>
+    </url><url>
         <loc>https://giflw.github.io/chords//chords/adoradores-novo-tempo/teu-santo-nome.html</loc>
         <lastmod>2023-04-25</lastmod>
     </url><url>
+        <loc>https://giflw.github.io/chords//chords/jeferson-pillar/sede.html</loc>
+        <lastmod>2023-04-25</lastmod>
+    </url><url>
         <loc>https://giflw.github.io/chords//chords/adoradores-novo-tempo/seja-o-centro.html</loc>
+        <lastmod>2023-04-25</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/pes-na-terra-olhos-no-ceu.html</loc>
+        <lastmod>2023-04-25</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//chords/adoradores-novo-tempo/nao-ha-o-que-temer.html</loc>
+        <lastmod>2023-04-25</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//chords/hinario-adventista-2022/lado-a-lado.html</loc>
         <lastmod>2023-04-25</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//chords/prisma-brasil/toma-meu-coracao.html</loc>
@@ -49,9 +55,6 @@
         <loc>https://giflw.github.io/chords//repertorios/grp-violao-e-cordas.html</loc>
         <lastmod>2023-11-10</lastmod>
     </url><url>
-        <loc>https://giflw.github.io/chords//repertorios/banda-moinhos.html</loc>
-        <lastmod>2023-06-19</lastmod>
-    </url><url>
         <loc>https://giflw.github.io/chords//repertorios/tenor.html</loc>
         <lastmod>2023-06-19</lastmod>
     </url><url>
@@ -59,6 +62,9 @@
         <lastmod>2023-06-19</lastmod>
     </url><url>
         <loc>https://giflw.github.io/chords//repertorios/contralto.html</loc>
+        <lastmod>2023-06-19</lastmod>
+    </url><url>
+        <loc>https://giflw.github.io/chords//repertorios/banda-moinhos.html</loc>
         <lastmod>2023-06-19</lastmod>
     </url>
 </urlset>

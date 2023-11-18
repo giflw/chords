@@ -33,6 +33,7 @@
                     <div class="navbar-start">
                         <a class="navbar-item" th:href="${baseUrl} + 'index.html'">Músicas</a>
                         <a class="navbar-item" th:href="${baseUrl} + 'repertorio.html'">Repertórios</a>
+                        <a class="navbar-item" th:href="${baseUrl} + 'dictionary.html'">Dicionário de Acordes</a>
                         <a class="navbar-item" th:href="${baseUrl} + 'theory/index.html'">Teoria (Música e Instrumento)</a>
                         <a class="navbar-item" th:href="${baseUrl} + 'about.html'">Sobre</a>
                     </div>

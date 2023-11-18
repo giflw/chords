@@ -63,8 +63,8 @@
                     <div class="navbar-start">
                         <a class="navbar-item" href="https://giflw.github.io/chords/index.html">Músicas</a>
                         <a class="navbar-item" href="https://giflw.github.io/chords/repertorio.html">Repertórios</a>
-                        <a class="navbar-item" href="https://giflw.github.io/chords/batidas.html">Batidas</a>
-                        <a class="navbar-item" href="https://giflw.github.io/chords/dedilhados.html">Dedilhados</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/dictionary.html">Dicionário de Acordes</a>
+                        <a class="navbar-item" href="https://giflw.github.io/chords/theory/index.html">Teoria (Música e Instrumento)</a>
                         <a class="navbar-item" href="https://giflw.github.io/chords/about.html">Sobre</a>
                     </div>
                     <div class="navbar-end">
@@ -155,22 +155,102 @@
 		
 			<p><em>10 novembro 2023</em></p>
 		
-			<p><div> <span class="chord-tab">A = X 0 2 2 2 0</span> <span class="chord-tab">A4 = X 0 2 2 3 0</span> <span class="chord-tab">Bm = X 2 4 4 3 2</span> <span class="chord-tab">Bm7 = X 2 4 2 3 2</span> <span class="chord-tab">Dm = X X 0 2 3 1</span> <span class="chord-tab">G = 3 2 0 0 0 3</span> <span class="chord-tab">G9 = 3 X 0 2 0 X</span> 
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let instrument = new chordictionary.Instrument('EADGBE', 24, 5, 4);
-    document.querySelectorAll('.chord-tab').forEach(chordTabEl => {
-        let chordTab = chordTabEl.innerText.split('=');
-        let options = {
-            name: chordTab[0].trim() + ' (' + chordTab[1].trim() + ')'
-        }
-        chordTab = chordTab[1].trim().replaceAll(' ', '' );
-        let chordTable = instrument.getChordLayout(chordTab, options);
-        chordTabEl.innerHTML = chordTable;
+			<p><div class="container m-3 p-3"> 
+ <form class="columns"> 
+  <fieldset class="column box"> <legend class="title is-4 mb-2">Instrumento</legend> 
+   <div class="columns"> <label class="column"> <input type="radio" checked name="tuning" value="guitar.standard"> Violão/Guitarra </label> <label class="column"> <input type="radio" name="tuning" value="ukulele.standard"> Ukulele </label> <label class="column"> <input type="radio" name="tuning" value="bass.standard"> Baixo </label> 
+   </div> 
+  </fieldset> 
+  <fieldset class="column box"> <legend class="title is-4 mb-2">Acorde</legend> 
+   <div class="columns"> <label class="column is-two-thirds"> Nome do acorde: <input type="text" id="chord-name"> </label> 
+    <div class="column is-one-third"> <button class="button" type="button" onclick="showChords()">Visualizar</button> 
+    </div> 
+   </div> 
+  </fieldset> 
+ </form> 
+ <div id="chords-list"> 
+ </div> 
+</div> 
+<script>
+function showChords() {
+    document.querySelector('#chords-list').innerHTML = '';
+
+    const name = document.querySelector('#chord-name').value;
+
+    const instrumentTuning = [...document.querySelectorAll('*[name="tuning"]')].filter(el => el.checked)[0].value.split('.');
+
+    let tuning = chordictionary.tuning;
+    for (const insTun of instrumentTuning) {
+        tuning = tuning[insTun];
+    }
+
+    const instrument = new chordictionary.Instrument(tuning.join(''), 12, 5, 4);
+    let tabs = instrument.getChordsList(name).chordList;
+
+    //console.log(tabs)
+
+    tabs.sort((a, b) => {
+        let ax = a.tab.filter(f => f == "x").length;
+        let bx = b.tab.filter(f => f == "x").length;
+        const byXCount = ax > bx ? 1 : (ax < bx ? -1 : 0);
+        ax = a.tab.map((el, idx) => el == "x" ? idx : 0).reduce((p, c) => p + c);
+        bx = b.tab.map((el, idx) => el == "x" ? idx : 0).reduce((p, c) => p + c);
+        const byXCountAndXString = byXCount != 0 ? byXCount : (ax > bx ? 1 : (ax < bx ? -1: 0));
+        ax = a.tab.map((el, idx) => el == "x" ? idx : el).reduce((p, c) => p + c);
+        bx = b.tab.map((el, idx) => el == "x" ? idx : el).reduce((p, c) => p + c);
+        const byXCountAndXStringAndHandProcimity = byXCountAndXString != 0 ? byXCountAndXString : (ax > bx ? 1 : (ax < bx ? -1: 0));
+        return byXCountAndXStringAndHandProcimity;
     });
-});
-</script> 
-</div></p>
+
+    tabs = tabs.filter( tab => {
+        const freqs = tab.tab.reduce(function (acc, curr) {
+            return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc;
+        }, {0: 0, x: 0});
+        // probably impossible bars
+        if (freqs[1] > 2 && freqs[0] > 0 && (freqs["x"] == 0 || tab.tab[0] != "x")) {
+            return false;
+        }
+        if (freqs[0] == 0 && freqs[1] >= 2) {
+            return true;
+        }
+        if (tab.tab.filter(f => f != "x" && f != 0).length <= 4) {
+            return true;
+        }
+        return false;
+    });
+    tabs.forEach(tab => {
+        tab.info = instrument.getChordInfo(tab).first();
+    });
+    if (instrumentTuning[0] == 'guitar') {
+        tabs.sort((a, b) => {
+            if (a.info.name == b.info.name) {
+                return 0;
+            }
+            if (a.info.name == name) {
+                return -1;
+            }
+            if (b.info.name == name) {
+                return 1;
+            }
+            if (a.info.name.startsWith(name)) {
+                return -1;
+            }
+            if (b.info.name.startsWith(name)) {
+                return 1;
+            }
+            return a.info.name.localeCompare(b.info.name);
+        });
+    }
+    if (tabs?.length > 0) {
+        let diagrams = '';
+        tabs.forEach(tab => {
+            diagrams += '<div class="m-1 p-1" style="display: inline-block">' + instrument.getChordLayout(tab.tab, tab.info) + '</div>';
+        });
+        document.querySelector('#chords-list').innerHTML = diagrams;
+    }
+
+}
+</script></p>
 		
 			<hr />
 		</div>
@@ -181,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     &copy; 2023
                     |
                     Última atualização
-                    11/11/2023 21:01:56
+                    18/11/2023 20:47:46
                 </p>
             </footer>-->
 
