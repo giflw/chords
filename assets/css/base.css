@@ -24,6 +24,10 @@ ol {
     padding: 1ex;
 }
 
+.chords.chords-cols-5 {
+    columns: 30ex 5;
+}
+
 .chords.chords-cols-4 {
     columns: 40ex 4;
 }

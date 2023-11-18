@@ -1,0 +1,16 @@
+= Teoria
+Guilherme I F L Weizenmann
+2023-11-18
+:jbake-type: page
+
+A seção de toeria musical está dividida em várias partes, listadas abaixo:
+
+- link:./batidas.html[Batidas]
+- link:./dictionary.html[Dicionário de acordes]
+- link:./music-parts.html[Parte componentes de músicas]
+
++++
+<!--
+// FIXME move to content type 
+-->
++++
