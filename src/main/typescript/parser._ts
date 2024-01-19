@@ -1,0 +1,82 @@
+
+/*export class EmptyNode extends Node {
+
+    public static readonly REGEX: RegExp = /^(?<value>\s*)$/m;
+    public static readonly INSTANCE: EmptyNode = new EmptyNode("");
+
+    // TODO on renderer: if config is set to clean space chars, use only INSTANCE.
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    static parse(value: string, index: number, array: string[]): EmptyNode {
+        return value.length === 0 ? EmptyNode.INSTANCE : new EmptyNode(value);
+    }
+
+    private constructor(value: string) {
+        super(value);
+    }
+}*/
+
+
+export class TitleNode extends Node {
+    public static readonly REGEX: RegExp = /^(?<value>= .*)$/m;
+
+    public constructor(value: string) {
+        super(value);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public static parse(value: string, index: number, array: string[]): TitleNode {
+        value = value.startsWith("=") ? value.substring(1) : value;
+        return new TitleNode(value.trim());
+    }
+}
+
+export class ArtistNode extends Node {
+    public static readonly REGEX: RegExp = /^(?<value>[\p{L}\p{M}\p{Zs}0-9:?!&,. _-]+)$/mu;
+
+    public constructor(value: string) {
+        super(value);
+    }
+
+    public static parse(value: string, index: number, array: string[]): ArtistNode {
+        if (!array[index - 1].startsWith("=")) {
+            throw "Artist name must come after Title";
+        }
+        return new ArtistNode(value.trim());
+    }
+}
+
+export class DateTimeNode extends Node {
+    public static readonly REGEX: RegExp = /^(?<value>[0-9:/.Tz -]+)$/mu;
+
+    public constructor(value: string) {
+        super(value);
+    }
+
+    public static parse(value: string, index: number, array: string[]): DateTimeNode {
+        if (!array[index - 2].startsWith("=")) {
+            throw "Date/Time must come after Artist";
+        }
+        return new DateTimeNode(value.trim());
+    }
+}
+
+export class MetaNode extends Node { }
+
+export class AdocVerbatimBlockSeparatorNode extends Node { }
+
+export class AnnotationNode extends Node { }
+
+export class BlockNode extends Node {
+
+    public static readonly REGEX: RegExp = /^\[(?<value>[\p{L}\p{M}\p{Zs}0-9: -]+)\]$/um;
+    readonly blocks: Node[];
+
+    constructor(name: string) {
+        super(name);
+        this.blocks = [];
+    }
+
+    public isBlock(): boolean {
+        return true;
+    }
+}

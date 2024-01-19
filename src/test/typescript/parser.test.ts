@@ -1,12 +1,13 @@
-import parser from "../../main/typescript/parser";
+import parser, { Node, EmptyNode, TitleNode, ArtistNode, DateTimeNode, DocumentNode, HeaderNode, ContentNode } from "../../main/typescript/parser";
 import { describe, expect, test } from "@jest/globals";
 
-const nsscText = `
+const nsscSource = `
 = Song Title!
 Artist Name
 2020-12-20 23:58:59
-:bpm: 140
+`;/*:bpm: 140
 
+----
 // just a comment
 @live Live version
 @radio Radio Versio
@@ -28,12 +29,20 @@ ut labore et dolore magna aliqua.
 
 [FooBar-Ção]
 ( G9 * A4  D > )
-`;
 
-const nssc = parser(nsscText);
+----
+*/
+const nssc = parser(nsscSource);
+
+const nsscAst: DocumentNode = new DocumentNode(
+    nsscSource,
+    new HeaderNode(),
+    new ContentNode()
+);
 
 describe("chords parser tests", () => {
     test("root node has text", () => {
-        expect(nssc.source).toBe(nsscText);
+        expect(nssc.source).toEqual(nsscSource);
+        expect(nssc).toEqual(nsscAst);
     });
 });
