@@ -1,0 +1,129 @@
+{
+    "highlight.regexes": {
+        // nsschords block title
+        "^(\\[[\\p{L}\\p{M}\\p{Zs}0-9: -]+\\])$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gum",
+            "decorations": [
+                {
+                    "color": "#7171ff",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords metadata
+        // usados para saber titulo, artista, entre outros
+        "^(:[a-z-]+:)(.*)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gm",
+            "decorations": [
+                {
+                    "color": "#dddddd",
+                    //"backgroundColor": "white"
+                },
+                {
+                    "color": "#4ece4e",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords hints/tags
+        // usados para passar dicas/detalhes de performance para os instrumentistas
+        "^(#[\\p{L}\\p{M}\\p{Zs}0-9 -]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gum",
+            "decorations": [
+                {
+                    "color": "#ce61c8",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords switchs (annotations)
+        // são definidas no início do primeiro bloco (antes dele)
+        // alterações dentro de um bloco afetam somente entre o swicth e o próximo switch ou o fim do bloco
+        // alterações em blocos (logo antes) afetam o bloco todo
+        "^(@[!a-z0-9-]+)(.*)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gm",
+            "decorations": [
+                {
+                    "color": "#cc00c2",
+                    //"backgroundColor": "white"
+                },
+                {
+                    "color": "#8100cc",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords chords
+        // C/G, Esus4, C7(9), etc...
+        // /* C F G */ 3x
+        "^([ABCDEFGbmsuMdIVivx0-9#/\\()%*<>v^~+ -]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gum",
+            "decorations": [
+                {
+                    "color": "#00cc00",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords lines
+        "^([\\p{L}\\p{M}\\p{Zs}: ,.!?&_()-]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gum",
+            "decorations": [
+                {
+                    "color": "#df5303",
+                    //"backgroundColor": "white"
+                }
+            ]
+        },
+        // nsschords artist
+        "^([\\p{L}\\p{M}\\p{Zs}: !?&_()-]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "um",
+            "maxMatches": 1,
+            "decorations": [
+                {
+                    "backgroundColor": "#ffffff"
+                }
+            ]
+        },
+        // nsschords title
+        "^(= [\\p{L}\\p{M}\\p{Zs}: !?&_()-]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "um",
+            "decorations": [
+                {
+                    "color": "#161616",
+                    "backgroundColor": "#ffffff"
+                }
+            ]
+        },
+        // nsschords date/time
+        "^([0-9 :-]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "um",
+            "decorations": [
+                {
+                    "color": "#ffffff",
+                    "backgroundColor": "#383838"
+                }
+            ]
+        },
+        // nsschords comments
+        "^(//.*)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "um",
+            "decorations": [
+                {
+                    "color": "#ffffff",
+                    "backgroundColor": "#383838"
+                }
+            ]
+        },
+    },
+}

@@ -48,7 +48,7 @@ Vem avivar
 
 [Oração]
 
-//
+// foo
 
 [Refrão]
 
@@ -69,7 +69,7 @@ A nossa alma tem sede de Ti
 A nossa gente tem fome de Ti
                   Esus4(6) ~  B ~^
 A nossa igreja precisa de Ti
-        E ~ hE4
+        E ~ E4
 Vem saciar
 
 ----

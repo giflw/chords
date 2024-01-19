@@ -1,36 +1,58 @@
 // NSS : Not So Simple Chords
-"use strict";
 export namespace ITQuasar.Multiverse.NSSChorsJS {
 
-    class ElementsReferenced {
+    class RefsConfiguration {
+        chords: string = '.chords'
+        strumming: string = '.strumming'
+        bpm: string = '.bpm'
+    }
+
+    class Configuration {
+        refs: RefsConfiguration = new RefsConfiguration();
+    }
+
+    export const defaultConfiguration : Configuration = Object.freeze(new Configuration());
+    export function configuration(values: Configuration | object): Configuration {
+        return Object.assign(new Configuration(), values);
+    }
+
+    abstract class ElementsReferenced {
 
         protected elRef: string;
+        protected configuration: Configuration;
         protected refs: NodeListOf<HTMLElement>;
 
-        constructor(elRef: string) {
+        constructor(elRef: string, configuration: Configuration) {
             this.elRef = elRef;
+            this.configuration = configuration;
             this.refs = document.querySelectorAll(this.elRef);
+            if (this.refs === null) {
+                throw 'Refs not found!';
+            }
+        }
+
+        protected abstract process(element: HTMLElement): void;
+
+        public play(): void {
+            this.refs.forEach((el) => {
+                this.process(el);
+                el.classList.remove('cloak')
+            })
         }
 
     }
 
-    class Chord extends ElementsReferenced {
+    class Chords extends ElementsReferenced {
 
-        constructor(elRef: string | null) {
-            super(elRef ?? '.chords');
+        constructor(configuration: Configuration) {
+            super(configuration.refs.chords ?? defaultConfiguration.refs.chords, configuration);
         }
 
-        init(): void {
-            if (this.refs === null) {
-                throw 'Not initialized yet!';
-            }
-            this.refs.forEach(chords => {
-                const content = chords.textContent;
+        process(element: HTMLElement): void {
+                const content = element.textContent;
                 if (content === null) {
                     throw `Content was null on element (using ${this.elRef})`;
                 }
-                chords.innerHTML = ''
-
                 const lines = content.split('\n')
                 let section = document.createElement('div')
                 let sections = 0;
@@ -39,7 +61,6 @@ export namespace ITQuasar.Multiverse.NSSChorsJS {
 
                 for (let i = 0; i < lines.length; i++) {
                     let text = lines[i]
-                    // console.log(text)
                     let line = document.createElement('p')
                     line.textContent = text
 
@@ -58,7 +79,7 @@ export namespace ITQuasar.Multiverse.NSSChorsJS {
                         // console.log('section', text)
                         sections++;
                         if (section.children.length > 0) {
-                            chords.appendChild(section)
+                            element.appendChild(section)
                         }
 
                         line.textContent = text.trim()
@@ -78,21 +99,19 @@ export namespace ITQuasar.Multiverse.NSSChorsJS {
 
                 if (sections == 0) {
                     while (section.childNodes.length > 0) {
-                        chords.appendChild(section.childNodes[0])
+                        element.appendChild(section.childNodes[0])
                     }
                 } else {
-                    chords.appendChild(section)
+                    element.appendChild(section)
                 }
 
-                chords.classList.remove('cloak')
-            });
         }
     }
 
     class Strumming extends ElementsReferenced {
 
-        constructor(elRef: string | null) {
-            super(elRef ?? '.strumming');
+        constructor(configuration: Configuration) {
+            super(configuration.refs.strumming ?? defaultConfiguration.refs.strumming, configuration);
         }
 
         init(): void {
@@ -137,8 +156,8 @@ export namespace ITQuasar.Multiverse.NSSChorsJS {
 
     class BPM extends ElementsReferenced {
 
-        constructor(elRef: string | null) {
-            super(elRef ?? '.bpm');
+        constructor(configuration: Configuration) {
+            super(configuration.refs.bpm ?? defaultConfiguration.refs.bpm, configuration);
         }
 
         init(): void {
@@ -198,7 +217,20 @@ export namespace ITQuasar.Multiverse.NSSChorsJS {
             }
         }
     }
+    
+
+
+    /**
+     * Initializes afetr document ready
+     */
+    export function lazy(options: Configuration) {
+        document.addEventListener("DOMContentLoaded", () => {
+            new Chords(options).play();
+        });
+    }
 }
+
+export default ITQuasar.Multiverse.NSSChorsJS;
 
 
 
