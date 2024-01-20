@@ -9,13 +9,13 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
-
+//:colunas: 3
 ----
 [Intro]
 A9 *~ A7M  D9/A
 A9 *~ A7M  D9/A
 
-[Primeira Parte]
+[Verso]
 
              D              A4 ~* A
 Eu sou o Senhor, Rei de Israel
@@ -46,9 +46,21 @@ Te fortalecerei, te sustentarei
      A/C#  D    *    E4   A9
 Com minha mão, eu serei fiel
 
+[Interlúdio]
+
 ( A9 *~ A7M  D9/A )
 ( A9 *~ A7M  D9/A )
 
+[Verso]
+[Refrão]
+
+[Final]
+A9 *~ A7M  D9/A
+A9 *~ A7M  D9/A  A9~
+
+----
+
+////
 [Segunda Parte]
 
              D              A4 ~* A
@@ -88,9 +100,4 @@ Não te assombres, porque eu sou o teu Deus
 Te fortalecerei, te sustentarei
      A/C#  D    *    E4   A9
 Com minha mão, eu serei fiel
-
-[Final]
-A9 *~ A7M  D9/A
-A9 *~ A7M  D9/A  A9~
-
-----
+////

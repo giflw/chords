@@ -1,7 +1,7 @@
 = Maranata
-Joyce Carnassale
+Guilherme I F L Weizenmann
 2023-11-10 12:12:12
-:editor: Guilherme I F L Weizenmann
+:artista: Joyce Carnassale
 :duracao: 5:42
 :tom: Bm
 :compasso: 4/4
@@ -15,11 +15,12 @@ Joyce Carnassale
 :colunas: 5
 :video: https://www.youtube.com/watch?v=VU-fHwRKCWQ
 
-
-----
+////
 // teste
 @live Ao vivo (original)
 @congregacional Congregacional
+////
+----
 [Intro]
 
 Bm7 v  G9 v  D  A4
@@ -125,7 +126,6 @@ Vem Jesus, vem Jesus!
      Bm7                    A4
 Maranata, ora vem Senhor Jesus
 
-@!congregacional
        D          G
 Vem Jesus, vem Jesus!
      Bm7                    A4
@@ -137,7 +137,6 @@ Vem Jesus, vem Jesus!
 Maranata, ora vem Senhor Jesus
 
 [Refrão]
-#suave a partir daqui
 
  G              D
 Só em Ti confiarei,
@@ -154,7 +153,6 @@ do céu pra nos buscar
                  A4
 Pra sempre reinarás aleluia!
 
-@!congregacional remove pra reduzir repetição excessiva
 [Refrão]
 >G              D
 Só em Ti confiarei,
@@ -189,3 +187,10 @@ do céu pra nos buscar
 Pra sempre reinarás aleluia!
 
 ----
+
+////
+@!congregacional
+#suave a partir daqui
+@!congregacional remove pra reduzir repetição excessiva
+
+////
