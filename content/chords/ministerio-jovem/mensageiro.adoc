@@ -93,6 +93,8 @@ Que Jesus vai aqui voltar
        D    *    E   ( A4 * A )
 Que Jesus vai aqui voltar
 
+----
+////
 [{chords}]
 
 A = 4 3 1 1 1 4
@@ -105,8 +107,6 @@ E = X 6 5 3 4 3
 E4 = X 6 8 8 9 6
 F#m = 1 3 3 1 1 1
 
-----
-////
 // FIXME
 {chords} => variable replaced by localized words: Acordes
 could be used in Verse and any other block name or even used to replace intervals
