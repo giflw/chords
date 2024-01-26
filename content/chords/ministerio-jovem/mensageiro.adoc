@@ -113,10 +113,6 @@ could be used in Verse and any other block name or even used to replace interval
 {I} primeiro maior, mas as chaves não são necessárias, pois I e i não aparecem em acordes
 {IIm} segunda menor
 thus makeing possible simple replacement for transposition
- ////
-
- 
-////
 
 E|-----------------------------------------
 B|-----0-------0-------0---------0---------
@@ -131,5 +127,4 @@ G|-4-1-2-----|
 D|-----------| 
 A|-----------| 
 E|-----------| 
- ////
- 
+////
