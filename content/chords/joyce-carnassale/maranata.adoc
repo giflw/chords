@@ -11,9 +11,8 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
-:verificacao: total
+:verificacao: parcial
 :colunas: 5
-:video: https://www.youtube.com/watch?v=VU-fHwRKCWQ
 
 ////
 // teste

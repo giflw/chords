@@ -1,7 +1,7 @@
 {
     "highlight.regexes": {
         // nsschords block title
-        "^(\\[[\\p{L}\\p{M}\\p{Zs}0-9: -]+\\])$": {
+        "^(\\[[\\p{L}\\p{M}\\p{Zs}0-9: (){}-]+\\])$": {
             "filterFileRegex": ".*\\.adoc",
             "regexFlags": "gum",
             "decorations": [
@@ -118,6 +118,17 @@
         "^(//.*)$": {
             "filterFileRegex": ".*\\.adoc",
             "regexFlags": "um",
+            "decorations": [
+                {
+                    "color": "#ffffff",
+                    "backgroundColor": "#383838"
+                }
+            ]
+        },
+         // nsschords chords structre
+         "^([ABCDEFGbmsuMdIVivx0-9#/\\()%*<>v^~+ -]+[ ]*=[ ]*[0-9xX ]+)$": {
+            "filterFileRegex": ".*\\.adoc",
+            "regexFlags": "gum",
             "decorations": [
                 {
                     "color": "#ffffff",
