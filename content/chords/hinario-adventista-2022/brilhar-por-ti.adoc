@@ -4,8 +4,8 @@ Guilherme I F L Weizenmann
 :artista:  Hinário Adventista 7º Dia (2022)
 :tom: C
 :compasso: 4/4
-:dedilhado: P I M A I M A I
-:batida: V...v.v^.^v^.^v.
+:dedilhado: P I MA I
+:batida: V...v^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD 2022, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
