@@ -1,11 +1,25 @@
-import parser, { Node, EmptyNode, TitleNode, ArtistNode, DateTimeNode, DocumentNode, HeaderNode, ContentNode } from "../../main/typescript/parser";
+import { SimpleNode, ArtistNode, TitleNode } from "../../main/typescript/parser";
 import { describe, expect, test } from "@jest/globals";
 
+interface StandardVsParsed<T> {
+    standard: string
+    parsed: string
+    node: SimpleNode<T>
+}
+
+function of<T>(node: (standard: string) => SimpleNode<T>, standard: string, parsed: string): StandardVsParsed<T> {
+    return {
+        standard, parsed, node: node(standard)
+    };
+}
+
+const title: StandardVsParsed<string> = of(std => new TitleNode().parse(std), "= Song Title!", "Song Title!");
+const artist: StandardVsParsed<string> = of(std => new ArtistNode().parse(std), "Artist Name", "Artist Name");
 const nsscSource = `
-= Song Title!
-Artist Name
+${title.standard}
+${artist.standard}
 2020-12-20 23:58:59
-`;/*:bpm: 140
+:bpm: 140
 
 ----
 // just a comment
@@ -31,18 +45,39 @@ ut labore et dolore magna aliqua.
 ( G9 * A4  D > )
 
 ----
-*/
+`;
+
+/*
 const nssc = parser(nsscSource);
 
 const nsscAst: DocumentNode = new DocumentNode(
     nsscSource,
-    new HeaderNode(),
+    new HeaderNode(
+        "Song Title!",
+        "Artist Name",
+        new Date("2020-12-20 23:58:59"),
+        []
+    ),
     new ContentNode()
-);
+);*/
+
+// FIXME delete
+function foo(bar: unknown) {
+    `${bar}`;
+}
+foo(nsscSource);
 
 describe("chords parser tests", () => {
-    test("root node has text", () => {
+
+    test("parse title line", () => {
+        expect(title.node.value).toEqual(title.parsed);
+    });
+    test("parse artist line", () => {
+        expect(artist.node.value).toEqual(artist.parsed);
+    });
+
+    /*test("full parser", () => {
         expect(nssc.source).toEqual(nsscSource);
         expect(nssc).toEqual(nsscAst);
-    });
+    });*/
 });

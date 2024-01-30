@@ -1,101 +1,65 @@
-
-
-export interface NodeRegexPair {
-    factory: (value: string) => AbstractNode;
-    regex: RegExp;
-}
-
-export abstract class AbstractNode {
-
-    constructor() {
-    }
-
-    public isBlock(): boolean {
+export class Node {
+    isBlock() {
         return false;
     }
-
-    public abstract toString(): string;
 }
-
-export abstract class SimpleNode<T> extends AbstractNode {
-
-    protected _value: T | undefined;
-
-    constructor(_value?: T) {
+export class SimpleNode extends Node {
+    _value;
+    constructor(_value) {
         super();
         this._value = _value;
     }
-
-    public parse(text: string): SimpleNode<T> {
+    parse(text) {
         this.value = this._parse(text);
         return this;
     }
-
-    protected abstract _parse(text: string): T;
-
-    public get value(): T {
+    get value() {
         if (this._value) {
             return this._value;
         }
         throw "Value not set";
     }
-    protected set value(value: T) {
+    set value(value) {
         this._value = value;
     }
-
-
-    public toString(): string {
+    toString() {
         return `${this.value}`;
     }
 }
-
-export abstract class BlockNode extends AbstractNode {
-    protected abstract parseChildren(): void;
-
-    public isBlock(): boolean {
+export class BlockNode extends Node {
+    isBlock() {
         return true;
     }
 }
-
-export class TitleNode extends SimpleNode<string> {
-
-    public static readonly REGEX: RegExp = /^(?<value>= .*)$/m;
-
-    public constructor(value?: string) {
+export class TitleNode extends SimpleNode {
+    static REGEX = /^(?<value>= .*)$/m;
+    constructor(value) {
         super(value);
     }
-
-    protected _parse(text: string): string {
+    _parse(text) {
         return (text.startsWith("=") ? text.substring(1) : text).trim();
     }
 }
-
-export class ArtistNode extends SimpleNode<string> {
-    public static readonly REGEX: RegExp = /^(?<value>[\p{L}\p{M}\p{Zs}0-9:?!&,. _-]+)$/mu;
-
-    public constructor(value?: string) {
-        super(value);
+export class ArtistNode extends SimpleNode {
+    static REGEX = /^(?<value>[\p{L}\p{M}\p{Zs}0-9:?!&,. _-]+)$/mu;
+    constructor(value) {
+        super((value.startsWith("=") ? value.substring(1) : value).trim());
     }
-
-    protected _parse(text: string): string {
+    _parse(text) {
         return text.trim();
     }
 }
-
-export class DateTimeNode extends SimpleNode<Date> {
-    public static readonly REGEX: RegExp = /^(?<value>[0-9:/.Tz -]+)$/mu;
-
-    public constructor(value?: Date) {
+export class DateTimeNode extends SimpleNode {
+    static REGEX = /^(?<value>[0-9:/.Tz -]+)$/mu;
+    constructor(value) {
         super(value);
     }
-
-    protected _parse(text: string): Date {
+    _parse(text) {
         return new Date(text.trim());
     }
 }
-
-export abstract class AttributeNode extends AbstractNode { }
-
+export class AttributeNode extends Node {
+}
 /*
 export class HeaderNode extends BlockNode {
 
@@ -160,3 +124,9 @@ export default function parse(source: string): DocumentNode {
     return DocumentNode.parse(source);
 }
 */
+function foo() {
+    const newInstance = Object.create(ArtistNode.prototype);
+    newInstance.constructor.apply(newInstance);
+    return newInstance;
+}
+foo();
