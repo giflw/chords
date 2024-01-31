@@ -1,17 +1,18 @@
-export class Node {
+export class AbstractNode {
+    constructor() {
+    }
     isBlock() {
         return false;
     }
 }
-export class SimpleNode extends Node {
+export class SimpleNode extends AbstractNode {
     _value;
-    constructor(_value) {
+    constructor(value) {
         super();
-        this._value = _value;
+        this._value = value;
     }
     parse(text) {
-        this.value = this._parse(text);
-        return this;
+        return this.constructor(this._parse(text));
     }
     get value() {
         if (this._value) {
@@ -23,10 +24,10 @@ export class SimpleNode extends Node {
         this._value = value;
     }
     toString() {
-        return `${this.value}`;
+        return `${this._value}`;
     }
 }
-export class BlockNode extends Node {
+export class BlockNode extends AbstractNode {
     isBlock() {
         return true;
     }
@@ -43,7 +44,7 @@ export class TitleNode extends SimpleNode {
 export class ArtistNode extends SimpleNode {
     static REGEX = /^(?<value>[\p{L}\p{M}\p{Zs}0-9:?!&,. _-]+)$/mu;
     constructor(value) {
-        super((value.startsWith("=") ? value.substring(1) : value).trim());
+        super(value);
     }
     _parse(text) {
         return text.trim();
@@ -58,7 +59,59 @@ export class DateTimeNode extends SimpleNode {
         return new Date(text.trim());
     }
 }
-export class AttributeNode extends Node {
+/**
+ * :name: value
+ *
+ * :name: value
+ * value
+ */
+export class AttributeNode extends SimpleNode {
+    static REGEX = /^(?<value>:[a-zA-Z0-9_-]:.*)$/m;
+    _name;
+    constructor(name, value) {
+        super(value);
+        this._name = name;
+    }
+    _parse(text) {
+        // skip first : and split on second
+        const parts = text.substring(1).replaceAll(/[\r\n][ ]*[|]/, " ").split(":", 2);
+        this._name = parts[0];
+        return this._parse(parts[1]?.trim() ?? "");
+    }
+    get name() {
+        if (this._name) {
+            return this._name;
+        }
+        throw "Name not set";
+    }
+    set name(name) {
+        this._name = name;
+    }
+    toString() {
+        return `${this._name}${this._value ? ": " + this._value : ""}`;
+    }
+    /**
+     *
+     * @returns value splitted by "," or given separator
+     */
+    asList(separator = ",") {
+        return this._value?.split(separator) ?? [];
+    }
+    /**
+     *
+     * @returns true if stringTrue ("true") or "" or undefined
+     */
+    asBoolean(stringTrue = "true") {
+        return this._value === stringTrue || this._value === "" || this._value === undefined;
+    }
+    /**
+     *
+     * @param defaultIfUndefined default number to return if undefined value
+     * @returns value as number if not undefined or default otherwise
+     */
+    asNumber(defaultIfUndefined = 0) {
+        return this._value !== undefined ? (this._value.includes(".") ? Number.parseFloat(this._value) : Number.parseInt(this._value)) : defaultIfUndefined;
+    }
 }
 /*
 export class HeaderNode extends BlockNode {
@@ -124,9 +177,3 @@ export default function parse(source: string): DocumentNode {
     return DocumentNode.parse(source);
 }
 */
-function foo() {
-    const newInstance = Object.create(ArtistNode.prototype);
-    newInstance.constructor.apply(newInstance);
-    return newInstance;
-}
-foo();
