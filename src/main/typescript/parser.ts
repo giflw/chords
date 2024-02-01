@@ -1,5 +1,3 @@
-
-
 export interface NodeRegexPair<T> {
     factory: (value: string) => AbstractNode<T>;
     regex: RegExp;
@@ -87,15 +85,21 @@ export class ArtistNode extends SimpleNode<string, ArtistNode> {
     }
 }
 
-export class DateTimeNode extends SimpleNode<Date, DateTimeNode> {
-    public static readonly REGEX: RegExp = /^(?<value>[0-9:/.Tz -]+)$/mu;
+export class DateTimeNode extends SimpleNode<string, DateTimeNode> {
+    public static readonly REGEX: RegExp = /^(?<value>[0-9:/.TZz -]+)$/mu;
 
-    public constructor(value?: Date) {
+    public constructor(value?: string) {
         super(DateTimeNode, value);
     }
 
-    protected _parse(text: string): Date {
-        return new Date(text.trim());
+    protected _parse(text: string): string {
+        return text.trim();
+    }
+
+    public asDate(): Date {
+        if (this._content !== undefined) {
+            return new Date(this._content);
+        } throw new Error("Date is not set");
     }
 }
 
