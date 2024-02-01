@@ -1,5 +1,10 @@
-export interface NodeRegexPair<T> {
-    factory: (value: string) => AbstractNode<T>;
+export interface Node {
+    // FIXME add source: string property
+    toString(): string
+}
+
+export interface NodeRegexPair {
+    factory: (line: string) => Node;
     regex: RegExp;
 }
 
@@ -8,17 +13,42 @@ export interface Entry<T> {
     value: T | undefined
 }
 
-export abstract class AbstractNode<T> {
+export abstract class AbstractNode<N> implements Node {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    constructor(protected type: { new(...args: any): T }) {
+    constructor(protected type: { new(...args: any): N }) {
     }
+
+    public abstract parse(text: string): N;
 
     public isBlock(): boolean {
         return false;
     }
 
     public abstract toString(): string;
+}
+
+export class EmptyNode implements Node {
+
+    public static readonly REGEX: RegExp = /^(?<value>\s*)$/m;
+    public static readonly INSTANCE: EmptyNode = new EmptyNode();
+
+    private constructor() {
+    }
+
+    public toString(): string {
+        return "";
+    }
+}
+
+export class SeparatorNode implements Node {
+
+    public static readonly REGEX: RegExp = /^(?<value>[\s]*[-]{4}[\s]*)$/m;
+    public static readonly INSTANCE: SeparatorNode = new SeparatorNode();
+
+    public toString(): string {
+        return "----";
+    }
 }
 
 export abstract class SimpleNode<T, S extends SimpleNode<T, S>> extends AbstractNode<S> {
@@ -52,11 +82,37 @@ export abstract class SimpleNode<T, S extends SimpleNode<T, S>> extends Abstract
     }
 }
 
-export abstract class BlockNode extends AbstractNode<BlockNode> {
-    protected abstract parseChildren(): void;
+export class CommentNode extends SimpleNode<string, CommentNode> {
+
+    public static readonly REGEX: RegExp = /^(?<value>\s*\/\/.*)$/m;
+
+    constructor(content?: string) {
+        super(CommentNode, content);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public override _parse(text: string): string {
+        return text.split("//", 2)[1]?.trim() ?? "";
+    }
+
+    public override toString(): string {
+        return `// ${this._content}`;
+    }
+}
+
+export abstract class BlockNode<T extends BlockNode<T>> extends AbstractNode<T> {
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    constructor(type: { new(...args: any): T }, readonly nodes?: Node[]) {
+        super(type);
+    }
 
     public override isBlock(): boolean {
         return true;
+    }
+
+    public override toString(): string {
+        return this.nodes?.map(n => n.toString()).reduce((p, c) => p + "\n" + c) ?? "";
     }
 }
 
@@ -99,7 +155,8 @@ export class DateTimeNode extends SimpleNode<string, DateTimeNode> {
     public asDate(): Date {
         if (this._content !== undefined) {
             return new Date(this._content);
-        } throw new Error("Date is not set");
+        }
+        throw new Error("Date is not set");
     }
 }
 
@@ -111,7 +168,7 @@ export class DateTimeNode extends SimpleNode<string, DateTimeNode> {
  */
 export class AttributeNode extends SimpleNode<Entry<string>, AttributeNode> {
 
-    public static readonly REGEX: RegExp = /^(?<value>:[a-zA-Z0-9_-]:.*)$/m;
+    public static readonly REGEX: RegExp = /^(?<value>:[a-zA-Z0-9_-]+:.*)$/s;
 
     public constructor(nameOrEntry?: string | Entry<string>, value?: string) {
         super(AttributeNode, nameOrEntry ? ((typeof nameOrEntry === "string") ? { name: nameOrEntry, value } : nameOrEntry) : undefined);
@@ -180,66 +237,69 @@ export class AttributeNode extends SimpleNode<Entry<string>, AttributeNode> {
 
 }
 
-/*
-export class HeaderNode extends BlockNode {
+export class HeaderNode extends BlockNode<HeaderNode> {
 
     public static readonly REGEXES: NodeRegexPair[] = [
-        { factory: DateTimeNode.parse, regex: DateTimeNode.REGEX },
-        { factory: TitleNode.parse, regex: TitleNode.REGEX },
-        { factory: ArtistNode.parse, regex: ArtistNode.REGEX }
+        { factory: l => new CommentNode().parse(l), regex: CommentNode.REGEX },
+        { factory: () => SeparatorNode.INSTANCE, regex: SeparatorNode.REGEX },
+        { factory: l => new AttributeNode().parse(l), regex: AttributeNode.REGEX },
+        { factory: l => new DateTimeNode().parse(l), regex: DateTimeNode.REGEX },
+        { factory: l => new TitleNode().parse(l), regex: TitleNode.REGEX },
+        { factory: () => EmptyNode.INSTANCE, regex: EmptyNode.REGEX },
+        { factory: l => new ArtistNode().parse(l), regex: ArtistNode.REGEX }
     ];
 
-    constructor(readonly title: string, readonly artist: string, readonly datetime: Date, readonly attributes: AttributeNode[]) {
-        super();
+    constructor(nodes?: Node[]) {
+        super(HeaderNode, nodes);
     }
 
-    static parse(header: string): HeaderNode {
+    public split(text: string): string[] {
+        return text.split(/(?![\s]*[|]+)[\r\n]+/);
+    }
+
+    public override parse(text: string): HeaderNode {
+        const nodes: Node[] = this.split(text).map(text => {
+            const pair: NodeRegexPair | undefined = HeaderNode.REGEXES.find(pair => pair.regex.test(text));
+            if (pair === undefined) {
+                throw new Error(`Could not parse "${text}"`);
+            }
+            return pair.factory(text);
+        });
+        return new this.type(nodes);
+    }
+
+}
+
+export class ContentNode extends BlockNode<ContentNode> {
+
+    constructor() {
+        super(ContentNode);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public override parse(text: string): ContentNode {
         throw new Error("Method not implemented.");
     }
-}
 
-export class ContentNode extends Node {
-    static parse(content: string): ContentNode {
-        throw new Error("Method not implemented.");
-    }
 }
 
 
-export class DocumentNode extends Node {
-    readonly source: string;
-    readonly header: HeaderNode;
-    readonly content: ContentNode;
+export class DocumentNode extends BlockNode<DocumentNode> {
 
-    constructor(source: string, header: HeaderNode | string, content: ContentNode | string) {
-        super(source);
-        this.source = source;
-        this.header = typeof header === "string" ? HeaderNode.parse(header) : header;
-        this.content = typeof content === "string" ? ContentNode.parse(content) : content;
+    constructor(nodes?: Node[], readonly source?: string) {
+        super(DocumentNode, nodes);
     }
 
-    public static parse(source: string): DocumentNode {
-        source = source.trim().replaceAll(/[\r\n]+/, "\n");
-        const [header, content] = source.split("\n\n", 1);
-        return new DocumentNode(source, header, content);
+    public parse(source: string): DocumentNode {
+        const [header,] = source.split(SeparatorNode.REGEX, 2);
+        return new DocumentNode(
+            [new HeaderNode().parse(header), SeparatorNode.INSTANCE, new ContentNode()],
+            source
+        );
     }
 }
 
-export function parseLine(line: string, index: number, array: string[]): Node {
-    console.log(line, index, array);
-    let value: string | undefined = undefined;
-    const pair: NodeRegexPair | undefined = REGEXES.find(pair => {
-        value = pair.regex.exec(line)?.groups?.value;
-        const found = value !== undefined;
-        DEBUG.debugMatchers(pair.regex, line, found, value);
-        return found;
-    });
-    if (!pair || value === undefined) {
-        throw new Error(`Line matched no node: ${line}`);
-    }
-    const node = pair.factory(value, index, array);
-    return node;
-}
-
+/*
 export default function parse(source: string): DocumentNode {
     return DocumentNode.parse(source);
 }

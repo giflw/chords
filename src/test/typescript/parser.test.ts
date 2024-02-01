@@ -1,4 +1,4 @@
-import { SimpleNode, ArtistNode, TitleNode, AttributeNode, DateTimeNode } from "../../main/typescript/parser";
+import { SimpleNode, ArtistNode, TitleNode, AttributeNode, DateTimeNode, HeaderNode, EmptyNode, CommentNode } from "../../main/typescript/parser";
 import { describe, expect, test } from "@jest/globals";
 
 interface StandardVsParsed<S, T extends SimpleNode<S, T>> {
@@ -25,7 +25,7 @@ const attrText = of(AttributeNode, `:attr-name-text: foo
 const attrList = of(AttributeNode, `:attr-name-list: foo, 
                                              | bar`, "attr-name-list: foo, bar");
 
-const nsscSource = `
+const nsscHeaderSource = `
 ${title.standard}
 ${artist.standard}
 2020-12-20 23:58:59
@@ -34,7 +34,11 @@ ${attrFlag.standard}
 ${attrNum.standard}
 ${attrText.standard}
 ${attrList.standard}
+// comment
+`;
 
+const nsscSource = `
+${nsscHeaderSource}
 ----
 // just a comment
 @live Live version
@@ -96,9 +100,18 @@ describe("chords parser tests", () => {
         expect(attrList.node.toString()).toEqual(attrList.toString);
         expect(attrList.node.asList()).toEqual(["foo", "bar"]);
     });
-
-    /*test("full parser", () => {
-        expect(nssc.source).toEqual(nsscSource);
-        expect(nssc).toEqual(nsscAst);
-    });*/
+    test("parse header", () => {
+        expect(new HeaderNode().split(nsscHeaderSource)[1]).toEqual("= Song Title!");
+        expect(new HeaderNode().parse(nsscHeaderSource).nodes).toEqual([
+            EmptyNode.INSTANCE, title.node,
+            artist.node,
+            dateTime.node,
+            attrFlag.node,
+            attrNum.node,
+            attrText.node,
+            attrList.node,
+            new CommentNode().parse("// comment"),
+            EmptyNode.INSTANCE
+        ]);
+    });
 });
