@@ -71,7 +71,7 @@
             ]
         },
         // nsschords lines
-        "^([\\p{L}\\p{M}\\p{Zs}: ,.!?&_()-]+)$": {
+        "^([\\p{L}\\p{M}\\p{Zs}:; ,.!?&_()'\"-]+)$": {
             "filterFileRegex": ".*\\.adoc",
             "regexFlags": "gum",
             "decorations": [

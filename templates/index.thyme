@@ -71,6 +71,8 @@
         }
     </script>
 
+    <br class="m-3"/>
+
     <div th:replace="footer.thyme::footer"></div>
 </body>
 

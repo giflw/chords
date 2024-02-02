@@ -8,7 +8,7 @@ Guilherme I F L Weizenmann
 :batida: V...v.v^.^v^.^v.
 :instrumentos: violão ukulele
 :jbake-type: chords
-:jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
+:jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
 :verificacao: parcial
 :colunas: 3
 
