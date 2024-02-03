@@ -3,14 +3,15 @@ Guilherme I F L Weizenmann
 2023-04-25
 :artista: Adoradores Novo Tempo
 :duracao: 4:52
-:tom: Em (modo grego?)
+//:tom: Em (modo grego?)
+:tom: Em
 :compasso: 4/4
 :dedilhado: P I M A I M A I
-:batida: não dãrãgãdã
+:batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
-:verificacao: parcial
+:verificacao: total
 
 ----
 

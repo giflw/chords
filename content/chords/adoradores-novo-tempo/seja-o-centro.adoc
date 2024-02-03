@@ -6,11 +6,11 @@ Guilherme I F L Weizenmann
 :tom: Am
 :compasso: 4/4
 :dedilhado: P I M A I M A I
-:batida: não dãrãgãdã
+:batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
-:verificacao: parcial
+:verificacao: total
 :colunas: 3
 
 ----

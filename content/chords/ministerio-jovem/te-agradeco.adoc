@@ -6,10 +6,10 @@ Guilherme I F L Weizenmann
 :compasso: 6/8
 :dedilhado: P I M A M I
 :batida: ??
-:instrumentos: violão ukulele
+:instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, Ofertório, Gratidão, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:ofertorio
-:verificacao: parcial
+:verificacao: inicial
 :colunas: 3
 
 ----

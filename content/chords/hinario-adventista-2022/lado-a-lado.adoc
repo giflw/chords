@@ -3,21 +3,22 @@ Guilherme I F L Weizenmann
 2023-04-25
 :artista: Hinário Adventista 7º Dia (2022)
 :duracao: 2:53
-:tom: E
+:bpm: 70
+:tom: D
 :compasso: 4/4
 :dedilhado: P I MA I
-:batida: não dãrãgãdã
+:batida: V...v^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD 2022, repertorio:louvor-moinhos, repertorio:banda-moinhos
-:verificacao: parcial
+:verificacao: total
 
 ----
 [Intro]
 
 D A D G Am7 [vv] * D7 [v^]
 
-[Parte I]
+[Verso I]
 
 Em              A    D  *  A/C#  Bm
 Lado a lado aqui, crendo em Seu amor
@@ -43,7 +44,7 @@ Cantar canções em coro
 G       A        D   Am7 * D7
 Eu e você vamos lá!
 
-[Parte I]
+[Verso II]
 
 Em              A    D * A/C#  Bm
 Jóias somos nós da Pedra angular
@@ -55,7 +56,6 @@ G          A          D    Am7 * D7
 Lá nas mansões celestiais
 
 [Refrão]
-
 
  G               A
 Vamos para o Céu,

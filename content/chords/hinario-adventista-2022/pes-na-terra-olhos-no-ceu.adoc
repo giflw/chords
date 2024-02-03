@@ -5,7 +5,7 @@ Guilherme I F L Weizenmann
 :tom: C
 :compasso: 4/4
 :dedilhado: P I MA I
-:batida: não dãrãgãdã
+:batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD 2022, repertorio:louvor-moinhos, repertorio:banda-moinhos

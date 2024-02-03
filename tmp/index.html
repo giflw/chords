@@ -1,0 +1,113 @@
+<html>
+<body>
+<div style="position: relative">
+<pre style="font-size: 200%; color: DarkSlateGray; position: absolute; top: 16px; left: 0;">
+&#x250d;&#x252f;&#x252f;&#x252f;&#x252f;&#x2511;
+&#x251c;&#x253c;&#x253c;&#x253c;&#x253c;&#x2524;
+&#x251c;&#x253c;&#x253c;&#x253c;&#x253c;&#x2524;
+&#x251c;&#x253c;&#x253c;&#x253c;&#x253c;&#x2524;
+&#x251c;&#x253c;&#x253c;&#x253c;&#x253c;&#x2524;
+</pre>
+
+<pre style="font-size: 200%; font-weight: bold; color: black; position: absolute; top: 0; left: 0;">
+&#x25e6;&#x2022;&#x02e3;&#x25e6;&#x2022;&#x02e3;
+
+&#x25ac;&#x25ac;&#x25ac;&#x25ac;&#x25ac;&#x25ac;&#x2776;
+    &#x2777;
+  &#x2778;&#x2779;
+</pre>
+</div>
+
+
+
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    &#x277a;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&#x2514;&#x2534;&#x2534;&#x2534;&#x2534;&#x2518;
+
+</pre>
+    <pre>
+        C = X 3 2 0 1 0
+        D = X X 0 2 3 2
+        Em = 0 2 2 0 0 0
+        G = 3:2:0:0:0:3
+        G7 = P3 3 5 3 4 3 3
+    </pre>
+    <script>
+        document.querySelectorAll('pre').forEach(pre => {
+            let chords = pre.textContent.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            for(let chord of chords) {
+                console.log(chord);
+                let [ name, form ] = chord.split('=').map(p => p.trim());
+                form = form.split(/[\s:]/).map(f => [f, f.toLowerCase() === 'x' ? 'x' : Number(f)]);
+                console.table(form)
+                let nums = form.filter(f => !isNaN(f[1])).map(f => f[1]);
+                let max = Math.max(...nums);
+                console.log(nums, max)
+            }
+        });
+        </script>
+</body>
+</html>

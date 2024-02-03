@@ -2,14 +2,16 @@
 Guilherme I F L Weizenmann
 2024-02-02
 :artista: Daniel Lüdtke
-:tom: A
+:tom: E
 :compasso: 4/4
+:bpm: 90
+:duracao: 3:58
 :dedilhado: P I M A I M A I
-:batida: V...v.v^.^v^.^v.
+:batida: V....^v^v..^v^v..^..v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
-:verificacao: parcial
+:verificacao: total
 :colunas: 3
 
 
@@ -27,7 +29,7 @@ E  C#m7  D  A  A/B
 Ó Deus, Tu és o meu Deus forte
 E           Bsus     A9    %
 Eu Te busco ansiosamente
-      C#m7                A9    %
+      C#m7                A9
 A minh'alma tem sede de Ti
      C#m7           A9               F#m
 Meu corpo Te almeja como terra árida
@@ -65,7 +67,7 @@ Os meus lábios Te louvam
 Ó Deus, Tu és o meu Deus forte
 E           Bsus     A9    %
 Eu Te busco ansiosamente
-      C#m7                A9    %
+      C#m7                A9
 A minh'alma tem sede de Ti
      C#m7           A9               F#m
 Meu corpo Te almeja como terra árida
@@ -74,7 +76,7 @@ Exausta, sem água
 
 [Final]
 
-A5b  A  A5b  A  E7M  E  E
+A5b * A  A5b * A  E7M * E  E~
 
 ----
 ////

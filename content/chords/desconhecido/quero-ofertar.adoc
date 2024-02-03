@@ -1,11 +1,12 @@
 = Quero Ofertar
 Guilherme I F L Weizenmann
 2024-02-02
-:tom: A
+:tom: C
+:bpm: 65
 :compasso: 4/4
-:dedilhado: ??
-:batida: ??
-:instrumentos: violão ukulele
+:dedilhado: P I MA I
+:batida: V...v^v.
+:instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, Ofertório, Gratidão, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:ofertorio
 :verificacao: parcial

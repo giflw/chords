@@ -133,6 +133,9 @@
                                 <th:block th:if="${#strings.contains(content.instrumentos, 'violino')}">
                                     <i class="fa-fw fal fa-violin" title="Violino"></i>
                                 </th:block>
+                                <th:block th:if="${#strings.contains(content.instrumentos, 'ukulele')}">
+                                    <i class="fa-fw fal fa-mandolin" title="Ukulele"></i>
+                                </th:block>
                             </th:block>
                         </span>
 

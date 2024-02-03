@@ -5,13 +5,13 @@ Guilherme I F L Weizenmann
 :duracao: 5:42
 :tom: Bm
 :compasso: 4/4
-:bpm: 140
+:bpm: 80
 :dedilhado: P I M A I M A I
 :batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:grp-violao-e-cordas
-:verificacao: parcial
+:verificacao: total
 :colunas: 5
 
 ////

@@ -3,13 +3,15 @@ Guilherme I F L Weizenmann
 2024-01-25
 :artista: Ministério Jovem
 :tom: A
+:duracao: 3:05
+:bpm: 70
 :compasso: 4/4
-:dedilhado: P I M A I M A I
+:dedilhado: P I A M I M A M
 :batida: V...v.v^.^v^.^v.
 :instrumentos: violão ukulele
 :jbake-type: chords
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
-:verificacao: parcial
+:verificacao: total
 :colunas: 3
 
 ----
@@ -17,6 +19,21 @@ Guilherme I F L Weizenmann
 [Intro]
 
 F#m * D  A * E  (D * E  A4 * A)
+
+
+E|-------------------------
+B|-----0-------0-------0---
+G|-------2---2---2-------2-
+D|---2-----0---------2-----
+A|-----------------0-------
+E|-2-----------------------
+
+E|-------------------------| 
+B|-------0-----------------| 
+G|-----2---2--2-4-6-4-1-2--| 
+D|---2---------------------| 
+A|-------------------------| 
+E|-0-----------------------| 
 
 [Verso 1]
 
@@ -114,17 +131,4 @@ could be used in Verse and any other block name or even used to replace interval
 {IIm} segunda menor
 thus makeing possible simple replacement for transposition
 
-E|-----------------------------------------
-B|-----0-------0-------0---------0---------
-G|-------2---2---2-------2-----2---2--2-4-6
-D|---2-----0---------2-------2-------------
-A|-----------------0-----------------------
-E|-2-----------------------0---------------
-
-E|-----------| 
-B|-----------| 
-G|-4-1-2-----| 
-D|-----------| 
-A|-----------| 
-E|-----------| 
 ////
