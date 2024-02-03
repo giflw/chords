@@ -8,10 +8,30 @@
         <div th:replace="menu.thyme::menu" />
 
         <div class="container">
-            <h3 class="title">Cifras</h3>
+            <h3 class="title">
+                Cifras
+                <a href="?">
+                    <i class="fa-fw fal fa-badge has-text-dark" title="Todas"></i>
+                </a>
+                <a href="?verificacao=total">
+                    <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
+                </a>
+                <a href="?verificacao=parcial">
+                    <i class="fa-fw fas fa-badge-percent has-text-info"
+                    title="Verificado Parcialmente (Letra e Acordes)"></i>
+                </a>
+                <a href="?verificacao=inicial">
+                <i class="fa-fw fas fa-badge-percent has-text-warning"
+                    title="Verificado Parcialmente (Inicial)"></i>
+                </a>
+                <a href="?verificacao=null">
+                    <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
+                </a>
+            </h3>
             <ol id="chords-list" class="searchable" th:with="counter = ${ {} }">
                 <li th:each="post, iterator: ${published_content.{? #this.type == 'chords' }}"
-                    th:value="${counter.add(0), counter.size()}" class="py-3"
+                    th:class="'py-3 verificacao-' + ${post.verificacao}"
+                    th:value="${counter.add(0), counter.size()}"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a th:href="${post.uri}">
                         <span>
@@ -68,6 +88,14 @@
             let item = itemsArr[i];
             item.value = i + 1;
             list.appendChild(item);
+        }
+
+        const verificacao = new URLSearchParams(location.search).get('verificacao');
+        if (verificacao) {
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = `#chords-list > li:not(.verificacao-${verificacao}) { display: none; }`;
+            document.getElementsByTagName('head')[0].appendChild(style);
         }
     </script>
 

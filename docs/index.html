@@ -150,9 +150,29 @@
     </div>
 
         <div class="container">
-            <h3 class="title">Cifras</h3>
+            <h3 class="title">
+                Cifras
+                <a href="?">
+                    <i class="fa-fw fal fa-badge has-text-dark" title="Todas"></i>
+                </a>
+                <a href="?verificacao=total">
+                    <i class="fa-fw fas fa-badge-check has-text-success" title="Verificado (Letra, acordes e ritmica)"></i>
+                </a>
+                <a href="?verificacao=parcial">
+                    <i class="fa-fw fas fa-badge-percent has-text-info"
+                    title="Verificado Parcialmente (Letra e Acordes)"></i>
+                </a>
+                <a href="?verificacao=inicial">
+                <i class="fa-fw fas fa-badge-percent has-text-warning"
+                    title="Verificado Parcialmente (Inicial)"></i>
+                </a>
+                <a href="?verificacao=null">
+                    <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"></i>
+                </a>
+            </h3>
             <ol id="chords-list" class="searchable">
-                <li value="1" class="py-3"
+                <li class="py-3 verificacao-inicial"
+                    value="1"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/ministerio-jovem/te-agradeco.html">
                         <span>
@@ -183,7 +203,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="2" class="py-3"
+                <li class="py-3 verificacao-null"
+                    value="2"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/entrega.html">
                         <span>
@@ -215,7 +236,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="3" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="3"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/desconhecido/quero-ofertar.html">
                         <span>
@@ -246,7 +268,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="4" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="4"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/daniel-ludtke/os-meus-labios-te-louvam.html">
                         <span>
@@ -273,7 +296,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="5" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="5"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/daniel-ludtke/espera-em-deus.html">
                         <span>
@@ -300,7 +324,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="6" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="6"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/ministerio-jovem/mensageiro.html">
                         <span>
@@ -327,7 +352,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="7" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="7"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/pode-cair-o-mundo.html">
                         <span>
@@ -356,7 +382,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="8" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="8"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/brilhar-por-ti.html">
                         <span>
@@ -385,7 +412,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="9" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="9"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/daniel-ludtke/sonda-me.html">
                         <span>
@@ -412,7 +440,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="10" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="10"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/joyce-carnassale/maranata.html">
                         <span>
@@ -439,7 +468,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="11" class="py-3"
+                <li class="py-3 verificacao-parcial"
+                    value="11"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/deise-jacinto/retrovisor.html">
                         <span>
@@ -466,7 +496,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="12" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="12"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/adoradores-novo-tempo/nao-ha-o-que-temer.html">
                         <span>
@@ -493,7 +524,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="13" class="py-3"
+                <li class="py-3 verificacao-inicial"
+                    value="13"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/ministerio-jovem/inteiramente-fiel.html">
                         <span>
@@ -524,7 +556,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="14" class="py-3"
+                <li class="py-3 verificacao-null"
+                    value="14"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/jeferson-pillar/sede.html">
                         <span>
@@ -550,7 +583,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="15" class="py-3"
+                <li class="py-3 verificacao-null"
+                    value="15"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/pes-na-terra-olhos-no-ceu.html">
                         <span>
@@ -578,7 +612,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="16" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="16"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/lado-a-lado.html">
                         <span>
@@ -607,7 +642,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="17" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="17"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/ele-e-exaltado.html">
                         <span>
@@ -636,7 +672,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="18" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="18"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/hinario-adventista-2022/ele-e-exaltado-capo.html">
                         <span>
@@ -665,7 +702,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="19" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="19"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/adoradores-novo-tempo/teu-santo-nome.html">
                         <span>
@@ -692,7 +730,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="20" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="20"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/adoradores-novo-tempo/seja-o-centro.html">
                         <span>
@@ -719,7 +758,8 @@
                     </a>
                     <div style="clear: both;"></div>
                 </li>
-                <li value="21" class="py-3"
+                <li class="py-3 verificacao-total"
+                    value="21"
                     style="border-top: solid 1px; border-bottom: solid 1px; margin-bottom: -1px;">
                     <a href="chords/prisma-brasil/toma-meu-coracao.html">
                         <span>
@@ -771,6 +811,14 @@
             item.value = i + 1;
             list.appendChild(item);
         }
+
+        const verificacao = new URLSearchParams(location.search).get('verificacao');
+        if (verificacao) {
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = `#chords-list > li:not(.verificacao-${verificacao}) { display: none; }`;
+            document.getElementsByTagName('head')[0].appendChild(style);
+        }
     </script>
 
     <br class="m-3"/>
@@ -781,7 +829,7 @@
                     &copy; 2023
                     |
                     Última atualização
-                    03/02/2024 00:11:16
+                    03/02/2024 01:10:10
                 </p>
             </footer>-->
 
