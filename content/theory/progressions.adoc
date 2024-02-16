@@ -1,0 +1,13 @@
+= Progressões
+Guilherme I F L Weizenmann
+2024-02-16
+:jbake-type: page
+
+== Primeiras progressões
+
+Exemplos na escala de Dó maior:
+
+I – V – IV:: C G F
+I – IV – V:: C F G
+I – IV – VIm – V:: C F Am G
+I – V – VIm – IV:: C G Am F 
