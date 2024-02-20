@@ -1,0 +1,26 @@
+= Cifras
+Guilherme I F L Weizenmann
+2024-02-20
+:jbake-type: page
+
+== Nomes do acordes/notas
+
+[%header,format=csv]
+|===
+Dó, Ré, Mi, Fá, Sol, Lá, Si
+C, D, E, F, G, A, B
+|===
+
+== Acidentes
+
+[%header,format=csv]
+|===
+Bemol, Sustenido, Duplo bemol, Duplo sustenido
+b ou &#x266D;, # ou &#x266F;, bb ou &#x1d12b;, ## ou &#x1d12a;
+|===
+
+== Outros Símbolos
+
+Estes simbolos eu uso para aumentar a informação disponível na cifra para facilitar a execução da música:
+
+Mudança de compasso:: [.underline]##&**M/N**:## ou [.underline]##&**M/N**## onde **M/N** é o novo compasso. Caso tenha *:* a mudança afeta apenas o próximo compasso retornando ao compasso anterior logo após. Caso não tenha **:**, a mudança segue até o fim ou até uma nova alteração.

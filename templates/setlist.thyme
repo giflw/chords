@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header.thyme::head" />
+
+<body onload="prettyPrint()">
+    <div class="container" th:with="baseUrl=${config.site_host}">
+        <div th:replace="menu.thyme::menu" />
+        <div class="columns">
+            <div class="column is-one-third is-one-quarter-tablet" style="border-right: 1px solid darkgray">
+                <h3 class="title">Set Lists</h3>
+                <ul id="set-lists">
+                    <li th:each="setlist: ${all_content.{? #this.type == 'setlist' && #this.status != 'not-listed'}}"
+                        th:if="${ #dates.format(setlist.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) >= 0 }"
+                        th:data-expiration="${#dates.format(setlist.date,'yyyyMMdd')}"
+                        >
+                        <a th:href="${baseUrl} + ${setlist.uri }" th:title="${setlist.title}">
+                            <i class="-badge-check has-text-success"
+                                th:class="${'fa-fw far fa-' + (#strings.isEmpty(setlist.icon) ? 'list-music' : setlist.icon)}"></i>
+                            <span th:utext='${#strings.isEmpty(setlist.label) ? setlist.title : setlist.label}'>body</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="column" th:if="${!#strings.equals(content.status, 'not-listed')}"
+                th:with="lines = ${content.body.substring(content.body.indexOf('<pre>') + 5)},
+                        lines = ${lines.substring(0, lines.indexOf('</pre>'))}">
+                <h3 class="title" th:utext="${content.title}">title</h3>
+                <ol>
+                    <th:block th:each="line: ${lines.split('[\r\n]+[ ]*[\r\n]+')}"
+                        th:with="
+                            parts = ${line.split(':')},
+                            section = ${parts[0].trim()},
+                            song = ${parts[1].trim()},
+                            chords = ${#lists.toList(''.split(''))}
+                        ">
+                        <th:block th:each="post: ${published_content.{? #this.type == 'chords'}}">
+                            <th:block th:if="${#strings.containsIgnoreCase(post.title, song) or #strings.containsIgnoreCase(post.uri, song)}">
+                                <th:block th:if="${chords.add(post)}"></th:block>
+                            </th:block>
+                        </th:block>
+                        <li>
+                            <th:block th:switch="${chords.size()}">
+                                <a th:case="2" th:href="${baseUrl} + ${chords.get(1).uri}">
+                                    <spam th:text="${section} + ': ' + ${chords.get(1).title}"></spam>
+                                </a>
+                                <spam th:case="*" th:text="${section} + ': ' + ${song}"></spam>
+                            </th:block>
+                        </li>
+                    </th:block>
+                </ol>
+                <hr />
+            </div>
+        </div>
+
+        <script>
+            document.querySelectorAll("[data-expiration]").forEach(el => {
+                const today = (new Date()).toISOString().split('T')[0].replaceAll('-', '');
+                console.log(el.dataset.expiration, today, el.dataset.expiration < today)
+                if (el.dataset.expiration < today) {
+                    el.remove();
+                }
+            })
+        </script>
+
+    </div>
+    <div th:replace="footer.thyme::footer"></div>
+</body>
+
+</html>

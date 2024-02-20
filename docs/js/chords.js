@@ -24,11 +24,11 @@ if (chords) {
         }
         blanks = 0;
         lastWasSection = false;
-        console.log('line', text)
+        //console.log('line', text)
 
         if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
             lastWasSection = true;
-            console.log('section', text)
+            //console.log('section', text)
             sections++;
             if (section.children.length > 0) {
                 chords.appendChild(section);
@@ -39,14 +39,17 @@ if (chords) {
             section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
             line.classList.add("has-text-weight-bold");
             line.classList.add("my-5");
-        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^| ><\[\]/ mpf-]+$/.test(text)) {
+        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|\&: ><\[\]/ mpf-]+$/.test(text)) {
             console.log('chords', text)
-            //line.innerHTML = text.replace('v', '&#x2193;').replace('^', '&#x2191;')
+            line.innerHTML = text.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
+                //console.log(match);
+                return `<small><small>${match}</small></small>`;
+            });
             line.classList.add("mt-2");
             line.classList.add("has-text-primary");
             line.classList.add("has-text-weight-bold");
         }
-        console.log("end", line)
+        //console.log("end", line)
         section.appendChild(line);
     }
 
