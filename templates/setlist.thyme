@@ -14,11 +14,15 @@
                     <li th:each="setlist: ${all_content.{? #this.type == 'setlist' && #this.status != 'not-listed'}}"
                         th:if="${ #dates.format(setlist.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) >= 0 }"
                         th:data-expiration="${#dates.format(setlist.date,'yyyyMMdd')}"
+                        th:class="${
+                            #dates.format(setlist.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) == 0
+                            ? 'has-text-weight-bold' : ''
+                        }"
                         >
                         <a th:href="${baseUrl} + ${setlist.uri }" th:title="${setlist.title}">
                             <i class="-badge-check has-text-success"
                                 th:class="${'fa-fw far fa-' + (#strings.isEmpty(setlist.icon) ? 'list-music' : setlist.icon)}"></i>
-                            <span th:utext="${#dates.format(setlist.date,'yyyy MMM dd') + ': ' + setlist.title}">body</span>
+                            <span th:utext="${#dates.format(setlist.date,'EEE dd MMM yyyy') + ': ' + setlist.title}">body</span>
                         </a>
                     </li>
                 </ul>
@@ -30,7 +34,15 @@
                 <div class="column"
                     th:with="lines = ${content.body.substring(content.body.indexOf('<pre>') + 5)},
                             lines = ${lines.substring(0, lines.indexOf('</pre>'))}">
-                    <h3 class="title" th:utext="${content.title}">title</h3>
+                    <h3 class="title">
+                        [( ${content.title} )]
+                        <spam th:class="${
+                            #dates.format(content.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) == 0
+                            ? 'tag is-danger' : 'tag'
+                        }">
+                            [[ ${#dates.format(content.date,'EEE dd MMM yyyy')} ]]
+                        </spam>
+                    </h3>
                     <ol>
                         <th:block th:each="line: ${lines.split('[\r\n]+[ ]*[\r\n]+')}"
                             th:with="
