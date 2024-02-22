@@ -3,6 +3,15 @@
     border-radius: 0 !important;
 }
 */
+
+.tableblock.center {
+    margin: auto auto !important;
+}
+
+.tableblock .title {
+    font-size: 1rem;
+}
+
 ol {
     list-style: decimal-leading-zero inside;
 }
