@@ -7,6 +7,7 @@ A seção de toeria musical está dividida em várias partes, listadas abaixo:
 
 - link:./cifras.html[Cifras]
 - link:./progressions.html[Progressões]
+- link:./transposition-table.html[Tabela de transposição de notas e acordes]
 - link:./batidas.html[Batidas]
 - link:./music-parts.html[Parte componentes de músicas]
 

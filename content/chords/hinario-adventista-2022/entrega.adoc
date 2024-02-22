@@ -9,7 +9,7 @@ Guilherme I F L Weizenmann
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, Ofertório, Gratidão, HASD 2022, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:ofertorio
-//:verificacao: inicial
+:verificacao: inicial
 :colunas: 2
 
 

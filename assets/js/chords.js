@@ -39,12 +39,14 @@ if (chords) {
             section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
             line.classList.add("has-text-weight-bold");
             line.classList.add("my-5");
-        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|\&: ><\[\]/ mpf-]+$/.test(text)) {
+        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
             console.log('chords', text)
-            line.innerHTML = text.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
+            line.innerHTML = text;
+            line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
                 //console.log(match);
                 return `<small><small>${match}</small></small>`;
             });
+            line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
             line.classList.add("mt-2");
             line.classList.add("has-text-primary");
             line.classList.add("has-text-weight-bold");
