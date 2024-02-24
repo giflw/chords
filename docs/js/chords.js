@@ -49,7 +49,7 @@ function chords(mode = "full") {
                 switch(mode) {
                     case 'simplest':
                         // remove ** and * chords
-                        text = text.replace(/[^/][\*]+[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                        text = text.replace(/[^/][\*]+[^A-H%]+[^ ]+/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
                         text = text.replace(/\*\*$/, "  ")
@@ -58,7 +58,7 @@ function chords(mode = "full") {
                             return "".padStart(match.length, " ");
                         })
                         // remove inversions variation
-                        text = text.replace(/\/[^* ]+/g, (match) =>{
+                        text = text.replace(/\/[^* :0-9]+/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
                         break;
@@ -68,11 +68,7 @@ function chords(mode = "full") {
                             return "*".padStart(match.length, " ");
                         })
                         // remove ** chords
-                        text = text.replace(/[^/]\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
-                            return "".padStart(match.length, " ");
-                        })
-                        // remove ** chords
-                        text = text.replace(/[^/]\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                        text = text.replace(/[^/]\*\*[^A-H%]+[^ ]+/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
                         text = text.replace(/\*\*$/, "  ")
