@@ -16,7 +16,7 @@ function chords(mode = "full") {
 
         for (let i = 0; i < lines.length; i++) {
             let text = lines[i];
-            // console.log(text)
+            // //console.log(text)
             let line = document.createElement("p");
             line.textContent = text;
 
@@ -29,11 +29,11 @@ function chords(mode = "full") {
             }
             blanks = 0;
             lastWasSection = false;
-            //console.log('line', text)
+            ////console.log('line', text)
 
             if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
                 lastWasSection = true;
-                //console.log('section', text)
+                ////console.log('section', text)
                 sections++;
                 if (section.children.length > 0) {
                     nssc.appendChild(section);
@@ -45,18 +45,29 @@ function chords(mode = "full") {
                 line.classList.add("has-text-weight-bold");
                 line.classList.add("my-5");
             } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
-                console.log('chords', text)
+                //console.log('chords', text)
                 switch(mode) {
                     case 'simplest':
-                        text = text.replace(/\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                        // remove ** and * chords
+                        text = text.replace(/[^/][\*]+[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
-                        text = text.replace(/\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                        // remove (??) chords variation
+                        text = text.replace(/\([^ ]+\)/g, (match) =>{
+                            return "".padStart(match.length, " ");
+                        })
+                        // remove inversions variation
+                        text = text.replace(/\/[^* ]+/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
                         break;
                     case 'simple':
-                        text = text.replace(/\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                        // remove ** chords
+                        text = text.replace(/[^/]\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                            return "".padStart(match.length, " ");
+                        })
+                        // remove (??) chords variation
+                        text = text.replace(/\([^ ]+\)/g, (match) =>{
                             return "".padStart(match.length, " ");
                         })
                         break;
@@ -66,7 +77,7 @@ function chords(mode = "full") {
                 }
                 line.innerHTML = text;
                 line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
-                    //console.log(match);
+                    ////console.log(match);
                     return `<small><small>${match}</small></small>`;
                 });
                 line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
@@ -74,7 +85,7 @@ function chords(mode = "full") {
                 line.classList.add("has-text-primary");
                 line.classList.add("has-text-weight-bold");
             }
-            //console.log("end", line)
+            ////console.log("end", line)
             section.appendChild(line);
         }
 
@@ -93,7 +104,7 @@ chords('full')
 
 let strummings = document.querySelectorAll(".batida .content pre");
 strummings = strummings.length > 0 ? strummings : document.querySelectorAll(".batida");
-console.log("strummings", strummings);
+//console.log("strummings", strummings);
 strummings.forEach(strumming => {
     const text = strumming.textContent.trim();
     if (text === "N/I") {
@@ -160,10 +171,10 @@ bpmNote.forEach(node => {
 
 // print preview
 if (location.search.includes("print=true")) {
-    console.log("PRINT MODE");
+    //console.log("PRINT MODE");
     document.querySelectorAll("head>link[rel=stylesheet]").forEach(css => {
         /*if ("screen" == css.media) {
-            console.log("PRINT MODE :: Removing", css)
+            //console.log("PRINT MODE :: Removing", css)
             css.remove()
         } else*/ if ("print" == css.media) {
             let link = document.createElement("link");
@@ -171,11 +182,11 @@ if (location.search.includes("print=true")) {
             link.href = css.href;
             link.rel = css.rel;
             document.querySelector("head").appendChild(link);
-            console.log("PRINT MODE :: adding print link to screen", css);
+            //console.log("PRINT MODE :: adding print link to screen", css);
         } else {
-            console.log("PRINT MODE :: skipping", css);
+            //console.log("PRINT MODE :: skipping", css);
         }
     });
 } else {
-    console.log("SCREEN MODE");
+    //console.log("SCREEN MODE");
 }

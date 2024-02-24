@@ -22,7 +22,7 @@
                         <a th:href="${baseUrl} + ${setlist.uri }" th:title="${setlist.title}">
                             <i class="-badge-check has-text-success"
                                 th:class="${'fa-fw far fa-' + (#strings.isEmpty(setlist.icon) ? 'list-music' : setlist.icon)}"></i>
-                            <span th:utext="${#dates.format(setlist.date,'EEE dd MMM yyyy') + ': ' + setlist.title}">body</span>
+                            <span th:utext="${#dates.format(setlist.date,'EEE dd/MM/yyyy') + ': ' + setlist.title}">body</span>
                         </a>
                     </li>
                 </ul>
@@ -40,7 +40,7 @@
                             #dates.format(content.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) == 0
                             ? 'tag is-danger' : 'tag'
                         }">
-                            [[ ${#dates.format(content.date,'EEE dd MMM yyyy')} ]]
+                            [[ ${#dates.format(content.date,'EEE dd/MM/yyyy')} ]]
                         </spam>
                     </h3>
                     <ol>

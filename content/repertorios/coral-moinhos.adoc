@@ -1,0 +1,10 @@
+= Coral Moinhos
+Guilherme I F L Weizenmann
+2023-02-23
+:jbake-type: repertoire
+:repertorio: coral-moinhos
+:icon: users
+
+[horizontal]
+Local:: IASD Moinhos de Vento - Porto Alegre/RS
+Horário:: Sábados as 14h00

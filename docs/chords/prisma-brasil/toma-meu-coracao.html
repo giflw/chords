@@ -148,6 +148,11 @@
     </div>
         <div class="container-fluid">
             <div class="columns is-vcentered mb-0">
+                <div class="column is-narrow">
+                    <a onclick="history.back()">
+                        <i class="fa-fw fal fa-chevron-left fa-2x has-text-primary"></i>
+                    </a>
+                </div>
                 <div class="column has-text-left pb-0">
                     <h3 class="title" title="Título (Title)">
                         <i class="fa-fw fal fa-music has-text-primary"></i>
@@ -273,17 +278,25 @@
                             </a>
                         </span>
 
-                        <span class="mx-2" title="Dificuldade">
-                            <i class="fal fa-hand-sparkles  has-text-danger"></i>
-                            <a onclick="chords('full')" title="Completa">
-                                <i class="fa-fw fas fa-star-shooting has-text-warning"></i>
-                            </a>
-                            <a onclick="chords('simple')" title="Simples">
-                                <i class="fa-fw fas fa-stars has-text-info"></i>
-                            </a>
-                            <a onclick="chords('simplest')" title="Simplíssima">
-                                <i class="fa-fw fas fa-star has-text-success"></i>
-                            </a>
+                        <span id="dificulty" class="mx-2 is-screen-only is-print-preview" title="Dificuldade">
+                            <i class="fal fa-hand-sparkles has-text-danger"></i>
+                            <span class="icon fa-border">
+                                <i class="fa-fw fas fa-star-shooting has-text-warning" style="cursor: pointer" onclick="dificulty('full', event)" title="Completa"></i>
+                            </span>
+                            <span class="icon">
+                                <i class="fa-fw fas fa-stars has-text-info" style="cursor: pointer" onclick="dificulty('simple', event)" title="Simples"></i>
+                            </span>
+                            <span class="icon">
+                                <i class="fa-fw fas fa-star has-text-success" style="cursor: pointer" onclick="dificulty('simplest', event)" title="Simplíssima"></i>
+                            </span>
+                            <script>
+                                function dificulty(mode, event) {
+                                    chords(mode);
+                                    document.querySelectorAll('#dificulty .icon').forEach(el => el.classList.remove('fa-border'))
+                                    let source = event.srcElement;
+                                    event.target.parentNode.classList.add('fa-border')
+                                }
+                            </script>
                         </span>
 
                         <a class="mx-2 is-screen-only" href="?print=true" title="Imprimir">
@@ -370,7 +383,7 @@ G v</pre>
                     &copy; 2023
                     |
                     Última atualização
-                    23/02/2024 22:12:54
+                    23/02/2024 23:40:25
                 </p>
             </footer>-->
 

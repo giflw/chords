@@ -8,4 +8,4 @@ Guilherme I F L Weizenmann
 
 [horizontal]
 Local:: IASD Moinhos de Vento - Porto Alegre/RS
-Horário:: Sábados as 15h30
+Horário:: Sábados as 15h45
