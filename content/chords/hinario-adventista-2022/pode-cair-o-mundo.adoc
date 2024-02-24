@@ -17,9 +17,9 @@ Guilherme I F L Weizenmann
 
 [Intro] 
 
-( G * G/B ) * C7M   Am7 * ( D7(4) * D/C )
-G/B * C             G/D * ( D7(4) * D7 )
-Em7 * G/D           C * ( C/E * D/F# )
+G ** G/B * C7M      Am7  *  D7(4) ** D/C
+G/B      * C        G/D  *  D7(4) ** D7
+Em7      * G/D      C    *  C/E   ** D/F#
 
 [Verso]
 

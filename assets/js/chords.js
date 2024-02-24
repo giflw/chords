@@ -1,70 +1,95 @@
-const chords = document.querySelector(".chords");
-if (chords) {
-    const content = chords.textContent;
-    chords.innerHTML = "";
+function chords(mode = "full") {
+    document.querySelectorAll(".chords.nssc").forEach(el => el.remove());
+    const chords = document.querySelector(".chords:not(.nssc)");
+    const nssc = document.createElement("pre"); 
+    nssc.setAttribute("class", chords.getAttribute("class") + " nssc");
+    chords.parentNode.insertBefore(nssc, chords)
+    if (nssc) {
+        const content = chords.textContent;
+        nssc.innerHTML = "";
 
-    const lines = content.split("\n");
-    let section = document.createElement("div");
-    let sections = 0;
-    let blanks = 0;
-    let lastWasSection = false;
+        const lines = content.split("\n");
+        let section = document.createElement("div");
+        let sections = 0;
+        let blanks = 0;
+        let lastWasSection = false;
 
-    for (let i = 0; i < lines.length; i++) {
-        let text = lines[i];
-        // console.log(text)
-        let line = document.createElement("p");
-        line.textContent = text;
+        for (let i = 0; i < lines.length; i++) {
+            let text = lines[i];
+            // console.log(text)
+            let line = document.createElement("p");
+            line.textContent = text;
 
-        if (text.trim() === "") {
-            blanks++;
-            if (!lastWasSection && blanks == 1 && sections > 0) {
-                section.appendChild(document.createElement("br"));
+            if (text.trim() === "") {
+                blanks++;
+                if (!lastWasSection && blanks == 1 && sections > 0) {
+                    section.appendChild(document.createElement("br"));
+                }
+                continue;
             }
-            continue;
-        }
-        blanks = 0;
-        lastWasSection = false;
-        //console.log('line', text)
+            blanks = 0;
+            lastWasSection = false;
+            //console.log('line', text)
 
-        if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
-            lastWasSection = true;
-            //console.log('section', text)
-            sections++;
-            if (section.children.length > 0) {
-                chords.appendChild(section);
+            if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
+                lastWasSection = true;
+                //console.log('section', text)
+                sections++;
+                if (section.children.length > 0) {
+                    nssc.appendChild(section);
+                }
+
+                line.textContent = text.trim();
+                section = document.createElement("div");
+                section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
+                line.classList.add("has-text-weight-bold");
+                line.classList.add("my-5");
+            } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
+                console.log('chords', text)
+                switch(mode) {
+                    case 'simplest':
+                        text = text.replace(/\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                            return "".padStart(match.length, " ");
+                        })
+                        text = text.replace(/\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                            return "".padStart(match.length, " ");
+                        })
+                        break;
+                    case 'simple':
+                        text = text.replace(/\*\*[^A-H%]*[^A-H%]+[^ ]+/g, (match) =>{
+                            return "".padStart(match.length, " ");
+                        })
+                        break;
+                    case 'full':
+                    default:
+                        text = text;
+                }
+                line.innerHTML = text;
+                line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
+                    //console.log(match);
+                    return `<small><small>${match}</small></small>`;
+                });
+                line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
+                line.classList.add("mt-2");
+                line.classList.add("has-text-primary");
+                line.classList.add("has-text-weight-bold");
             }
-
-            line.textContent = text.trim();
-            section = document.createElement("div");
-            section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
-            line.classList.add("has-text-weight-bold");
-            line.classList.add("my-5");
-        } else if (/^[A-H1-9Mm#bdisu°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
-            console.log('chords', text)
-            line.innerHTML = text;
-            line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
-                //console.log(match);
-                return `<small><small>${match}</small></small>`;
-            });
-            line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
-            line.classList.add("mt-2");
-            line.classList.add("has-text-primary");
-            line.classList.add("has-text-weight-bold");
+            //console.log("end", line)
+            section.appendChild(line);
         }
-        //console.log("end", line)
-        section.appendChild(line);
-    }
 
-    if (sections == 0) {
-        while (section.childNodes.length > 0) {
-            chords.appendChild(section.childNodes[0]);
+        if (sections == 0) {
+            while (section.childNodes.length > 0) {
+                nssc.appendChild(section.childNodes[0]);
+            }
+        } else {
+            nssc.appendChild(section);
         }
-    } else {
-        chords.appendChild(section);
-    }
 
-    chords.classList.remove("cloak");
+        nssc.classList.remove("cloak");
+    }
 }
+chords('full')
 
 let strummings = document.querySelectorAll(".batida .content pre");
 strummings = strummings.length > 0 ? strummings : document.querySelectorAll(".batida");
