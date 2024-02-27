@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0"
+    "@angular/core": "^17.2.0",
+    "lit": "^3.1.2"
   },
   "dependencies": {
-    "lit": "^3.1.2",
     "tslib": "^2.3.0"
   },
-  "sideEffects": false,
+  "sideEffects": true,
   "devDependencies": {
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
