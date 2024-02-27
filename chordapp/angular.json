@@ -6,5 +6,140 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "not-so-simple-chords": {
+      "projectType": "library",
+      "root": "projects/not-so-simple-chords",
+      "sourceRoot": "projects/not-so-simple-chords/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/not-so-simple-chords/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/not-so-simple-chords/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/not-so-simple-chords/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/not-so-simple-chords/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "chords": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/chords",
+      "sourceRoot": "projects/chords/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/chords",
+            "index": "projects/chords/src/index.html",
+            "browser": "projects/chords/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/chords/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chords/src/favicon.ico",
+              "projects/chords/src/assets",
+              "projects/chords/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "projects/chords/src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "projects/chords/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/chords/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "serviceWorker": "projects/chords/ngsw-config.json"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "chords:build:production"
+            },
+            "development": {
+              "buildTarget": "chords:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "chords:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/chords/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chords/src/favicon.ico",
+              "projects/chords/src/assets",
+              "projects/chords/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "projects/chords/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }
