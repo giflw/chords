@@ -57,7 +57,7 @@
             "index": "projects/chords/src/index.html",
             "browser": "projects/chords/src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js", "@webcomponents/webcomponentsjs"
             ],
             "tsConfig": "projects/chords/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
