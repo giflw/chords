@@ -1,0 +1,26 @@
+{
+  "name": "not-so-simple-chords",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^17.2.0",
+    "@angular/core": "^17.2.0",
+    "lit": "^3.1.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": true,
+  "module": "fesm2022/not-so-simple-chords.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/not-so-simple-chords.mjs",
+      "esm": "./esm2022/not-so-simple-chords.mjs",
+      "default": "./fesm2022/not-so-simple-chords.mjs"
+    }
+  }
+}

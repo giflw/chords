@@ -1,0 +1,83 @@
+= A Benção (Simplificada em G)
+Guilherme I F L Weizenmann
+2024-02-23
+:artista: Matheus Rizzo
+:tom: G
+:compasso: 4/4
+:dedilhado: P I A M I M A M
+:batida: V...v.v^.^v^.^v.
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: repertorio:coral-moinhos
+:verificacao: parcial
+:colunas: 3
+
+
+----
+[Intro]
+
+G
+
+[Verso]
+
+G                C9
+  Que o Senhor te abençoe
+Em7           D4       D        Em7 
+   E faça brilhar seu rosto em ti
+           C9
+Que conceda Sua graça
+G   D      G
+  E te dê paz
+
+[Verso]
+
+G                C9
+  Que o Senhor te abençoe
+Em7           D4       D        Em7 
+   E faça brilhar seu rosto em ti
+           C9
+Que conceda Sua graça
+G   D      G  C9
+  E te dê paz
+
+[Refrão]
+
+Em7 C9   G     D/F#
+ Amém, amém, amém
+Em7 C9   G     D/F#
+ Amém, amém, amém
+
+[Interlúdio]
+
+Em7  C9  G  D4  D
+
+[Ponte]
+
+      Em7
+Que a bênção se derrame
+    C9
+Até mil gerações
+       G
+Tua família e teus filhos
+      D/F#
+E os filhos dos teus filhos
+
+[Ponte]
+
+      Em7
+Que a bênção se derrame
+    C9
+Até mil gerações
+       G
+Tua família e teus filhos
+      D/F#
+E os filhos dos teus filhos
+
+[Refrão]
+
+Em7 C9   G     D/F#
+ Amém, amém, amém
+Em7 C9   G     D/F#  
+ Amém, amém, amém
+
+----

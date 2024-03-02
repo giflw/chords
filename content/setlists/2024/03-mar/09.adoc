@@ -1,18 +1,21 @@
 = Louvor
 Guilherme I F L Weizenmann
-2024-03-02
+2024-03-09
 :jbake-type: setlist
 
 ----
 Escola Sabatina:
-    ???
+    ?????
 
 Ofertas:
-    ???
+    Toma meu coração
 
 Louvor 1:
-    ???
+    Pode cair o mundo
 
 Louvor 2:
-    ???
+    Brilhar por Ti
+
+Despedida:
+    ?????
 ----

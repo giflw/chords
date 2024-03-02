@@ -47,7 +47,7 @@ Sem medo, sem triste---za e sem rancor
 
   G * G/F#      Em       *      D
 A glória desta Terra é passagei-ra
-  Em7  *  G/D     C         *~   D4  D
+  Em7  *  G/D     C     *       D4 ** D
 A vida pas--sa, e tudo que ela traz
     G     *    C7M       Am7        *   D7(4)
 Não temo o futu--ro pois tenho Deus comi--go
@@ -56,7 +56,7 @@ Não temo o futu--ro pois tenho Deus comi--go
 
 [Interlúdio]
 
-( C  C/E  D/F# )
+C    *  C/E   ** D/F#
 
 [Verso]
 
@@ -73,7 +73,7 @@ Estar no mundo, mas    em Deus confiar
 
   G * G/F#      Em       *      D
 A glória desta Terra é passagei-ra
-  Em7  *  G/D     C         *~   D4  D
+  Em7  *  G/D     C      *       D4 ** D
 A vida pas--sa, e tudo que ela traz
     G     *    C7M       Am7        *   D7(4)
 Não temo o futu--ro pois tenho Deus comi--go
@@ -94,16 +94,16 @@ C7M   *   %  **  D4     B4 * B
 [Outro]
   G * G/F#      Em       *   D4 **  D
 A glória desta Terra é passagei-ra
-  Em7  *  G/D     C         *~   D4  D
+  Em7  *  G/D     C       *      D4 ** D
 A vida pas--sa, e tudo que ela traz
     G ** G/B * C7M       Am7        *   D7(4)
 Não temo o futu--ro pois tenho Deus comi--go
-**~ D/C    G/B *  C   G/D * D7(4)
-    Pode cair o mun-do
-**~ D/C    G/B * C ** D   Em7 *~ D *~ G/B *~ C
-    Pode cair o mun-do
-**~ D/C    G/B * C   G/D   D4 * D   G
-    Pode cair o mundo,     estou   em paz
+** D/C    G/B *  C   G/D * D7(4)
+   Pode cair o mun-do
+** D/C    G/B * C **~ D   Em7 ** D ** C
+   Pode cair o mun-do
+** D/C    G/B * C   G/D   D4 * D   Gv~
+   Pode cair o mundo,     estou   em paz
 
 ----
 ////

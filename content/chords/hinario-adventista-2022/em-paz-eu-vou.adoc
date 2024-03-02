@@ -1,0 +1,45 @@
+= Em Paz Eu Vou
+Guilherme I F L Weizenmann
+2024-03-01
+:artista: Hinário Adventista 7º Dia (2022)
+:instrumentos: violão
+:jbake-type: chords
+:verificacao:
+:colunas: 2
+
+
+----
+
+[Intro]
+
+        A2    A/C# G#/C C#m     Am6 
+ Achei abri go, em sua  ca  sa
+         E/B      A/B    E  Bsus7/E  E Bsus7/E E 
+Em paz estou com meu  Jesus
+
+    B/E    A     A/C#  B/D#   E
+Em  paz eu vou. Ouvi a voz de Deus
+   G#m7   A9 A   B/D#  Esus4  E
+Em paz eu vou. Estou feliz
+ E/G# B/A A  A/C#  G#/C  G#7/C# C#m  Am6
+Achei abrigo,  em  sua    ca    sa
+         E/B    F#m/B B7   E  Bsus7/E
+Em paz estou com meu    Jesus
+
+C Bb/D C/E  F    C/F    Bb      
+             Em  paz eu vou
+  Bb/D C/E    F
+Ouvi a voz de Deus
+   Am7    Bb9 Bb  C/E    Fsus4  F
+Em paz eu vou.  Estou  feliz
+  F/A  C/Bb Bb  Bb/D     A/C#  A7/D Dm  Bbm6
+Achei abri  go,      em  sua    ca  sa
+         F/C     Gm/C C7 F   Gm7
+Em paz estou com meu   Jesus
+
+  F/A  C/Bb Bb  Bb/D    A/C#   A7/D Dm  Bbm6
+Achei abri  go ,    em  sua    ca   sa
+         F/C    Gm/C C7   F  F4  F  F4 F
+Em paz estou com meu    Jesus
+
+----

@@ -1,0 +1,21 @@
+= Louvor
+Guilherme I F L Weizenmann
+2024-03-02
+:jbake-type: setlist
+
+----
+Escola Sabatina:
+    Meu Pastor (Salmo 23) - Daniel Ludtke
+
+Ofertas:
+    Quero Ofertar
+
+Louvor 1:
+    Pode cair o mundo
+
+Louvor 2:
+    Mensageiro
+
+Despedida:
+    Falar com Deus
+----

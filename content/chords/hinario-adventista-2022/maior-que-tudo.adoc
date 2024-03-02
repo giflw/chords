@@ -16,7 +16,7 @@ Guilherme I F L Weizenmann
 
 [Intro]
 
-! F#m  *  A/E
+? F#m  *  A/E
 D  *  A/C#
 Bm7  *~  A/C#
 D  *  E7(4)  **  E7
