@@ -19,6 +19,9 @@ Ofertas:
 Louvor 1:
     Brilhar Por Ti
 
+Louvor 1 - Alternativo:
+    Mensageiro
+
 Louvor 2:
     Teu Santo Nome
 

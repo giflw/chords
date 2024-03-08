@@ -46,7 +46,7 @@
                     <ol>
                         <th:block th:each="line: ${lines.split('[\r\n]+[ ]*[\r\n]+')}"
                             th:with="
-                                parts = ${line.split(':')},
+                                parts = ${line.split(':', 2)},
                                 section = ${parts[0].trim()},
                                 song = ${parts[1].trim()},
                                 chords = ${#lists.toList(''.split(''))}
@@ -57,8 +57,7 @@
                                 </th:block>
                             </th:block>
                             <li>
-                                <th:block th:switch="${chords.size()}">
-                                    <a th:case="2" th:with="post = ${chords.get(1)}" th:href="${baseUrl} + ${post.uri}">
+                                    <a th:if="${chords.size() >= 2}" th:with="post = ${chords.get(1)}" th:href="${baseUrl} + ${post.uri}">
                                         <i class="fa-fw fas fa-badge-check has-text-success"
                                             title="Verificado (Letra, acordes e ritmica)"
                                             th:if="${post.verificacao == 'total'}"></i>
@@ -71,11 +70,10 @@
                                             th:if="${#strings.isEmpty(post.verificacao)}"></i>
                                         <spam th:text="${section} + ': ' + ${post.title}"></spam>
                                     </a>
-                                    <spam th:case="*">
+                                    <spam th:unless="${chords.size() >= 2}">
                                         <i class="fa-fw fas fa-badge has-text-grey"></i>
                                         <spam th:text="${section} + ': ' + ${song}"></spam>
                                     </spam>
-                                </th:block>
                             </li>
                         </th:block>
                     </ol>
