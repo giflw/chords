@@ -4,13 +4,31 @@ Guilherme I F L Weizenmann
 :jbake-type: setlist
 
 ----
-Mensagem Musical - Escola Sabatina:
-    ????
+Escola Sabatina - Louvor:
+    Lado a Lado
 
-Mensagem Musical - Louvor:
-    ???
+Escola Sabatina - Abertura - Mensagem Musical:
+    Deus sabe, Deus ouve, Deus vê
 
-Mensagem Musical - Apelo:
-    ???
+Escola Sabatina - Encerramento - Mensagem Musical:
+    A Ele a Glória
+
+Ofertas:
+    Quero Ofertar
+
+Louvor 1:
+    Brilhar Por Ti
+
+Louvor 2:
+    Teu Santo Nome
+
+Fundo musical oração:
+    Oceanos
+
+Louvor - Mensagem Musical:
+    Eu Clamo Cristo
+
+Apelo - Mensagem Musical:
+    A Benção
 
 ----

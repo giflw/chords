@@ -8,7 +8,7 @@ Guilherme I F L Weizenmann
 :batida: V...v^v.
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: Louvor, Ofertório, Gratidão, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:ofertorio
+:jbake-tags: Ofertório, repertorio:louvor-moinhos, repertorio:banda-moinhos, repertorio:ofertorio
 :verificacao: parcial
 :colunas: 2
 
@@ -52,7 +52,7 @@ Posso ver o céu   a    chover bençãos sem fim
 
 F        C/E     C7+/G   *   E/G#          Am  * F
 Quero receber o   Espíri-----to         em mim
-C9         Dm7           F  *  G9        C
+C9         Dm7           F     G9        C
 Posso ver o céu   a    chover bençãos sem fim
 
 [Outro]

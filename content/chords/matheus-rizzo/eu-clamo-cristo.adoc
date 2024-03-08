@@ -15,6 +15,7 @@ Guilherme I F L Weizenmann
 
 ----
 [Intro]
+#suave
 
 E  *  E4    E
 
@@ -51,6 +52,7 @@ Quebra as muralhas Brilha entre as trevas
 Sê meu farol
 
 [Verso]
+#crescendo
 
  E    *    E4            E
 Quero invocar o nome Cristo
@@ -62,6 +64,7 @@ E sobre os cativos, depressivos
 Clamo Cristo
 
 [Refrão]
+#forte
 
 /*          B                 A
 Teu nome é força  Teu nome é cura
@@ -104,6 +107,7 @@ Quebra as muralhas Brilha entre as trevas
 Sê meu farol
 
 [Outro]
+#suave
 
  E   *    E4           E
 Quero invocar o nome, Cristo

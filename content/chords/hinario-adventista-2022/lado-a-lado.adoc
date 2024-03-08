@@ -14,9 +14,14 @@ Guilherme I F L Weizenmann
 :verificacao: total
 
 ----
-[Intro]
+[Intro - Hinário]
 
 D A D G Am7 [vv] * D7 [v^]
+
+
+[Intro - Alternativa]
+
+D  A  D  G  Am7!  D7v
 
 [Verso I]
 

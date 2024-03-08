@@ -35,8 +35,8 @@ E às vezes parece difí-cil entender
 Que o cristão é exemplo mesmo sem o querer
       G                 %
 E por isso mesmo eu preciso orar
-        Dm7     *~     C/E  F                       Gsus
-Pra que Deus me ilumine      assim eu possa brilhar
+        Dm7   *~   C/E  F                    Gsus
+Pra que Deus me ilumine  assim eu possa brilhar
 
 [Refrão]
 
@@ -50,12 +50,16 @@ Eu quero que através da minha vida
 Alguém possa Te enxergar
          F            G         
 Faze com que mesmo sem palavras,
-Am     *     G (* Em)  F
+Am     *     G (* Em)  F   %
  eu fale do Teu   a---mor
                 Dm7
 Eu quero brilhar   por Ti
-   G7sus               C   %   F/C
+   G7sus               C    F/C
 Brilhar onde quer que for
+
+[Interlúdio]
+
+C    F/C
 
 [Verso]
 
@@ -79,6 +83,13 @@ E o que devo fazer      é segurar Sua mão
 
 [Refrão]
 
+[Outro]
+
+C F/C C F/C
+
+----
+
+////
 C/E                     F
  Senhor eu quero brilhar por Ti
 G                   C       %
@@ -96,7 +107,9 @@ Eu quero brilhar   por Ti
    G7sus               C   ( G/B   A7(4)  A/G )
 Brilhar onde quer que for
 
-----
+   ----
+////
+
 ////
 
 [Refrão (Tom acima)]
