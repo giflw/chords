@@ -36,12 +36,12 @@
                             lines = ${lines.substring(0, lines.indexOf('</pre>'))}">
                     <h3 class="title">
                         [( ${content.title} )]
-                        <spam th:class="${
+                        <span th:class="${
                             #dates.format(content.date,'yyyyMMdd').compareTo(#dates.format(#dates.createNow(),'yyyyMMdd')) == 0
                             ? 'tag is-danger' : 'tag'
                         }">
                             [[ ${#dates.format(content.date,'EEE dd/MM/yyyy')} ]]
-                        </spam>
+                        </span>
                     </h3>
                     <ol>
                         <th:block th:each="line: ${lines.split('[\r\n]+[ ]*[\r\n]+')}"
@@ -57,23 +57,25 @@
                                 </th:block>
                             </th:block>
                             <li>
-                                    <a th:if="${chords.size() >= 2}" th:with="post = ${chords.get(1)}" th:href="${baseUrl} + ${post.uri}">
-                                        <i class="fa-fw fas fa-badge-check has-text-success"
-                                            title="Verificado (Letra, acordes e ritmica)"
-                                            th:if="${post.verificacao == 'total'}"></i>
-                                        <i class="fa-fw fas fa-badge-percent has-text-info"
-                                            title="Verificado Parcialmente (Letra e Acordes)"
-                                            th:if="${post.verificacao == 'parcial'}"></i>
-                                        <i class="fa-fw fas fa-badge-percent has-text-warning"
-                                            title="Verificado Parcialmente (Inicial)" th:if="${post.verificacao == 'inicial'}"></i>
-                                        <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"
-                                            th:if="${#strings.isEmpty(post.verificacao)}"></i>
-                                        <spam th:text="${section} + ': ' + ${post.title}"></spam>
-                                    </a>
-                                    <spam th:unless="${chords.size() >= 2}">
-                                        <i class="fa-fw fas fa-badge has-text-grey"></i>
-                                        <spam th:text="${section} + ': ' + ${song}"></spam>
-                                    </spam>
+                                <a th:if="${chords.size() >= 2}" th:with="post = ${chords.get(1)}" th:href="${baseUrl} + ${post.uri}">
+                                    <i class="fa-fw fas fa-badge-check has-text-success"
+                                        title="Verificado (Letra, acordes e ritmica)"
+                                        th:if="${post.verificacao == 'total'}"></i>
+                                    <i class="fa-fw fas fa-badge-percent has-text-info"
+                                        title="Verificado Parcialmente (Letra e Acordes)"
+                                        th:if="${post.verificacao == 'parcial'}"></i>
+                                    <i class="fa-fw fas fa-badge-percent has-text-warning"
+                                        title="Verificado Parcialmente (Inicial)" th:if="${post.verificacao == 'inicial'}"></i>
+                                    <i class="fa-fw fas fa-badge has-text-danger" title="Não verificado"
+                                        th:if="${#strings.isEmpty(post.verificacao)}"></i>
+                                    [[ ${post.title} ]]
+                                </a>
+                                <th:block th:unless="${chords.size() >= 2}">
+                                    <i class="fa-fw fas fa-badge has-text-grey"></i>
+                                    <span th:text="${section} + ': ' + ${song}"></span>
+                                </th:block>
+                                
+                                <span class="tag">[[ ${section} ]]:</span>
                             </li>
                         </th:block>
                     </ol>

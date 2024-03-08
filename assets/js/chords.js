@@ -23,16 +23,21 @@ function chords(mode = "full") {
 
                 if (text.trim() === "") {
                     blanks++;
-                    if (!lastWasSection && blanks == 1 && sections > 0) {
-                        section.appendChild(document.createElement("br"));
-                    }
+                    // if (!lastWasSection && blanks == 1 && sections > 0) {
+                    //     section.appendChild(document.createElement("br"));
+                    // }
                     continue;
                 }
                 blanks = 0;
                 lastWasSection = false;
                 ////console.log('line', text)
 
-                if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
+                if (text.trim().startsWith("#")) {
+                    const tags = text.trim().split("#").filter(t => t.length > 0).map(t => `<span class="tag">${t.trim()}</span>`).join(" ")
+                    line.innerHTML = tags;
+                    line.classList.add("m-0");
+                    line.classList.add("p-1");
+                } else if (/^ *\[[A-Za-zÀ-ÖØ-öø-ÿ0-9?{} -]+\] *$/.test(text)) {
                     lastWasSection = true;
                     ////console.log('section', text)
                     sections++;
@@ -44,7 +49,7 @@ function chords(mode = "full") {
                     section = document.createElement("div");
                     section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
                     line.classList.add("has-text-weight-bold");
-                    line.classList.add("my-5");
+                    line.classList.add("mt-5");
                 } else if (/^[A-H1-9Mm#bdisue°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
                     //console.log('chords', text)
                     switch(mode) {
@@ -88,7 +93,7 @@ function chords(mode = "full") {
                         return `<small><small>${match}</small></small>`;
                     });
                     line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
-                    line.classList.add("mt-2");
+                    line.classList.add(lastWasSection ? "mt-5" : "mt-2");
                     line.classList.add("has-text-primary");
                     line.classList.add("has-text-weight-bold");
                 }
