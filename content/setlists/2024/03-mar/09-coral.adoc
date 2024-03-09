@@ -7,31 +7,29 @@ Guilherme I F L Weizenmann
 Escola Sabatina - Louvor:
     Lado a Lado
 
-Escola Sabatina - Abertura - Mensagem Musical:
-    Deus sabe, Deus ouve, Deus vê
-
-Escola Sabatina - Encerramento - Mensagem Musical:
-    A Ele a Glória
+Escola Sabatina - Mensagem Musical:
+    Retrovisor
 
 Ofertas:
     Quero Ofertar
 
 Louvor 1:
-    Brilhar Por Ti
-
-Louvor 1 - Alternativo:
     Mensageiro
 
 Louvor 2:
     Teu Santo Nome
 
-Fundo musical oração:
-    Oceanos
+Louvor Alternativo:
+    Brilhar Por Ti
 
-Louvor - Mensagem Musical:
+Coral 1:
     Eu Clamo Cristo
 
-Apelo - Mensagem Musical:
+Coral 2:
     A Benção
+
+Coral 3:
+    A Ele a Glória
+
 
 ----

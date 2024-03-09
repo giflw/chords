@@ -75,7 +75,7 @@
                                     <span th:text="${section} + ': ' + ${song}"></span>
                                 </th:block>
                                 
-                                <span class="tag">[[ ${section} ]]:</span>
+                                <span class="tag">[[ ${section} ]]</span>
                             </li>
                         </th:block>
                     </ol>

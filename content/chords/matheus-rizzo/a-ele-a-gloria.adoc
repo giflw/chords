@@ -19,7 +19,10 @@ Guilherme I F L Weizenmann
 
 Dm %
 
+#solo-meio
+e |--3--1--0--1--0--
 
+#solo-fim
 e |--3--1--0--1-----
 B |--------------3--
 
@@ -36,8 +39,8 @@ Porque dele por Ele, para Ele são todas as coisas
 
 [Refrão]
 
-         Bb    C           F  C/E  Dm
-A Ele a gloooria a ele a gló_____ria
+         Bb    C           F * C/E  Dm
+A Ele a gloooria a ele a gló______ria
          Bb  C              Dm
 A Ele a glória pra sempre amém
 
@@ -48,15 +51,15 @@ Tão profundas riquezas, o saber e o conhecer de Deus
 Tão insondáveis seus juízos e seus caminhos
 
 [Refrão]
-         Bb    C           F  C/E  Dm
-A Ele a gloooria a ele a gló_____ria
+         Bb    C           F * C/E  Dm
+A Ele a gloooria a ele a gló______ria
          Bb  C             Dm
 A Ele a glória pra sempre amém
 
 
 [Refrão]
-         Bb    C           F  C/E  Dm
-A Ele a gloooria a ele a gló_____ria
+         Bb    C           F * C/E  Dm
+A Ele a gloooria a ele a gló______ria
          Bb  C             Dm
 A Ele a glória pra sempre amém
 

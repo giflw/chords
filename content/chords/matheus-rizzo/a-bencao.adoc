@@ -23,7 +23,7 @@ F#m7 D  A/E  E
 
   A           D/F#    A/E
 Que o Senhor te abençoe
-            E      Fdim    F#m7
+            E   *  Fdim    F#m7
 E faça brilhar seu rosto em ti
            D        A/C#
 Que conceda Sua graça
@@ -32,7 +32,7 @@ E te dê a paz
 
   A           D/F#    A/E
 Que o Senhor te abençoe
-            E      Fdim    F#m7
+            E   *  Fdim    F#m7
 E faça brilhar seu rosto em ti
            D        A/C#
 Que conceda Sua graça
@@ -48,7 +48,7 @@ F#m5+  D       A/E   E
 
   A           D/F#    A/E
 Que o Senhor te abençoe
-            E      Fdim    F#m7
+            E   *  Fdim    F#m7
 E faça brilhar seu rosto em ti
            D        A/C#
 Que conceda Sua graça
