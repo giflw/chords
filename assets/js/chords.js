@@ -16,7 +16,6 @@ function chords(mode = "full") {
             let lastWasSection = false;
 
             for (let i = 0; i < lines.length; i++) {
-                let hasSpacer = false;
                 let text = lines[i];
                 // //console.log(text)
                 let line = document.createElement("p");
@@ -25,8 +24,7 @@ function chords(mode = "full") {
                 if (text.trim() === "") {
                     blanks++;
                     if (!lastWasSection && blanks == 1 && sections > 0) {
-                        //section.appendChild(document.createElement("br"));
-                        hasSpacer = true;
+                        section.appendChild(document.createElement("br"));
                     }
                     continue;
                 }
@@ -95,7 +93,7 @@ function chords(mode = "full") {
                         return `<small><small>${match}</small></small>`;
                     });
                     line.innerHTML = line.innerHTML.replace("!", "<big>!</big>");
-                    line.classList.add(lastWasSection || hasSpacer ? "mt-5" : "mt-2");
+                    line.classList.add(lastWasSection ? "mt-5" : "mt-2");
                     line.classList.add("has-text-primary");
                     line.classList.add("has-text-weight-bold");
                 }
