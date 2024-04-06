@@ -13,6 +13,7 @@ Guilherme I F L Weizenmann
 :jbake-tags: Louvor, repertorio:louvor-moinhos, repertorio:banda-moinhos
 :verificacao: total
 //:colunas: 3
+
 ----
 [Intro]
 A9 *~ A7M  D9/A

@@ -1,4 +1,4 @@
-= Em Paz Eu Vou
+= Em Paz Eu Vou (600)
 Guilherme I F L Weizenmann
 2024-03-01
 :artista: Hinário Adventista 7º Dia (2022)
@@ -11,11 +11,13 @@ Guilherme I F L Weizenmann
 ----
 
 [Intro]
-
+#voz-opcional
         A2    A/C# G#/C C#m     Am6 
  Achei abri go, em sua  ca  sa
          E/B      A/B    E  Bsus7/E  E Bsus7/E E 
 Em paz estou com meu  Jesus
+
+[Verso 1]
 
     B/E    A     A/C#  B/D#   E
 Em  paz eu vou. Ouvi a voz de Deus
@@ -25,6 +27,8 @@ Em paz eu vou. Estou feliz
 Achei abrigo,  em  sua    ca    sa
          E/B    F#m/B B7   E  Bsus7/E
 Em paz estou com meu    Jesus
+
+[Verso 2]
 
 C Bb/D C/E  F    C/F    Bb      
              Em  paz eu vou
@@ -36,6 +40,8 @@ Em paz eu vou.  Estou  feliz
 Achei abri  go,      em  sua    ca  sa
          F/C     Gm/C C7 F   Gm7
 Em paz estou com meu   Jesus
+
+[Outro]
 
   F/A  C/Bb Bb  Bb/D    A/C#   A7/D Dm  Bbm6
 Achei abri  go ,    em  sua    ca   sa

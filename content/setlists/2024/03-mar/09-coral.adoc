@@ -2,6 +2,7 @@
 Guilherme I F L Weizenmann
 2024-03-09
 :jbake-type: setlist
+:jbake-status: not-listed
 
 ----
 Escola Sabatina - Louvor:
