@@ -1,8 +1,9 @@
 #!/bin/bash
+set -euxo pipefail
 
 auto=false
 
-if [ "$1" = '-a' ]; then
+if [ "${1:-}" = '-a' ]; then
     auto=true
 fi
 
