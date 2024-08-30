@@ -1,0 +1,11 @@
+= Louvor
+Guilherme I F L Weizenmann
+2024-08-31
+:jbake-type: setlist
+//:jbake-status: not-listed
+
+----
+Mensagem:
+    Eu Relembro
+    Pescador de Homens
+----

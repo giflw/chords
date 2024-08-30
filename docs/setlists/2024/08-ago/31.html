@@ -1,9 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
+
+<head>
 	    <meta charset="utf-8"/>
-	    <title>Sobre</title>
+	    <title>Louvor</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	    <meta name="description" content=""/>
 	    <meta name="author" content="Guilherme I F L Weizenmann"/>
@@ -30,9 +31,10 @@
 	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>-->
 	    <link rel="shortcut icon" href="https://giflw.github.io/chords/favicon.ico"/>
 	</head>
-	<body onload="prettyPrint()">
-	<div id="wrap">
-		<div>
+
+<body onload="prettyPrint()">
+    <div class="container">
+        <div>
         <div class="navbar is-white is-screen-only">
             <div class="container">
                 <div class="navbar-brand">
@@ -148,22 +150,132 @@
         </script>
 
     </div>
-		<div class="container">
-	
-			<div class="page-header">
-				<h1>Sobre</h1>
-			</div>
-		
-			<p><em>25 abril 2023</em></p>
-		
-			<p><div class="paragraph"> 
- <p>Minha coleção de cifras com notação customizada =D.</p> 
-</div></p>
-		
-			<hr />
-		</div>
-	</div>
-	<div>
+        <div class="columns">
+            <div class="column is-one-third is-one-quarter-tablet" style="border-right: 1px solid darkgray">
+                <h3 class="title">Set Lists</h3>
+                <ul id="set-lists">
+                    <li data-expiration="20240831"
+                        >
+                        <a href="https://giflw.github.io/chords/setlists/2024/08-ago/31.html" title="Louvor">
+                            <i class="fa-fw far fa-list-music"></i>
+                            <span>sáb. 31/08/2024: Louvor</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+                <div class="column">
+                    <h3 class="title">
+                        Louvor
+                        <span class="tag">
+                            sáb. 31/08/2024
+                        </span>
+                    </h3>
+                    <ol>
+                        
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            <li>
+                                
+                                
+                                    <i class="fa-fw fas fa-badge has-text-grey"></i>
+                                    <span>Mensagem: Eu Relembro
+    Pescador de Homens</span>
+                                
+                                
+                                <span class="tag">Mensagem</span>
+                            </li>
+                        
+                    </ol>
+                    <hr />
+                </div>
+            
+        </div>
+
+        <script>
+            document.querySelectorAll("[data-expiration]").forEach(el => {
+                const today = (new Date()).toISOString().split('T')[0].replaceAll('-', '');
+                console.log(el.dataset.expiration, today, el.dataset.expiration < today)
+                if (el.dataset.expiration < today) {
+                    el.remove();
+                }
+            })
+        </script>
+
+    </div>
+    <div>
             <!--<footer class="footer text-center is-screen-only">
                 <p>
                     &copy; 2023
@@ -179,5 +291,6 @@
                 <script src="https://giflw.github.io/chords/js/chords.js"></script>
             
         </div>
-    </body>
+</body>
+
 </html>
