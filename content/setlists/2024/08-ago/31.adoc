@@ -1,11 +1,19 @@
-= Louvor
+= Mensagem Musical - Glória
 Guilherme I F L Weizenmann
 2024-08-31
 :jbake-type: setlist
 //:jbake-status: not-listed
 
 ----
-Mensagem:
+Mensagem 1:
     Eu Relembro
+
+Mensagem 2:
     Pescador de Homens
+
+Mensagem 3:
+    Deus do Impossível
+
+Mensagem 4:
+    Minha Essência
 ----
