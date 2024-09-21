@@ -3,7 +3,12 @@ set -euxo pipefail
 
 auto=false
 
-if [ "${1:-}" = '-a' ]; then
+if [ -z "${1:-}" ]; then
+    echo "Commit message or -a"
+    exit 1
+fi
+
+if [ "${1}" = '-a' ]; then
     auto=true
 fi
 
@@ -13,6 +18,6 @@ git add .
 if [ "$auto" = 'true' ]; then
     git commit -m 'Update chords'
 else
-    git commit
+    git commit -m "$1"
 fi
 git push

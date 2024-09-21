@@ -6,11 +6,12 @@ Guilherme I F L Weizenmann
 :tom: E
 :compasso: 4/4
 :dedilhado: P I MA I
-:batida: V...v.v^.^v^.^v.
+:batida: V....^v^v..^v^v..^..v.
 :instrumentos: violão
 :jbake-type: chords
 :jbake-tags: Louvor, HASD 2022, Arautos do Rei, repertorio:louvor-moinhos, repertorio:banda-moinhos
-:verificacao: inicial
+:verificacao: parcial
+:video: CVC5EOg8pCM
 
 ----
 

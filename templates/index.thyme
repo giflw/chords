@@ -60,6 +60,11 @@
                         <span style="float: right">
                             [[ ${post.artista} ?: 'Desconhecido' ]]
                             <i class="fa-fw fas fa-microphone"></i>
+
+                            <span style="display: inline-block; width: 20ex" class="has-text-info">
+                                <i class="fa-fw fal fa-sort-alt"></i>
+                                [[ ${post.batida} ]]
+                            </span>
                         </span>
                     </a>
                     <div style="clear: both;"></div>
