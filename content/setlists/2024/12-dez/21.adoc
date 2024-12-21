@@ -1,0 +1,22 @@
+= Moinhos - Louvor KIDS
+Guilherme I F L Weizenmann
+2024-12-21
+:jbake-type: setlist
+//:jbake-status: not-listed
+
+----
+Escola Sabatina:
+    Dia de Esperança
+
+Ofertas:
+    Quero Entregar
+
+Louvo 1:
+    Rei dos Reis
+
+Louvor 2:
+    Confiarei
+
+Despedida:
+    Em Paz eu Vou
+----

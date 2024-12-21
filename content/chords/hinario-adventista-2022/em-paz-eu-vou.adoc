@@ -4,12 +4,44 @@ Guilherme I F L Weizenmann
 :artista: Hinário Adventista 7º Dia (2022)
 :instrumentos: violão
 :jbake-type: chords
-:verificacao:
+:verificacao: parcial
 :colunas: 2
 
 
+
+----
+[Parte 1]
+#a-cappella
+
+E          A       A/C#   B/D#  E
+Em paz eu vou. Ouvi a voz de Deus.
+ G#m       A   B/D#       E
+Em paz eu vou. Estou feliz
+
+#piano
+E/G#   B/A          G#     C#m   Am7
+Achei abrigo ,  em  sua    casa.
+Am7        E     B        E
+Em paz estou com meu Jesus
+
+(C7)
+
+[Parte 2]
+#bateria
+F         Bb       Bb/D   C/E  F
+Em paz eu vou. Ouvi a voz de Deus.
+ Am       Bb   C/E       F
+Em paz eu vou. Estou feliz
+
+#guitarra
+F/A   C/Bb          A     Dm   Bbm7
+Achei abrigo ,  em  sua    casa.
+Bbm7        F     C        F
+Em paz estou com meu Jesus
+
 ----
 
+////
 [Intro]
 #voz-opcional
         A2    A/C# G#/C C#m     Am6 
@@ -47,5 +79,4 @@ Em paz estou com meu   Jesus
 Achei abri  go ,    em  sua    ca   sa
          F/C    Gm/C C7   F  F4  F  F4 F
 Em paz estou com meu    Jesus
-
-----
+////

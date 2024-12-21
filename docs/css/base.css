@@ -60,3 +60,13 @@ ol {
 .chords > *:first-child > p:first-child {
     margin-top: 0 !important;
 }
+
+.chords sup, .chords sub {
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    position: relative;
+    font-size: inherit;
+}
+.chords sup { bottom: 0.3ex; }
+.chords sub { top: .3ex; }

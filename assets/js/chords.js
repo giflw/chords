@@ -87,6 +87,16 @@ function chords(mode = "full") {
                         default:
                             text = text;
                     }
+                    text = text.replace(/\/[b#A-H0-9]+/g, (match) =>{
+                                    return `<sub>${match}</sub>`;
+                                })
+                                .replace(/\(.*?\)+/g, (match) =>{
+                                    console.log(`macth "${match}"`)
+                                    return `<sup>${match}</sup>`;
+                                })
+                                //.replaceAll("/", "&#x2044;")
+                                .replaceAll("%", "&#x1d10e;")
+                                .replaceAll("*", "&#x2040;")
                     line.innerHTML = text;
                     line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
                         ////console.log(match);
@@ -139,6 +149,12 @@ strummings.forEach(strumming => {
                 return "&#x2093;";
             case ".":
                 return "&#x2e;";
+            case "/":
+                return "&#x1d108;";
+            case "*":
+                return "";
+            case " ":
+                return sign;
             default:
                 return "?";
         }
