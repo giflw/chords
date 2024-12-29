@@ -1,0 +1,13 @@
+= Moinhos - Mensagem Musical
+Guilherme I F L Weizenmann
+2024-12-28
+:jbake-type: setlist
+//:jbake-status: not-listed
+
+----
+Mensagem 1:
+    Maria
+
+Mensagem 2:
+    Lamento de Israel
+----
