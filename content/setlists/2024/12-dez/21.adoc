@@ -2,7 +2,7 @@
 Guilherme I F L Weizenmann
 2024-12-21
 :jbake-type: setlist
-//:jbake-status: not-listed
+:jbake-status: not-listed
 
 ----
 Escola Sabatina:

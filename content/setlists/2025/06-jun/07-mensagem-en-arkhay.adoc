@@ -1,0 +1,20 @@
+= en-Arkhay - Moinhos
+Guilherme I F L Weizenmann
+2025-06-07
+:jbake-type: setlist
+//:jbake-status: not-listed
+
+----
+Escola Sabatina:
+    Pelo Prazer de Servir
+
+Culto 1:
+    Deus Cuida de Mim
+
+Culto 2:
+    Ao Eterno Amor
+
+Culto 3:
+    Minha Essência
+
+----

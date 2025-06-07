@@ -2,7 +2,7 @@
 Guilherme I F L Weizenmann
 2024-08-31
 :jbake-type: setlist
-//:jbake-status: not-listed
+:jbake-status: not-listed
 
 ----
 Mensagem 1:

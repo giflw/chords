@@ -5,131 +5,135 @@ Guilherme I F L Weizenmann
 //:duracao: 4:07
 //:audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
 //:video: https://www.youtube.com/watch?v=EWf3R77jqMg
-:tom: G
-:compasso: 4/4
+:tom: D
+:compasso: 3/4
 //:dedilhado: P I M A I M A I
 //:batida: V...v.v^.^v^.^v.
 :instrumentos: violão
 :jbake-type: chords
-:jbake-tags: repertorio:grupo-vocal
+:jbake-tags: repertorio:en-Arkhay
 :verificacao: inicial
 :colunas: 3
 
 ----
 
 [Intro] 
-G  G7M  G  C
-Em  E9  Em  C
-G  G7M  G  C
-Em  E9  D
+
+D  D7M  D  G
+Bm  B9  Bm  G
+D  D7M  D  G
+Bm  B9  A
 
 [Primeira Parte]
 
- G        G7M  G
+ D        D7M  D
 Vim até aqui
-      C           Em   E9  Em
+      G           Bm   B9  Bm
 Derramar o meu passado em ti
-    Em                 Am
+    Bm                 Em
 Vim banhar os pés que andaram por aí
-                 D
+                 A
 Sem carinho receber
 
- G           G7M  G
+ D           D7M  D
 Hoje estou aqui
- C             Em    E9  Em
+ G             Bm    B9  Bm
 Não por que mereço eu sei
-      G6/E      Am
+      D6/B      Em
 Pois tu sabes por onde eu andei
-                       D
+                       A
 Conheces bem o meu perfume
 
 [Pré-Refrão]
 
-       Em
+       Bm
 Mas tu sabes também
-                     Bm
+                     F#m
 Que o meu choro é sincero porém
-                       C            Am
+                       G            Em
 Não tenho nada a oferecer meu Senhor
-                    D
+                    A
 Mas te dou a minha vida
 
 [Refrão]
 
-            G    G7M  G
+            D    D7M  D
 É tudo que tenho
-   C        Em  E9  Em
+   G        Bm  B9  Bm
 Recebe o meu nada
-   G6/E    C   Am
+   D6/B    G   Em
 Refaz a morada
-         D
+         A
 Habita em mim
 
-                G   G7M  G
+                D   D7M  D
 Me pega em teu colo
-     C            Em  E9  Em
+     G            Bm  B9  Bm
 Me acalma em teu peito
-     G6/E      C    Am
+     D6/B      G    Em
 Sou Teu sou eleito
-             D                     G
+             A                     D
 E a minha essência é exalar, Teu cheiro
 
-( C  Em  C )
-( G  C  G  D )
+[Interlúdio]
+
+G  Bm  G
+D  G  D  A
 
 [Primeira Parte]
 
- G        G7M  G
+ D        D7M  D
 Vim até aqui
-      C           Em   E9  Em
+      G           Bm   B9  Bm
 Derramar o meu passado em ti
-    G6/E                 Am
+    D6/B                 Em
 Vim banhar os pés que andaram por aí
-                 D
+                 A
 Sem carinho receber
 
- G           G7M   G
+ D           D7M   D
 Hoje estou aqui
- C             Em    E9 Em
+ G             Bm    B9 Bm
 Não por que mereço eu sei
-      G6/E      Am
+      D6/B      Em
 Pois tu sabes por onde eu andei
-                       D
+                       A
 Conheces bem o meu perfume
 
 [Pré-Refrão]
 
-       Em
+       Bm
 Mas tu sabes também
-                     Bm
+                     F#m
 Que o meu choro é sincero porém
-                       C            Am
+                       G            Em
 Não tenho nada a oferecer meu Senhor
-                    D
+                    A
 Mas te dou a minha vida
 
 [Refrão]
 
-            G    G7M  G
+            D    D7M  D
 É tudo que tenho
-   C         Em   E9  Em
+   G         Bm   B9  Bm
 Recebe o meu nada
-   G6/E    C   Am
+   D6/B    G   Em
 Refaz a morada
-         D
+         A
 Habita em mim
 
-                G   G7M  G
+                D   D7M  D
 Me pega em teu colo
-     C            Em   E9  Em
+     G            Bm   B9  Bm
 Me acalma em teu peito
-     G6/E      C   Am
+     D6/B      G   Em
 Sou Teu sou eleito
-             D                     G
+             A                     D
 E a minha essência é exalar, Teu cheiro
 
 [Final]
-C  Em  C
-G  C  Em  D  G
+
+G  Bm  G
+D  G  Bm  A  D
 
 ----

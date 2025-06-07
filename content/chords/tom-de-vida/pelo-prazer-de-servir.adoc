@@ -1,0 +1,105 @@
+= Pelo Prazer de Servir
+Guilherme I F L Weizenmann
+2025-06-07
+:artista: Tom de Vida
+//:duracao: 4:07
+//:audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
+//:video: https://www.youtube.com/watch?v=EWf3R77jqMg
+:tom: C
+:compasso: 4/4
+//:dedilhado: P I M A I M A I
+//:batida: V...v.v^.^v^.^v.
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: repertorio:en-Arkhay
+:verificacao: inicial
+:colunas: 3
+
+----
+
+[Intro]
+
+C F
+
+[Estrofe]
+
+( C D G C )
+
+Por este dia tão bom
+Por este lindo porvir
+
+( Am Dm G )
+
+Por este teto este chão
+E forças pra prosseguir
+
+( C F E Am F C )
+
+Por essa vida feliz
+Pelo prazer de servir, a Deus seja a glória!
+
+[Refrão]
+
+Porque vieste do céu, seu filho pra nos salvar
+Por desvendar este véu, por nos fazer enxergar
+Por seu poder e amor, consegue nos libertar
+A Deus seja a glória!
+
+[Estrofe]
+
+
+( C D G C )
+
+Por estes dons que nos dás,
+Por tanta força e vigor
+
+( Am Dm G )
+
+Pelo prazer de falar do seu poder criador
+
+( C F E Am F C )
+
+E pelo sangue na cruz vertido só por amor
+A Deus seja a glória!
+
+[Refrão]
+
+Pela palavra que trás, a água que faz viver
+Pela verdade eficaz que a vida faz renascer
+Por esta fonte a jorrar, por este eterno poder
+A Deus seja a glória!
+
+[Estrofe]
+
+( C D G C )
+
+Por estes dons que nos dás,
+Por tanta força e vigor
+
+( Am Dm G )
+
+Pelo prazer de falar do seu poder criador
+
+( C F E Am F C )
+
+E pelo sangue na cruz vertido só por amor
+A Deus seja a glória!
+
+
+[Refrão]
+
+Pela palavra que trás a água que faz viver
+Pela verdade eficaz que a vida faz renascer
+Por esta fonte a jorra, por este eterno poder
+A Deus seja a glória!
+
+[Outro]
+
+(C F)
+
+A Deus seja a glória!
+A Deus seja a glória!
+E o louvor
+Louvor
+
+----
