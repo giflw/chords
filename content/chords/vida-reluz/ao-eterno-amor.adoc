@@ -13,7 +13,7 @@ Guilherme I F L Weizenmann
 :jbake-type: chords
 :jbake-tags: repertorio:en-Arkhay
 :verificacao: inicial
-:colunas: 2
+:colunas: 3
 
 
 
@@ -39,14 +39,14 @@ G      A/G    F#m       Bm
 Mas por amor!   Só por amor
 G      A    Bm
 Estás aqui Senhor!
-G      A  F#m           Bm    G          A
-A...  leluia!    a.... leluia!     a....   leluia
+G      A      F#m      Bm     G       A
+A... leluia!    a....leluia!  a....leluia
 Bm        B7
 Ao eterno amor!
-G      A  F#m           Bm    G          A
-A...  leluia!    a.... leluia!     a....   leluia
-Bm        B7
-Ao eterno amor!
+G      A      F#m      Bm     G       A
+A... leluia!    a....leluia!  a....leluia
+Bm
+Deus de amor!
 
 [Interlúdio]
 
@@ -68,16 +68,32 @@ Em      A    F#m        Bm
 Mas por amor !  só por amor
 G      A     Bm   B7
 Estás aqui Senhor!
-G       A   F#m             Bm        G          A
-A...  leluia!    a....    leluia!     a....   leluia
+G      A      F#m      Bm     G       A
+A....doramos!   a.... doramos!  a....doramos
 Bm        B7
 Ao eterno amor!
-G           A      F#m        Bm         G          A
-A.....   leluia!     a....   leluia!     a....    leluia
-G         A          F#m         Bm          G         A
-A....   doramos!        a....   doramos!      a....   doramos
+G      A      F#m      Bm     G       A
+A....doramos!   a.... doramos!  a....doramos
 Bm
 Deus de amor!
+
+[Outro]
+
+G      A      F#m      Bm     G       A
+#mulheres
+A... leluia!    a....leluia!  a....leluia
+#homens
+A....doramos!   a.... doramos!  a....doramos
+Bm        B7
+Ao eterno amor!
+G      A      F#m      Bm     G       A
+#mulheres
+A... leluia!    a....leluia!  a....leluia
+#homens
+A....doramos!   a.... doramos!  a....doramos
+Bm
+Deus de amor!
+
 
 ----
 
