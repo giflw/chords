@@ -1,0 +1,103 @@
+= Pintor do Mundo
+Guilherme I F L Weizenmann
+2025-08-07
+:artista: Geisa
+:tom: G
+:compasso: 4/4
+//:dedilhado: P I A M I M A M
+:batida: V...v.v^.^v^.^v.
+:instrumentos: violão ukulele
+:jbake-type: chords
+:jbake-tags: Criação, repertorio:en-arkhay
+:verificacao: inicial
+:colunas: 4
+:video: CHfHuqR8gHY 
+
+----
+
+[Intro]
+
+G  *~ D  G  *~ D
+
+[Verso 1]
+
+#feminino
+G         *~ D      G             G/B        C       
+Eu quero lhe falar   de Alguém que fez o mar se 
+Am    D/Gb  G
+acalmar
+
+#masculino
+G              D     G             G/B  C          Am
+Que fez o sol parar e  mantem o céu, suspenso em 
+         D/Gb  G
+pleno   ar
+
+[Refrão]
+
+#todos
+G/B        C             Am    D/Gb    G
+Mesmo assim, com todo    este    poder
+                 Am  D#º     Em   Am       D4  D
+Jamais se esqueceu de mim    por me amar
+G/B    C        Am    D/Gb  G    
+Foi   capaz de tudo     suportar,
+
+#solo
+    Am      D#º       Em
+Até mesmo aquela cruz!
+
+           Am       D     
+Como posso eu não aceitar,
+
+#todos
+    C    D4               G
+        o meu Jesus?
+
+[Verso 2]
+
+G             D    G               G/B   C  Am    
+Ele fez o cego ver,    e da morte até fez alguém  
+D/Gb    G
+ voltar
+G            D      G             G/B   C       Am   
+É Vencedor do mal e herdou do Pai,    algo da 
+  D/Gb  G
+redenção
+
+[Refrão]
+
+G/B        C             Am    D/Gb    G
+Mesmo assim, com todo    este    poder
+                 Am  D#º     Em   Am       D4  D
+Jamais se esqueceu de mim    por me amar
+G/B    C        Am    D/Gb  G          Am      D#º
+Foi   capaz de tudo     suportar,  Até mesmo aquela 
+     Em
+cruz!
+           Am       D         C    D4               G
+Como posso eu não aceitar,        o meu Jesus?
+
+[Interlúdio]
+
+( C# D# G# A#m Eº  Fm  A#m D#4 D# G#° )
+( C# D# G# Eº  Fm  A#m D#4 D# G#/C )
+
+[Outro]
+
+                C#             D#               G#
+Mesmo assim, com todo este poder
+                A#m   Eº     Fm      A#m       D#4 D#
+Jamais se esqueceu de mim     por me amar
+ G#/C   C#       D#             G#             A#m     
+Foi capaz de tudo suportar,    Até mesmo aquela cruz!
+  Eº    Fm
+
+           A#m        D#4 D#  C#     G#
+Como posso eu não aceitar,   oh!oou!
+
+           A#m        D#4 D#  C#    D#4   D#        G#
+Como posso eu não aceitar,        o meu Jesus?
+
+
+----
