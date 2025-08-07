@@ -36,7 +36,6 @@ jobs:
         uses: actions/setup-java@v3.14.1
         with:
           java-version: 21
-          distribution: jdk
       - name: Setup Sdkman
         uses: sfesenko/setup-sdkman@v1
         with:
