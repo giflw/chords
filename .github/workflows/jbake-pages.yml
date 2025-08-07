@@ -47,8 +47,8 @@ jobs:
           rm -rf docs output
           cp assets/favicon-prd.ico assets/favicon.ico
           jbake . docs
-          echo "sha: ${GITHUB_SHA}" >> docs/.version
-          echo "date: `date`" >> docs/.version
+          echo "sha: ${GITHUB_SHA}" >> docs/.version.yaml
+          echo "date: `date -u -Iseconds`" >> docs/.version.yaml
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
