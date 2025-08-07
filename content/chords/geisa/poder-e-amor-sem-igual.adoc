@@ -36,11 +36,11 @@ mantem o céu, suspenso em pleno ar
 [Refrão]
 
 #todos
-        C   *     Am   D/Gb  G
+        C   *     Am   D/F#  G
 Mesmo assim, com todo este poder
                  Am  D#°     Em   Am       D4  D
 Jamais se esqueceu de mim    por me amar
-G/B    C        Am    D/Gb  G    
+G/B    C        Am    D/F#  G    
 Foi   capaz de tudo     suportar,
 
 #solo
@@ -59,23 +59,23 @@ Como posso eu não aceitar,
 #mulheres
 G             D    G               G/B   C  Am    
 Ele fez o cego ver,    e da morte até fez alguém  
-D/Gb    G
+D/F#    G
  voltar
 
 #homens
 G            D      G             G/B   C       Am   
 É Vencedor do mal e herdou do Pai,    algo da 
-  D/Gb  G
+  D/F#  G
 redenção
 
 [Refrão]
 
 #todos
-G/B        C             Am    D/Gb    G
+G/B        C             Am    D/F#    G
 Mesmo assim, com todo    este    poder
                  Am  D#°     Em   Am       D4  D
 Jamais se esqueceu de mim    por me amar
-G/B    C        Am    D/Gb  G    
+G/B    C        Am    D/F#  G    
 Foi   capaz de tudo     suportar,
 
 #solo
@@ -96,11 +96,11 @@ G C G Em C D
 [Outro]
 
 #todos
-G/B        C             Am    D/Gb    G
+G/B        C             Am    D/F#    G
 Mesmo assim, com todo    este    poder
                  Am  D#°     Em   Am       D4  D
 Jamais se esqueceu de mim    por me amar
-G/B    C        Am    D/Gb  G    
+G/B    C        Am    D/F#  G    
 Foi   capaz de tudo     suportar,
 
     Am      D#°       Em
