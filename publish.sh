@@ -12,9 +12,6 @@ if [ "${1}" = '-a' ]; then
     auto=true
 fi
 
-rm -rf docs output
-cp assets/favicon-prd.ico assets/favicon.ico
-jbake . docs
 git add .
 if [ "$auto" = 'true' ]; then
     git commit -m 'Update chords'
