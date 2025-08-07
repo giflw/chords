@@ -107,7 +107,6 @@ Eu quero brilhar   por Ti
    G7sus               C   ( G/B   A7(4)  A/G )
 Brilhar onde quer que for
 
-   ----
 ////
 
 ////
@@ -161,4 +160,4 @@ G/B = X 2 0 0 3 3
 G4 = 3 5 5 5 3 3
 G7(4) = 3 5 3 5 3 X
 
- ////
+////

@@ -1,0 +1,15 @@
+[tools]
+python = "3.13"
+node = "24.2"
+java = "24"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.pipreq]
+description = "Install requirements.txt"
+run = "python -m pip install -r requirements.txt"
+
+
+[tasks.dev]
+run = "jbake -b && python -m http.server"
