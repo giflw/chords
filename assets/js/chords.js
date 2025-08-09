@@ -122,6 +122,7 @@ function chords(mode = "full") {
             nssc.classList.remove("cloak");
         }
     }
+    chords.setAttribute("class", chords.getAttribute("class") + " cloak");
 }
 chords('full')
 
