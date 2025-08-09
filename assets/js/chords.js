@@ -95,8 +95,8 @@ function chords(mode = "full") {
                                     return `<sup>${match}</sup>`;
                                 })
                                 //.replaceAll("/", "&#x2044;")
-                                .replaceAll("%", "&#x1d10e;")
-                                .replaceAll("*", "&#x2040;")
+                                //.replaceAll("%", "&#x1d10e;")
+                                //.replaceAll("*", "&#x2040;")
                     line.innerHTML = text;
                     line.innerHTML = line.innerHTML.replace(/\&[0-9/]+[:]{0,1}/g, (match) => {
                         ////console.log(match);
