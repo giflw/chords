@@ -215,7 +215,7 @@
                         </a>
                     </div>
                 <hr class="my-1" />
-                <div th:class="${content.colunas > 0 ? 'chords-cols-' + content.colunas: 'chords-cols-4' } + ' chords cloak'">
+                <div th:class="${content.colunas > 0 ? 'chords-cols-' + content.colunas: 'chords-cols-4' } + ' chords'">
                     [( ${content.body} )]
                 </div>
             </div>
