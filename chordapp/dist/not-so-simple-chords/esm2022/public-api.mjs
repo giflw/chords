@@ -1,7 +1,0 @@
-/*
- * Public API Surface of not-so-simple-chords
- */
-export * from './lib/not-so-simple-chords.service';
-export * from './lib/not-so-simple-chords.component';
-export * from './lib/hello-wolrd.lit';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL25vdC1zby1zaW1wbGUtY2hvcmRzL3NyYy9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyxvQ0FBb0MsQ0FBQztBQUNuRCxjQUFjLHNDQUFzQyxDQUFDO0FBRXJELGNBQWMsdUJBQXVCLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIG5vdC1zby1zaW1wbGUtY2hvcmRzXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvbm90LXNvLXNpbXBsZS1jaG9yZHMuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9ub3Qtc28tc2ltcGxlLWNob3Jkcy5jb21wb25lbnQnO1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9oZWxsby13b2xyZC5saXQnXG4iXX0=

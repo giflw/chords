@@ -1,1 +1,2 @@
-transcrypt==3.9.4
+pydowndoc==1.3.2
+mkdocs==1.6.1
