@@ -1,0 +1,23 @@
+# Tabela de Transposição
+2024-02-21
+:jbake-type: page
+
+== Como usar?
+
+Não tem nenhum segredo - é só escrever os acordes na seqüência, partindo do tom em que está a música para o tom que se quer transformar, seguindo a tabela abaixo. Assim, se uma música está em A e se quer transformar para F,   pegue a linha a e a linha i da tabela abaixo. Uma seqüência A G A7 D/E será modificada para F D# F7 A#/C. Simples ;-)!
+
+[%header,format=tsv]
+|===
+ 	1	2	3	4	5	6	7	8	9	10	11	12
+a	A	A#	B	C	C#	D	D#	E	F	F#	G	G#
+b	A#	B	C	C#	D	D#	E	F	F#	G	G#	A
+c	B	C	C#	D	D#	E	F	F#	G	G#	A	A#
+d	C	C#	D	D#	E	F	F#	G	G#	A	A#	B
+e	C#	D	D#	E	F	F#	G	G#	A	A#	B	C
+f	D	D#	E	F	F#	G	G#	A	A#	B	C	C#
+g	D#	E	F	F#	G	G#	A	A#	B	C	C#	D
+h	E	F	F#	G	G#	A	A#	B	C	C#	D	D#
+i	F	F#	G	G#	A	A#	B	C	C#	D	D#	E
+j	F#	G	G#	A	A#	B	C	C#	D	D#	E	F
+k	G	G#	A	A#	B	C	C#	D	D#	E	F	F#
+l	G#	A	A#	B	C	C#	D	D#	E	F	F#	G

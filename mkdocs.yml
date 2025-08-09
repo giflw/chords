@@ -1,7 +1,9 @@
 site_name: My Docs
 docs_dir: content
 dev_addr: 0.0.0.0:8000
-theme: material
+theme:
+    name: material
+    custom_dir: overrides
 plugins:
     - search
     - tags

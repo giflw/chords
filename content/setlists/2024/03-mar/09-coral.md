@@ -1,0 +1,35 @@
+# Coral
+2024-03-09
+:jbake-type: setlist
+:jbake-status: not-listed
+
+----
+Escola Sabatina - Louvor:
+    Lado a Lado
+
+Escola Sabatina - Mensagem Musical:
+    Retrovisor
+
+Ofertas:
+    Quero Ofertar
+
+Louvor 1:
+    Mensageiro
+
+Louvor 2:
+    Teu Santo Nome
+
+Louvor Alternativo:
+    Brilhar Por Ti
+
+Coral 1:
+    Eu Clamo Cristo
+
+Coral 2:
+    A Benção
+
+Coral 3:
+    A Ele a Glória
+
+
+```

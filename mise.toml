@@ -1,15 +1,20 @@
 [tools]
 python = "3.13"
-node = "24.2"
 java = "24"
 
 [env]
 _.python.venv = { path = ".venv", create = true }
 
-[tasks.pipreq]
-description = "Install requirements.txt"
-run = "python -m pip install -r requirements.txt"
+[hooks]
+# Install requirements.txt
+postinstall = "python -m pip install -r requirements.txt && scoop install nu"
 
+[tasks.py]
+run = "python"
 
 [tasks.dev]
-run = "jbake -b && python -m http.server"
+#run = "jbake -b && python -m http.server"
+run = "python -m mkdocs serve"
+
+[tasks.2md]
+run = "mise exec -- nu -c 'ls **/*.adoc | each {|f| downdoc $f.name; echo $f.name}'"

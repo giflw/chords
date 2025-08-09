@@ -1,0 +1,18 @@
+# Louvor KIDS
+2024-02-24
+:jbake-type: setlist
+:jbake-status: not-listed
+
+----
+Escola Sabatina:
+    Pode cair o mundo
+
+Ofertas:
+    Toma meu coração
+
+Louvor 1:
+    Enquanto eu viver
+
+Louvor 2:
+    Brilhar por Ti
+```

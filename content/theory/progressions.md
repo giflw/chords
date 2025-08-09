@@ -1,0 +1,48 @@
+# Progressões
+2024-02-16
+:jbake-type: page
+
+== Primeiras progressões
+
+Comece com os exemplos na escala de Dó maior e depois de dominar siga para os próximos tons.
+
+Pode-se ir praticando 1 prograssão de cada tipo por vez, comçando com todas em Dó, depois indo pra Ré, e assim por diante.
+
+Para outros tons que não estejam nas tabelas abaixo, veja a [tabela de transposição](./transposition-table.html).
+
+I – V – IV:: C G F
+[%header,format=csv]
+|===
+Tom, Dó, Ré, Mi, Fá, Sol, Lá, Si
+I  , C , D , E , F , G  , A , B
+V  , G , A , B , C , D  , E , F#
+IV , F , G , A , Bb, C  , D , E
+|===
+
+I – IV – V:: C F G
+[%header,format=csv]
+|===
+Tom, Dó, Ré, Mi, Fá, Sol, Lá, Si
+I  , C , D , E , F , G  , A , B
+IV , F , G , A , Bb, C  , D , E
+V  , G , A , B , C , D  , E , F#
+|===
+
+I – IV – VIm – V:: C F Am G
+[%header,format=csv]
+|===
+Tom, Dó, Ré, Mi , Fá, Sol, Lá , Si
+I  , C , D , E  , F , G  , A  , B
+IV , F , G , A  , Bb, C  , D  , E
+VIm, Am, Bm, C#m, Dm, Em , F#m, G#m
+V  , G , A , B  , C , D  , E  , F#
+|===
+
+I – V – VIm – IV:: C G Am F
+[%header,format=csv]
+|===
+Tom, Dó, Ré, Mi , Fá, Sol, Lá , Si
+I  , C , D , E  , F , G  , A  , B
+V  , G , A , B  , C , D  , E  , F#
+VIm, Am, Bm, C#m, Dm, Em , F#m, G#m
+IV , F , G , A  , Bb, C  , D  , E

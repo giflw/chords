@@ -1,0 +1,28 @@
+# Partes componentes de músicas
+2023-11-18
+:jbake-type: page
+
+Qualquer música pode ser separada em partes como introdução, verso e refrão. Mas será que apenas estas? A resposta é não. Existem outras partes nas quais podemos dividir uma música, mas nem todas as músicas possuirão todas as partes. Tudo dependerá dos artistas envolvidos na composição e arranjo.
+
+Para facilitar a compreensão das cifras usadas aqui nesta site, usaremos as seguintes possíveis partes compoenentes nas músicas conforme a lista aseguir. Ressaltamos que esta lista não é algo muito bem definido na teoria musical, mas vem de adaptações de jargões e técnicas tanto da música clássica como de outras áreas. Não foi encontrado material teórico de referência para isso. Então segue uma lista baseada em bom senso e praticidade:
+
+Introdução::
+a parte inicial da música que serve para apresentar e dar um início suave a ela.
+
+Verso::
+o verso da música possui uma estrutura idêntica em todas as suas repetições e serve de base para a mensagem da música.
+
+Pré-Refrão::
+a ponte normalmente é uma parte intermediária entre o verso e o refrão e serve de transição entre eles, permitindo uma entrada suave e orgânica no refrão
+
+Refrão::
+o clímax da música onde sua mensagem atinge o ponto alto
+
+Interlúdio::
+um espaço entre partes da música, normalmente usadas como uma espécie de repouso para a retomada
+
+Solo Instrumental::
+parecido com o interlúdio, mas em uma música cantada permite que os instrumentos solistas complementem a mensagem da música
+
+Outro::
+A finalização da música, seja por continuidade orgânica (repetição de refrão) ou sendo uma seção completamente diferente (solo final ou melodia diferenciada)

@@ -1,0 +1,52 @@
+# Cristo no Horto (H106)
+2024-04-05
+:artista: Hinário Adventista 7º Dia (2022)
+:instrumentos: violão
+:jbake-type: chords
+:verificacao:
+:colunas: 2
+:key: F
+
+----
+[Intro]
+
+Dm   Gm   Gm7 * (Dm/A vv  A v)   ( Dm  *  % )
+                                         e|-3--1--0--1
+
+[Verso 1]
+
+Dm                Gm       Gm7 * (Dm/A vv  A v) Dm  
+Cristo entra no horto,_a_sós,  e_inclina-Se_a orar
+                Gm              F/C  *    C      F  
+Triste, ergue a Deus a voz; dis-põe-Se a nos salvar
+     A7          Dm  
+Que angústia ao orar em dor!
+    C   *   C7         F  
+Em sangue se torna o Seu suor!
+ D              D4(7)/G  Gm  
+"Afasta este    cálix   Meu
+ Dm      A7         Dm  
+0 Pai, se possível for!"
+
+[Interlúdio]
+
+Dm   Gm   Gm7 * (Dm/A vv  A v)   ( Dm  *  % )
+                                         e|-3--1--0--1
+
+
+[Verso 2]
+
+Dm          Gm     Gm7 * (Dm/A vv  A v) Dm
+Quanto sofrimento atroz provou o Salvador!
+             Gm              F/C  *    C      F  
+Vede quanto amor por nós, divino e Santo amor!
+   A7            Dm  
+Aos ombros suportou a cruz
+     C   *   C7         F  
+Por nós Se dispôs à morte e à dor
+       D          D4(7)/G  Gm  
+Mas logo rerssurgiu em  luz
+ Dm           A7   Dm  *  D9   D4 * D
+Tornando-Se vencedor!
+
+```
