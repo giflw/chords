@@ -1,0 +1,284 @@
+= Diante do Rei
+Guilherme I F L Weizenmann
+2025-08-31
+:artist: Vida Reluz
+:tom: G
+:compasso: 4/4
+:instrumentos: violão
+:jbake-type: chords
+:verificacao: inicial
+:colunas: 3
+
+----
+
+[Introdução]
+
+G9          D/F#
+       Em7                    Bm7
+        C7M           Am7      Bm7
+       Am7                  D4
+
+
+[Verso 1]
+
+ G9          D/F#
+Vem, Senhor Jesus!
+       Em7                    Bm7
+O coração já bate forte ao te ver
+        C7M           Am7      Bm7
+A Tua graça hoje eu quero receber
+       Am7                  D4
+Sem a benção do Senhor não sei viver
+
+[Verso 2]
+
+ G9           D/F#
+Vem Senhor Jesus!
+         Em7                         Bm7
+Olhar o povo ao Teu redor me faz lembrar
+        C7M         Am7            Bm7
+A multidão lá no caminho a te esperar
+       Am7
+Vem ó Santo de Israel
+    D7(4)
+Passar também neste lugar
+
+[Refrão]
+
+     C7M           D/C
+É o rei! A nossa frente está!
+     Bm7          Em7
+É feliz quem o adorar
+   C7M            D/C
+É Jesus, o nosso mestre e rei!
+       Bm7             Em7
+Bem aqui, tão perto se deixa encontrar
+        C7M
+Diante do rei dos reis
+ G/B  Am7      D4   G9
+Todo joelho se dobrará
+
+[Interlúdio]
+G9  D/F# Em7  Bm7
+
+[Outro]
+
+     C7M           D/C
+É o rei! A nossa frente está!
+     Bm7          Em7
+É feliz quem o adorar
+     C7M          D/C
+É Jesus, o nosso mestre e rei!
+       Bm7             Em7
+Bem aqui, tão perto se deixa encontrar
+        C7M
+Diante do rei dos reis
+ G/B  Am7      D4   G9  Em7
+Todo joelho se dobrará
+
+        C7M
+Diante do rei dos reis
+ G/B  Am7      E7(4)  Em7
+Todo joelho se dobrará
+
+        Am7
+Diante do rei dos reis
+       C/D           G9
+Todo joelho se dobrará
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+////
+Vida Reluz - Diante do Rei
+
+[Primeira Parte]
+
+ G9          D/F#
+Vem, Senhor Jesus!
+       Em7                    Bm7
+O coração já bate forte ao te ver
+        C7M           Am7      Bm7
+A Tua graça hoje eu quero receber
+       Am7                  D4
+Sem a benção do Senhor não sei viver
+
+ G9           D/F#
+Vem Senhor Jesus!
+         Em7                         Bm7
+Olhar o povo ao Teu redor me faz lembrar
+        C7M         Am7            Bm7
+A multidão lá no caminho a te esperar
+       Am7
+Vem ó Santo de Israel
+    D7(4)
+Passar também neste lugar
+
+[Refrão]
+
+     C7M           D/C
+É o rei! A nossa frente está!
+     Bm7          Em7
+É feliz quem o adorar
+   C7M            D/C
+É Jesus, o nosso mestre e rei!
+       Bm7             Em7
+Bem aqui, tão perto se deixa encontrar
+        C7M
+Diante do rei dos reis
+ G/B  Am7      D4   G9
+Todo joelho se dobrará
+
+[Solo] G9  C7M  Am7 Bm7  
+       Em7  C7M  G/B  Am7 
+       C/G  F  C/E  D4(7)
+
+[Tab - Solo]
+
+Parte 1 de 6
+                  C7M         Am7
+E|----------------------------------------------------|
+B|-------------17-19h20-20~--17-19-20-20-17-19-20-20--|
+G|-------16-19----------------------------------------|
+D|-17-19----------------------------------------------|
+A|----------------------------------------------------|
+E|----------------------------------------------------|
+   
+
+Parte 2 de 6
+          Bm7               Em7          
+E|-------17-17/19---------19h20-19---17---------------|
+B|-19-20----------------------------------------------|
+G|----------------19-19------------------19-----------|
+D|----------------------------------------------------|
+A|----------------------------------------------------|
+E|----------------------------------------------------|
+   
+
+Parte 3 de 6
+             C7M                   G/B  Am7
+E|-----------------------------------------------------|
+B|-------------17-19h20-20~-20-20-20-19-17-17----------|
+G|-------16-19--------------------------------19---17--|
+D|-17-19-----------------------------------------------|
+A|-----------------------------------------------------|
+E|-----------------------------------------------------|
+   
+
+Parte 4 de 6
+         C/G         F
+E|--------------------------------------------17-19-------|
+B|--------------------------------------17-20-------------|
+G|-16-16-17-17---16-16------------17-19-------------------|
+D|---------------------19---17-19-------------------------|
+A|--------------------------------------------------------|
+E|--------------------------------------------------------|
+   
+
+Parte 5 de 6
+   C/E
+E|-------------17-19-20-22-----------------------|
+B|-------17-20-----------------------------------|
+G|-17-19-----------------------------------------|
+D|-----------------------------------------------|
+A|-----------------------------------------------|
+E|-----------------------------------------------|
+   
+
+Parte 6 de 6
+   D4(7)
+E|-19-20-17-19----17--------------------------------|
+B|-------------20----19-20-17-19--------------------|
+G|--------------------------------------------------|
+D|--------------------------------19----------------|
+A|--------------------------------------------------|
+E|--------------------------------------------------|
+   
+
+     C7M           D/C
+É o rei! A nossa frente está!
+     Bm7          Em7
+É feliz quem o adorar
+     C7M          D/C
+É Jesus, o nosso mestre e rei!
+       Bm7             Em7
+Bem aqui, tão perto se deixa encontrar
+        C7M
+Diante do rei dos reis
+ G/B  Am7      D4   G9  Em7
+Todo joelho se dobrará
+
+        C7M
+Diante do rei dos reis
+ G/B  Am7      D7(4)  E
+Todo joelho se dobrará
+
+        Am7
+Diante do rei dos reis
+       C/D           G9
+Todo joelho se dobrará
+
+[Final] G9  C7M  G9  C7M 
+        G9  C7M  G9
+
+[Tab - Final]
+
+Parte 1 de 3
+   G9                      C7M
+E|----------------------14h15-14---------19-19h20p19--------|
+B|----------------12-15----------15p12------------------20--|
+G|----------12-14------------------------------------19-----|
+D|----12-14-------------------------------------------------|
+A|-14-------------------------------------------------------|
+E|----------------------------------------------------------|
+   
+
+Parte 2 de 3
+        G9                    C7M
+E|------------------------------------22-20-19----|
+B|------------------------------20-20----------22-|
+G|-19h21-19--------19-----19-21-------------------|
+D|-----------19-21-----21-------------------------|
+A|------------------------------------------------|
+E|------------------------------------------------|
+   
+
+Parte 3 de 3
+  G9                C7M
+E|-------------------19-19-20-19-19--------------|
+B|-22-22-20--------------------------22-22--20---|
+G|-----------21--19------------------------------|
+D|-----------------------------------------------|
+A|-----------------------------------------------|
+   
+E|------------------------------------------|
+
+----------------- Acordes -----------------
+G/B = X 2 0 0 3 3
+G9 = 3 X 0 2 0 X
+Am7 = X 0 2 0 1 0
+Bm7 = X 2 4 2 3 2
+C/G = 3 3 2 X 1 X
+C/D = X X 0 0 1 0
+C/E = 0 3 2 0 1 0
+C7M = X 3 2 0 0 X
+D/C = X 3 X 2 3 2
+D/F# = 2 X 0 2 3 2
+D4 = X X 0 2 3 3
+D4(7) = X X 0 2 1 3
+D7(4) = X X 0 2 1 3
+E = 0 2 2 1 0 0
+Em7 = 0 2 2 0 3 0
+F = 1 3 3 2 1 1
+
+////

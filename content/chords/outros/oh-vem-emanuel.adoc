@@ -1,0 +1,80 @@
+= Oh vem, Emanuel
+Guilherme I F L Weizenmann
+2025-08-31
+:artist: Outro
+:tom: G
+:compasso: 4/4
+:instrumentos: violão
+:jbake-type: chords
+:verificacao: inicial
+:colunas: 3
+
+----
+[Intro]
+
+Bb7M  Dm7  Bb7M  Dm7
+
+[Verso 1]
+
+Dm7           C      Bb7M  Dm7            C    Bb7M
+   Ó vem, ó vem, Emanuel, E salva o aflito Israel
+     Gm       Dm7        C    Dm7          C        Bb7M
+Que chora o exílio em seu viver Até Jesus aparecer.
+
+[Refrão]
+
+C     F     Gm         Dm7
+Cantai! Cantai! Emanuel
+   F       C        Bb7M
+Virá a vós, ó Israel!
+
+[Interlúdio]
+
+Bb7M  Dm7  C  Dm7
+
+[Verso 2]
+
+Dm7          C         Bb7M
+Sabedoria que é do além,
+Dm7         C      Bb7M
+Ordena tudo aqui também.
+Gm          F         C/E
+O bom caminho vem mostrar
+      Dm7        C/E      Bb7M
+E como nele sempre andar.
+
+
+[Refrão]
+
+C     F     Gm         Dm7
+Cantai! Cantai! Emanuel
+   F       C        Bb7M
+Virá a vós, ó Israel!
+
+[Interlúdio]
+
+Bb7M  Dm7  C  Dm7
+
+[Verso 3]
+
+Dm7          C         Bb7M
+Ó Desejado das nações,
+Dm7         C      Bb7M
+Unidos faze os corações.
+Gm          F         C/E
+Do mundo vem tirar o mal
+      Dm7        C/E      Bb7M
+E dar-lhe a paz celestial.
+
+[Refrão]
+
+C     F     Gm         Dm7
+Cantai! Cantai! Emanuel
+   F       C        Bb7M    Dm7
+Virá a vós, ó Israel!
+
+[Outro]
+
+   F       C        Dm7
+Virá a vós, ó Israel!
+----
