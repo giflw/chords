@@ -1,0 +1,97 @@
+= O Lamento de Israel (Dm)
+Guilherme I F L Weizenmann
+2024-12-28
+:artista: Sérgio Lopes
+//:duracao: 4:03
+//:audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
+//:video: https://www.youtube.com/watch?v=EWf3R77jqMg
+:tom: Dm
+:compasso: 4/4
+//:dedilhado: P I M A I M A I
+//:batida: V...v.v^.^v^.^v.
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: repertorio:AFLW
+:verificacao: inicial
+:colunas: 3
+
+
+----
+
+[Intro]
+
+Dm7  Bb  Gm  A7
+
+[Primeira Parte]
+
+  Dm7                     Gm7
+Quando em cativeiro te levaram de Sião
+C7(9)                     F          
+E os teus sacerdotes prantearam de aflição
+ Bb9             Gm6
+Foi como morrer de vergonha e dor
+ E7(4)                    A7(4)       A7
+Caminhava triste o povo forte do Senhor
+
+[Segunda Parte]
+
+Dm7                      Gm7
+Ah, Jerusalém porque deixaste de adorar
+C7(9)                       F  
+O Deus Vivo que em tantas batalhas te ajudou
+  Bb9         Gm6
+Chora Israel num lamento só
+ E7(4)                        A7(4)       A7
+Talvez Deus se lembre do "bichinho de" Jacó
+
+[Refrão]
+
+  Dm7     Gm7  C7(9)                F 
+Chora Israel,  Babilônia não é teu lugar
+  Bb9                    
+Clama ao teu Deus 
+  Gm6  
+E Ele te ouvirá 
+ E7(4)                A7(4)  A7
+Do inimigo te libertará
+
+  Dm7     Gm7  C7(9)                F  
+Chora Israel,  Babilônia não é teu lugar
+  Bb9                Gm6          
+Clama ao teu Deus, e Ele te ouvirá  
+ A7(4)      A7        Bb9  C9
+Do inimigo te libertará
+
+[Solo] Dm  Gm7  C7  F
+       Bb  Gm7  E7(4)  A7(4)  A7
+
+[Segunda Parte]
+
+Dm7                      Gm7
+Ah, Jerusalém porque deixaste de adorar
+C7(9)                       F  
+O Deus Vivo que em tantas batalhas te ajudou
+  Bb9         Gm6
+Chora Israel num lamento só
+ E7(4)                        A7(4)       A7
+Talvez Deus se lembre do "bichinho de" Jacó
+
+[Refrão]
+
+  Dm7     Gm7  C7(9)                F 
+Chora Israel,  Babilônia não é teu lugar
+  Bb9                    
+Clama ao teu Deus 
+  Gm6  
+E Ele te ouvirá 
+ E7(4)                A7(4)  A7
+Do inimigo te libertará
+
+  Dm7     Gm7  C7(9)                F  
+Chora Israel,  Babilônia não é teu lugar
+  Bb9                Gm6          
+Clama ao teu Deus, e Ele te ouvirá  
+ A7(4)      A7        Bb9  C9  Dm
+Do inimigo te libertará
+
+----
