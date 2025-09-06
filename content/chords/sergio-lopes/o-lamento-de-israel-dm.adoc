@@ -62,8 +62,11 @@ Clama ao teu Deus, e Ele te ouvirá
  A7(4)      A7        Bb9  C9
 Do inimigo te libertará
 
-[Solo] Dm  Gm7  C7  F
-       Bb  Gm7  E7(4)  A7(4)  A7
+[Solo]
+
+Dm  Gm7  C7  F
+
+Bb  Gm7  E7(4)  A7(4)  A7
 
 [Segunda Parte]
 
