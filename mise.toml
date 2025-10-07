@@ -1,0 +1,11 @@
+[tools]
+python = "3.13"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[hooks]
+postinstall = "python -m pip install -r requirements.txt"
+
+[tasks.xpy]
+run = "python -m chords"
