@@ -6,7 +6,7 @@ setup(
     packages=[''],
     url='',
     license='',
-    author='glutz',
+    author='giflw',
     author_email='',
     description=''
 )
