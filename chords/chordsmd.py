@@ -1,22 +1,16 @@
+import logging
 import re
-
-from markdown import Markdown, markdown
-from markdown.blockprocessors import BlockProcessor
-from markdown.extensions import Extension
-from markdown.preprocessors import Preprocessor
-from markdown.inlinepatterns import InlineProcessor, SimpleTagInlineProcessor
 import xml.etree.ElementTree as etree
 
+from markdown import markdown
+from markdown.blockparser import BlockParser
+from markdown.blockprocessors import BlockProcessor
+from markdown.extensions import Extension
+from markdown.inlinepatterns import SimpleTagInlineProcessor
+from markdown.preprocessors import Preprocessor
 from markdown.util import deprecated
 
-
-class BaseInlineProcessor(InlineProcessor):
-
-    def __init__(self, md: Markdown | None = None):
-        super().__init__(self._re_string(), md)
-
-    def _re_string(self) -> str:
-        raise Exception("Not implemented")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class CommentsPreprocessor(Preprocessor):
@@ -58,9 +52,9 @@ class TagsPreprocessor(Preprocessor):
         return new_lines
 
 
-class ChordsPreprocessor(Preprocessor):
+class ChordWrapperPreprocessor(Preprocessor):
     """
-    FIXME DOC
+    Single line of chords are detected and each chord is wrapped in span
 
     >>> parse("C   Am E# Ddim C4(9)")
     '<p><span class="chord">C</span>   <span class="chord">Am</span> <span class="chord">E#</span> <span class="chord">Ddim</span> <span class="chord">C4(9)</span></p>'
@@ -100,54 +94,6 @@ class ChordsInlineProcessor(SimpleTagInlineProcessor):
         el = etree.Element(self.tag)
         el.text = m.group(2)
         return el, m.start(0), m.end(0)
-
-
-class DelInlineProcessor(SimpleTagInlineProcessor):
-    """
-    Replace --anything-- by <del>anything</del>.
-
-    >>> parse("--foo bar--")
-    '<p><del>foo bar</del></p>'
-    """
-
-    def __init__(self):
-        super().__init__(r'(--)(.*?)\1', 'del')
-
-
-class InsInlineProcessor(SimpleTagInlineProcessor):
-    """
-    Replace ++anything++ by <ins>anything</ins>.
-
-    >>> parse("++foo bar++")
-    '<p><ins>foo bar</ins></p>'
-    """
-
-    def __init__(self):
-        super().__init__(r'(\+\+)(.*?)\1', 'ins')
-
-
-class EmInlineProcessor(SimpleTagInlineProcessor):
-    """
-    Replace __anything__ by <em>anything</em>.
-
-    >>> parse("__foo bar__")
-    '<p><em>foo bar</em></p>'
-    """
-
-    def __init__(self):
-        super().__init__(r'(__)(.*?)\1', 'em')
-
-
-class StrongInlineProcessor(SimpleTagInlineProcessor):
-    """
-    Replace **anything** by <strong>anything</strong>.
-
-    >>> parse("**foo bar**")
-    '<p><strong>foo bar</strong></p>'
-    """
-
-    def __init__(self):
-        super().__init__(r'(\*\*)(.*?)\1', 'strong')
 
 
 @deprecated("Should be reviewed")
@@ -255,6 +201,7 @@ class HardbreakBlockProcessor(BlockProcessor):
         blocks[0] = original_block
         return False  # equivalent to our test() routine returning False
 
+
 class AdocListingBlockProcessor(HardbreakBlockProcessor):
     """
     Force breaks on \\n as <br />.
@@ -267,6 +214,59 @@ class AdocListingBlockProcessor(HardbreakBlockProcessor):
     RE_FENCE_START = r'^ *[-]{4} *'  # start line, e.g., `   !!!! `
     RE_FENCE_END = r' *[-]{4}\s*$'  # last non-blank line, e.g, '!!!\n  \n\n'
 
+
+class ChordsSectionBlockProcessor(BlockProcessor):
+    def __init__(self, parser: BlockParser, re_start: str, re_end: str):
+        super().__init__(parser)
+        self.RE_FENCE_START = re_start
+        self.RE_FENCE_END = re_end
+
+    def test(self, parent, block):
+        return re.match(self.RE_FENCE_START, block)
+
+    def run(self, parent: etree.Element, blocks: list[str]) -> bool | None:
+        block = blocks.pop(0)
+        e = etree.SubElement(parent, 'h3')
+        e.text = re.sub(self.RE_FENCE_START, r'\1', block)
+
+        blocks_to_parse = []
+        for block_num, block in enumerate(blocks):
+            if re.search(self.RE_FENCE_END, block):
+                break
+            else:
+                blocks_to_parse.append(block)
+        self.parser.parseBlocks(parent, blocks_to_parse)
+        # remove used blocks
+        for i in range(0, len(blocks_to_parse) + 1):
+            blocks.pop(0)
+
+
+class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
+    """
+    FIXME DOC
+
+    >>> parse(' [sectname1]\\n\\nfoo  \\n  bar\\n\\n[nextsect-bracket]')
+    '<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n<h3>nextsect-bracket</h3>'
+
+    """
+
+    def __init__(self, parser: BlockParser):
+        super().__init__(parser, r'^ *\[(.*)\] *', r' *\[.*\]\s*$')
+
+
+class DotSectionBlockProcessor(ChordsSectionBlockProcessor):
+    """
+    FIXME DOC
+
+    >>> parse(' .sectname1.\\n\\nfoo  \\n  bar\\n\\n.nextsect-dots.')
+    '<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n<h3>nextsect-dots</h3>'
+
+    """
+
+    def __init__(self, parser: BlockParser):
+        super().__init__(parser, r'^ *\.(.*)\. *', r' *\..*\.\s*$')
+
+
 class ChordsMarkdownExtension(Extension):
     def __init__(self, **kwargs):
         self.config = {
@@ -276,20 +276,15 @@ class ChordsMarkdownExtension(Extension):
         super(ChordsMarkdownExtension, self).__init__(**kwargs)
 
     def extendMarkdown(self, md):
-        md.preprocessors.register(ChordsPreprocessor(md), 'chords_pre', 175)
+        md.preprocessors.register(ChordWrapperPreprocessor(md), 'chords_pre', 175)
         md.preprocessors.register(CommentsPreprocessor(md), 'comment', 175)
         md.preprocessors.register(TagsPreprocessor(md), 'tag', 175)
 
-        # md.parser.blockprocessors.register(BoxBlockProcessor(md.parser), 'box', 175)
-        # md.parser.blockprocessors.register(VerbatimBlockProcessor(md.parser), 'verbatim', 175)
         md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
 
-        # md.inlinePatterns.register(ChordInlineProcessor(), 'chords', 174)
-        md.inlinePatterns.register(DelInlineProcessor(), 'del', 175)
-        md.inlinePatterns.register(InsInlineProcessor(), 'ins', 175)
-        md.inlinePatterns.register(EmInlineProcessor(), 'em', 175)
-        md.inlinePatterns.register(StrongInlineProcessor(), 'strong', 175)
+        md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets', 175)
+        md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
 
 
 def makeExtension(**kwargs):

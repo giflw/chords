@@ -11,4 +11,4 @@ postinstall = "python -m pip install -r requirements.txt"
 run = "python -m chords"
 
 [tasks.test]
-run = "python -m pytest --doctest-modules"
+run = "python -m pytest --verbose --doctest-modules --log-cli-level=INFO"
