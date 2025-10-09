@@ -202,6 +202,7 @@ class HardbreakBlockProcessor(BlockProcessor):
         return False  # equivalent to our test() routine returning False
 
 
+@deprecated("Should be reviewed")
 class AdocListingBlockProcessor(HardbreakBlockProcessor):
     """
     Force breaks on \\n as <br />.
@@ -210,9 +211,6 @@ class AdocListingBlockProcessor(HardbreakBlockProcessor):
     >>> parse('----\\nfoo  \\n  bar\\n----')
     '<p><br />foo\xa0\xa0<br />\xa0\xa0bar<br /></p>'
     """
-    NBSP = "\u00A0"
-    RE_FENCE_START = r'^ *[-]{4} *'  # start line, e.g., `   !!!! `
-    RE_FENCE_END = r' *[-]{4}\s*$'  # last non-blank line, e.g, '!!!\n  \n\n'
 
 
 class ChordsSectionBlockProcessor(BlockProcessor):
@@ -225,20 +223,31 @@ class ChordsSectionBlockProcessor(BlockProcessor):
         return re.match(self.RE_FENCE_START, block)
 
     def run(self, parent: etree.Element, blocks: list[str]) -> bool | None:
+        # logging.warning(f"enter -> {blocks}")
         block = blocks.pop(0)
-        e = etree.SubElement(parent, 'h3')
+        # logging.warning(f"title -> {block}")
+        new_parent = etree.SubElement(parent, 'div')
+        new_parent.set('class', 'chords-section')
+        e = etree.SubElement(new_parent, 'h3')
         e.text = re.sub(self.RE_FENCE_START, r'\1', block)
 
         blocks_to_parse = []
         for block_num, block in enumerate(blocks):
+            #    logging.warning(f"for -> {block}")
+            # logging.warning(f"close {block} re: {self.RE_FENCE_END} search: {re.search(self.RE_FENCE_END, block)}")
             if re.search(self.RE_FENCE_END, block):
+                # logging.warning(f"end -> {blocks}")
                 break
             else:
                 blocks_to_parse.append(block)
-        self.parser.parseBlocks(parent, blocks_to_parse)
-        # remove used blocks
-        for i in range(0, len(blocks_to_parse) + 1):
+        #        logging.warning(f"next -> {blocks}")
+        #        logging.warning(f"next to parse -> {blocks_to_parse}")
+        self.parser.parseBlocks(new_parent, [*blocks_to_parse])
+        for _ in blocks_to_parse:
             blocks.pop(0)
+        #    logging.warning(f"pop -> {blocks}")
+        # logging.warning(f"exiting -> {blocks}")
+        return True
 
 
 class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
@@ -246,7 +255,11 @@ class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
     FIXME DOC
 
     >>> parse(' [sectname1]\\n\\nfoo  \\n  bar\\n\\n[nextsect-bracket]')
-    '<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n<h3>nextsect-bracket</h3>'
+    '<div class="chords-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="chords-section">\\n<h3>nextsect-bracket</h3>\\n</div>'
+
+    >>> parse('\\n[Intro]\\n\\n[Verso 1]\\n\\nfoo bar\\n')
+    '<div class="chords-section">\\n<h3>Intro</h3>\\n</div>\\n<div class="chords-section">\\n<h3>Verso 1</h3>\\n<p>foo bar</p>\\n</div>'
+
 
     """
 
@@ -259,7 +272,7 @@ class DotSectionBlockProcessor(ChordsSectionBlockProcessor):
     FIXME DOC
 
     >>> parse(' .sectname1.\\n\\nfoo  \\n  bar\\n\\n.nextsect-dots.')
-    '<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n<h3>nextsect-dots</h3>'
+    '<div class="chords-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="chords-section">\\n<h3>nextsect-dots</h3>\\n</div>'
 
     """
 
@@ -280,10 +293,11 @@ class ChordsMarkdownExtension(Extension):
         md.preprocessors.register(CommentsPreprocessor(md), 'comment', 175)
         md.preprocessors.register(TagsPreprocessor(md), 'tag', 175)
 
-        md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
+        # md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
 
-        md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets', 175)
+        md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets',
+                                           175)
         md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
 
 

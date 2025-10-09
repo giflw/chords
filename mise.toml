@@ -3,6 +3,7 @@ python = "3.13"
 
 [env]
 _.python.venv = { path = ".venv", create = true }
+PYTHONIOENCODING = "utf-8"
 
 [hooks]
 postinstall = "python -m pip install -r requirements.txt"

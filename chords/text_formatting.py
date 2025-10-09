@@ -10,12 +10,12 @@ class CodeInlineProcessor(SimpleTagInlineProcessor):
     """
     Replace ``anything`` by <del>anything</del>.
 
-    >>> parse("``foo bar``")
-    '<p><code>foo bar</code></p>'
+    >>> parse("''__foo bar__''")
+    '<p><code><em>foo bar</em></code></p>'
     """
 
     def __init__(self):
-        super().__init__(r'(``)(.*?)\1', 'code')
+        super().__init__(r'(\'\')(.*?)\1', 'code')
 
 
 class DelInlineProcessor(SimpleTagInlineProcessor):
@@ -56,7 +56,7 @@ class InsInlineProcessor(SimpleTagInlineProcessor):
 
 class MarkInlineProcessor(SimpleTagInlineProcessor):
     """
-    Replace ##anything## by <mark>anything</mark>.
+    Replace ==anything== by <mark>anything</mark>.
 
     >>> parse("==foo bar==")
     '<p><mark>foo bar</mark></p>'
@@ -70,8 +70,8 @@ class StrongInlineProcessor(SimpleTagInlineProcessor):
     """
     Replace **anything** by <strong>anything</strong>.
 
-    >>> parse("**foo bar**")
-    '<p><strong>foo bar</strong></p>'
+    >>> parse("**__foo bar__**")
+    '<p><strong><em>foo bar</em></strong></p>'
     """
 
     def __init__(self):
