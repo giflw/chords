@@ -170,14 +170,15 @@ class HardbreakBlockProcessor(BlockProcessor):
     Force breaks on \\n as <br />.
     Do not break spaces, but use NBSP instead.
 
-    >>> parse(':hardbreak:\\nfoo  \\n  bar\\n:hardbreak:')
+    >>> parse('<!-- hardbreak: true -->\\nfoo  \\n  bar\\n<!-- hardbreak: false -->')
     '<p><br />foo\xa0\xa0<br />\xa0\xa0bar<br /></p>'
     """
     NBSP = "\u00A0"
-    RE_FENCE_START = r'^ *:hardbreak: *'  # start line, e.g., `   !!!! `
-    RE_FENCE_END = r' *:hardbreak:\s*$'  # last non-blank line, e.g, '!!!\n  \n\n'
+    RE_FENCE_START = r'[^\\]*hardbreak: true'  # start line, e.g., `   !!!! `
+    RE_FENCE_END = r'[^\\]*hardbreak: false'  # last non-blank line, e.g, '!!!\n  \n\n'
 
     def test(self, parent, block):
+        print(block)  # --- IGNORE ---
         return re.match(self.RE_FENCE_START, block)
 
     def run(self, parent, blocks):
@@ -189,7 +190,11 @@ class HardbreakBlockProcessor(BlockProcessor):
             if re.search(self.RE_FENCE_END, block):
                 # remove fence
                 blocks[block_num] = re.sub(self.RE_FENCE_END, '', block)
-
+                # add span around multiple spaces
+                # Define a long string
+                #long_string = "This is a very long string that we want to wrap into multiple lines for better readability."
+                # Use regex to split the string into chunks of 30 characters
+                #wrapped_string = re.sub(r"(.{1,30})(\s|$)", r"\1\n", long_string)
                 hardbreak_blocks = [line.replace(" ", self.NBSP).replace("\n", "<br />") for line in
                                     blocks[0:block_num + 1]]
                 self.parser.parseBlocks(parent, hardbreak_blocks)
@@ -249,7 +254,7 @@ class ChordsSectionBlockProcessor(BlockProcessor):
         # logging.warning(f"exiting -> {blocks}")
         return True
 
-
+@deprecated("Should be reviewed")
 class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
     """
     FIXME DOC
@@ -267,6 +272,7 @@ class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
         super().__init__(parser, r'^ *\[(.*)\] *', r' *\[.*\]\s*$')
 
 
+@deprecated("Should be reviewed")
 class DotSectionBlockProcessor(ChordsSectionBlockProcessor):
     """
     FIXME DOC
@@ -296,9 +302,9 @@ class ChordsMarkdownExtension(Extension):
         # md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
 
-        md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets',
-                                           175)
-        md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
+        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets',
+        #                                   175)
+        #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
 
 
 def makeExtension(**kwargs):

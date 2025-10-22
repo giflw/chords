@@ -1,5 +1,6 @@
 [tools]
 python = "3.13"
+node = '24.3.0'
 
 [env]
 _.python.venv = { path = ".venv", create = true }
@@ -11,5 +12,9 @@ postinstall = "python -m pip install -r requirements.txt"
 [tasks.xpy]
 run = "python -m chords"
 
+[tasks.serve]
+run ="npx -y live-server"
+
 [tasks.test]
-run = "python -m pytest --verbose --doctest-modules --log-cli-level=INFO"
+#run = "python -m pytest --verbose --doctest-modules --log-cli-level=INFO"
+run = "python -m pytest -vv --log-cli-level=INFO"

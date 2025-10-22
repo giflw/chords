@@ -4,3 +4,6 @@
 *.adoc
 *.html
 *.md
+.vscode/
+res/
+
