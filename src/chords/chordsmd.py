@@ -8,10 +8,13 @@ from markdown.blockprocessors import BlockProcessor
 from markdown.extensions import Extension
 from markdown.inlinepatterns import SimpleTagInlineProcessor
 from markdown.preprocessors import Preprocessor
+from markdown.postprocessors import Postprocessor
 from markdown.util import deprecated
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
+ESCAPE = '\u001B'
 
 class CommentsPreprocessor(Preprocessor):
     """
@@ -23,12 +26,28 @@ class CommentsPreprocessor(Preprocessor):
 
     def run(self, lines):
         new_lines = []
+        logging.warning(lines)
         for line in lines:
             m = re.search(r"\s*//", line)
             if not m:
                 # any line not starting with // is passed through
                 new_lines.append(line)
-        return new_lines
+        logging.warning([line.replace('<!--', '\u001BLT\u001B').replace('-->', '\u001BGT\u001B') for line in new_lines])
+        return [line.replace('<!--', '\u001BLT\u001B').replace('-->', '\u001BGT\u001B') for line in new_lines]
+
+
+class UnCommentsPreprocessor(Postprocessor):
+    """
+    Skip any line starting with // (can be preceded by spaces).
+
+    >>> parse("foo\\n// bar")
+    '<p>foo</p>'
+    """
+
+    def run(self, text):
+
+        logging.warning(text)
+        return text.replace('\u001BLT\u001B', '<!--').replace('\u001BGT\u001B', '-->')
 
 
 class TagsPreprocessor(Preprocessor):
@@ -174,8 +193,8 @@ class HardbreakBlockProcessor(BlockProcessor):
     '<p><br />foo\xa0\xa0<br />\xa0\xa0bar<br /></p>'
     """
     NBSP = "\u00A0"
-    RE_FENCE_START = r'[^\\]*hardbreak: true'  # start line, e.g., `   !!!! `
-    RE_FENCE_END = r'[^\\]*hardbreak: false'  # last non-blank line, e.g, '!!!\n  \n\n'
+    RE_FENCE_START = r'^.*[^\\]*hardbreak: true.*$'  # start line, e.g., `   !!!! `
+    RE_FENCE_END = r'.*[^\\]*hardbreak: false.*$'  # last non-blank line, e.g, '!!!\n  \n\n'
 
     def test(self, parent, block):
         print(block)  # --- IGNORE ---
@@ -306,6 +325,7 @@ class ChordsMarkdownExtension(Extension):
         #                                   175)
         #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
 
+        md.postprocessors.register(UnCommentsPreprocessor(md), 'uncomment', 175)
 
 def makeExtension(**kwargs):
     return ChordsMarkdownExtension(**kwargs)

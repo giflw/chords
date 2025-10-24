@@ -7,10 +7,14 @@ from src.chords.text_formatting import TextFormattingMarkdownExtension
 from src.chords.mkcomments import CommentsExtension
 
 template = """
-<html class="debug">
+<html class="_debug">
 <head>
     <meta charset="utf-8" />
     <style>
+        :root {{
+            font-family: monospace;
+            font-size: 16pt;
+        }}
         * {{
             break-inside: avoid;
         }}
