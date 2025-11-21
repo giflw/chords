@@ -18,7 +18,7 @@ run = "npx -y live-server"
 [tasks.test-pytest]
 #run = "python -m pytest --verbose --doctest-modules --log-cli-level=INFO"
 #run = "python -m pytest --cov-report term:skip-covered --cov=src -vv -rA --log-cli-level=INFO --html=report.html --self-contained-html"
-run = "python -m pytest -rA --json-report=report_output/final_report.json -capture-screenshots=none --should-open-report=never && mv plus_metadata.json report_output/plus_metadata.json"
+run = "python -m pytest --log-cli-level=WARN -rA -vv --json-report=report_output/final_report.json -capture-screenshots=none --should-open-report=never && mv plus_metadata.json report_output/plus_metadata.json"
 
 [tasks.test-pytest-watch]
 run = "mise watch test-pytest"

@@ -8,7 +8,13 @@ def get_group_from_test_file_path(test_file_path) -> str:
 
 def list_source_files(group) -> list[str]:
     files = glob.glob(os.path.join("tests", group, "*.*"))
-    return [os.path.basename(file) for file in files if not file.endswith(".html")]
+    return [
+        os.path.basename(file)
+        for file in files
+        if not file.endswith(".html")
+           and not file.endswith(".sh")
+           and not file.endswith("README.md")
+    ]
 
 
 def read_source_and_html(group, source_path) -> tuple[str, str]:
