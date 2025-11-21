@@ -6,4 +6,6 @@
 *.md
 .vscode/
 res/
-
+report_output/
+!report_output/index.html
+plus_metadata.json

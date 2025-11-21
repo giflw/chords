@@ -7,21 +7,33 @@ from src.chords.text_formatting import TextFormattingMarkdownExtension
 from src.chords.mkcomments import CommentsExtension
 
 template = """
-<html class="_debug">
+<html class="debug">
 <head>
     <meta charset="utf-8" />
     <style>
-        :root {{
-            font-family: monospace;
-            font-size: 16pt;
-        }}
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        
         * {{
             break-inside: avoid;
         }}
         body {{
             column-count: 2;
             column-fill: auto;
+            
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
         }}
+        code {{
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }}
+        
         p {{
             break-before: avoid-column;
         }}

@@ -1,5 +1,5 @@
 import logging
-import re
+import regex as re
 import xml.etree.ElementTree as etree
 
 from markdown import markdown
@@ -23,8 +23,22 @@ class FountainWrapperTreeProcessor(Treeprocessor):
         return new_root
 
 
+class BreakLinesInBlocksBlockProcessor(BlockProcessor):
+    def test(self, parent, block):
+        return "\n" in block
+
+    def run(self, parent, blocks):
+        print(blocks)
+        new_blocks = []
+        for block in blocks:
+            new_blocks.extend(block.split("\n"))
+        blocks.clear()
+        blocks.extend(new_blocks)
+        print(blocks)
+
+
 class CenteredTextBlockProcessor(BlockProcessor):
-    RE = re.compile(r'^\s*>\s*(.+)\s*<\s*')
+    RE = re.compile(r'^\s*>\s*(.+)\s*<\s*$')
 
     def test(self, parent, block):
         return bool(self.RE.search(block))
@@ -34,10 +48,10 @@ class CenteredTextBlockProcessor(BlockProcessor):
         p.set("class", "center")
         p.text = self.RE.sub(r'\1', blocks.pop(0))
 
-class SceneHeadingBlockProcessor(BlockProcessor):
 
+class SceneHeadingBlockProcessor(BlockProcessor):
     # headers must not stat with !, as it indicates action
-    RE = re.compile(r'^\s*(?<!!)((INT|EXT|EST|INT\./EXT|INT/EXT|I/E|\.)\.{0,1}\s*.*)\s*')
+    RE = re.compile(r'^\s*(?<!!)((INT|EXT|EST|INT\./EXT|INT/EXT|I/E|\.)\.?\s*.*)\s*$')
 
     def test(self, parent, block):
         return bool(self.RE.search(block))
@@ -48,8 +62,9 @@ class SceneHeadingBlockProcessor(BlockProcessor):
         text = blocks.pop(0)
         p.text = self.RE.sub(r'\1', text[1:].lstrip() if text.startswith(".") else text)
 
+
 class ActionForcedBlockProcessor(BlockProcessor):
-    RE = re.compile(r'^\n*(\s*!.*)\s*')
+    RE = re.compile(r'^\s*(\s*!.*)\s*$')
 
     def test(self, parent, block):
         return bool(self.RE.search(block))
@@ -58,8 +73,9 @@ class ActionForcedBlockProcessor(BlockProcessor):
         p = etree.SubElement(parent, 'p')
         p.text = self.RE.sub(r'\1', blocks.pop(0)).replace("!", "", 1)
 
+
 class SynopsesBlockProcessor(BlockProcessor):
-    RE = re.compile(r'^\s*=\s*(.+)\s*')
+    RE = re.compile(r'^\s*=\s*(.+)\s*$')
 
     def test(self, parent, block):
         return bool(self.RE.search(block))
@@ -68,6 +84,38 @@ class SynopsesBlockProcessor(BlockProcessor):
         p = etree.SubElement(parent, 'p')
         p.set("class", "synopses")
         p.text = self.RE.sub(r'\1', blocks.pop(0))
+
+
+class CharacterBlockProcessor(BlockProcessor):
+    RE_DEFAULT = re.compile(r'^\s*([[:upper:] -]+[(\w)]*)\s*$', flags=re.UNICODE)
+    RE_FORCED = re.compile(r'^\s*@(.+)\s*$')
+
+    def test(self, parent, block):
+        return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+
+    def run(self, parent, blocks):
+        block = blocks.pop(0)
+        p = etree.SubElement(parent, 'p')
+        p.set("class", "character")
+        if self.RE_DEFAULT.search(block):
+            p.text = self.RE_DEFAULT.sub(r'\1', block)
+        elif self.RE_FORCED.search(block):
+            p.text = self.RE_FORCED.sub(r'\1', block)
+
+
+class DialogBlockProcessor(BlockProcessor):
+    RE_DEFAULT = re.compile(r'^\s*([A-Z0-9- ]+(\(\w*\))*)\s*\^?\s*\n')
+    RE_FORCED = re.compile(r'^\s*@(.+)\s*\^?\s*\n')
+
+    def test(self, parent, block):
+        return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+
+    def run(self, parent, blocks):
+        block = blocks[0]
+        div = etree.SubElement(parent, 'div')
+        div.set("class", "dialog")
+        dialog_blocks = block.split("\n")
+        self.parser.parseBlocks(div, dialog_blocks)
 
 class BoneyardPreprocessor(Preprocessor):
     """
@@ -79,12 +127,10 @@ class BoneyardPreprocessor(Preprocessor):
     """
 
     def run(self, lines):
-        logging.info(lines)
         lines = "\n".join(lines)
         lines = lines.replace(r'\/*', '\v')
-        lines = re.sub(r"\\?/\*.*?\*/", "", lines, flags=re.MULTILINE | re.DOTALL | re.UNICODE)
+        lines = re.sub(r"\\?/\*.*?\*/", "", lines, flags=re.MULTILINE | re.DOTALL)
         lines = lines.replace('\v', '/*')
-        logging.info(lines)
         return lines.split("\n")
 
 
@@ -104,6 +150,9 @@ class FountainMarkdownExtension(Extension):
 
         md.preprocessors.register(BoneyardPreprocessor(md), 'fountain-comments', 175)
 
+
+        md.parser.blockprocessors.register(DialogBlockProcessor(md.parser), "fountain-dialog", 100)
+        # md.parser.blockprocessors.register(BreakLinesInBlocksBlockProcessor(md.parser), "fountain-block-breaker", 200)
         ## process scene headers, without as long they dont start with !
         ## --> \s*(?<!!)(INT|EXT|EST|INT\./EXT|INT/EXT|I/E)\.{0,1}.*\s*
         ### scene numbers must be computed at compile time and setted to data-scene-number
@@ -112,8 +161,9 @@ class FountainMarkdownExtension(Extension):
         md.parser.blockprocessors.register(SceneHeadingBlockProcessor(md.parser), "fountain-scene-heading", 175)
         md.parser.blockprocessors.register(SynopsesBlockProcessor(md.parser), "fountain-synopses", 175)
         md.parser.blockprocessors.register(CenteredTextBlockProcessor(md.parser), 'fountain-centered-text', 175)
-        md.parser.blockprocessors.register(ActionForcedBlockProcessor(md.parser), "fountain-action-forced", 170)
 
+        md.parser.blockprocessors.register(ActionForcedBlockProcessor(md.parser), "fountain-action-forced", 170)
+        md.parser.blockprocessors.register(CharacterBlockProcessor(md.parser), "fountain-character", 170)
 
         md.treeprocessors.register(FountainWrapperTreeProcessor(md), 'fountain-wrapper', 175)
 
