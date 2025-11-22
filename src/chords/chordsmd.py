@@ -321,9 +321,9 @@ class ChordsMarkdownExtension(Extension):
         # md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
 
-        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections-brackets',
+        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections.fountain-brackets',
         #                                   175)
-        #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections-dots', 175)
+        #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections.fountain-dots', 175)
 
         md.postprocessors.register(UnCommentsPreprocessor(md), 'uncomment', 175)
 

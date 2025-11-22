@@ -1,0 +1,4 @@
+Comments: \/* */ /* Inline comments as stripped */.
+/*
+Should not appear
+*/
