@@ -16,4 +16,19 @@ sources = utils.list_source_files(group)
 def test_fountain(source_path):
     source, html, options, parsed = utils.read_source_and_html(group, source_path, parser)
 
+    print(f"""<table style="width: 100%; border: 1px solid darkgray; border-collapse: collapse">
+    <thead>
+    <tr style="border: 1px solid darkgray;">
+        <th style="border: 1px solid darkgray;">Source</th>
+        <th style="border: 1px solid darkgray;">Parsed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="border: 1px solid darkgray;">
+        <td style="border: 1px solid darkgray;">{source}</td>
+        <td style="border: 1px solid darkgray;">{parsed}</td>
+    </tr>
+    </tbody>
+</table>""")
+
     assert html_escape(parsed.strip()) == html_escape(html.strip())

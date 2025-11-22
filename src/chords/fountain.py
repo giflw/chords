@@ -5,6 +5,8 @@ import regex as re
 from markdown import markdown, Markdown
 from markdown.blockprocessors import BlockProcessor
 from markdown.extensions import Extension
+from markdown.inlinepatterns import InlineProcessor
+from markdown.postprocessors import Postprocessor
 from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 
@@ -116,6 +118,21 @@ class CenteredTextBlockProcessor(BlockProcessor):
         p.set("class", "center")
         p.text = self.RE.sub(r'\1', blocks.pop(0))
 
+class LyricsBlockProcessor(BlockProcessor):
+    RE = re.compile(r'^\s*\~\s*(.+?)')
+
+    def test(self, parent, block):
+        return bool(self.RE.search(block))
+
+    def run(self, parent, blocks):
+        p = etree.SubElement(parent, 'p')
+        p.set("class", "lyrics")
+
+        p = etree.SubElement(p, "i")
+        block = blocks.pop(0)
+        text = "<br />\n".join([re.sub(r'\~\s?(\*{2})?', "", line) for line in block.split("\n")])
+        p.text = self.RE.sub(r'\1', text)
+
 
 class ActionBlockProcessor(BlockProcessor):
     """
@@ -187,19 +204,36 @@ class CharacterBlockProcessor(BlockProcessor):
             p.text = character
 
 
-class DialogBlockProcessor(BlockProcessor):
-    RE_DEFAULT = re.compile(r'^\s*([A-Z0-9- ]+(\(\w*\))*)\s*\^?\s*\n')
-    RE_FORCED = re.compile(r'^\s*@(.+)\s*\^?\s*\n')
+class BlockContinuationPostprocessor(Postprocessor):
 
-    def test(self, parent, block):
-        return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+    def run(self, text):
+        parts = text.split("\n")
+        last_part_was_break = False
+        for i in range(0, len(parts)):
+            if parts[i] == "**":
+                if last_part_was_break:
+                    parts[i] = "<br />"
+                else:
+                    last_part_was_break = True
+                    parts[i] = "<br />\n<br />"
+            else:
+                last_part_was_break = False
+        return "\n".join(parts)
 
-    def run(self, parent, blocks):
-        block = blocks[0]
-        div = etree.SubElement(parent, 'div')
-        div.set("class", "dialog")
-        dialog_blocks = block.split("\n")
-        self.parser.parseBlocks(div, dialog_blocks)
+
+# class DialogBlockProcessor(BlockProcessor):
+#     RE_DEFAULT = re.compile(r'^\s*([A-Z0-9- ]+(\(\w*\))*)\s*\^?\s*\n')
+#     RE_FORCED = re.compile(r'^\s*@(.+)\s*\^?\s*\n')
+#
+#     def test(self, parent, block):
+#         return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+#
+#     def run(self, parent, blocks):
+#         block = blocks[0]
+#         div = etree.SubElement(parent, 'div')
+#         div.set("class", "dialog")
+#         dialog_blocks = block.split("\n")
+#         self.parser.parseBlocks(div, dialog_blocks)
 
 
 class FountainMarkdownExtension(Extension):
@@ -227,14 +261,21 @@ class FountainMarkdownExtension(Extension):
         block_proc_reg(SceneHeadingBlockProcessor(md.parser), "fountain-scene-heading", base_priority)
         block_proc_reg(SynopsesBlockProcessor(md.parser), "fountain-synopses", base_priority)
         block_proc_reg(CenteredTextBlockProcessor(md.parser), 'fountain-centered-text', base_priority)
+        block_proc_reg(LyricsBlockProcessor(md.parser), 'fountain-lyrics', base_priority)
 
         block_proc_reg(ActionBlockProcessor(md.parser), "fountain-action", base_priority - 20)
         block_proc_reg(CharacterBlockProcessor(md.parser), "fountain-character", base_priority - 5)
+
+        # inline_proc_reg = md.inlinePatterns.register
+        # inline_proc_reg(BlockContinuationNthInlineProcessor(), "fountain-block-continuation-nth", base_priority + 10)
+        # inline_proc_reg(BlockContinuationExtraInlineProcessor(), "fountain-block-continuation-extra", base_priority + 5)
+        # inline_proc_reg(BlockContinuationFirstInlineProcessor(), "fountain-block-continuation-first", base_priority)
 
         tree_reg = md.treeprocessors.register
         tree_reg(FountainWrapperTreeProcessor(md), 'fountain-wrapper', base_priority)
         tree_reg(FountainCharacterListTreeProcessor(md, self.getConfigs()), 'fountain-character-list', base_priority)
 
+        md.postprocessors.register(BlockContinuationPostprocessor(md), "fountain-block-continuation", base_priority)
 
 def makeExtension(**kwargs):
     return FountainMarkdownExtension(**kwargs)
