@@ -130,7 +130,7 @@ class LyricsBlockProcessor(BlockProcessor):
 
         p = etree.SubElement(p, "i")
         block = blocks.pop(0)
-        text = "<br />\n".join([re.sub(r'\~\s?(\*{2})?', "", line) for line in block.split("\n")])
+        text = "<br />\n".join([re.sub(r'^\~\s?(\*{2})?', "", line) for line in block.split("\n")])
         p.text = self.RE.sub(r'\1', text)
 
 
@@ -203,7 +203,7 @@ class CharacterBlockProcessor(BlockProcessor):
             p.set("class", "character")
             p.text = character
 
-
+# FIXME unify this continuation with lyrics continuation
 class BlockContinuationPostprocessor(Postprocessor):
 
     def run(self, text):

@@ -1,5 +1,4 @@
 .venv
-**/__pycache__/**
 .idea
 *.adoc
 *.html
@@ -9,3 +8,5 @@ res/
 report_output/
 !report_output/index.html
 plus_metadata.json
+!tests/**/*
+**/__pycache__/**
