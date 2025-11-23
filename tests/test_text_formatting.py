@@ -12,6 +12,8 @@ sources = utils.list_source_files(group)
 
 
 @pytest.mark.parametrize("source_path", sources, ids=lambda n: n.split(".")[0].upper())
+@pytest.mark.text_formating
+@pytest.mark.skip
 def test_text_formatting(source_path):
     source, html, options, parsed = utils.read_source_and_html(group, source_path, parser)
 

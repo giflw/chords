@@ -8,27 +8,15 @@ import src.chords.fountain as parser
 import utils
 
 group = utils.get_group_from_test_file_path(__file__)
-# sources = ["code.md", "mode-single.md"]
-sources = utils.list_source_files(group)
+sources = None
+# sources = ["line-breaks.fountain"]
+if sources is None:
+    sources = utils.list_source_files(group)
 
 
 @pytest.mark.parametrize("source_path", sources, ids=lambda n: n.split(".")[0].upper())
+@pytest.mark.fountain
 def test_fountain(source_path):
     source, html, options, parsed = utils.read_source_and_html(group, source_path, parser)
-
-    print(f"""<table style="width: 100%; border: 1px solid darkgray; border-collapse: collapse">
-    <thead>
-    <tr style="border: 1px solid darkgray;">
-        <th style="border: 1px solid darkgray;">Source</th>
-        <th style="border: 1px solid darkgray;">Parsed</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr style="border: 1px solid darkgray;">
-        <td style="border: 1px solid darkgray;">{source}</td>
-        <td style="border: 1px solid darkgray;">{parsed}</td>
-    </tr>
-    </tbody>
-</table>""")
 
     assert html_escape(parsed.strip()) == html_escape(html.strip())

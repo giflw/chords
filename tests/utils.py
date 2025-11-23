@@ -1,6 +1,7 @@
 import glob
-import os
 import logging
+import os
+
 
 def get_group_from_test_file_path(test_file_path) -> str:
     return os.path.splitext(os.path.split(test_file_path)[1])[0].split("test_")[1]
@@ -36,6 +37,25 @@ def read_source_and_html(group, source_path, parser) -> tuple[str, str, dict, st
 
     logging.info(f"Options: {options}")
     parsed = parser.parse(source, **options)
+
+    html_gen = os.path.splitext(source_path)[0] + ".generated.html"
+    with open(html_gen, "w", encoding="utf-8") as file:
+        file.write(parsed)
     # logging.info(f"Parsed: [{parsed}]")
+
+    print(f"""<table style="width: 100%; border: 1px solid darkgray; border-collapse: collapse">
+        <thead>
+        <tr style="border: 1px solid darkgray;">
+            <th style="border: 1px solid darkgray;">Source</th>
+            <th style="border: 1px solid darkgray;">Parsed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="border: 1px solid darkgray;">
+            <td style="border: 1px solid darkgray;">{source}</td>
+            <td style="border: 1px solid darkgray;">{parsed}</td>
+        </tr>
+        </tbody>
+    </table>""")
 
     return source, html, options, parsed

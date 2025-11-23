@@ -10,3 +10,4 @@ report_output/
 plus_metadata.json
 !tests/**/*
 **/__pycache__/**
+**/*.generated.html
