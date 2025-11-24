@@ -39,11 +39,18 @@ for tag in "${!tags[@]}"; do
   echo "${char}content inside single symbols${char}
 ${char}${char}can have ${char} inside as long we don't use another one inside${char}${char}
 ${char}${char} without matching close has no effect
+
+file\\${char}name\\${char}with\\${char}underscores
+${char}${char}file\\${char}name\\${char}with\\${char}underscores${char}${char}
+any other ${char}one line${char} can be used ${char}naturally${char} like this
 " | tee "${tag}.md"
 
   echo "<p><${tag}>content inside single symbols</${tag}>
 <${tag}>can have ${char} inside as long we don't use another one inside</${tag}>
 ${char}${char} without matching close has no effect</p>
+<p>file${char}name${char}with${char}underscores
+<${tag}>file${char}name${char}with${char}underscores</${tag}>
+any other <${tag}>one line</${tag}> can be used <${tag}>naturally</${tag}> like this</p>
 " | tee "${tag}.html"
 done
 
