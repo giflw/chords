@@ -1,6 +1,7 @@
 import glob
 import logging
 import os
+from types import MappingProxyType
 
 
 def get_group_from_test_file_path(test_file_path) -> str:
@@ -18,7 +19,15 @@ def list_source_files(group) -> list[str]:
     ]
 
 
-def read_source_and_html(group, source_path, parser) -> tuple[str, str, dict, str]:
+def dict2css(style: dict[str, dict[str, str | int | bool]] = MappingProxyType({})):
+    style_str = ""
+    for k, v in style.items():
+        values = [f"    {ik}: {iv};\n" for ik, iv in v.items()]
+        style_str += f"{k} {{\n{"".join(values)}}}\n"
+    return style_str
+
+
+def read_source_and_html(group, source_path, parser, style: str = "") -> tuple[str, str, dict, str]:
     source_path = os.path.join("tests", group, source_path)
     with open(source_path, "r", encoding="utf-8") as file:
         source = file.read()
@@ -43,7 +52,8 @@ def read_source_and_html(group, source_path, parser) -> tuple[str, str, dict, st
         file.write(parsed)
     # logging.info(f"Parsed: [{parsed}]")
 
-    print(f"""<table style="width: 100%; border: 1px solid darkgray; border-collapse: collapse">
+    print(f"""<style>{style}</style>
+    <table style="width: 100%; border: 1px solid darkgray; border-collapse: collapse">
         <thead>
         <tr style="border: 1px solid darkgray;">
             <th style="border: 1px solid darkgray;">Source</th>
