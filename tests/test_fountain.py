@@ -5,7 +5,7 @@ from html import escape as html_escape
 import pytest
 from pygments.styles.dracula import background
 
-import src.chords.fountain as parser
+import src.giflwmd.fountain as parser
 import utils
 
 group = utils.get_group_from_test_file_path(__file__)

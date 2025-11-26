@@ -73,7 +73,7 @@ class TagsPreprocessor(Preprocessor):
 
 class ChordWrapperPreprocessor(Preprocessor):
     """
-    Single line of chords are detected and each chord is wrapped in span
+    Single line of giflwmd are detected and each chord is wrapped in span
 
     >>> parse("C   Am E# Ddim C4(9)")
     '<p><span class="chord">C</span>   <span class="chord">Am</span> <span class="chord">E#</span> <span class="chord">Ddim</span> <span class="chord">C4(9)</span></p>'
@@ -94,7 +94,7 @@ class ChordWrapperPreprocessor(Preprocessor):
 @deprecated("FIXME")
 class ChordsInlineProcessor(SimpleTagInlineProcessor):
     """
-    Parse chords and wrap inside tag
+    Parse giflwmd and wrap inside tag
 
     >>> parse("foo bar A#m C D4 Edim(9)")
     '<p><del>foo bar</del></p>'
@@ -251,7 +251,7 @@ class ChordsSectionBlockProcessor(BlockProcessor):
         block = blocks.pop(0)
         # logging.warning(f"title -> {block}")
         new_parent = etree.SubElement(parent, 'div')
-        new_parent.set('class', 'chords-section')
+        new_parent.set('class', 'giflwmd-section')
         e = etree.SubElement(new_parent, 'h3')
         e.text = re.sub(self.RE_FENCE_START, r'\1', block)
 
@@ -279,10 +279,10 @@ class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
     FIXME DOC
 
     >>> parse(' [sectname1]\\n\\nfoo  \\n  bar\\n\\n[nextsect-bracket]')
-    '<div class="chords-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="chords-section">\\n<h3>nextsect-bracket</h3>\\n</div>'
+    '<div class="giflwmd-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="giflwmd-section">\\n<h3>nextsect-bracket</h3>\\n</div>'
 
     >>> parse('\\n[Intro]\\n\\n[Verso 1]\\n\\nfoo bar\\n')
-    '<div class="chords-section">\\n<h3>Intro</h3>\\n</div>\\n<div class="chords-section">\\n<h3>Verso 1</h3>\\n<p>foo bar</p>\\n</div>'
+    '<div class="giflwmd-section">\\n<h3>Intro</h3>\\n</div>\\n<div class="giflwmd-section">\\n<h3>Verso 1</h3>\\n<p>foo bar</p>\\n</div>'
 
 
     """
@@ -297,7 +297,7 @@ class DotSectionBlockProcessor(ChordsSectionBlockProcessor):
     FIXME DOC
 
     >>> parse(' .sectname1.\\n\\nfoo  \\n  bar\\n\\n.nextsect-dots.')
-    '<div class="chords-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="chords-section">\\n<h3>nextsect-dots</h3>\\n</div>'
+    '<div class="giflwmd-section">\\n<h3>sectname1</h3>\\n<p>foo<br />\\n  bar</p>\\n</div>\\n<div class="giflwmd-section">\\n<h3>nextsect-dots</h3>\\n</div>'
 
     """
 
@@ -321,9 +321,9 @@ class ChordsMarkdownExtension(Extension):
         # md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
 
-        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'chords-sections.fountain-brackets',
+        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'giflwmd-sections.fountain-brackets',
         #                                   175)
-        #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'chords-sections.fountain-dots', 175)
+        #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'giflwmd-sections.fountain-dots', 175)
 
         md.postprocessors.register(UnCommentsPreprocessor(md), 'uncomment', 175)
 

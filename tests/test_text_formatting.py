@@ -3,7 +3,7 @@ from html import escape as html_escape
 
 import pytest
 
-import src.chords.text_formatting as parser
+import src.giflwmd.text_formatting as parser
 import utils
 
 group = utils.get_group_from_test_file_path(__file__)

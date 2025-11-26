@@ -24,6 +24,12 @@ class WrapperTreeProcessor(Treeprocessor):
         wrapper.set("class", "fountain")
         new_root.insert(0, wrapper)
 
+        for node in root.iterfind("div"):
+            print(node.tag, node.get("class"))
+            if node.get("class") == "title-page":
+                root.remove(node)
+                wrapper.append(node)
+
         script = etree.SubElement(wrapper, "div")
         script.set("class", "script")
 
@@ -146,7 +152,6 @@ class TitlePageBlockProcessor(BlockProcessor):
         if self.title_processed:
             return False
         self.title_processed = True
-        print("self.RE.search(block)")
         return bool(self.RE.search(block))
 
     def run(self, parent, blocks):
@@ -510,9 +515,6 @@ class FountainMarkdownExtension(Extension):
         md.inlinePatterns.deregister("em_strong")
         md.inlinePatterns.deregister("em_strong2")
         md.parser.blockprocessors.deregister("quote")
-
-        # print("PRE REGISTERED PROCESSORS")
-        # print(md.inlinePatterns._data)
 
         md.preprocessors.register(BoneyardPreprocessor(md), 'fountain-comments', base_priority)
         md.preprocessors.register(BlockContinuationPreprocessor(md),

@@ -10,11 +10,33 @@ PYTHONIOENCODING = "utf-8"
 [hooks]
 postinstall = "python -m pip install -r requirements.txt"
 
+[tasks.build]
+run = [
+    "rm -rf report_output",
+    "python3 -m pip install --upgrade build",
+    "python3 -m build"
+]
+
+[tasks.publish]
+description = """
+Publish to Test PyPi
+
+To install from testpypi:
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps giflwmd
+"""
+run = [
+    "python3 -m pip install --upgrade twine",
+    "python3 -m twine upload --repository testpypi dist/*"
+]
+
 [tasks.host-ip]
 run = """python -c "import socket; print(socket.gethostbyname(socket.gethostname()))" """
 
 [tasks.chords]
-run = "python -m src.chords"
+run = "python -m src.giflwmd chords"
+
+[tasks.fountain]
+run = "python -m src.giflwmd fountain"
 
 [tasks.serve]
 run = "npx -y live-server"

@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='py-chords',
+    name='py-giflwmd',
     version='',
     packages=[''],
     url='',
