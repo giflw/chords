@@ -1,0 +1,380 @@
+:root {
+    /* #51445F - moon warrior */
+    --body-background: #51445F;
+    --text-color: #222222;
+    --page-a4-width: 850px;
+
+    --header-text-color: darkgray;
+    --footer-text-color: darkgray;
+    --metas-text-color: darkgray;
+
+    --pagedjs-width: 210mm;
+    --pagedjs-height: 297mm;
+    --pagedjs-width-right: 210mm;
+    --pagedjs-height-right: 297mm;
+    --pagedjs-width-left: 210mm;
+    --pagedjs-height-left: 297mm;
+    --pagedjs-pagebox-width: 210mm;
+    --pagedjs-pagebox-height: 297mm;
+    --pagedjs-footnotes-height: 0mm;
+    --pagedjs-margin-top: 1.5cm;
+    --pagedjs-margin-right: 1.5cm;
+    --pagedjs-margin-bottom: 1.5cm;
+    --pagedjs-margin-left: 1.5cm;
+    --pagedjs-padding-top: 0mm;
+    --pagedjs-padding-right: 0mm;
+    --pagedjs-padding-bottom: 0mm;
+    --pagedjs-padding-left: 0mm;
+    --pagedjs-border-top: 0mm;
+    --pagedjs-border-right: 0mm;
+    --pagedjs-border-bottom: 0mm;
+    --pagedjs-border-left: 0mm;
+    --pagedjs-bleed-top: 0mm;
+    --pagedjs-bleed-right: 0mm;
+    --pagedjs-bleed-bottom: 0mm;
+    --pagedjs-bleed-left: 0mm;
+    --pagedjs-bleed-right-top: 0mm;
+    --pagedjs-bleed-right-right: 0mm;
+    --pagedjs-bleed-right-bottom: 0mm;
+    --pagedjs-bleed-right-left: 0mm;
+    --pagedjs-bleed-left-top: 0mm;
+    --pagedjs-bleed-left-right: 0mm;
+    --pagedjs-bleed-left-bottom: 0mm;
+    --pagedjs-bleed-left-left: 0mm;
+    --pagedjs-crop-color: black;
+    --pagedjs-crop-shadow: white;
+    --pagedjs-crop-offset: 2mm;
+    --pagedjs-crop-stroke: 1px;
+    --pagedjs-cross-size: 5mm;
+    --pagedjs-mark-cross-display: none;
+    --pagedjs-mark-crop-display: none;
+    --pagedjs-page-count: 0;
+    --pagedjs-page-counter-increment: 1;
+    --pagedjs-footnotes-count: 0;
+    --pagedjs-column-gap-offset: 1000px;
+}
+/*******************************************
+CSS for PAGED JS
+*******************************************/
+.pagedjs_sheet {
+    margin: 0;
+    padding: 0;
+}
+.pagedjs_pagebox > * {
+    border: 1px dashed purple
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-background) !important;
+}
+
+@page {
+    size: a4 portrait;
+}
+@media print {
+    body {
+        background-color: transparent;
+    }
+    .fountain { 
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .fountain>* {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .fountain> .title-page {
+        margin: 0;
+    }
+}
+
+.fountain {
+    color: var(--text-color);
+    cursor: text;
+    font-size: 12pt;
+    font-family: 'Courier Final Draft', Courier, Courier New, monospace;
+    letter-spacing: 0 !important;
+    line-height: 107.5%;
+}
+
+.fountain>* {
+    background: #f7f2ea;
+    border: 1px solid red /* #d2d2d2 */;
+    border-radius: 0;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    z-index: 200;
+    box-sizing: border-box;
+}
+
+.fountain a {
+    color: inherit;
+    font-style: oblique;
+    text-decoration: none;
+}
+
+.fountain a:hover {
+    text-decoration: underline;
+}
+
+.fountain>* {
+    break-after: always;
+}
+
+/* title page */
+.fountain .title-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.fountain .title-page .header {
+    /* FIXME */
+    display: none;
+    /* position: absolute;
+    top: -2rem;
+    left: 0;
+    right: 0;
+    color: var(--header-text-color); */
+}
+.fountain .title-page .title-page-top {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.fountain .title-page .title-page-center {
+    position: static;
+}
+.fountain .title-page .title-page-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 0;
+}
+.fountain .title-page .title-page-bottom * {
+    font-size: 0.8rem;
+}
+.fountain .title-page .footer {
+    display: none;
+}
+.fountain .title-page * {
+    text-align: center;
+    margin: 0 auto;
+}
+.fountain .title-page > * {
+    width: calc(100% - 4rem);
+}
+.fountain .title-page .image {
+    height: 16rem;
+    width: 100%;
+}
+.fountain .title-page .image > img {
+    display: inline-block;
+    margin: 2rem auto;
+    height: 12rem;
+    max-width: fit-content;
+}
+.fountain .title-page h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.fountain .title-page h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.fountain .title-page p.credit {
+    font-style: italic;
+    font-size: 0.8rem;
+}
+.fountain .title-page p.credit .comma {
+    display: none;
+}
+.fountain .title-page span.author {
+    display: block;
+    text-align: center;
+    width: 90.5%;
+    font-size: 1.2rem;
+    font-variant: small-caps;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.fountain .title-page span.author:first-child {
+    margin-top: 1rem;
+}
+.fountain .title-page span.author:last-child {
+    margin-bottom: 1rem;
+}
+.fountain .title-page p.revision {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.fountain .title-page p.source {
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+
+.fountain .title-page .metas > * {
+    border-bottom: dashed 1px var(--metas-text-color);
+    margin: 0.5rem auto;
+    padding: 0;
+    font-size: 0.8rem;
+    width: 100%;
+}
+.fountain .title-page .metas>*:last-child {
+    border: none;
+}
+.fountain .title-page .metas>*::before {
+    content: attr(data-information-key) ":";
+    display: block;
+    text-align: left;
+    text-decoration: underline;
+}
+.fountain .title-page .metas * {
+    text-align: right;
+    color: var(--metas-text-color);
+}
+.fountain .title-page .metas > * *{
+    margin: 0;
+    width: 100%;
+}
+
+.fountain .title-page .title-page-bottom > * {
+    width: auto;
+}
+.fountain .title-page p.draft-date {
+    text-align: right;
+    color: #666666;
+}
+.fountain .title-page p.date {
+    text-align: right;
+}
+.fountain .title-page address.contact {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+}
+
+.fountain .title-page p.copyright {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+/* .fountain .title-page p.copyright > .copyright-symbol {
+    display: none;
+} */
+
+
+
+
+/* script */
+.fountain>* h2 {
+    text-align: right;
+}
+
+.fountain>* h2.left-aligned {
+    text-align: left
+}
+
+.fountain>* h3 {
+    position: relative;
+}
+
+.fountain>* h3:before {
+    color: #bbb;
+    content: attr(id);
+    font-weight: bold;
+    left: -45px;
+    position: absolute;
+}
+
+.fountain>* h3:after {
+    color: #bbb;
+    content: attr(id);
+    font-weight: bold;
+    right: -45px;
+    position: absolute;
+}
+
+.fountain>* div.dialogue {
+    margin-left: auto;
+    margin-right: auto;
+    width: 68%;
+}
+
+.fountain>* div.dialogue h4 {
+    margin-bottom: 0;
+    margin-left: 23%;
+}
+
+.fountain>* div.dialogue p.parenthetical {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 11%;
+}
+
+.fountain>* div.dialogue p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.fountain>* div.dual-dialogue {
+    margin: 2em 0 0.9em 2%;
+    auto;
+    width: 95%;
+}
+
+.fountain>* div.dual-dialogue div.dialogue {
+    display: inline-block;
+    margin: 0;
+    width: 45%;
+}
+
+.fountain>* div.dual-dialogue div.dialogue h4 {
+    margin-top: 0;
+}
+
+.fountain>* div.dual-dialogue div.dialogue.right {
+    float: right;
+}
+
+.fountain>* p {}
+
+.fountain>* p.centered {
+    text-align: center;
+    width: 92.5%;
+}
+
+.fountain>* p.section {
+    color: #bbb;
+    margin-left: -30px;
+}
+
+.fountain>* p.synopsis {
+    color: #bbb;
+    margin-left: -20px;
+}
+
+.fountain>* span.italic {
+    font-style: italic;
+}
+
+.fountain>* span.bold {
+    font-weight: bold;
+}
+
+.fountain>* span.underline {
+    text-decoration: underline;
+}

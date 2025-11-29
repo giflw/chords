@@ -4,6 +4,7 @@ import sys
 import markdown
 
 from src.giflwmd.chordsmd import ChordsMarkdownExtension
+from src.giflwmd.extras import ExtrasMarkdownExtension
 from src.giflwmd.fountain import FountainMarkdownExtension
 from src.giflwmd.mkcomments import CommentsExtension
 from src.giflwmd.text_formatting import TextFormattingMarkdownExtension
@@ -12,7 +13,8 @@ MODES = {
     "chords": ChordsMarkdownExtension(),
     "text_formating": TextFormattingMarkdownExtension(),
     "comments": CommentsExtension(),
-    "fountain": FountainMarkdownExtension()
+    "fountain": FountainMarkdownExtension(),
+    "extras": ExtrasMarkdownExtension()
 }
 
 mode = sys.argv[1]

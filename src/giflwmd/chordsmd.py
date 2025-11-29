@@ -104,8 +104,6 @@ class ChordsInlineProcessor(SimpleTagInlineProcessor):
         super().__init__(r'[A-H1-9Mm#bdisue°+\%()*~v^|!?\&: ><\[\]/mpf-]+', 'span')
 
     def handleMatch(self, m: re.Match[str], data: str) -> tuple[etree.Element, int, int]:  # pragma: no cover
-        import rich
-        rich.print(m)
         """
         Return [`Element`][xml.etree.ElementTree.Element] of type `tag` with the string in `group(2)` of a
         matching pattern as the Element's text.
@@ -197,7 +195,6 @@ class HardbreakBlockProcessor(BlockProcessor):
     RE_FENCE_END = r'.*[^\\]*hardbreak: false.*$'  # last non-blank line, e.g, '!!!\n  \n\n'
 
     def test(self, parent, block):
-        print(block)  # --- IGNORE ---
         return re.match(self.RE_FENCE_START, block)
 
     def run(self, parent, blocks):

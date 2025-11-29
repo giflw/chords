@@ -10,6 +10,8 @@ from markdown.postprocessors import Postprocessor
 from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 
+from .extras import ExtrasMarkdownExtension
+
 CHARACTER_REGISTRY_NAME = "fountain_character_registry"
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s [%(func)s] - %(message)s')
@@ -21,14 +23,15 @@ class WrapperTreeProcessor(Treeprocessor):
         new_root = etree.Element("div")
 
         wrapper = etree.Element("div")
-        wrapper.set("class", "fountain")
+        wrapper.set("class", "fountain a4")
         new_root.insert(0, wrapper)
 
         for node in root.iterfind("div"):
-            print(node.tag, node.get("class"))
             if node.get("class") == "title-page":
                 root.remove(node)
                 wrapper.append(node)
+        
+        # etree.SubElement(wrapper, "div", {"class": "toc-page"})
 
         script = etree.SubElement(wrapper, "div")
         script.set("class", "script")
@@ -52,6 +55,9 @@ class CharacterListTreeProcessor(Treeprocessor):
 
         for char in sorted(char_set):
             if char_list is None:
+                # toc_page = [div for div in fountain.iter("div") if div.get("class") == "toc-page"][0]
+                # char_div = etree.SubElement(toc_page, "div")
+                
                 char_div = etree.SubElement(fountain, "div")
                 char_div.set("class", "characters")
 
@@ -123,9 +129,10 @@ class TitlePageBlockProcessor(BlockProcessor):
     """
     Match one or two words followed by ":"
     """
-    RE = re.compile(r'^[\n]*([\w\d]+( [\w\d]+)?:.*(\n\s+.*)*)', flags=re.MULTILINE)
+    RE = re.compile(r'^[\n]*([\w\d#]+( [\w\d]+)?:.*(\n\s+.*)*)', flags=re.MULTILINE)
 
     HEADER = "header"
+    IMAGE = "image"
     TITLE = "title"
     AUTHOR = "author"
     AUTHORS = "authors"
@@ -133,7 +140,10 @@ class TitlePageBlockProcessor(BlockProcessor):
     REVISION = "revision"
     SOURCE = "source"
     NOTES = "notes"
+    CONTACT = "contact"
+    COPYRIGHT = "copyright"
     DRAFT_DATE = "draft date"
+    DATE = "date"
     FOOTER = "footer"
 
     """
@@ -142,8 +152,8 @@ class TitlePageBlockProcessor(BlockProcessor):
     Keys are processed in this order.
     """
     KEYS = [
-        HEADER, TITLE, AUTHOR, AUTHORS, REVISION, SOURCE,
-        DRAFT_DATE, FOOTER
+        HEADER, IMAGE, TITLE, AUTHOR, AUTHORS, REVISION, SOURCE,
+        CONTACT, COPYRIGHT, DRAFT_DATE, DATE, FOOTER
     ]
 
     title_processed = False
@@ -165,7 +175,23 @@ class TitlePageBlockProcessor(BlockProcessor):
                 meta = part.group(0)
                 last_pos = part.end(0)
                 name, values = meta.split(":", maxsplit=1)
-                values = [v.strip() for v in values.split("\n") if v]
+                
+                name = name.strip().lower()
+                print(name)
+                if name.startswith("#"):
+                    continue
+
+                new_values = []
+                for value in values.split("\n"):
+                    value = value.strip()
+                    print(f"[{value}]")
+                    if value.startswith("#") or not value:
+                        continue
+                    elif value.startswith("\\#"):
+                        value = value[1:]
+                    new_values.append(value.strip())
+                values = new_values
+
                 information[name.lower()] = values
 
         page = etree.SubElement(parent, "div", {"class": "title-page"})
@@ -175,6 +201,8 @@ class TitlePageBlockProcessor(BlockProcessor):
         self.bottom = etree.SubElement(page, "div", {"class": "title-page-bottom"})
         self.footer = etree.SubElement(page, "div", {"class": "footer"})
 
+        self.images = etree.SubElement(self.top, "div", {"class": "image"})
+
         for info_name in self.KEYS:
             func_name = f"info_{info_name.lower().replace(" ", "_")}"
             func = getattr(self, func_name) if hasattr(self, func_name) else None
@@ -183,13 +211,15 @@ class TitlePageBlockProcessor(BlockProcessor):
                 func(values, information)
 
         self.info_notes(information.pop(self.NOTES, []), information)
-        import pprint
-        pprint.pp(information)
 
     def info_header(self, values: list[str], information):
         for value in values:
             etree.SubElement(self.header, "div").text = value
-
+    
+    def info_image(self, values: list[str], information):
+        for value in values:
+            etree.SubElement(self.images, "img", {"src": value, "title": value.split(".")[0]})
+        
     def info_title(self, values: list[str], information):
         etree.SubElement(self.top, "h1", {"class": "title"}).text = values[0]
         if len(values) > 1:
@@ -208,7 +238,7 @@ class TitlePageBlockProcessor(BlockProcessor):
         last_author = None
         for author in values:
             if last_author is not None:
-                last_author.tail = ", "
+                etree.SubElement(p_credit, "span", {"class": "comma"}).text = ","
             last_author = etree.SubElement(p_credit, "span", {"class": "author"})
             last_author.text = author
 
@@ -222,7 +252,7 @@ class TitlePageBlockProcessor(BlockProcessor):
     def info_notes(self, values: list[str], information):
         metas = etree.SubElement(self.center, "div", {"class": "metas"})
         if values:
-            notes = etree.SubElement(metas, "div", {"class": "notes"})
+            notes = etree.SubElement(metas, "div", {"class": "notes", "data-information-key": "Notes"})
             for value in values:
                 etree.SubElement(notes, "p").text = value
         # Unknown info keys
@@ -232,6 +262,21 @@ class TitlePageBlockProcessor(BlockProcessor):
                 div = etree.SubElement(metas, "div", {"data-information-key": info.lower().replace(" ", "-")})
                 for value in values:
                     etree.SubElement(div, "p").text = value
+
+    def info_contact(self, values: list[str], information):
+        address = etree.SubElement(self.bottom, "address", {"class": "contact"})
+        address.text = values[0]
+        for value in values[1:]:
+            etree.SubElement(address, "br").tail = value
+
+    def info_copyright(self, values: list[str], information):
+        p = etree.SubElement(self.bottom, "p", {"class": "copyright"})
+        span = etree.SubElement(p, "span", {"class": "copyright-symbol"})
+        span.text = "©"
+        span.tail = " | ".join(values)
+
+    def info_date(self, values: list[str], information):
+        etree.SubElement(self.bottom, "p", {"class": "date"}).text = " ".join(values)
 
     def info_draft_date(self, values: list[str], information):
         etree.SubElement(self.bottom, "p", {"class": "draft-date"}).text = " ".join(values)
@@ -503,14 +548,15 @@ class EmphasisInlineProcessor(InlineProcessor):
 #         self.parser.parseBlocks(div, dialog_blocks)
 
 
-class FountainMarkdownExtension(Extension):
+class FountainMarkdownExtension(ExtrasMarkdownExtension):
     def __init__(self, **kwargs):
         self.config = {
             'characters_title': ['Characters', 'Title of list of characters']
         }
-        super(FountainMarkdownExtension, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def extendMarkdown(self, md):
+        super().extendMarkdown(md)
         base_priority = 275
         md.inlinePatterns.deregister("em_strong")
         md.inlinePatterns.deregister("em_strong2")

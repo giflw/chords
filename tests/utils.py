@@ -44,7 +44,7 @@ def read_source_and_html(group, source_path, parser, style: str = "") -> tuple[s
     else:
         options = {}
 
-    logging.info(f"Options: {options}")
+    # logging.info(f"Options: {options}")
     parsed = parser.parse(source, **options)
 
     html_gen = os.path.splitext(source_path)[0] + ".generated.html"
