@@ -23,7 +23,7 @@ class WrapperTreeProcessor(Treeprocessor):
         new_root = etree.Element("div")
 
         wrapper = etree.Element("div")
-        wrapper.set("class", "fountain a4")
+        wrapper.set("class", "fountain")
         new_root.insert(0, wrapper)
 
         for node in root.iterfind("div"):
@@ -33,10 +33,21 @@ class WrapperTreeProcessor(Treeprocessor):
         
         # etree.SubElement(wrapper, "div", {"class": "toc-page"})
 
-        script = etree.SubElement(wrapper, "div")
+        script = etree.SubElement(wrapper, "main")
         script.set("class", "script")
-
         script.extend(root.iterfind('*'))
+        
+        nodes = [*script.iter()]
+        # split in h2 sections
+        section = etree.SubElement(script, "section",{"class": "preamble"})
+        for node in nodes:
+            tag = node.tag
+            if tag == "h2":
+                section = etree.SubElement(script, "section", {"class": "content"})
+            if node in script:
+                script.remove(node)
+                section.append(node)
+        
         return new_root
 
 
@@ -58,7 +69,7 @@ class CharacterListTreeProcessor(Treeprocessor):
                 # toc_page = [div for div in fountain.iter("div") if div.get("class") == "toc-page"][0]
                 # char_div = etree.SubElement(toc_page, "div")
                 
-                char_div = etree.SubElement(fountain, "div")
+                char_div = etree.SubElement(fountain, "nav")
                 char_div.set("class", "characters")
 
                 char_head = etree.SubElement(char_div, "h3")
@@ -221,12 +232,13 @@ class TitlePageBlockProcessor(BlockProcessor):
             etree.SubElement(self.images, "img", {"src": value, "title": value.split(".")[0]})
         
     def info_title(self, values: list[str], information):
-        etree.SubElement(self.top, "h1", {"class": "title"}).text = values[0]
+        header = etree.SubElement(self.top, "header", {"class": "title"})
+        etree.SubElement(header, "h1", {"class": "title"}).text = values[0]
         if len(values) > 1:
-            etree.SubElement(self.top, "h2", {"class": "subtitle"}).text = values[1]
+            etree.SubElement(header, "p", {"class": "subtitle"}).text = values[1]
         if len(values) > 2:
             for extra in values[2:]:
-                etree.SubElement(self.top, "p", {"class": "subsubtitle"}).text = extra
+                etree.SubElement(header, "p", {"class": "subsubtitle"}).text = extra
 
     def info_author(self, values: list[str], information):
         self.info_authors(values, information)
@@ -305,7 +317,7 @@ class SceneHeadingBlockProcessor(BlockProcessor):
     def run(self, parent, blocks):
         p = etree.SubElement(parent, 'h3')
         p.set("class", "scene-heading")
-        text = blocks.pop(0)
+        text = blocks.pop(0).strip()
         text = self.RE.sub(r'\1', text[1:].lstrip() if text.startswith(".") else text)
         number = ""
         splitted = text.split("#")
@@ -315,12 +327,16 @@ class SceneHeadingBlockProcessor(BlockProcessor):
             number = splitted[-2].strip()
             text = "#".join(splitted[0:-2]).strip()
         p.text = text
-        if number:
-            p.text = f"{p.text} "
-            p.set("data-scene-number", number)
-            span = etree.SubElement(p, "span")
-            span.text = number
-            span.set("class", "scene-number")
+
+        if not number:
+            number = text.replace(" ", "")
+            number = number if len(number) < 3 else number[0:3]
+
+        p.text = f"{p.text} "
+        p.set("data-scene-number", number)
+        span = etree.SubElement(p, "span")
+        span.text = number
+        span.set("class", "scene-number")
 
 
 class CenteredTextBlockProcessor(BlockProcessor):
@@ -335,20 +351,20 @@ class CenteredTextBlockProcessor(BlockProcessor):
         p.text = self.RE.sub(r'\1', blocks.pop(0))
 
 
-class LyricsBlockProcessor(BlockProcessor):
-    RE = re.compile(r'^\s*\~\s*(.+?)')
+# class LyricsBlockProcessor(BlockProcessor):
+#     RE = re.compile(r'^\s*\~\s*(.+?)')
 
-    def test(self, parent, block):
-        return bool(self.RE.search(block))
+#     def test(self, parent, block):
+#         return bool(self.RE.search(block))
 
-    def run(self, parent, blocks):
-        p = etree.SubElement(parent, 'p')
-        p.set("class", "lyrics")
+#     def run(self, parent, blocks):
+#         p = etree.SubElement(parent, 'p')
+#         p.set("class", "lyrics")
 
-        p = etree.SubElement(p, "i")
-        block = blocks.pop(0)
-        text = "<br />\n".join([re.sub(r'^\~\s?(\*{2})?', "", line) for line in block.split("\n")])
-        p.text = self.RE.sub(r'\1', text)
+#         p = etree.SubElement(p, "i")
+#         block = blocks.pop(0)
+#         text = "<br />\n".join([re.sub(r'^\~\s?(\*{2})?', "", line) for line in block.split("\n")])
+#         p.text = self.RE.sub(r'\1', text)
 
 
 class ActionBlockProcessor(BlockProcessor):
@@ -429,7 +445,10 @@ class DialogueBlockProcessor(BlockProcessor):
     RE_PARENTHETICAL = re.compile(r'^\s*(\(.+\))\s*$', re.MULTILINE)
 
     def test(self, parent, block):
-        return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+        # create parent div
+        matched = bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
+        # if false reset parent div
+        return matched
 
     def run(self, parent, blocks):
         block = blocks.pop(0)
@@ -445,19 +464,31 @@ class DialogueBlockProcessor(BlockProcessor):
         if character.endswith("^"):
             character = character[:-1].strip()
             dialog.set("class", f"{dialog.get("class")} dual")
-        p = etree.SubElement(dialog, "p", {"class": "character"})
+        p = etree.SubElement(dialog, "h4", {"class": "character"})
         p.text = character
 
         spoken_words = None
+        lyrics = None
         for line in tail:
             if self.RE_PARENTHETICAL.search(line):
                 p = etree.SubElement(dialog, "p", {"class": "parenthetical"})
                 p.text = self.RE_PARENTHETICAL.sub(r'\1', line)
                 spoken_words = None
+                lyrics = None
+            elif line.strip().startswith("~"):
+                line = line.strip()[1:]
+                if lyrics is None:
+                    lyrics = etree.SubElement(dialog, "p", {"class": "lyrics"})
+                    lyrics.text = line
+                    spoken_words = None
+                else:
+                    br = etree.SubElement(lyrics, "br")
+                    br.tail = line
             else:
                 if spoken_words is None:
-                    spoken_words = etree.SubElement(dialog, "p", {"class": "spoken-words"})
+                    spoken_words = etree.SubElement(dialog, "p", {"class": "line"})
                     spoken_words.text = line.strip()
+                    lyrics = None
                 else:
                     br = etree.SubElement(spoken_words, "br")
                     br.tail = line.strip()
@@ -577,7 +608,7 @@ class FountainMarkdownExtension(ExtrasMarkdownExtension):
         block_proc_reg(SceneHeadingBlockProcessor(md.parser), "fountain-scene-heading", base_priority)
         block_proc_reg(SynopsesBlockProcessor(md.parser), "fountain-synopses", base_priority)
         block_proc_reg(CenteredTextBlockProcessor(md.parser), 'fountain-centered-text', base_priority)
-        block_proc_reg(LyricsBlockProcessor(md.parser), 'fountain-lyrics', base_priority)
+        # block_proc_reg(LyricsBlockProcessor(md.parser), 'fountain-lyrics', base_priority)
         block_proc_reg(PageBreakBlockProcessor(md.parser), "fountaint-page-break", base_priority)
         block_proc_reg(TransitionBlockProcessor(md.parser), "fountain-transition", base_priority)
         block_proc_reg(DialogueBlockProcessor(md.parser), "fountain-dialogue", base_priority - 5)

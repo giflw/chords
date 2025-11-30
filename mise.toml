@@ -38,6 +38,9 @@ run = "python -m src.giflwmd chords"
 [tasks.fountain]
 run = "python -m src.giflwmd fountain"
 
+[tasks.devf]
+run = "mise watch -w . -w src -w src/giflwmd/templates -- fountain"
+
 [tasks.serve]
 run = "npx -y live-server"
 
