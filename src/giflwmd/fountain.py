@@ -11,7 +11,7 @@ from markdown.postprocessors import Postprocessor
 from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 
-from src.giflwmd.extras import IncludePreprocessor
+from .extras import IncludePreprocessor
 
 CHARACTER_REGISTRY_NAME = "fountain_character_registry"
 

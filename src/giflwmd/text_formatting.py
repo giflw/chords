@@ -8,7 +8,7 @@ from markdown.inlinepatterns import SimpleTagInlineProcessor, BacktickInlineProc
 from markdown.treeprocessors import Treeprocessor
 from markdown.util import STX, ETX
 
-from src.giflwmd.utils import Prioritized
+from .utils import Prioritized
 
 logger = logging.getLogger(__name__)
 

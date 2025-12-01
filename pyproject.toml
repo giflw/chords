@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "giflwmd"
-version = "0.0.1"
+version = "0.0.4"
 authors = [
   { name="Guilherme Weizenmann", email="g.weizenmann@gmail.com" },
 ]

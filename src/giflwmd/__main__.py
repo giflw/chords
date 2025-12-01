@@ -5,11 +5,11 @@ import sys
 import markdown
 from markdown.extensions.toc import TocExtension
 
-from src.giflwmd.chordsmd import ChordsMarkdownExtension
-from src.giflwmd.extras import ExtrasMarkdownExtension
-from src.giflwmd.fountain import FountainMarkdownExtension
-from src.giflwmd.mkcomments import CommentsExtension
-from src.giflwmd.text_formatting import TextFormattingMarkdownExtension
+from .chordsmd import ChordsMarkdownExtension
+from .extras import ExtrasMarkdownExtension
+from .fountain import FountainMarkdownExtension
+from .mkcomments import CommentsExtension
+from .text_formatting import TextFormattingMarkdownExtension
 
 MODES = {
     "chords": ChordsMarkdownExtension(),
