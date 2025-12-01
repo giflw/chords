@@ -1,12 +1,14 @@
 :root {
     /* #51445F - moon warrior */
-    --body-background: #51445F;
+    --body-background: #333333
+        /*#51445F*/
+    ;
     --text-color: #222222;
     --page-a4-width: 850px;
 
     --header-text-color: darkgray;
     --footer-text-color: darkgray;
-    --metas-text-color: #666666;
+    --metas-text-color: #888888;
 
     --pagedjs-width: 210mm;
     --pagedjs-height: 297mm;
@@ -479,6 +481,7 @@ h1 {
     margin-top: 0;
     display: block;
 }
+
 /* 
 .fountain .script .dialogue.dual {
     float: right;
@@ -512,3 +515,36 @@ h1 {
 .fountain .script span.underline {
     text-decoration: underline;
 } */
+
+table {
+    max-width: 100%;
+    margin: 1rem auto;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border-bottom: 1px solid darkslategray;
+    border-left: 1px solid lightgray;
+    padding: 0.1rem 1rem;
+}
+
+table tbody tr:first-child td {
+    border-top: 1px solid darkslategray;
+}
+
+table tr:last-of-type * {
+    border-bottom: none;
+}
+
+table tr :first-child {
+    border-left: none;
+}
+
+div.toc ul {
+    list-style: none;
+}
+
+div.toc>ul>li>a, div.toc>ul>li>ul>li>ul>li>ul>li {
+    display: none;
+}

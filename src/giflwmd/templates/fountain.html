@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 
     <link href="normalize.css" rel="stylesheet" />
-    <link href="fountain.css" rel="stylesheet"  />
+    <link href="fountain-paged.css" rel="stylesheet"  />
 
     <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
     <script>
@@ -24,6 +24,8 @@
       });
 
       ready.then(async function () {
+        // FIXME
+        return;
         // Create a new Previewer
         let previewer = new Paged.Previewer();
 
@@ -41,9 +43,18 @@
         let done = await previewer.preview(fragment, hrefs, document.body);
       });
     </script>
+    <style>
+      body {
+        margin: 1rem auto;
+        width: 210mm;
+      }
+      .fountain > * {
+        padding: 1.5cm;
+      }
+    </style>
   </head>
 
-  <body>
+  <body body="max-width: 1024px">
     %s
   </body>
 </html>

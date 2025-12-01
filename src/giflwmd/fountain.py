@@ -5,12 +5,13 @@ import regex as re
 from markdown import markdown, Markdown
 from markdown.blockprocessors import BlockProcessor, HashHeaderProcessor
 from markdown.extensions import Extension
+from markdown.extensions.tables import TableProcessor
 from markdown.inlinepatterns import InlineProcessor
 from markdown.postprocessors import Postprocessor
 from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 
-from .extras import ExtrasMarkdownExtension
+from src.giflwmd.extras import IncludePreprocessor
 
 CHARACTER_REGISTRY_NAME = "fountain_character_registry"
 
@@ -30,16 +31,16 @@ class WrapperTreeProcessor(Treeprocessor):
             if node.get("class") == "title-page":
                 root.remove(node)
                 wrapper.append(node)
-        
+
         # etree.SubElement(wrapper, "div", {"class": "toc-page"})
 
         script = etree.SubElement(wrapper, "main")
         script.set("class", "script")
         script.extend(root.iterfind('*'))
-        
+
         nodes = [*script.iter()]
         # split in h2 sections
-        section = etree.SubElement(script, "section",{"class": "preamble"})
+        section = etree.SubElement(script, "section", {"class": "preamble"})
         for node in nodes:
             tag = node.tag
             if tag == "h2":
@@ -47,7 +48,7 @@ class WrapperTreeProcessor(Treeprocessor):
             if node in script:
                 script.remove(node)
                 section.append(node)
-        
+
         return new_root
 
 
@@ -68,7 +69,7 @@ class CharacterListTreeProcessor(Treeprocessor):
             if char_list is None:
                 # toc_page = [div for div in fountain.iter("div") if div.get("class") == "toc-page"][0]
                 # char_div = etree.SubElement(toc_page, "div")
-                
+
                 char_div = etree.SubElement(fountain, "nav")
                 char_div.set("class", "characters")
 
@@ -186,7 +187,7 @@ class TitlePageBlockProcessor(BlockProcessor):
                 meta = part.group(0)
                 last_pos = part.end(0)
                 name, values = meta.split(":", maxsplit=1)
-                
+
                 name = name.strip().lower()
                 if name.startswith("#"):
                     continue
@@ -224,11 +225,11 @@ class TitlePageBlockProcessor(BlockProcessor):
     def info_header(self, values: list[str], information):
         for value in values:
             etree.SubElement(self.header, "div").text = value
-    
+
     def info_image(self, values: list[str], information):
         for value in values:
             etree.SubElement(self.images, "img", {"src": value, "title": value.split(".")[0]})
-        
+
     def info_title(self, values: list[str], information):
         header = etree.SubElement(self.top, "header", {"class": "title"})
         etree.SubElement(header, "h1", {"class": "title"}).text = values[0]
@@ -257,7 +258,6 @@ class TitlePageBlockProcessor(BlockProcessor):
 
     def info_source(self, values: list[str], information):
         etree.SubElement(self.top, "p", {"class": "source"}).text = " ".join(values)
-
 
     def info_notes(self, values: list[str], information):
         metas = etree.SubElement(self.center, "div", {"class": "metas"})
@@ -379,7 +379,7 @@ class ActionBlockProcessor(BlockProcessor):
     # if starts with ! is an action
     RE_FORCED = re.compile(r'^\s*!(.*)\s*$')
     # ignores = synopses, # sections or @ characters
-    RE_TABBED = re.compile(r'^(\s*[^=#@]\S+.*)\s*$', flags=re.DOTALL)
+    RE_TABBED = re.compile(r'^(\s*[^=#@\|]\S+.*)\s*$', flags=re.DOTALL)
 
     def test(self, parent, block):
         self.last_match = None
@@ -468,7 +468,7 @@ class DialogueBlockProcessor(BlockProcessor):
         if character.endswith("^"):
             character = character[:-1].strip()
             if "dual" not in self.dialogues.get("class"):
-                self.dialogues.set("class", f"{self.dialogues.get("class")} dual")    
+                self.dialogues.set("class", f"{self.dialogues.get("class")} dual")
             dialog.set("class", f"{dialog.get("class")} dual")
         p = etree.SubElement(dialog, "h4", {"class": "character"})
         p.text = character
@@ -585,28 +585,35 @@ class EmphasisInlineProcessor(InlineProcessor):
 #         self.parser.parseBlocks(div, dialog_blocks)
 
 
-class FountainMarkdownExtension(ExtrasMarkdownExtension):
+class FountainMarkdownExtension(Extension):  # Extension # ExtrasMarkdownExtension
     def __init__(self, **kwargs):
         self.config = {
             'characters_title': ['Characters', 'Title of list of characters']
         }
         super().__init__(**kwargs)
 
+    def ext_chage_priority(self, md, name, priority):
+        idx = md.parser.blockprocessors.get_index_for_name(name)
+        ext = md.parser.blockprocessors[idx]
+        md.parser.blockprocessors.deregister(name)
+        md.parser.blockprocessors.register(ext, name, priority)
+
     def extendMarkdown(self, md):
-        super().extendMarkdown(md)
+        # super().extendMarkdown(md)
         base_priority = 275
         md.inlinePatterns.deregister("em_strong")
         md.inlinePatterns.deregister("em_strong2")
-        md.parser.blockprocessors.deregister("quote")
+        # md.parser.blockprocessors.deregister("quote")
 
-        md.preprocessors.register(BoneyardPreprocessor(md), 'fountain-comments', base_priority)
+        self.ext_chage_priority(md, "hashheader", base_priority)
+        self.ext_chage_priority(md, "table", base_priority + 20)
+
+        md.preprocessors.register(BoneyardPreprocessor(md), 'fountain-comments', IncludePreprocessor.priority + 1)
         md.preprocessors.register(BlockContinuationPreprocessor(md),
                                   "fountain-block-continuation-pre", base_priority)
         # md.preprocessors.register(BlockContinuationPreprocessor(md), 'fountain-block-containuation', base_priority)
 
         block_proc_reg = md.parser.blockprocessors.register
-
-        # md.parser.blockprocessors.register(DialogBlockProcessor(md.parser), "fountain-dialog", base_priority - 100)
 
         block_proc_reg(HashHeaderProcessor(md.parser), 'hashheader', base_priority - 20)
 
@@ -619,7 +626,7 @@ class FountainMarkdownExtension(ExtrasMarkdownExtension):
         block_proc_reg(TransitionBlockProcessor(md.parser), "fountain-transition", base_priority)
         block_proc_reg(DialogueBlockProcessor(md.parser), "fountain-dialogue", base_priority - 5)
         # block_proc_reg(ParentheticalBlockProcessor(md.parser), "fountain-parenthetical", base_priority - 10)
-        block_proc_reg(ActionBlockProcessor(md.parser), "fountain-action", base_priority - 20)
+        block_proc_reg(ActionBlockProcessor(md.parser), "fountain-action", 20)
 
         inline_proc_reg = md.inlinePatterns.register
         inline_proc_reg(EmphasisInlineProcessor(), "fountain-emphasis", base_priority)

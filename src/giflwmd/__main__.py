@@ -3,6 +3,7 @@ import shutil
 import sys
 
 import markdown
+from markdown.extensions.toc import TocExtension
 
 from src.giflwmd.chordsmd import ChordsMarkdownExtension
 from src.giflwmd.extras import ExtrasMarkdownExtension
@@ -42,13 +43,14 @@ def prepare_build() -> str:
     except:
         raise
 
-    for asset in ["normalize.css", "fountain.css"]:
+    for asset in ["normalize.css", "fountain-paged.css"]:
         shutil.copy(os.path.join(TEMPLATES_DIR, asset), os.path.join(BUILD_DIR, asset))
 
     with open(os.path.join(os.path.dirname(__file__), "templates", f"{mode}.html"), "r") as file:
         template = file.read()
     return template
 
+toc = TocExtension(baselevel=1, toc_depth=3, anchorlink=True, permalink=True)
 
 if files:
     template = prepare_build()
@@ -59,7 +61,7 @@ if files:
         with open(file, 'r', encoding="utf-8") as input:
             html = markdown.markdown(
                 input.read(),
-                extensions=[extension]
+                extensions=["extra", toc, extension, ExtrasMarkdownExtension()]
             )
             out_file = os.path.join(BUILD_DIR, file.replace(".fountain", ".html"))
             with open(out_file, 'w', encoding="utf-8") as output:
