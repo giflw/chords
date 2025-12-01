@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <link href="normalize.css" rel="stylesheet" />
+    <link href="fountain.css" rel="stylesheet"  />
+
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <script>
+      let ready = new Promise(function (resolve, reject) {
+        if (
+          document.readyState === "interactive" ||
+          document.readyState === "complete"
+        ) {
+          resolve(document.readyState);
+          return;
+        }
+
+        document.onreadystatechange = function ($) {
+          if (document.readyState === "interactive") {
+            resolve(document.readyState);
+          }
+        };
+      });
+
+      ready.then(async function () {
+        // Create a new Previewer
+        let previewer = new Paged.Previewer();
+
+        // Gather all stylesheets from html document
+        let hrefs = previewer.removeStyles(document);
+        console.log("style hrefs", hrefs)
+        // Push all body elements to a document fragment
+        let content = document.querySelectorAll("body > .fountain");
+        let fragment = document.createDocumentFragment();
+        for (let i = 0; i < content.length; i++) {
+          fragment.appendChild(content[i]);
+        }
+
+        // Run the Paged Preview
+        let done = await previewer.preview(fragment, hrefs, document.body);
+      });
+    </script>
+  </head>
+
+  <body>
+    %s
+  </body>
+</html>

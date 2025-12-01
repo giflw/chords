@@ -1,13 +1,11 @@
 .venv
 .idea
-*.adoc
-*.html
-*.md
 .vscode/
-res/
 report_output/
 plus_metadata.json
 !tests/**/*
 **/__pycache__/**
 **/*.generated.html
 dist/
+temp/
+tmp/
