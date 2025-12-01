@@ -1,6 +1,10 @@
 .venv
 .idea
 .vscode/
+
+assets/
+screenplay.fountain
+
 report_output/
 plus_metadata.json
 !tests/**/*

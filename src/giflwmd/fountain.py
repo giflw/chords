@@ -3,7 +3,7 @@ import xml.etree.ElementTree as etree
 
 import regex as re
 from markdown import markdown, Markdown
-from markdown.blockprocessors import BlockProcessor
+from markdown.blockprocessors import BlockProcessor, HashHeaderProcessor
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
 from markdown.postprocessors import Postprocessor
@@ -188,14 +188,12 @@ class TitlePageBlockProcessor(BlockProcessor):
                 name, values = meta.split(":", maxsplit=1)
                 
                 name = name.strip().lower()
-                print(name)
                 if name.startswith("#"):
                     continue
 
                 new_values = []
                 for value in values.split("\n"):
                     value = value.strip()
-                    print(f"[{value}]")
                     if value.startswith("#") or not value:
                         continue
                     elif value.startswith("\\#"):
@@ -444,15 +442,21 @@ class DialogueBlockProcessor(BlockProcessor):
 
     RE_PARENTHETICAL = re.compile(r'^\s*(\(.+\))\s*$', re.MULTILINE)
 
+    def __init__(self, parser):
+        super().__init__(parser)
+        self.dialogues = None
+
     def test(self, parent, block):
-        # create parent div
         matched = bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
-        # if false reset parent div
+        if matched and self.dialogues is None:
+            self.dialogues = etree.SubElement(parent, "div", {"class": "dialogues"})
+        elif not matched:
+            self.dialogues = None
         return matched
 
     def run(self, parent, blocks):
         block = blocks.pop(0)
-        dialog = etree.SubElement(parent, "div", {"class": "dialogue"})
+        dialog = etree.SubElement(self.dialogues, "div", {"class": "dialogue"})
 
         character, *tail = block.split("\n")
         if not character:
@@ -463,6 +467,8 @@ class DialogueBlockProcessor(BlockProcessor):
             character = self.RE_FORCED.sub(r'\1', character)
         if character.endswith("^"):
             character = character[:-1].strip()
+            if "dual" not in self.dialogues.get("class"):
+                self.dialogues.set("class", f"{self.dialogues.get("class")} dual")    
             dialog.set("class", f"{dialog.get("class")} dual")
         p = etree.SubElement(dialog, "h4", {"class": "character"})
         p.text = character
@@ -471,14 +477,14 @@ class DialogueBlockProcessor(BlockProcessor):
         lyrics = None
         for line in tail:
             if self.RE_PARENTHETICAL.search(line):
-                p = etree.SubElement(dialog, "p", {"class": "parenthetical"})
+                p = etree.SubElement(dialog, "p", {"class": "parenthetical", "data-character": character})
                 p.text = self.RE_PARENTHETICAL.sub(r'\1', line)
                 spoken_words = None
                 lyrics = None
             elif line.strip().startswith("~"):
                 line = line.strip()[1:]
                 if lyrics is None:
-                    lyrics = etree.SubElement(dialog, "p", {"class": "lyrics"})
+                    lyrics = etree.SubElement(dialog, "p", {"class": "lyrics", "data-character": character})
                     lyrics.text = line
                     spoken_words = None
                 else:
@@ -486,7 +492,7 @@ class DialogueBlockProcessor(BlockProcessor):
                     br.tail = line
             else:
                 if spoken_words is None:
-                    spoken_words = etree.SubElement(dialog, "p", {"class": "line"})
+                    spoken_words = etree.SubElement(dialog, "p", {"class": "line", "data-character": character})
                     spoken_words.text = line.strip()
                     lyrics = None
                 else:
@@ -520,12 +526,12 @@ class TransitionBlockProcessor(BlockProcessor):
 class NotesInlineProcessor(InlineProcessor):
 
     def __init__(self):
-        super().__init__(r'(\[\[.+\]\])')
+        super().__init__(r'\[\[.+\]\]')
 
     def handleMatch(self, m: re.Match[str], data: str) -> tuple[etree.Element | str | None, int | None, int | None]:
         note = etree.Element("span", {"class": "note"})
-        note.text = m.group(1)
-        return note, m.start(1), m.end(1)
+        note.text = m.group(0)
+        return note, m.start(0), m.end(0)
 
 
 class EmphasisInlineProcessor(InlineProcessor):
@@ -602,7 +608,7 @@ class FountainMarkdownExtension(ExtrasMarkdownExtension):
 
         # md.parser.blockprocessors.register(DialogBlockProcessor(md.parser), "fountain-dialog", base_priority - 100)
 
-        # block_proc_reg(HashHeaderProcessor(md.parser), 'hashheader', base_priority - 20)
+        block_proc_reg(HashHeaderProcessor(md.parser), 'hashheader', base_priority - 20)
 
         block_proc_reg(TitlePageBlockProcessor(md.parser), "fountain-title-page", base_priority + 20)
         block_proc_reg(SceneHeadingBlockProcessor(md.parser), "fountain-scene-heading", base_priority)
@@ -636,4 +642,4 @@ def makeExtension(**kwargs):
 
 
 def parse(text: str, **kwargs) -> str:
-    return markdown(text, extensions=[FountainMarkdownExtension(**kwargs)])
+    return markdown(text, extensions=[FountainMarkdownExtension(**kwargs), "tables"])

@@ -6,7 +6,7 @@
 
     --header-text-color: darkgray;
     --footer-text-color: darkgray;
-    --metas-text-color: darkgray;
+    --metas-text-color: #666666;
 
     --pagedjs-width: 210mm;
     --pagedjs-height: 297mm;
@@ -107,6 +107,30 @@ body {
     }
 }
 
+h1 {
+    string-set: title content(text);
+}
+
+@page {
+    @bottom-center {
+        content: counter(page) " / " counter(pages);
+        color: #666666;
+        font-size: 0.8rem;
+    }
+
+    @top-center {
+        content: string(title);
+        color: #666666;
+        font-size: 0.8rem;
+    }
+
+}
+
+@page: blank {
+    @top-left {
+        content: none;
+    }
+}
 
 
 
@@ -326,17 +350,21 @@ body {
     padding: 3rem;
     text-align: center;
 }
+
 .fountain .script section {
     break-after: always;
 }
+
 .fountain .script section h3.scene-heading {
     break-before: page;
     padding: 0 10rex;
     text-decoration: underline;
 }
+
 .fountain .script section h3.scene-heading:first-of-type {
     break-before: avoid;
 }
+
 .fountain .script h3.scene-heading .scene-number {
     display: none;
 }
@@ -356,62 +384,103 @@ body {
     right: -6rex;
     position: absolute;
 }
+
 .fountain .script .action {
     text-align: justify;
 }
 
+.fountain .script .note {
+    color: #777777;
+    font-size: 0.8rem;
+}
 
-
-.fountain .script div.dialogue {
-    margin-left: auto;
-    margin-right: auto;
+.fountain .script .dialogue {
+    margin: 2rem auto;
     width: 45%;
 }
 
-.fountain .script div.dialogue h4 {
+.fountain .script .dialogue h4 {
+    height: 1.2rem;
     margin-bottom: 0;
 }
 
-.fountain .script div.dialogue p.parenthetical {
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.fountain .script div.dialogue p {
+.fountain .script .dialogue p.parenthetical {
     margin-bottom: 0;
     margin-top: 0;
 }
 
-.fountain .script div.dialogue .lyrics:before {
+.fountain .script .dialogue p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.fountain .script .dialogue p>br:first-child {
+    display: none;
+}
+
+/* .fountain .script .dialogue {
+    orphans: 3;
+    widows: 3;
+} */
+/* .fountain .script .dialogue>p:first-child {
+    border: 1px solid red;
+} */
+
+.fountain .script .dialogue>p:first-child:before {
+    content: attr(data-character) "(CONT.)" !important;
+    display: block;
+    font-weight: bold;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.fountain .script .dialogue .lyrics {
+    font-style: oblique;
+}
+
+.fountain .script .dialogue .lyrics:before {
     display: block;
     content: "(𝄞♬♩♪♫)";
     font-size: 1.2rem;
 }
 
-.fountain .script .dialogue:has(+ .dual) {
-    display: block;
-    border: 1px green solid;
-    float: left;
-    margin-left: 5%;
+.fountain .script .dialogue:has(+ .dialogue + .dual) {
+    margin-bottom: 0 !important
+        /* FIXME remove important somehow */
+    ;
 }
+
+.fountain .script .dialogue:has(+ .dual) {
+    float: left;
+    margin-left: 5% !important
+        /* FIXME remove important somehow */
+    ;
+    width: 42% !important
+        /* FIXME remove important somehow */
+    ;
+}
+
 .fountain .script .dialogue+.dual {
     display: block;
-    border: 1px red solid;
     float: right;
-    margin-right: 5%;
+    margin-right: 5% !important
+        /* FIXME remove important somehow */
+    ;
+    width: 42% !important
+        /* FIXME remove important somehow */
+    ;
 }
 
-.fountain .script div.dual-dialogue div.dialogue {
-    display: inline-block;
-    margin: 0;
-    width: 45%;
+.fountain .script .dual+* {
+    clear: both;
 }
 
-.fountain .script div.dual-dialogue div.dialogue h4 {
+.fountain .script .dialogue h4 {
     margin-top: 0;
+    display: block;
 }
-
-.fountain .script div.dual-dialogue div.dialogue.right {
+/* 
+.fountain .script .dialogue.dual {
     float: right;
 }
 
@@ -442,4 +511,4 @@ body {
 
 .fountain .script span.underline {
     text-decoration: underline;
-}
+} */
