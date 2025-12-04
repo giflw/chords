@@ -4,13 +4,13 @@
         /*#51445F*/
     ;
     --text-color: #222222;
-    --page-a4-width: 850px;
+    /* --page-a4-width: 850px; */
 
     --header-text-color: darkgray;
     --footer-text-color: darkgray;
     --metas-text-color: #888888;
 
-    --pagedjs-width: 210mm;
+    /* --pagedjs-width: 210mm;
     --pagedjs-height: 297mm;
     --pagedjs-width-right: 210mm;
     --pagedjs-height-right: 297mm;
@@ -53,13 +53,13 @@
     --pagedjs-page-count: 0;
     --pagedjs-page-counter-increment: 1;
     --pagedjs-footnotes-count: 0;
-    --pagedjs-column-gap-offset: 1000px;
+    --pagedjs-column-gap-offset: 1000px; */
 }
 
 /*******************************************
 CSS for PAGED JS
 *******************************************/
-.pagedjs_sheet {
+/* .pagedjs_sheet {
     margin: 0;
     padding: 0;
 }
@@ -69,7 +69,7 @@ CSS for PAGED JS
     margin: 10px auto;
     flex: none;
     box-shadow: 0 0 1rex rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* .pagedjs_pagebox>* {
     border: 1px dashed purple
@@ -80,33 +80,9 @@ CSS for PAGED JS
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    width: 210mm;
+    margin: 0 auto;
     background-color: var(--body-background) !important;
-}
-
-@page {
-    size: a4 portrait;
-}
-
-@media print {
-    body {
-        background-color: transparent;
-    }
-
-    .fountain {
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .fountain>* {
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .fountain>.title-page {
-        margin: 0;
-    }
 }
 
 h1 {
@@ -114,6 +90,11 @@ h1 {
 }
 
 @page {
+    size: a4 portrait;
+    margin: 1.5cm;
+    orphans: 3;
+    widows: 3;
+
     @bottom-center {
         content: counter(page) " / " counter(pages);
         color: #666666;
@@ -125,14 +106,41 @@ h1 {
         color: #666666;
         font-size: 0.8rem;
     }
-
 }
 
-@page: blank {
+/* 
+@media print {
+    body {
+        background-color: transparent;
+        margin-top: 50mm;
+        margin-bottom: 50mm;
+        margin-left: 0mm;
+        margin-right: 0mm
+    }
+} */
+
+.fountain {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.fountain>* {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.fountain>.title-page {
+    margin: 0;
+}
+}
+
+
+
+/* @page: blank {
     @top-left {
         content: none;
     }
-}
+} */
 
 
 
@@ -151,7 +159,8 @@ h1 {
     background: #f7f2ea;
     /* border: 1px solid #d2d2d2; */
     border-radius: 0;
-    margin-bottom: 2rem;
+    padding: 1.5cm;
+    /* margin: 2rem; */
     position: relative;
     text-align: left;
     width: 100%;
@@ -348,9 +357,26 @@ h1 {
 } */
 
 /* script */
-.fountain .script section h2 {
-    padding: 3rem;
+.fountain .script section h1 {
+    margin: 5rem 0;
+    display: block;
+    padding: 1rem;
     text-align: center;
+}
+
+.fountain .script section h2 {
+    margin: 3rem 0;
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    /* break-before: always !important; */
+}
+
+.fountain .script section h3 {
+    margin: 1rem 0;
+    display: block;
+    padding: 1rem;
+    /* break-before: always !important; */
 }
 
 .fountain .script section {
@@ -358,24 +384,29 @@ h1 {
 }
 
 .fountain .script section h3.scene-heading {
-    break-before: page;
+    /* break-before: page; */
     padding: 0 10rex;
     text-decoration: underline;
 }
 
-.fountain .script section h3.scene-heading:first-of-type {
+/* .fountain .script section h3:first-of-type {
     break-before: avoid;
-}
+} */
 
-.fountain .script h3.scene-heading .scene-number {
+/* .fountain .script section h3.scene-heading:first-of-type {
+    break-before: avoid;
+} */
+
+/* .fountain .script h3.scene-heading .scene-number {
     display: none;
-}
+} */
 
 .fountain .script h3.scene-heading:before {
     color: #888888;
     content: attr(data-scene-number);
     font-weight: bold;
-    left: -6rex;
+    /* left: -6rex; */
+    left: 1rex;
     position: absolute;
 }
 
@@ -383,7 +414,8 @@ h1 {
     color: #888888;
     content: attr(data-scene-number);
     font-weight: bold;
-    right: -6rex;
+    /* right: -6rex; */
+    right: 1rex;
     position: absolute;
 }
 
@@ -442,7 +474,8 @@ h1 {
 
 .fountain .script .dialogue .lyrics:before {
     display: block;
-    content: "(𝄞♬♩♪♫)";
+    /* content: "(𝄞♬♩♪♫)"; */
+    content: "(♬♩♪♫)";
     font-size: 1.2rem;
 }
 
@@ -480,6 +513,25 @@ h1 {
 .fountain .script .dialogue h4 {
     margin-top: 0;
     display: block;
+}
+
+.fountain .script .synopses {
+    padding-left: 5rem;
+    color: var(--metas-text-color);
+}
+
+.fountain .script .transition {
+    text-transform: uppercase;
+    text-decoration: overline underline;
+    font-style: oblique;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.fountain .script .center {
+    margin: 4rem auto;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 /* 
@@ -545,6 +597,7 @@ div.toc ul {
     list-style: none;
 }
 
-div.toc>ul>li>a, div.toc>ul>li>ul>li>ul>li>ul>li {
+div.toc>ul>li>a,
+div.toc>ul>li>ul>li>ul>li>ul>li {
     display: none;
 }

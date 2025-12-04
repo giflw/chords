@@ -50,7 +50,7 @@ def prepare_build() -> str:
         template = file.read()
     return template
 
-toc = TocExtension(baselevel=1, toc_depth=3, anchorlink=True, permalink=True)
+toc = TocExtension(baselevel=1, toc_depth=3, anchorlink=True)#, permalink=True)
 
 if files:
     template = prepare_build()

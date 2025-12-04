@@ -332,9 +332,9 @@ class SceneHeadingBlockProcessor(BlockProcessor):
 
         p.text = f"{p.text} "
         p.set("data-scene-number", number)
-        span = etree.SubElement(p, "span")
-        span.text = number
-        span.set("class", "scene-number")
+        # span = etree.SubElement(p, "span")
+        # span.text = number
+        # span.set("class", "scene-number")
 
 
 class CenteredTextBlockProcessor(BlockProcessor):
@@ -479,13 +479,15 @@ class DialogueBlockProcessor(BlockProcessor):
             if self.RE_PARENTHETICAL.search(line):
                 p = etree.SubElement(dialog, "p", {"class": "parenthetical", "data-character": character})
                 p.text = self.RE_PARENTHETICAL.sub(r'\1', line)
+                etree.SubElement(p, "br")
                 spoken_words = None
                 lyrics = None
             elif line.strip().startswith("~"):
                 line = line.strip()[1:]
                 if lyrics is None:
                     lyrics = etree.SubElement(dialog, "p", {"class": "lyrics", "data-character": character})
-                    lyrics.text = line
+                    lyrics.text = line.strip()
+                    etree.SubElement(lyrics, "br")
                     spoken_words = None
                 else:
                     br = etree.SubElement(lyrics, "br")
@@ -494,6 +496,7 @@ class DialogueBlockProcessor(BlockProcessor):
                 if spoken_words is None:
                     spoken_words = etree.SubElement(dialog, "p", {"class": "line", "data-character": character})
                     spoken_words.text = line.strip()
+                    etree.SubElement(spoken_words, "br")
                     lyrics = None
                 else:
                     br = etree.SubElement(spoken_words, "br")
@@ -503,7 +506,7 @@ class DialogueBlockProcessor(BlockProcessor):
 
 class TransitionBlockProcessor(BlockProcessor):
     RE_DEFAULT = re.compile(r'^\s*([[:upper:]]{1}[^[:lower:]]+?\s+TO:)\s*$', flags=re.UNICODE | re.MULTILINE)
-    RE_FORCED = re.compile(r'^\s*>\s*(.+)\s*[^<]\s*$', flags=re.MULTILINE)
+    RE_FORCED = re.compile(r'^\s*>\s*(.+[^<])\s*$', flags=re.MULTILINE)
 
     def test(self, parent, block):
         return bool(self.RE_DEFAULT.search(block) or self.RE_FORCED.search(block))
