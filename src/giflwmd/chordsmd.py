@@ -11,6 +11,8 @@ from markdown.preprocessors import Preprocessor
 from markdown.postprocessors import Postprocessor
 from markdown.util import deprecated
 
+from .core import DefaultFileName
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -26,13 +28,13 @@ class CommentsPreprocessor(Preprocessor):
 
     def run(self, lines):
         new_lines = []
-        logging.warning(lines)
+        # logging.warning(lines)
         for line in lines:
             m = re.search(r"\s*//", line)
             if not m:
                 # any line not starting with // is passed through
                 new_lines.append(line)
-        logging.warning([line.replace('<!--', '\u001BLT\u001B').replace('-->', '\u001BGT\u001B') for line in new_lines])
+        # logging.warning([line.replace('<!--', '\u001BLT\u001B').replace('-->', '\u001BGT\u001B') for line in new_lines])
         return [line.replace('<!--', '\u001BLT\u001B').replace('-->', '\u001BGT\u001B') for line in new_lines]
 
 
@@ -46,7 +48,7 @@ class UnCommentsPreprocessor(Postprocessor):
 
     def run(self, text):
 
-        logging.warning(text)
+        # logging.warning(text)
         return text.replace('\u001BLT\u001B', '<!--').replace('\u001BGT\u001B', '-->')
 
 
@@ -211,7 +213,7 @@ class HardbreakBlockProcessor(BlockProcessor):
                 #long_string = "This is a very long string that we want to wrap into multiple lines for better readability."
                 # Use regex to split the string into chunks of 30 characters
                 #wrapped_string = re.sub(r"(.{1,30})(\s|$)", r"\1\n", long_string)
-                hardbreak_blocks = [line.replace(" ", self.NBSP).replace("\n", "<br />") for line in
+                hardbreak_blocks = [line.lstrip("\n").replace(" ", self.NBSP).replace("\n", "<br />") for line in
                                     blocks[0:block_num + 1]]
                 self.parser.parseBlocks(parent, hardbreak_blocks)
                 # remove used blocks
@@ -241,17 +243,20 @@ class ChordsSectionBlockProcessor(BlockProcessor):
         self.RE_FENCE_END = re_end
 
     def test(self, parent, block):
-        return re.match(self.RE_FENCE_START, block)
+        if "Ref" in block:
+            import pprint
+            pprint.pp(block)
+        return re.match(self.RE_FENCE_START, block, flags=re.DOTALL)
 
     def run(self, parent: etree.Element, blocks: list[str]) -> bool | None:
-        # logging.warning(f"enter -> {blocks}")
         block = blocks.pop(0)
         # logging.warning(f"title -> {block}")
         new_parent = etree.SubElement(parent, 'div')
         new_parent.set('class', 'giflwmd-section')
         e = etree.SubElement(new_parent, 'h3')
         e.text = re.sub(self.RE_FENCE_START, r'\1', block)
-
+        logging.warning(f"title -> {e.text}")
+        
         blocks_to_parse = []
         for block_num, block in enumerate(blocks):
             #    logging.warning(f"for -> {block}")
@@ -285,7 +290,7 @@ class BracketChordsSectionBlockProcessor(ChordsSectionBlockProcessor):
     """
 
     def __init__(self, parser: BlockParser):
-        super().__init__(parser, r'^ *\[(.*)\] *', r' *\[.*\]\s*$')
+        super().__init__(parser, r'^\s*\[(.*)\]\s*', r' *\[.*\]\s*$')
 
 
 @deprecated("Should be reviewed")
@@ -302,7 +307,7 @@ class DotSectionBlockProcessor(ChordsSectionBlockProcessor):
         super().__init__(parser, r'^ *\.(.*)\. *', r' *\..*\.\s*$')
 
 
-class ChordsMarkdownExtension(Extension):
+class ChordsMarkdownExtension(DefaultFileName, Extension):
     def __init__(self, **kwargs):
         self.config = {
             'option1': ['value1', 'description1'],
@@ -310,16 +315,26 @@ class ChordsMarkdownExtension(Extension):
         }
         super(ChordsMarkdownExtension, self).__init__(**kwargs)
 
+
+    @property
+    def default_file_name(self):
+        return "song.chords"
+
+
     def extendMarkdown(self, md):
+        
+        md.parser.blockprocessors.register(
+            BracketChordsSectionBlockProcessor(md.parser),
+            'giflwmd-sections.fountain-brackets',
+            200
+        )
+        
         md.preprocessors.register(ChordWrapperPreprocessor(md), 'chords_pre', 175)
         md.preprocessors.register(CommentsPreprocessor(md), 'comment', 175)
         md.preprocessors.register(TagsPreprocessor(md), 'tag', 175)
 
         # md.parser.blockprocessors.register(AdocListingBlockProcessor(md.parser), 'adoc-listing-block', 175)
         md.parser.blockprocessors.register(HardbreakBlockProcessor(md.parser), 'hardbreak', 175)
-
-        #md.parser.blockprocessors.register(BracketChordsSectionBlockProcessor(md.parser), 'giflwmd-sections.fountain-brackets',
-        #                                   175)
         #md.parser.blockprocessors.register(DotSectionBlockProcessor(md.parser), 'giflwmd-sections.fountain-dots', 175)
 
         md.postprocessors.register(UnCommentsPreprocessor(md), 'uncomment', 175)

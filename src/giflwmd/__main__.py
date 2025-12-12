@@ -12,11 +12,11 @@ from .mkcomments import CommentsExtension
 from .text_formatting import TextFormattingMarkdownExtension
 
 MODES = {
-    "chords": ChordsMarkdownExtension(),
-    "text_formating": TextFormattingMarkdownExtension(),
-    "comments": CommentsExtension(),
-    "fountain": FountainMarkdownExtension(),
-    "extras": ExtrasMarkdownExtension()
+    "chords": [TextFormattingMarkdownExtension(), ChordsMarkdownExtension()],
+    "text_formating": [TextFormattingMarkdownExtension()],
+    "comments": [CommentsExtension()],
+    "fountain": ["extra", TocExtension(baselevel=1, toc_depth=3, anchorlink=True, permalink=True), FountainMarkdownExtension()],
+    "extras": [ExtrasMarkdownExtension()]
 }
 
 # to clear dist: shutil.rmtree(dist)
@@ -24,10 +24,12 @@ MODES = {
 mode = sys.argv[1]
 files = sys.argv[2:]
 
-if not files:
-    files = ["screenplay.fountain"]
+extensions = MODES[mode]
 
-extension = MODES[mode]
+# FIXME
+# if not files:
+#     files = [extension.default_file_name]
+
 
 
 CWD_DIR = os.getcwd()
@@ -50,22 +52,32 @@ def prepare_build() -> str:
         template = file.read()
     return template
 
-toc = TocExtension(baselevel=1, toc_depth=3, anchorlink=True)#, permalink=True)
 
 if files:
     template = prepare_build()
     
-    shutil.copytree(ASSETS_DIR, BUILD_DIR, dirs_exist_ok=True)
+    if os.path.exists(ASSETS_DIR):
+        shutil.copytree(ASSETS_DIR, BUILD_DIR, dirs_exist_ok=True)
 
     for file in files:
-        with open(file, 'r', encoding="utf-8") as input:
-            html = markdown.markdown(
-                input.read(),
-                extensions=["extra", toc, extension, ExtrasMarkdownExtension()]
-            )
-            out_file = os.path.join(BUILD_DIR, file.replace(".fountain", ".html"))
-            with open(out_file, 'w', encoding="utf-8") as output:
-                output.write(template % html)
-                print(f"Done processing {file} to {output.name}")
+        try:
+            with open(file, 'r', encoding="utf-8") as input:
+                html = markdown.markdown(
+                    input.read(),
+                    extensions=extensions
+                )
+                out_file = os.path.join(BUILD_DIR, file.replace(".fountain", ".html").replace(".md", ".html"))
+                try:
+                    print(os.path.dirname(out_file))
+                    os.makedirs(os.path.dirname(out_file), exist_ok=True)
+                    with open(out_file, 'w', encoding="utf-8") as output:
+                        output.write(template % html)
+                        print(f"Done processing {file} to {output.name}")
+                except IOError as error:
+                    print(f"Output file {out_file} not found!", error)
+                    exit(2)
+        except IOError as error:
+            print(f"Input file {file} not found!", error)
+            exit(1)
 else:
     print("No files provided")
