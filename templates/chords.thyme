@@ -103,6 +103,10 @@
                             <i class="fa-fw fal fa-list-music has-text-info"></i>
                             <strong>[[ ${#strings.isEmpty(content.tom)} ? 'N/I' : ${content.tom} ]]</strong>
                         </span>
+                        <span class="mx-2" title="Capotraste">
+                            <i class="fa-fw far fa-grip-lines-vertical has-text-info"></i>
+                            <strong>[[ ${#strings.isEmpty(content.capo)} ? 'N' : ${content.capo} ]]</strong>
+                        </span>
                         <span class="mx-2" title="Compasso">
                             <i class="fa-fw fal fa-triangle-music has-text-info"></i>
                             <strong>[[ ${#strings.isEmpty(content.compasso)} ? 'N/I' : ${content.compasso} ]]</strong>

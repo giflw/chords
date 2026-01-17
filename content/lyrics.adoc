@@ -1,0 +1,4 @@
+= Letras
+:jbake-type: page
+
+- link:lyrics/vou.html[Vou]

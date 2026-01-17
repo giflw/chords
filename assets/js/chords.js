@@ -50,7 +50,7 @@ function chords(mode = "full") {
                     section.dataset.name = line.textContent.substring(1, line.textContent.length - 1);
                     line.classList.add("has-text-weight-bold");
                     line.classList.add("mt-5");
-                } else if (/^[A-H1-9Mm#bdisue°+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
+                } else if (/^[A-H1-9Mm#bdisue°º+\%()*~v^|!?\&: ><\[\]/ mpf-]+$/.test(text)) {
                     //console.log('chords', text)
                     switch(mode) {
                         case 'simplest':

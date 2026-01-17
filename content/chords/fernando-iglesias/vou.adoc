@@ -1,0 +1,132 @@
+= Vou
+Guilherme I F L Weizenmann
+2025-01-17
+:artista: Fernano Iglesias
+//:duracao: 4:07
+//:audio: https://deezer.page.link/5AUMCcH2CZL9t2r78
+//:video: https://www.youtube.com/watch?v=EWf3R77jqMg
+:tom: Fm
+:capo: 1
+:compasso: 4/4
+//:dedilhado: P I M A I M A I
+//:batida: V...v.v^.^v^.^v.
+:instrumentos: violão
+:jbake-type: chords
+:jbake-tags: repertorio:grupo-vocal
+:verificacao: inicial
+:colunas: 3
+
+----
+
+[Verso]
+
+#suave #mulher_1 #violao(nylon)
+Em v                       D v
+   Há tanto tempo eu ando triste,
+C v                    Bm7 v
+   Vivendo a vida por viver,
+#dedilhado_pausado
+Am          D#º       Bm7  Em
+   Mas hoje vim a este templo,
+Am         A7             C/D  B/D#
+   Porque entrei não sei dizer.
+
+#mulher_2 #dedilhado
+Em                         D
+  Sentei num canto ali no fundo,
+C                         Bm7
+  Tentei cantar, tentei sorrir;
+< Am         D#m7/5-     Bm7  Em
+    E um sentimento tão estranho,
+Am                  D >
+  Me deu vontade de sair.
+
+[Ponte]
+
+#normal #baixo(suave,8ªacima)
+
+        G               Em
+Foi quando tudo então mudou!
+        C7+   D#º     G/D
+Senti a voz de Deus no ar;
+          Em           Am
+Senti sua mão em minha mão,
+         C/D D7/9-      G7+  F/G  G7
+Senti vonta   -   de de chorar.
+
+[Coro]
+#dedilhado(palheta)
+#barítono #baixo(suave,8ªnormal) #intenso
+< C7+            D/C
+  Agora Jesus me chama
+            Bm7       Em
+E eu não consigo levantar;
+         Am G/B         C7+  G/B
+Estou tremen  -  do e comovido,
+           Am  Am7/G       D
+Mas faltam for - ças    pra lutar.
+
+#todos #suave #profundo
+   C             D/C
+Senhor! Estou tão Fraco,
+  Bm7              Em
+Senhor! Em luta estou.
+#solo(feminino)
+   Am            D      B/D#
+Senhor! Não tenho forças,
+#todos #suave
+    Em
+Mas vou!
+
+[Outro]
+
+#dedilhado(palheta)
+#barítono #baixo(suave,8ªnormal) #intenso
+< C7+            D/C
+  Agora Jesus me chama
+            Bm7       Em
+E eu não consigo levantar;
+         Am G/B         C7+  G/B
+Estou tremen  -  do e comovido,
+           Am  Am7/G       D
+Mas faltam for - ças    pra lutar.
+
+#todos #suave #profundo
+>   C             D/C
+ Senhor! Estou tão Fraco,
+  Bm7              Em >>
+Senhor! Em luta estou.
+#suave #solo(feminino)
+   Am            D      B/D#
+Senhor! Não tenho forças,
+#todos #suave #suavissimo
+    Em
+Mas vou!
+----
+
+////
+[Acordes]
+
+Capotraste na 1ª casa
+G*  = 3 2 0 0 0 3 - (*G# na forma de G)
+G/B*  = X 2 0 0 3 3 - (*G#/C na forma de G/B)
+G/D*  = X 5 5 4 3 X - (*G#/D# na forma de G/D)
+G7*  = 3 5 3 4 3 3 - (*G#7 na forma de G7)
+G7+*  = 3 X 4 4 3 X - (*G#7+ na forma de G7+)
+A7*  = X 0 2 0 2 0 - (*A#7 na forma de A7)
+Am*  = X 0 2 2 1 0 - (*A#m na forma de Am)
+Am7/G*  = 3 0 2 0 1 0 - (*A#m7/G# na forma de Am7/G)
+B/D#*  = X 6 X 4 7 7 - (*C/E na forma de B/D#)
+Bm7*  = X 2 4 2 3 2 - (*Cm7 na forma de Bm7)
+C*  = X 3 2 0 1 0 - (*C# na forma de C)
+C/D*  = X X 0 0 1 0 - (*C#/D# na forma de C/D)
+C7+*  = X 3 2 0 0 X - (*C#7+ na forma de C7+)
+D*  = X X 0 2 3 2 - (*D# na forma de D)
+D/C*  = X 3 X 2 3 2 - (*D#/C# na forma de D/C)
+D7/9-*  = X 5 4 5 4 X - (*D#7/9- na forma de D7/9-)
+D#m7/5-*  = X X 1 2 2 2 - (*Em7/5- na forma de D#m7/5-)
+D#º*  = X X 1 2 1 2 - (*Eº na forma de D#º)
+Em*  = 0 2 2 0 0 0 - (*Fm na forma de Em)
+F/G*  = 3 X 3 2 1 X - (*F#/G# na forma de F/G)
+
+////
