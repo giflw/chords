@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en" class="debug">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chords Template</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <style media="scss">
+        @use "sass:color";
+
+        :root {
+            --song-base-margin: 1rem;
+            --section-padding: 0.3rem;
+            --section-border: 1px solid black;
+            --property-label-color: red;
+        }
+
+        .debug {
+            & {
+                border: 1px dotted color.adjust(darkred, $lightness: 0%);
+            }
+
+            &>* {
+                border: 1px dotted color.adjust(darkgreen, $lightness: 0%);
+            }
+
+            &>*>* {
+                border: 1px dotted color.adjust(darkblue, $lightness: 0%);
+            }
+
+            &>*>*>* {
+                border: 1px dotted color.adjust(darkred, $lightness: 15%);
+            }
+
+            &>*>*>*>* {
+                border: 1px dotted color.adjust(darkgreen, $lightness: 15%);
+            }
+
+            &>*>*>*>*>* {
+                border: 1px dotted color.adjust(darkblue, $lightness: 15%);
+            }
+
+            &>*>*>*>*>*>* {
+                border: 1px dotted color.adjust(darkred, $lightness: 30%);
+            }
+
+            &>*>*>*>*>*>*>* {
+                border: 1px dotted color.adjust(darkgreen, $lightness: 30%);
+            }
+
+            &>*>*>*>*>*>*>*>* {
+                border: 1px dotted color.adjust(darkblue, $lightness: 30%);
+            }
+        }
+
+        .song {
+            * {
+                box-sizing: border-box;
+            }
+
+            &,
+            header,
+            section,
+            footer,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            ul,
+            dl {
+                margin: var(--song-base-margin);
+            }
+
+            header,
+            section,
+            footer {
+                padding: var(--section-padding);
+                clear: both;
+                border: var(--section-border);
+                border-left: none;
+                border-right: none;
+                border-bottom-color: transparent;
+                margin: 0;
+            }
+
+            header {
+                border-top: none;
+            }
+
+            section:last-child {
+                border-bottom: none;
+            }
+
+            footer {
+                border-bottom: none;
+            }
+
+            li[itemprop], header [itemprop] {
+                &::before {
+                    content: attr(itemprop) " ";
+                    color: var(--property-label-color);
+                }
+
+                &[data-label]::before {
+                    content: attr(data-label) " ";
+                    color: var(--property-label-color);
+                }
+                // example customisation
+                &[itemprop="artist"]::before {
+                    content: "Artista: ";
+                    color: var(--property-label-color);
+                }
+
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .properties {
+                ul {
+                    text-align: center;
+                    padding: 0;
+                }
+
+                li {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 1rex 1rem;
+                }
+            }
+
+            .source {
+                display: none;
+            }
+
+            .chords {
+                & {
+                    @media screen and (min-width: 800px) {
+                        column-count: 2;
+                    }
+
+                    @media screen and (min-width: 1024px) {
+                        column-count: 3;
+                    }
+
+                    @media screen and (min-width: 1360px) {
+                        column-count: 4;
+                    }
+
+                    column-gap: 1ch;
+                    padding: var(--song-base-margin);
+                }
+
+                &>* {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+
+                p {
+                    & {
+                        margin: 0;
+                        position: relative;
+                        font-family: monospace;
+                    }
+
+                    &:has([pos="h"]) {
+                        line-height: calc(100% + var(--song-base-margin));
+                        margin-top: calc(1.55 * var(--song-base-margin));
+                    }
+
+                    span {
+                        position: absolute;
+
+                        &[pos="h"] {
+                            display: inline-block;
+                            line-height: 100%;
+                            margin-top: calc((0.55 * var(--song-base-margin)) - var(--song-base-margin));
+                        }
+
+                        @for $i from 1 through 30 {
+                            &[pos="#{$i}"] {
+                                left: #{$i}ch;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .diagrams {
+                dt {
+                    display: none;
+                }
+
+                dd {
+                    display: inline-block;
+                }
+
+                .shape {
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    text-align: center;
+                }
+
+                .shape {
+                    width: 150px;
+                }
+
+                /*.shape::after {
+                    content: attr(data-chord);
+                    font-size: 0.8rem;
+                }*/
+            }
+        }
+    </style>
+    <style media="screen"></style>
+    <script>
+        const logger = console;
+    </script>
+    <script type="module">
+        const sass = await import("https://jspm.dev/sass");
+        const styleScss = document.querySelector("style[media=scss]");
+        const styleCss = document.querySelector("style[media=screen]");
+        styleCss.innerHTML = sass.compileString(styleScss.innerHTML).css;
+        logger.info(styleCss.innerHTML)
+    </script>
+    <script src="https://omnibrain.github.io/svguitar/js/svguitar.umd.js"></script>
+</head>
+
+<body>
+    <article itemscope class="song">
+        <header>
+            <h1 itemprop="title" data-label="TITLE">Song Title</h1>
+            <p itemprop="artist">Artist name</p>
+            <p itemprop="year">19xx</p>
+        </header>
+        <section class="properties">
+            <h2>Properties</h2>
+            <ul>
+                <li itemprop="key">A</li>
+                <li itemprop="bpm" data-label="BPM">120</li>
+                <li itemprop="capo" data-label="Capotraste">1</li>
+                <li itemprop="struming" data-label="Strumming">V..^.vv^A</li>
+                <li itemprop="picking" data-label="Picking">P M A</li>
+            </ul>
+        </section>
+        <section>
+            <pre class="source">
+[Intro] A  C#7  F#m7  Dm6
+
+[Primeira Parte]
+
+Era uma [A]vez
+[C#7]Eu dentro de [F#m7]casa, cansada do mesmo
+E aconte[Dm6]ceu
+
+         A
+Era uma vez
+C#7           F#m7
+Eu dentro de casa, cansada do mesmo
+         Dm6
+E aconteceu
+
+           A
+Bem dessa vez
+          C#7
+Eu quis sair
+         F#m7
+Tudo lá fora atraía com brilho
+        Dm6
+E eu fugi
+
+[Tercera Parte]
+
+              F#m7
+Mas se eu tentar? (Se eu tentar)
+          F5+
+Se eu voltar? (Se eu voltar)
+   A/E          B/D#
+Será que ainda há lugar?
+    Bm7   A/C#  D         B/D#  D/E
+Eu posso reto__mar minha dire__ção?
+
+[Sexta Parte]
+
+              A
+Nem sei como vou falar
+                   C#7
+Não sei se vais me aceitar
+              F#m7                A/E
+Pai, eu me humilho, me torno teu servo
+             Dm6
+Me deixa voltar?
+
+[Sétima Parte]
+
+                  A
+Foi quando ele me alcançou
+            C#7
+Correndo me abraçou
+    ( F° ) F#m7 
+Eu já era  outro
+ F#m7/E             Dm6
+mas seu amor não mudou
+
+( F#m7  F#m7/E  Dm6 )
+
+            </pre>
+            <section>
+                <h3>Intro</h3>
+                <p style="white-space: pre">A C#7 F#m7 Dm6</p>
+            </section>
+
+            <section class="chords">
+                <h3>Primeira Parte</h3>
+                <p><span pos="9">A</span><br />
+                    Era uma vez<br />
+                    <!-- after the chord name, can be specified a variation using | followed by any number/letter-->
+                    <span pos="0" barre="0" data-barre="pestana do acorde">C#7|1</span> <span pos="14">F#m7</span><br />
+                    Eu dentro de casa, cansada do mesmo<br />
+                    <span pos="9">Dm6</span><br />
+                    E aconteceu
+                </p>
+                <pre>
+[SOURCE POSITIONAL]
+         A
+Era uma vez
+C#7           F#m7
+Eu dentro de casa, cansada do mesmo
+         Dm6
+E aconteceu
+                    </pre>
+
+                <p>
+                    [shift de posição para primeira vogal após o acorde]
+                    Era uma v<span pos="h">A</span>ez<br />
+                    <span pos="h">C#7</span>Eu dentro de c<span pos="h">F#m7</span>asa, cansada do mesmo<br />
+                    E acontec<span pos="h">Dm6</span>eu
+                </p>
+                <pre>
+[SOURCE CHORDPRO]
+// https://www.chordpro.org/chordpro/chordpro-introduction/
+Era uma [A]vez
+[C#7]Eu dentro de [F#m7]casa, cansada do mesmo
+E aconte[Dm6]ceu
+                    </pre>
+            </section>
+        </section>
+        <footer>
+            <h2>Chord diagrams</h2>
+            <dl class="diagrams" itemprop="chord-diagrams" itemscope>
+                <dt class="name">A</dt>
+                <dd class="shape" itemprop="A" title="A = x O 2.1 2.2 2.3 0">x 0 2.1 2.2 2.3 0</dd>
+                <dt class="name">Bm7</dt>
+                <dd class="shape" itemprop="Bm7" title="Bm7 = X 2 4 2 3 2 |2.1-5">X 2 4 2 3 2 |2.1-5</dd>
+            </dl>
+        </footer>
+    </article>
+    <script>
+        const options = {
+            barre: true// show barres
+        }
+        // chord shape
+        // 0, o, O => open string
+        // any number > 0 => fret to press
+        // x, X => string not used in chord
+        // . followed by any number => finger number (fingering is optional)
+        // strings are defined from last to first
+        // examples:
+        // x 0 2.1 2.2 2 0
+        // string 6 => not used
+        // string 5 => open
+        // string 4 => fret 2 using finger 1
+        // string 3 => fret 2 using finger 2
+        // string 2 => fret 2 with no finger informed
+        // string 1 => open
+        //
+        // for chords like Bm7, a barre can be defined
+        //
+        // chord barre regex: |(?<fret>\d+)(\.(?<from>\d+)(-(?<to>\d+(\:(?<finger>\d+)))?)?)?
+        // a chord can have more than 1 barre
+        // examples:
+        // |1 => on fret 1
+        // |1.2 => on fret 1, starting from string 2 to last on instrument (6 on guitar)
+        // |1.2-5 => on fret 1, starting from string 2 to 5
+        // |1.2-5:1 => on fret 1, starting from string 2 to 5, using finger 1
+        for (const el of document.querySelectorAll(".song .diagrams .shape")) {
+            // initialize the chart
+            const chart = new svguitar.SVGuitarChord(el);
+            let [title, chord] = el.title.split("=");
+            // prefer lower case to avoid o and 0 visual collision
+            el.innerHTML = el.innerHTML.toLocaleLowerCase();
+            chord = chord.trim().split("|")
+            // chord barre
+            let chordsBarre = chord?.length > 1 ? chord.slice(1) : [];
+            logger.info("chordsBarre", chordsBarre)
+            const barres = []
+            if (options.barre && chordsBarre) {
+                for (let barre of chordsBarre) {
+                    barre = barre.split(/[.:-]/)
+                    const [fromString, toString] = barre[1] > barre[2] ? [barre[1], barre[2]] : [barre[2], barre[1]]
+                    barre = {
+                        fret: barre[0],
+                        fromString,
+                        toString,
+                        style: "rectangle"
+                    }
+                    console.log(barre)
+                    barres.push(barre)
+                }
+            }
+            logger.warn(el.getAttribute("itemprop"), chord, barres);
+            // chord shape
+            let fingers = chord[0].trim().toLocaleLowerCase().replace("o", "0").split(" ");
+            fingers = fingers
+                .reverse()
+                .map((pos, idx) => [
+                    idx + 1,
+                    ...(pos.includes(".") ? pos.split(".") : pos.split("-")),
+                ]);
+            // draw the chart
+            chart
+                .configure({
+                    orientation: "vertical",
+                    style: "normal",
+                    strings: 6,
+                    frets: 4,
+                    tuning: ["E", "A", "D", "G", "B", "E"],
+                    position: 1, // first fret
+                })
+                .chord({
+                    fingers,
+                    title,
+                    barres,
+                })
+                .draw();
+        }
+    </script>
+</body>
+
+</html>
