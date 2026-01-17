@@ -6,9 +6,11 @@ watchexec = "latest"
 [env]
 _.python.venv = { path = ".venv", create = true }
 PYTHONIOENCODING = "utf-8"
+LANG="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
 
 [hooks]
-postinstall = "python -m pip install -r requirements.txt"
+postinstall = "python -m pip install -e .[test]"
 
 [tasks.build]
 run = [
@@ -33,13 +35,13 @@ run = [
 run = """python -c "import socket; print(socket.gethostbyname(socket.gethostname()))" """
 
 [tasks.chords]
-run = "python -m src.giflwmd chords"
+run = "python -m src.widemd chords"
 
 [tasks.fountain]
-run = "python -m src.giflwmd fountain"
+run = "python -m src.widemd fountain"
 
 [tasks.devf]
-run = "mise watch -w . -w src -w src/giflwmd/templates -- fountain"
+run = "mise watch -w . -w src -w src/widemd/templates -- fountain"
 
 [tasks.serve]
 run = "npx -y live-server"

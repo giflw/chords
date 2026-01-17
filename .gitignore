@@ -7,7 +7,7 @@ screenplay.fountain
 
 report_output/
 plus_metadata.json
-!tests/**/*
+!test/**/*
 **/__pycache__/**
 **/*.generated.html
 dist/

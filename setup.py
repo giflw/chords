@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='py-giflwmd',
+    name='py-widemd',
     version='',
     packages=[''],
     url='',

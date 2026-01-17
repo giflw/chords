@@ -1,5 +1,0 @@
-Comments are simple: \/* */ /* Inline comments as stripped */.
-/*
-Should not appear
-*/
-/* comments */\/* not comments */
