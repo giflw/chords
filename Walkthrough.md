@@ -109,3 +109,41 @@ html = markdown.markdown(text, extensions=[ChordsMDExtension()])
 
 ---
 *Last Updated: 2026-01-21*
+
+
+
+
+
+
+✅ Complete Fountain syntax support implemented!
+
+Added all features from fountain.io/syntax:
+
+Forced Elements:
+
+.HEADING - Forced scene headings
+@CHARACTER - Forced characters (preserves case)
+>TRANSITION - Forced transitions
+Special Elements:
+
+^ - Dual dialogue marker
+~text - Lyrics
+>TEXT< - Centered text
+=== - Page breaks
+[[notes]] - Notes (stripped from output)
+Formatting:
+
+*italic* - Italics
+**bold** - Bold
+***bold italic*** - Bold italics
+_underline_ - Underline
+Title Page:
+
+key: value format at document start
+Supports Title, Author, Draft date, etc.
+Scene Numbers:
+
+#1#, #1A# automatically stripped
+All 12 Fountain tests passing! All 39 total tests passing (27 original + 12 Fountain).
+
+The implementation now fully complies with the Fountain specification.

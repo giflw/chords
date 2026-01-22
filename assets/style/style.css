@@ -175,6 +175,29 @@
     border: 1px solid #ccc;
 }
 
+/* Title Page */
+.fountain-screenplay .title-page {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.fountain-screenplay .title-page div {
+    margin: 0.5em 0;
+}
+
+.fountain-screenplay .title-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.fountain-screenplay .title-author,
+.fountain-screenplay .title-credit {
+    text-align: center;
+}
+
+/* Scene Heading */
 .fountain-screenplay .scene-heading {
     font-weight: bold;
     text-transform: uppercase;
@@ -182,6 +205,7 @@
     margin-bottom: 0.5em;
 }
 
+/* Character */
 .fountain-screenplay .character {
     font-weight: bold;
     text-transform: uppercase;
@@ -190,23 +214,39 @@
     margin-bottom: 0;
 }
 
+.fountain-screenplay .character.dual {
+    margin-left: 1in;
+    width: 2.5in;
+    display: inline-block;
+}
+
+/* Dialogue */
 .fountain-screenplay .dialogue {
     margin-left: 1.5in;
     margin-right: 1.5in;
     margin-bottom: 0;
 }
 
+.fountain-screenplay .character.dual+.dialogue {
+    width: 2.5in;
+    display: inline-block;
+    margin-left: 0.5in;
+}
+
+/* Parenthetical */
 .fountain-screenplay .parenthetical {
     margin-left: 1.8in;
     margin-right: 2in;
     font-style: normal;
 }
 
+/* Action */
 .fountain-screenplay .action {
     margin-top: 1em;
     margin-bottom: 0;
 }
 
+/* Transition */
 .fountain-screenplay .transition {
     font-weight: bold;
     text-transform: uppercase;
@@ -215,6 +255,39 @@
     margin-bottom: 1em;
 }
 
+/* Centered Text */
+.fountain-screenplay .centered {
+    text-align: center;
+    margin: 1em 0;
+}
+
+/* Lyrics */
+.fountain-screenplay .lyrics {
+    font-style: italic;
+    margin-left: 2in;
+}
+
+/* Page Break */
+.fountain-screenplay .page-break {
+    text-align: center;
+    margin: 2em 0;
+    font-weight: bold;
+}
+
+/* Blank Line */
 .fountain-screenplay .blank-line {
     height: 1em;
+}
+
+/* Emphasis */
+.fountain-screenplay em {
+    font-style: italic;
+}
+
+.fountain-screenplay strong {
+    font-weight: bold;
+}
+
+.fountain-screenplay u {
+    text-decoration: underline;
 }
