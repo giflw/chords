@@ -111,9 +111,11 @@ html = markdown.markdown(text, extensions=[ChordsMDExtension()])
 *Last Updated: 2026-01-21*
 
 
+---
+## 7. Specs implemented
 
 
-
+### 7.1. Fountain
 
 ✅ Complete Fountain syntax support implemented!
 
@@ -149,12 +151,37 @@ All 12 Fountain tests passing! All 39 total tests passing (27 original + 12 Foun
 The implementation now fully complies with the Fountain specification.
 
 
-The ChordPro spec is extensive and includes:
 
-Metadata directives: title, subtitle, artist, composer, album, year, etc.
-Formatting directives: comment, comment_italic, comment_box, image, etc.
-Environment directives: start_of_chorus/end_of_chorus, start_of_verse, start_of_bridge, start_of_tab, etc.
-Chord diagrams: define directive for custom chord fingerings
-Transposition: transpose, capo directives
-Conditional directives: if/endif for platform-specific content
-Custom extensions: meta, sorttitle, duration, tempo, key, time, etc.
+### 7.2. ChordPro
+
+✅ Full ChordPro specification implemented!
+
+Implemented all major ChordPro features:
+
+Metadata Directives:
+
+{title} / {t}, {subtitle} / {st}
+{artist}, {composer}, {lyricist}
+{album}, {year}
+{key}, {time}, {tempo}, {capo}
+Formatting Directives:
+
+{comment} / {c} - Regular comments
+{comment_italic} / {ci} - Italic comments
+{comment_box} / {cb} - Boxed comments
+{highlight} - Highlighted text
+Environment Directives:
+
+{start_of_chorus} / {soc} ... {end_of_chorus} / {eoc}
+{start_of_verse} / {sov} ... {end_of_verse} / {eov}
+{start_of_bridge} / {sob} ... {end_of_bridge} / {eob}
+{start_of_tab} / {sot} ... {end_of_tab} / {eot}
+{start_of_grid} / {sog} ... {end_of_grid} / {eog}
+Other Directives:
+
+{column_break} / {colb} - Column breaks
+{new_page} / {np} - Page breaks
+{new_song} / {ns} - Song separators
+Inline Chords:
+
+[Am]text - Chords inline with lyrics
