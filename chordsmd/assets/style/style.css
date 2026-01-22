@@ -371,3 +371,34 @@
     font-size: 0.95em;
 }
 
+/* Diagram sizing: make SVG diagrams scale with page font size.
+   Use the CSS variable --diagram-size to control overall size (in em units).
+   This ensures diagrams scale when the page font-size changes. */
+:root {
+    --diagram-size: 8em; /* default diagram height relative to font-size */
+}
+
+/* Containers created for chord diagrams (svguitar) */
+.chord-diagram-svg {
+    /* allow container to size by content, ignore inline pixel max-height if present */
+    max-height: none !important;
+    max-width: none !important;
+    font-size: inherit; /* inherit page font size so em units map to page font */
+}
+
+/* Target actual SVG elements used for diagrams and tabs */
+.chord-diagram-svg svg,
+.tab-svg,
+.chord-diagram-svg svg * {
+    height: var(--diagram-size) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    vertical-align: middle;
+}
+
+/* Allow easy per-container overrides: set --diagram-size on the container to change size */
+.chord-diagram-container {
+    --diagram-size: 8em;
+}
+
+
