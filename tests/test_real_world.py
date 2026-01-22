@@ -59,6 +59,14 @@ class TestRealWorld(unittest.TestCase):
         # If I check simply "Today", "gonna", "day".
         self.assertIn('Today', html)
         self.assertIn('day', html)
+        
+        # Verify Tablature SVG presence
+        # Found in [Dedilhado - Pré-Refrão]
+        self.assertIn('<svg', html)
+        self.assertIn('class="tab-svg"', html)
+        
+        # Verify Arrow support
+        self.assertIn('↓', html)
 
     def test_hotel_california_ug(self):
         content = load_asset('hotel_california.txt')

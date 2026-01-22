@@ -15,9 +15,9 @@ I am a boy
 """
         html = self.md.convert(text)
         self.assertIn('<div class="chords-sheet">', html)
-        self.assertIn('<span class="chord">Am</span>I', html)
+        self.assertIn('<span class="chord"><span class="root">A</span><span class="quality">m</span></span>I', html)
         # "boy" is split by G: "b<span...>G</span>oy"
-        self.assertIn('b<span class="chord">G</span>oy', html)
+        self.assertIn('b<span class="chord"><span class="root">G</span></span>oy', html)
 
     def test_section_header(self):
         text = """
@@ -31,13 +31,10 @@ Oh happy day
         # Verify h3 is present
         self.assertIn('<h3>Chorus</h3>', html)
         # Verify content is present
-        self.assertIn('<span class="chord">C</span>Oh', html)
+        self.assertIn('<span class="chord"><span class="root">C</span></span>Oh', html)
         
-        # Verify nesting: Section start -> H3 -> Content -> Section end
-        # We can crudely check via finding indices or just assuming if strings are present valid HTML is generated
-        # or check that </section> appears after content
-        expected_seq = ['<section class="sheet-section"><h3>Chorus</h3>', '<span class="chord">C</span>Oh', '</section>']
-        # Simple check if all parts are there
+        # Verify nesting
+        expected_seq = ['<section class="sheet-section"><h3>Chorus</h3>', '<span class="chord"><span class="root">C</span></span>Oh', '</section>']
         for part in expected_seq:
             self.assertIn(part, html)
 
@@ -48,7 +45,7 @@ Am  G  C
 ```
 """
         html = self.md.convert(text)
-        self.assertIn('<span class="chord">Am</span>', html)
+        self.assertIn('<span class="chord"><span class="root">A</span><span class="quality">m</span></span>', html)
         # Should be wrapped in p
         self.assertIn('<p>', html)
 
@@ -62,7 +59,7 @@ He
         # C is at index 8. "He" is length 2.
         # Should result in "He      <span class="chord">C</span>"
         html = self.md.convert(text)
-        self.assertIn('He      <span class="chord">C</span>', html)
+        self.assertIn('He      <span class="chord"><span class="root">C</span></span>', html)
 
 if __name__ == '__main__':
     unittest.main()

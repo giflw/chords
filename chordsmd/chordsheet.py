@@ -5,6 +5,7 @@ from markdown.inlinepatterns import Pattern
 from xml.etree import ElementTree
 from .merger import merge_chords_and_lyrics
 from .parser import parse_chord
+from .tabs import render_tab_svg
 
 # Pattern for inline chords via !!Chord!! syntax
 INLINE_CHORD_PATTERN = r'!!(.*?)!!'
@@ -75,6 +76,15 @@ class ChordSheetPreprocessor(Preprocessor):
             lines = raw_block.strip('\n').split('\n')
             if not lines: continue
             
+            # Check if this block is a Tablature block
+            if self.is_tab_block(lines):
+                # Render as SVG
+                # We need to rejoin lines to pass to render_tab_svg
+                tab_content = "\n".join(lines)
+                svg = render_tab_svg(tab_content)
+                html_parts.append(f'<div class="tab-block">{svg}</div>')
+                continue
+
             idx = 0
             while idx < len(lines):
                 line = lines[idx]
@@ -92,12 +102,17 @@ class ChordSheetPreprocessor(Preprocessor):
                     continue
                 
                 # Content
-                # If we have content but NO section open, should we open a default one?
-                # Or just append as direct child of chords-sheet?
-                # Usually better to append as direct child if implicit.
-                
                 remaining_lines = lines[idx:]
                 if remaining_lines:
+                    # Re-check if remaining lines (after header) are tab block?
+                    # e.g. [Intro]
+                    # E|---|
+                    if self.is_tab_block(remaining_lines):
+                         tab_content = "\n".join(remaining_lines)
+                         svg = render_tab_svg(tab_content)
+                         html_parts.append(f'<div class="tab-block">{svg}</div>')
+                         break # Consumed rest
+                    
                     html_parts.append(self.process_paragraph(remaining_lines))
                 # Consumed rest of block
                 break
@@ -161,6 +176,20 @@ class ChordSheetPreprocessor(Preprocessor):
             return True
             
         return False
+
+    def is_tab_block(self, lines):
+        # Heuristic: if significant portion of lines look like tabs
+        tab_line_count = 0
+        for line in lines:
+            line = line.strip()
+            # Must have at least 3 dashes/pipes OR contain arrows
+            if (line.count('-') + line.count('|') >= 3) or ('↓' in line or '↑' in line):
+                tab_line_count += 1
+        
+        if len(lines) == 0: return False
+        
+        # If > 50% are tab lines, treat as tab block
+        return (tab_line_count / len(lines)) > 0.5
 
 class ChordSheetExtension(Extension):
     def extendMarkdown(self, md):
