@@ -34,13 +34,15 @@ class AbcPreprocessor(Preprocessor):
     <div id="midi-{unique_id}" class="abc-midi"></div>
     <script>
     (function() {{
-        var abc = `{escaped_content}`;
-        if (typeof ABCJS !== 'undefined') {{
-            ABCJS.renderAbc("score-{unique_id}", abc, {{ responsive: "resize" }});
-            ABCJS.renderMidi("midi-{unique_id}", abc, {{}});
-        }} else {{
-            console.warn("ABCJS not loaded");
-        }}
+        document.addEventListener('DOMContentLoaded', function() {{
+            var abc = `{escaped_content}`;
+            if (typeof ABCJS !== 'undefined') {{
+                ABCJS.renderAbc("score-{unique_id}", abc, {{ responsive: "resize" }});
+                ABCJS.renderMidi("midi-{unique_id}", abc, {{}});
+            }} else {{
+                console.warn("ABCJS not loaded");
+            }}
+        }}, false);
     }})();
     </script>
 </div>
