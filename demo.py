@@ -4,6 +4,7 @@ from chordsmd.chordpro import ChordProExtension
 from chordsmd.tabs import TabExtension
 from chordsmd.abc import AbcExtension
 from chordsmd.fountain import FountainExtension
+from chordsmd.diagrams import ChordDiagramExtension
 
 text = """
 # Demo
@@ -89,9 +90,27 @@ Thanks. Listen, about last night...
 
 FADE TO:
 ```
+
+## Chord Diagrams Example
+
+```chord diagrams
+G = 3 2 0 0 0 3
+C = x 3 2 0 1 0
+D = x x 0 2 3 2
+Am = x 0 2 2 1 0
+Em = 0 2 2 0 0 0
+B7 = x 2 1 2 0 2
+```
 """
 
-html_body = markdown.markdown(text, extensions=[ChordSheetExtension(), ChordProExtension(), TabExtension(), AbcExtension(), FountainExtension()])
+html_body = markdown.markdown(text, extensions=[
+    ChordSheetExtension(), 
+    ChordProExtension(), 
+    TabExtension(), 
+    AbcExtension(), 
+    FountainExtension(),
+    ChordDiagramExtension()
+])
 
 final_html = f"""
 <!DOCTYPE html>
@@ -100,6 +119,7 @@ final_html = f"""
     <meta charset="utf-8">
     <title>ChordsMD Demo</title>
     <link rel="stylesheet" href="chordsmd/assets/style/style.css">
+    <script src="chordsmd/assets/vendor/svguitar.umd.js"></script>
     <script src="chordsmd/assets/vendor/abcjs-basic-min.js"></script>
     <script src="chordsmd/assets/js/transposer.js"></script>
     <script src="chordsmd/assets/js/column-layout.js"></script>

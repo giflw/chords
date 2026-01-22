@@ -9,6 +9,10 @@ class ChordDiagramPreprocessor(Preprocessor):
         re.MULTILINE | re.DOTALL
     )
 
+    def __init__(self, md):
+        super().__init__(md)
+        self.diagram_counter = 0
+
     def run(self, lines):
         text = "\n".join(lines)
         def replace(match):
@@ -18,7 +22,6 @@ class ChordDiagramPreprocessor(Preprocessor):
     def render_diagrams(self, content):
         lines = content.strip().split('\n')
         html_parts = ['<div class="chord-diagrams">']
-        diagram_id = 0
         
         for line in lines:
             line = line.strip()
@@ -73,12 +76,12 @@ class ChordDiagramPreprocessor(Preprocessor):
                     positions.append([string_num, int(pos)])
             
             # Generate unique ID for this diagram
-            diagram_id += 1
-            container_id = f'chord-diagram-{diagram_id}'
+            self.diagram_counter += 1
+            container_id = f'chord-diagram-{self.diagram_counter}'
             
             # Create chord configuration
             chord_config = {
-                'chord': positions,
+                'fingers': positions,
                 'barres': barres if barres else []
             }
             
@@ -87,24 +90,29 @@ class ChordDiagramPreprocessor(Preprocessor):
             html_parts.append(f'<div id="{container_id}" class="chord-diagram-svg"></div>')
             html_parts.append(f'<script>')
             html_parts.append(f'(function() {{')
-            html_parts.append(f'  if (typeof svguitar === "undefined") {{')
-            html_parts.append(f'    console.error("svguitar library not loaded");')
-            html_parts.append(f'    return;')
-            html_parts.append(f'  }}')
-            html_parts.append(f'  const chart = new svguitar.SVGuitarChord("#{container_id}");')
-            html_parts.append(f'  chart.configure({{')
-            html_parts.append(f'    strings: 6,')
-            html_parts.append(f'    frets: 5,')
-            html_parts.append(f'    position: 1,')
-            html_parts.append(f'    style: {{')
+            html_parts.append(f'  const init = function() {{')
+            html_parts.append(f'    if (typeof svguitar === "undefined") {{')
+            html_parts.append(f'      console.error("svguitar library not loaded");')
+            html_parts.append(f'      return;')
+            html_parts.append(f'    }}')
+            html_parts.append(f'    const chart = new svguitar.SVGuitarChord("#{container_id}");')
+            html_parts.append(f'    chart.configure({{')
+            html_parts.append(f'      strings: 6,')
+            html_parts.append(f'      frets: 5,')
+            html_parts.append(f'      position: 1,')
             html_parts.append(f'      backgroundColor: "white",')
             html_parts.append(f'      strokeColor: "#333",')
             html_parts.append(f'      textColor: "#333",')
             html_parts.append(f'      stringColor: "#333",')
             html_parts.append(f'      fretColor: "#333"')
-            html_parts.append(f'    }}')
-            html_parts.append(f'  }});')
-            html_parts.append(f'  chart.chord({json.dumps(chord_config)}).draw();')
+            html_parts.append(f'    }});')
+            html_parts.append(f'    chart.chord({json.dumps(chord_config)}).draw();')
+            html_parts.append(f'  }};')
+            html_parts.append(f'  if (document.readyState === "loading") {{')
+            html_parts.append(f'    document.addEventListener("DOMContentLoaded", init);')
+            html_parts.append(f'  }} else {{')
+            html_parts.append(f'    init();')
+            html_parts.append(f'  }}')
             html_parts.append(f'}})();')
             html_parts.append(f'</script>')
             html_parts.append(f'</div>')
