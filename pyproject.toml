@@ -25,4 +25,7 @@ dev = [
 
 [tool.setuptools.packages.find]
 include = ["chordsmd*"]
-exclude = ["assets*", "docs*", "tests*"]
+exclude = ["docs*", "tests*"] # Remove "assets*" from exclude
+
+[tool.setuptools.package-data]
+chordsmd = ["assets/**/*"]

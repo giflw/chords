@@ -70,9 +70,11 @@ def main():
 <head>
     <meta charset="UTF-8">
     <title>{os.path.basename(args.input)}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chordsmd/chordsmd/assets/style/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
-    <!-- We might need to embed or link the actual JS files here if they are not in a CDN -->
+    <link rel="stylesheet" href="chordsmd/assets/style/style.css">
+    <script src="chordsmd/assets/vendor/svguitar.umd.js"></script>
+    <script src="chordsmd/assets/vendor/abcjs-basic-min.js"></script>
+    <script src="chordsmd/assets/js/transposer.js"></script>
+    <script src="chordsmd/assets/js/column-layout.js"></script>
 </head>
 <body>
     <div class="content">

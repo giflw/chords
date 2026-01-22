@@ -99,10 +99,10 @@ final_html = f"""
 <head>
     <meta charset="utf-8">
     <title>ChordsMD Demo</title>
-    <link rel="stylesheet" href="assets/style/style.css">
-    <script src="assets/vendor/abcjs-basic-min.js"></script>
-    <script src="assets/js/transposer.js"></script>
-    <script src="assets/js/column-layout.js"></script>
+    <link rel="stylesheet" href="chordsmd/assets/style/style.css">
+    <script src="chordsmd/assets/vendor/abcjs-basic-min.js"></script>
+    <script src="chordsmd/assets/js/transposer.js"></script>
+    <script src="chordsmd/assets/js/column-layout.js"></script>
     <style>
         body {{ font-family: sans-serif; padding: 20px; max-width: 1200px; margin: 0 auto; }}
         pre {{ background: #f4f4f4; padding: 10px; border-radius: 5px; }}

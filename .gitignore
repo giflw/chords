@@ -8,3 +8,4 @@ venv/
 .vscode/
 demo.html
 output.txt
+site/
