@@ -68,10 +68,19 @@ class ChordSheetPreprocessor(Preprocessor):
         # We wrap everything in a container that includes controls
         html_parts = [
             '<div class="chords-sheet-container">',
-            '<div class="chords-controls" style="margin-bottom: 10px; padding: 5px; background: #f0f0f0; border-radius: 4px;">',
-            '<button class="transpose-down" style="margin-right:5px; padding:2px 8px;">-</button>',
-            '<span class="key-display" style="font-weight:bold; min-width:30px; display:inline-block; text-align:center;">Original</span>',
-            '<button class="transpose-up" style="margin-left:5px; padding:2px 8px;">+</button>',
+            '<div class="chords-controls" style="margin-bottom: 10px; padding: 8px; background: #f0f0f0; border-radius: 4px; display: flex; gap: 15px; align-items: center;">',
+            '<div style="display: flex; align-items: center; gap: 5px;">',
+            '<span style="font-size: 12px; color: #666;">Key:</span>',
+            '<button class="transpose-down" style="padding:4px 10px; cursor: pointer;">-</button>',
+            '<span class="key-display" style="font-weight:bold; min-width:50px; display:inline-block; text-align:center;">Original</span>',
+            '<button class="transpose-up" style="padding:4px 10px; cursor: pointer;">+</button>',
+            '</div>',
+            '<div style="display: flex; align-items: center; gap: 5px;">',
+            '<span style="font-size: 12px; color: #666;">Columns:</span>',
+            '<button class="col-btn col-1 active" style="padding:4px 10px; cursor: pointer; border: 1px solid #ccc; background: white;">1</button>',
+            '<button class="col-btn col-2" style="padding:4px 10px; cursor: pointer; border: 1px solid #ccc; background: white;">2</button>',
+            '<button class="col-btn col-3" style="padding:4px 10px; cursor: pointer; border: 1px solid #ccc; background: white;">3</button>',
+            '</div>',
             '</div>',
             '<div class="chords-sheet">'
         ]

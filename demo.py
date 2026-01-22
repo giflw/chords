@@ -76,9 +76,11 @@ final_html = f"""
     <link rel="stylesheet" href="assets/style/style.css">
     <script src="assets/vendor/abcjs-basic-min.js"></script>
     <script src="assets/js/transposer.js"></script>
+    <script src="assets/js/column-layout.js"></script>
     <style>
-        body {{ font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }}
+        body {{ font-family: sans-serif; padding: 20px; max-width: 1200px; margin: 0 auto; }}
         pre {{ background: #f4f4f4; padding: 10px; border-radius: 5px; }}
+        .col-btn.active {{ background: #007bff !important; color: white; font-weight: bold; }}
         .abc-midi {{ margin-top: 10px; }}
     </style>
 </head>
