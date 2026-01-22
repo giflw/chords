@@ -45,6 +45,23 @@ Everything feels right
 html = markdown.markdown(text, extensions=[ChordsMDExtension()])
 ```
 
+### Command Line Tool
+
+Convert files directly from your terminal:
+
+```bash
+# Basic conversion
+chordsmd song.md -o song.html
+
+# Disable specific features
+chordsmd song.md --no-abc --no-diagrams
+
+# Generate standalone HTML with boilerplate
+chordsmd song.md --standalone
+```
+
+*Note: If `chordsmd` is not in your PATH, use `python -m chordsmd.cli`.*
+
 ## Supported Formats
 
 ### 1. Chord Sheets (```chords)
