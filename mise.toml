@@ -6,11 +6,11 @@ PYTHONPATH = "."
 
 [tasks.install]
 description = "Install dependencies"
-run = "pip install -e . && pip install mkdocs-material pymdown-extensions pytest"
+run = "python -m pip install -e . && python -m pip install mkdocs-material pymdown-extensions pytest"
 
 [tasks.test]
 description = "Run test suite"
-run = "pytest tests/"
+run = "python -m pytest tests/"
 
 [tasks.demo]
 description = "Run demo script and generate demo.html"
@@ -23,9 +23,9 @@ run = "mkdocs serve"
 [tasks.run_windows]
 description = "Run full development cycle and open demo on Windows CMD"
 run = [
-    "pip install -e .",
-    "pip install mkdocs-material pymdown-extensions pytest",
-    "pytest tests/",
+    "python -m pip install -e .",
+    "python -m pip install mkdocs-material pymdown-extensions pytest",
+    "python -m pytest tests/",
     "python demo.py",
     "start demo.html"
 ]
