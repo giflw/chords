@@ -129,5 +129,16 @@ Generate a visual demonstration:
 python demo.py
 ```
 
+## Development Automation (Mise)
+
+This project uses [mise](https://mise.jdx.dev/) for tool and task management.
+
+Available tasks:
+- `mise run install`: Install dependencies for development and documentation.
+- `mise run test`: Run the full test suite.
+- `mise run docs`: Serve the interactive documentation site locally.
+- `mise run demo`: Generate a visual demonstration (`demo.html`).
+- `mise run clean`: Remove generated files and caches.
+
 ---
 *Last Updated: 2026-01-22*
