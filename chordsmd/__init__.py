@@ -49,8 +49,8 @@ def makeExtension(**kwargs):
 # MkDocs Plugin Support
 try:
     from mkdocs.plugins import BasePlugin
+    from mkdocs.structure.files import File
     import os
-    import shutil
     try:
         from importlib import resources
     except ImportError:
@@ -74,7 +74,8 @@ try:
             # 3. Add custom JavaScript (relative to site root)
             js_paths = [
                 'assets/chordsmd/vendor/svguitar.umd.js',
-                'assets/chordsmd/vendor/abcjs-basic-min.js'
+                'assets/chordsmd/vendor/abcjs-basic-min.js',
+                'assets/chordsmd/js/transposer.js' # Adding this too for documentation interaction
             ]
             for js in js_paths:
                 if js not in config['extra_javascript']:
@@ -82,26 +83,42 @@ try:
             
             return config
 
-        def on_post_build(self, config, **kwargs):
+        def on_files(self, files, config, **kwargs):
             """
-            Copy assets from the package to the site directory.
+            Add assets from the package to the MkDocs files collection.
             """
-            site_dir = config['site_dir']
-            dest_dir = os.path.join(site_dir, 'assets', 'chordsmd')
-            
-            # Get asset path from package
             try:
                 # For Python 3.9+
-                pkg_asset_path = resources.files('chordsmd') / 'assets'
-                if os.path.exists(dest_dir):
-                    shutil.rmtree(dest_dir)
-                shutil.copytree(str(pkg_asset_path), dest_dir)
-            except Exception:
-                # Fallback for older Python or if files() isn't available
-                with resources.path('chordsmd', 'assets') as p:
-                    if os.path.exists(dest_dir):
-                        shutil.rmtree(dest_dir)
-                    shutil.copytree(str(p), dest_dir)
+                pkg_asset_root = resources.files('chordsmd') / 'assets'
+                
+                # Recursively add files
+                def add_files_from_package(path, subpath=""):
+                    for entry in path.iterdir():
+                        rel_path = os.path.join(subpath, entry.name)
+                        if entry.is_dir():
+                            add_files_from_package(entry, rel_path)
+                        else:
+                            # Create a File object that MkDocs understands
+                            # The 'src_uri' is the physical path on disk
+                            # The 'dest_uri' is where it should go in 'site/'
+                            # 'use_directory_urls' is usually from config
+                            mkdocs_file = File(
+                                path=os.path.join('assets', 'chordsmd', rel_path),
+                                src_dir=str(path),
+                                dest_dir=config['site_dir'],
+                                use_directory_urls=config['use_directory_urls']
+                            )
+                            # Manually set the source path since File constructor expects it relative to src_dir
+                            mkdocs_file.abs_src_path = str(entry)
+                            files.append(mkdocs_file)
+
+                add_files_from_package(pkg_asset_root)
+            except Exception as e:
+                # Fallback or error logging could go here
+                print(f"Error injecting ChordsMD assets: {e}")
+            
+            return files
+
 except ImportError:
     # MkDocs not installed, plugin support disabled
     class ChordsMDPlugin:
