@@ -28,6 +28,12 @@ class FountainPreprocessor(Preprocessor):
                 i += 1
                 continue
             
+            # Transition (must check before character - ends with TO:)
+            if self.is_transition(line):
+                html_parts.append(f'<div class="transition">{self.escape_html(line)}</div>')
+                i += 1
+                continue
+            
             # Character (ALL CAPS, possibly with extension in parentheses)
             if self.is_character(line):
                 char_name = line.strip()
@@ -42,7 +48,7 @@ class FountainPreprocessor(Preprocessor):
                         break
                     if self.is_parenthetical(next_line):
                         dialogue_parts.append(f'<div class="parenthetical">{self.escape_html(next_line)}</div>')
-                    elif not self.is_character(next_line) and not self.is_scene_heading(next_line):
+                    elif not self.is_character(next_line) and not self.is_scene_heading(next_line) and not self.is_transition(next_line):
                         dialogue_parts.append(f'<div class="dialogue">{self.escape_html(next_line)}</div>')
                     else:
                         break
@@ -50,12 +56,6 @@ class FountainPreprocessor(Preprocessor):
                 
                 if dialogue_parts:
                     html_parts.extend(dialogue_parts)
-                continue
-            
-            # Transition (ends with TO:)
-            if self.is_transition(line):
-                html_parts.append(f'<div class="transition">{self.escape_html(line)}</div>')
-                i += 1
                 continue
             
             # Action/Description
