@@ -137,46 +137,25 @@
     margin: 8px 0;
 }
 
-/* Realigning inline chords */
+/* Chord Display Styles */
 .chord {
-    content: attr(data-content);
-    position: absolute;
-    top: -1.2em;
-    left: 0;
+    display: inline-block;
+    position: relative;
+    width: 0;
+    overflow: visible;
+    vertical-align: baseline;
     font-size: 0.85em;
     color: #0066cc;
     font-weight: bold;
+    white-space: nowrap;
+    transform: translateY(-1.3em);
 }
 
-.chord::after {
-    content: attr(data-content);
-    /* Wait, the text is inside the span */
+.chord .root,
+.chord .quality,
+.chord .bass {
+    display: inline;
 }
-
-/* If text is inside span: <span class="chord">Am</span> */
-/* We want Am to appear ABOVE the insertion point */
-.chord {
-    font-size: 0.9em;
-}
-
-/* This trick relies on the span taking up 0 width in the flow, 
-   but showing its content offset. */
-.chord {
-    width: 0;
-    white-space: pre;
-}
-
-.chord {
-    transform: translateY(-1.2em);
-}
-
-/* But if width is 0, it overlaps the text? 
-   Yes, but that's what we want: "Am" above, text below.
-   Wait, if we insert it *before* the character "B", 
-   [Am]Boy -> Am appears, Boy follows. 
-   If width is 0, Boy starts right where Am started.
-   Result: Am overlaps Boy (but above it).
-*/
 
 .sheet-section h3 {
     border-bottom: 2px solid #ddd;
