@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_markdown_extension"
+version = "0.1.0"
+description = "A simple Python Markdown extension example"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "markdown>=3.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
