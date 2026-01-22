@@ -40,8 +40,10 @@ class StrummingPreprocessor(Preprocessor):
     def parse_pattern(self, pattern):
         """Parse strumming pattern and convert to visual representation"""
         # Pattern notation:
-        # D or d or ↓ = downstroke
-        # U or u or ↑ = upstroke
+        # V or D or ↓ = downstroke (uppercase = strong beat)
+        # v or d = downstroke (lowercase = weak beat)
+        # A or ^ or U or ↑ = upstroke (uppercase = strong beat)
+        # a or u = upstroke (lowercase = weak beat)
         # X or x = muted strum
         # - = rest/pause
         # | = bar line
@@ -64,12 +66,23 @@ class StrummingPreprocessor(Preprocessor):
                 # Parse individual strokes
                 result.append('<span class="stroke-group">')
                 for char in token:
-                    if char.upper() == 'D' or char == '↓':
-                        result.append('<span class="stroke down" title="Downstroke">↓</span>')
-                    elif char.upper() == 'U' or char == '↑':
-                        result.append('<span class="stroke up" title="Upstroke">↑</span>')
+                    # Determine if strong beat (uppercase) or weak beat (lowercase)
+                    is_strong = char.isupper() or char in ['↓', '↑']
+                    
+                    # Downstroke
+                    if char in ['V', 'D', '↓']:
+                        result.append('<span class="stroke down strong" title="Downstroke (strong)">↓</span>')
+                    elif char in ['v', 'd']:
+                        result.append('<span class="stroke down weak" title="Downstroke (weak)">↓</span>')
+                    # Upstroke
+                    elif char in ['A', '^', 'U', '↑']:
+                        result.append('<span class="stroke up strong" title="Upstroke (strong)">↑</span>')
+                    elif char in ['a', 'u']:
+                        result.append('<span class="stroke up weak" title="Upstroke (weak)">↑</span>')
+                    # Muted
                     elif char.upper() == 'X':
                         result.append('<span class="stroke muted" title="Muted">✕</span>')
+                    # Rest
                     elif char == '-':
                         result.append('<span class="stroke rest" title="Rest">-</span>')
                 result.append('</span>')

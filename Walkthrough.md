@@ -215,3 +215,34 @@ strum
 Verse: D DU UDU
 Chorus: D D DU | UDU D
 Bridge: 1 D 2 DU 3 UDU 4
+
+
+### 7.4. Chord Diagrams
+
+✅ Chord diagram extension added with svguitar.js!
+
+New Extension: ChordDiagramExtension
+
+Integrated into ChordsMDExtension with diagrams config option
+Use with ```chord diagrams blocks
+Downloaded svguitar.js library to assets/vendor/
+Custom Notation Format:
+
+ChordName = positions |barres
+Examples:
+
+chord
+C = x 3 2 0 1 0
+B = 2 0 4.1 4.2 4.3 0 |2.1
+G = 3 2 0 0 0 3
+Notation Details:
+
+Positions: From 6th string (low E) to 1st string (high E)
+Format: fret or fret.finger or x/- (muted)
+Barres: After | symbol, format: fret.finger
+Example: B = 2 0 4.1 4.2 4.3 0 |2.1
+String 6: fret 2
+String 5: open (0)
+Strings 4-2: fret 4, fingers 1-3
+String 1: open
+Barre at fret 2, finger 1
