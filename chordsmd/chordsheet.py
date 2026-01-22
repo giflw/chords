@@ -64,11 +64,17 @@ class ChordSheetPreprocessor(Preprocessor):
         return new_text.split("\n")
 
     def process_chords_content(self, text):
-        # Improved processing: iterate through lines and grouping
-        html_parts = ['<div class="chords-sheet">']
-        
-        # logical blocks (separated by empty lines in source)
-        raw_blocks = re.split(r'\n\s*\n', text.strip('\n'))
+        raw_blocks = text.strip().split('\n\n')
+        # We wrap everything in a container that includes controls
+        html_parts = [
+            '<div class="chords-sheet-container">',
+            '<div class="chords-controls" style="margin-bottom: 10px; padding: 5px; background: #f0f0f0; border-radius: 4px;">',
+            '<button class="transpose-down" style="margin-right:5px; padding:2px 8px;">-</button>',
+            '<span class="key-display" style="font-weight:bold; min-width:30px; display:inline-block; text-align:center;">Original</span>',
+            '<button class="transpose-up" style="margin-left:5px; padding:2px 8px;">+</button>',
+            '</div>',
+            '<div class="chords-sheet">'
+        ]
         
         section_open = False
         
@@ -121,7 +127,8 @@ class ChordSheetPreprocessor(Preprocessor):
         if section_open:
             html_parts.append('</section>')
             
-        html_parts.append('</div>')
+        html_parts.append('</div>') # Close chords-sheet
+        html_parts.append('</div>') # Close chords-sheet-container
         return "\n".join(html_parts)
 
     def process_paragraph(self, lines):

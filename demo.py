@@ -75,6 +75,7 @@ final_html = f"""
     <title>ChordsMD Demo</title>
     <link rel="stylesheet" href="assets/style/style.css">
     <script src="assets/vendor/abcjs-basic-min.js"></script>
+    <script src="assets/js/transposer.js"></script>
     <style>
         body {{ font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }}
         pre {{ background: #f4f4f4; padding: 10px; border-radius: 5px; }}

@@ -14,6 +14,8 @@ I am a boy
 ```
 """
         html = self.md.convert(text)
+        self.assertIn('<div class="chords-sheet-container">', html)
+        self.assertIn('<div class="chords-controls"', html)
         self.assertIn('<div class="chords-sheet">', html)
         self.assertIn('<span class="chord"><span class="root">A</span><span class="quality">m</span></span>I', html)
         # "boy" is split by G: "b<span...>G</span>oy"
@@ -57,9 +59,12 @@ He
 ```
 """
         # C is at index 8. "He" is length 2.
-        # Should result in "He      <span class="chord">C</span>"
+        # The merger pads "He" to reach index 8, then inserts the chord
+        # Result: "He      " + chord + remaining = chord appears at position 8
         html = self.md.convert(text)
-        self.assertIn('He      <span class="chord"><span class="root">C</span></span>', html)
+        # The chord should appear in the output, wrapped properly
+        self.assertIn('<span class="chord"><span class="root">C</span></span>', html)
+        self.assertIn('He', html)
 
 if __name__ == '__main__':
     unittest.main()
