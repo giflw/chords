@@ -1,0 +1,53 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\glutz\scoop\apps\python\3.14.2\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Workspace\Antigravity
+configfile: pyproject.toml
+collecting ... collected 4 items
+
+tests/test_blocks.py::TestBlocks::test_basic_block FAILED                [ 25%]
+tests/test_blocks.py::TestBlocks::test_orphan_chord_line PASSED          [ 50%]
+tests/test_blocks.py::TestBlocks::test_padding FAILED                    [ 75%]
+tests/test_blocks.py::TestBlocks::test_section_header PASSED             [100%]
+
+================================== FAILURES ===================================
+_________________________ TestBlocks.test_basic_block _________________________
+
+self = <test_blocks.TestBlocks testMethod=test_basic_block>
+
+        def test_basic_block(self):
+            text = """
+    ```chords
+    Am      G
+    I am a boy
+    ```
+    """
+            html = self.md.convert(text)
+            self.assertIn('<div class="chords-sheet">', html)
+            self.assertIn('<span class="chord">Am</span>I', html)
+>           self.assertIn('boy', html)
+E           AssertionError: 'boy' not found in '<div class="chords-sheet">\n<p><span class="chord">Am</span>I am a b<span class="chord">G</span>oy</p>\n</div>'
+
+tests\test_blocks.py:20: AssertionError
+___________________________ TestBlocks.test_padding ___________________________
+
+self = <test_blocks.TestBlocks testMethod=test_padding>
+
+        def test_padding(self):
+            text = """
+    ```chords
+            C
+    He
+    ```
+    """
+            # C is at index 8. "He" is length 2.
+            # Should result in "He      <span class="chord">C</span>"
+            html = self.md.convert(text)
+>           self.assertIn('He      <span class="chord">C</span>', html)
+E           AssertionError: 'He      <span class="chord">C</span>' not found in '<div class="chords-sheet">\n<p><span class="chord">C</span>He</p>\n</div>'
+
+tests\test_blocks.py:55: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_blocks.py::TestBlocks::test_basic_block - AssertionError: 'boy' not found in '<div class="chords-sheet">\n<p><span class="chord">Am</span>I am a b<span class="chord">G</span>oy</p>\n</div>'
+FAILED tests/test_blocks.py::TestBlocks::test_padding - AssertionError: 'He      <span class="chord">C</span>' not found in '<div class="chords-sheet">\n<p><span class="chord">C</span>He</p>\n</div>'
+========================= 2 failed, 2 passed in 0.11s =========================

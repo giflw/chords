@@ -59,11 +59,21 @@ class HighlightPattern(Pattern):
             el.set('class', 'custom-highlight')
             return el
 
+from chordsmd.blocks import ChordsBlockPreprocessor
+
 class MyExtension(Extension):
     def extendMarkdown(self, md):
         # Register the pattern
         # Priority 175 is standard for inline patterns, keeping it safe
         md.inlinePatterns.register(HighlightPattern(PATTERN, md), 'custom_highlight', 175)
+        
+        # Register Preprocessor
+        # Priority > 30 to run before standard block parsing?
+        # Fenced code blocks are usually handled by Preprocessors.
+        # We need to run before the standard Fenced Code Block preprocessor if we want to hijack it?
+        # Standard 'fenced_code_block' is priority 25 (in Preprocessors).
+        # We'll use 30 to catch it first.
+        md.preprocessors.register(ChordsBlockPreprocessor(md), 'chords_block', 30)
 
 def makeExtension(**kwargs):
     return MyExtension(**kwargs)

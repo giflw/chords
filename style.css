@@ -1,0 +1,51 @@
+/* CSS for ChordsMD */
+
+.chords-sheet {
+    font-family: 'Roboto Mono', monospace;
+    white-space: pre-wrap; /* or normal, since we use spaces for padding? No, we use inline injection so spaces matter less, but monospaced helps alignment visual if raw */
+    /* Actually we stripped whitespace padding in merger? No, we preserved padding. */
+}
+
+/* Realigning inline chords */
+.chord {
+    display: inline-block;
+    width: 0;
+    overflow: visible;
+    vertical-align: top;
+    position: relative;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.chord::after {
+    content: attr(data-content); /* Wait, the text is inside the span */
+}
+
+/* If text is inside span: <span class="chord">Am</span> */
+/* We want Am to appear ABOVE the insertion point */
+.chord {
+    font-size: 0.9em;
+}
+
+/* This trick relies on the span taking up 0 width in the flow, 
+   but showing its content offset. */
+.chord {
+    width: 0;
+    white-space: pre; 
+}
+.chord {
+    transform: translateY(-1.2em);
+}
+/* But if width is 0, it overlaps the text? 
+   Yes, but that's what we want: "Am" above, text below.
+   Wait, if we insert it *before* the character "B", 
+   [Am]Boy -> Am appears, Boy follows. 
+   If width is 0, Boy starts right where Am started.
+   Result: Am overlaps Boy (but above it).
+*/
+
+.sheet-section h3 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
