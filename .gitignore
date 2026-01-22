@@ -6,3 +6,5 @@ __pycache__/
 .env
 venv/
 .vscode/
+demo.html
+output.txt
