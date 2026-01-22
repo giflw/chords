@@ -84,7 +84,8 @@ class StrummingPreprocessor(Preprocessor):
                         result.append('<span class="stroke muted" title="Muted">✕</span>')
                     # Rest
                     elif char in ['-', '.']:
-                        result.append('<span class="stroke rest" title="Rest">-</span>')
+                        # display dot for rest to be visually lighter than dash
+                        result.append('<span class="stroke rest" title="Rest">.</span>')
                 result.append('</span>')
         
         result.append('</div>')

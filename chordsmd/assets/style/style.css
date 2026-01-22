@@ -311,3 +311,63 @@
     margin-bottom: 5px;
     font-size: 0.9em;
 }
+
+/* Strumming pattern styles: even spacing and smaller muted "x" */
+:root {
+    --strum-gap: 0.3ch;
+    --strum-muted-size: 1ch;
+    --strum-min-width: 1ch;
+}
+
+.strumming-pattern {
+    margin: 0.6rem 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.strum-sequence {
+    display: inline-flex;
+    gap: var(--strum-gap);
+    align-items: center;
+    flex-wrap: wrap;
+    vertical-align: middle;
+}
+
+.stroke-group {
+    display: inline-flex;
+    gap: calc(var(--strum-gap) / 2);
+    align-items: center;
+    justify-content: center;
+    min-width: var(--strum-min-width);
+    vertical-align: middle;
+}
+
+.stroke {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0 0.08rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.stroke.muted {
+    font-size: var(--strum-muted-size);
+    opacity: 0.95;
+    transform: translateY(-0.05em);
+    font-weight: 600;
+}
+
+.bar-line,
+.beat-number {
+    margin: 0 0.35rem;
+    color: #666;
+    font-size: 0.95em;
+}
+
+.group-marker {
+    margin: 0 0.2rem;
+    color: #444;
+    font-size: 0.95em;
+}
+
