@@ -1,0 +1,25 @@
+[tools]
+python = "3.14"
+
+[env]
+PYTHONPATH = "."
+
+[tasks.install]
+description = "Install dependencies"
+run = "pip install -e . && pip install mkdocs-material pymdown-extensions pytest"
+
+[tasks.test]
+description = "Run test suite"
+run = "pytest tests/"
+
+[tasks.demo]
+description = "Run demo script and generate demo.html"
+run = "python demo.py"
+
+[tasks.docs]
+description = "Serve documentation site"
+run = "mkdocs serve"
+
+[tasks.clean]
+description = "Remove generated files"
+run = "rm -f demo.html && rm -rf site/ && rm -rf .pytest_cache/"
