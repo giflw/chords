@@ -29,8 +29,29 @@ Oh happy day
 ```
 """
         html = self.md.convert(text)
-        self.assertIn('<section class="sheet-section"><h3>Chorus</h3></section>', html)
+    def test_section_header(self):
+        text = """
+```chords
+[Chorus]
+C
+Oh happy day
+```
+"""
+        html = self.md.convert(text)
+        # Verify h3 is present
+        self.assertIn('<h3>Chorus</h3>', html)
+        # Verify content is present
         self.assertIn('<span class="chord">C</span>Oh', html)
+        
+        # Verify nesting: Section start -> H3 -> Content -> Section end
+        # We can crudely check via finding indices or just assuming if strings are present valid HTML is generated
+        # or check that </section> appears after content
+        content_idx = html.find('Oh happy day')
+        # Actually 'Oh happy day' is transformed: '<span class="chord">C</span>Oh happy day'
+        # Wait, C is over 'Oh'.
+        
+        # Let's check that <h3>Chorus</h3> is NOT closed immediately
+        self.assertNotIn('<h3>Chorus</h3></section>', html)
 
     def test_orphan_chord_line(self):
         text = """

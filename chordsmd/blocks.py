@@ -30,52 +30,43 @@ class ChordsBlockPreprocessor(Preprocessor):
         # logical blocks (separated by empty lines in source)
         raw_blocks = re.split(r'\n\s*\n', text.strip('\n'))
         
+        section_open = False
+        
         for raw_block in raw_blocks:
             lines = raw_block.strip('\n').split('\n')
             if not lines: continue
-            
-            # Check if this block STARTs with a header?
-            # Or is the block JUST a header?
-            # If the user writes:
-            # [Chorus]
-            # Am
-            # Lyrics
-            #
-            # Is that one block? Yes.
-            # We should peel off the header.
             
             idx = 0
             while idx < len(lines):
                 line = lines[idx]
                 header_match = self.SECTION_HEADER_RE.match(line.strip())
                 if header_match:
+                    # If we had a section open, close it
+                    if section_open:
+                        html_parts.append('</section>')
+                    
                     title = header_match.group(1)
-                    html_parts.append(f'<section class="sheet-section"><h3>{title}</h3></section>')
+                    html_parts.append(f'<section class="sheet-section"><h3>{title}</h3>')
+                    section_open = True
                     idx += 1
-                    # If the rest of the block is empty, done with this block
+                    # Continue to look for content in *this* block (e.g. [Chorus]\nAm...)
                     continue
                 
-                # If not a header, the rest of this 'raw_block' is a paragraph
-                # But wait, if we had a header, we closed it? 
-                # <section><h3>Title</h3></section> is what we emit.
-                # The lyrics follow.
-                # Should we wrap the lyrics IN the section? 
-                # Plan said: <section><h3>...</h3>... content ...</section>
-                # But my implementation emitting closed sections: <section...></section>.
-                # Let's fix that too.
+                # Content
+                # If we have content but NO section open, should we open a default one?
+                # Or just append as direct child of chords-sheet?
+                # Usually better to append as direct child if implicit.
                 
-                # Actually, simpler is to just emit the h3 and let the user structure it, 
-                # or treat [Section] as a divider.
-                # Let's keep emitting closed sections for the Header itself unless we want to wrap content.
-                # Tests expect: <section ...><h3>Chorus</h3></section> and then content? 
-                # Test says: assertIn('<section...>', html).
-                
-                # Let's treat the rest of lines as a paragraph
                 remaining_lines = lines[idx:]
                 if remaining_lines:
                     html_parts.append(self.process_paragraph(remaining_lines))
+                # Consumed rest of block
                 break
-                
+        
+        # Close any lingering section
+        if section_open:
+            html_parts.append('</section>')
+            
         html_parts.append('</div>')
         return "\n".join(html_parts)
 
