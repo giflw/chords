@@ -3,6 +3,7 @@ from .chordsheet import ChordSheetExtension
 from .chordpro import ChordProExtension
 from .tabs import TabExtension
 from .abc import AbcExtension
+from .fountain import FountainExtension
 
 class ChordsMDExtension(Extension):
     def __init__(self, **kwargs):
@@ -11,6 +12,7 @@ class ChordsMDExtension(Extension):
             'tabs': [True, 'Enable tablature (```tab)'],
             'abc': [True, 'Enable ABC notation (```abc)'],
             'chordpro': [True, 'Enable ChordPro (```chordpro)'],
+            'fountain': [True, 'Enable Fountain screenplay (```fountain)'],
         }
         super().__init__(**kwargs)
 
@@ -23,6 +25,8 @@ class ChordsMDExtension(Extension):
             AbcExtension().extendMarkdown(md)
         if self.getConfig('chordpro'):
             ChordProExtension().extendMarkdown(md)
+        if self.getConfig('fountain'):
+            FountainExtension().extendMarkdown(md)
 
 # Alias for backward compatibility if needed
 MyExtension = ChordSheetExtension

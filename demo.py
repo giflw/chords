@@ -3,6 +3,7 @@ from chordsmd import ChordSheetExtension
 from chordsmd.chordpro import ChordProExtension
 from chordsmd.tabs import TabExtension
 from chordsmd.abc import AbcExtension
+from chordsmd.fountain import FountainExtension
 
 text = """
 # Demo
@@ -63,9 +64,34 @@ L: 1/4
 K: C
 C, D, E, F,|G, A, B, C|D E F G|A B c d|e f g a|b c' d' e'|f' g' a' b'|]
 ```
+
+## Fountain Screenplay Example
+
+```fountain
+INT. COFFEE SHOP - DAY
+
+JOHN enters, looking around nervously.
+
+SARAH
+(smiling)
+You're late.
+
+JOHN
+Traffic was terrible.
+
+Sarah slides a coffee across the table.
+
+SARAH
+I ordered for you.
+
+JOHN
+Thanks. Listen, about last night...
+
+FADE TO:
+```
 """
 
-html_body = markdown.markdown(text, extensions=[ChordSheetExtension(), ChordProExtension(), TabExtension(), AbcExtension()])
+html_body = markdown.markdown(text, extensions=[ChordSheetExtension(), ChordProExtension(), TabExtension(), AbcExtension(), FountainExtension()])
 
 final_html = f"""
 <!DOCTYPE html>
