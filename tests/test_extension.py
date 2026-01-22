@@ -1,6 +1,6 @@
 import unittest
 import markdown
-from my_extension import MyExtension
+from chordsmd import MyExtension
 
 class TestMyExtension(unittest.TestCase):
     def test_highlight(self):

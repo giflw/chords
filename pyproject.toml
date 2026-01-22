@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "my_markdown_extension"
+name = "chordsmd"
 version = "0.1.0"
 description = "A simple Python Markdown extension example"
 readme = "README.md"

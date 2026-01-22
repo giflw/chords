@@ -1,5 +1,5 @@
 import markdown
-from my_extension import MyExtension
+from chordsmd import MyExtension
 
 text = """
 # Demo
