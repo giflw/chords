@@ -60,5 +60,16 @@ D = x x 0 2 3 2
         self.assertIn('D', html)
         self.assertIn('"x"', html)  # Muted string marker
 
+    def test_enhanced_symbols(self):
+        # Test X for muted and O/o for open
+        text = """
+```chord diagrams
+C = X 3 2 o 1 O
+```
+"""
+        html = self.md.convert(text)
+        self.assertIn('"x"', html)  # X becomes x in JSON
+        self.assertIn('0', html)    # o/O becomes 0 in JSON
+
 if __name__ == '__main__':
     unittest.main()

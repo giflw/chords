@@ -32,8 +32,8 @@ Positions are listed from **6th string (low E)** to **1st string (high E)**.
 |--------|---------|---------|
 | `fret` | Fret number only | `3` |
 | `fret.finger` | Fret and finger number | `3.2` |
-| `0` | Open string | `0` |
-| `x` or `-` | Muted string | `x` |
+| `0`, `o`, `O` | Open string | `0`, `o` |
+| `x`, `X` or `-` | Muted string | `x`, `X` |
 
 ### Finger Numbers
 
@@ -221,8 +221,8 @@ Cm = x 3 5 5 4 3 |3.1
 
 ## Tips
 
-1. **Muted strings**: Use `x` or `-` for strings not played
-2. **Open strings**: Use `0` for open strings
+1. **Muted strings**: Use `x`, `X` or `-` for strings not played
+2. **Open strings**: Use `0`, `o` or `O` for open strings
 3. **Finger numbers**: Add `.1`, `.2`, `.3`, `.4` after fret for fingering
 4. **Barres**: Always specify after `|` for proper rendering
 5. **Multiple diagrams**: List one per line in the same block

@@ -61,13 +61,13 @@ class ChordDiagramPreprocessor(Preprocessor):
                 if pos.lower() in ['x', '-']:
                     # Muted string
                     positions.append([string_num, 'x'])
+                elif pos.lower() in ['0', 'o']:
+                    # Open string
+                    positions.append([string_num, 0])
                 elif '.' in pos:
                     # fret.finger
                     fret, finger = pos.split('.')
                     positions.append([string_num, int(fret), int(finger) if finger.isdigit() else None])
-                elif pos == '0':
-                    # Open string
-                    positions.append([string_num, 0])
                 else:
                     # Just fret number
                     positions.append([string_num, int(pos)])
