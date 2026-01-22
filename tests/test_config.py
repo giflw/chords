@@ -19,7 +19,7 @@ class TestConfig(unittest.TestCase):
         # Disable chords
         configs = {
             'chordsmd': {
-                'enable_chords': False
+                'chords': False
             }
         }
         md = Markdown(extensions=['chordsmd'], extension_configs=configs)
@@ -33,7 +33,7 @@ class TestConfig(unittest.TestCase):
     def test_disable_tabs(self):
         configs = {
             'chordsmd': {
-                'enable_tabs': False
+                'tabs': False
             }
         }
         md = Markdown(extensions=['chordsmd'], extension_configs=configs)
