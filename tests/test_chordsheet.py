@@ -1,11 +1,10 @@
 import unittest
 from markdown import Markdown
-# We need to install the extension first or import assuming local path
-from chordsmd import MyExtension
+from chordsmd.chordsheet import ChordSheetExtension
 
-class TestBlocks(unittest.TestCase):
+class TestChordsSheet(unittest.TestCase):
     def setUp(self):
-        self.md = Markdown(extensions=[MyExtension()])
+        self.md = Markdown(extensions=[ChordSheetExtension()])
 
     def test_basic_block(self):
         text = """
@@ -29,15 +28,6 @@ Oh happy day
 ```
 """
         html = self.md.convert(text)
-    def test_section_header(self):
-        text = """
-```chords
-[Chorus]
-C
-Oh happy day
-```
-"""
-        html = self.md.convert(text)
         # Verify h3 is present
         self.assertIn('<h3>Chorus</h3>', html)
         # Verify content is present
@@ -46,12 +36,10 @@ Oh happy day
         # Verify nesting: Section start -> H3 -> Content -> Section end
         # We can crudely check via finding indices or just assuming if strings are present valid HTML is generated
         # or check that </section> appears after content
-        content_idx = html.find('Oh happy day')
-        # Actually 'Oh happy day' is transformed: '<span class="chord">C</span>Oh happy day'
-        # Wait, C is over 'Oh'.
-        
-        # Let's check that <h3>Chorus</h3> is NOT closed immediately
-        self.assertNotIn('<h3>Chorus</h3></section>', html)
+        expected_seq = ['<section class="sheet-section"><h3>Chorus</h3>', '<span class="chord">C</span>Oh', '</section>']
+        # Simple check if all parts are there
+        for part in expected_seq:
+            self.assertIn(part, html)
 
     def test_orphan_chord_line(self):
         text = """

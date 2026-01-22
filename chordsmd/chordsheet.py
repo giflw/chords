@@ -1,8 +1,47 @@
 import re
+from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
+from markdown.inlinepatterns import Pattern
+from xml.etree import ElementTree
 from .merger import merge_chords_and_lyrics
+from .parser import parse_chord
 
-class ChordsBlockPreprocessor(Preprocessor):
+# Pattern for inline chords via !!Chord!! syntax
+INLINE_CHORD_PATTERN = r'!!(.*?)!!'
+
+class InlineChordPattern(Pattern):
+    def handleMatch(self, m):
+        text = m.group(2)
+        chord_data = parse_chord(text)
+        
+        if chord_data:
+            el = ElementTree.Element('span')
+            el.set('class', 'chord')
+            
+            root_el = ElementTree.SubElement(el, 'span')
+            root_el.set('class', 'root')
+            root_el.text = chord_data['root']
+            
+            if chord_data['quality']:
+                qual_el = ElementTree.SubElement(el, 'span')
+                qual_el.set('class', 'quality')
+                qual_el.text = chord_data['quality']
+                
+            if chord_data['bass']:
+                bass_el = ElementTree.SubElement(el, 'span')
+                bass_el.set('class', 'bass')
+                # Conventionally display standard slash for bass
+                bass_el.text = '/' + chord_data['bass']
+                
+            return el
+        else:
+            # Fallback for non-chord text
+            el = ElementTree.Element('span')
+            el.text = text
+            el.set('class', 'custom-highlight')
+            return el
+
+class ChordSheetPreprocessor(Preprocessor):
     """
     Finds fenced code blocks with language 'chords' and processes them.
     """
@@ -76,20 +115,6 @@ class ChordsBlockPreprocessor(Preprocessor):
         while i < len(lines):
             line = lines[i].rstrip()
             
-            # Simple heuristic for now:
-            # If line is mostly chords (check parser? or just spaces + capital letters?)
-            # And next line exists.
-            # Assume strict alternation? Pro users might just write chords.
-            
-            # IMPROVED HEURISTIC:
-            # A chord line usually has strict spacing chars (space/tab) vs non-space ratio.
-            # But let's check if the NEXT line is a "Lyric line".
-            
-            # Let's assume for this iteration:
-            # Line 1: Chords
-            # Line 2: Lyrics
-            # Unless Line 1 doesn't look like chords.
-            
             if self.is_chord_line(line):
                 # Check next line
                 if i + 1 < len(lines) and not self.is_chord_line(lines[i+1]):
@@ -123,10 +148,6 @@ class ChordsBlockPreprocessor(Preprocessor):
         total = len(line)
         if total == 0: return False
         
-        # If > 30% spaces, probable chord line? 
-        # "I am a boy" has 3 spaces / 10 chars = 30%.
-        # "Am    G"    has 4 spaces / 7 chars = 57%.
-        
         # Better: Check tokens.
         tokens = line.split()
         possible_chords = 0
@@ -140,3 +161,13 @@ class ChordsBlockPreprocessor(Preprocessor):
             return True
             
         return False
+
+class ChordSheetExtension(Extension):
+    def extendMarkdown(self, md):
+        # Register the pattern
+        md.inlinePatterns.register(InlineChordPattern(INLINE_CHORD_PATTERN, md), 'inline_chord', 175)
+        # Register Preprocessor
+        md.preprocessors.register(ChordSheetPreprocessor(md), 'chords_block', 30)
+
+def makeExtension(**kwargs):
+    return ChordSheetExtension(**kwargs)

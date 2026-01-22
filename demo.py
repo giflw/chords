@@ -1,5 +1,5 @@
 import markdown
-from chordsmd import MyExtension
+from chordsmd import ChordSheetExtension
 from chordsmd.chordpro import ChordProExtension
 from chordsmd.tabs import TabExtension
 from chordsmd.abc import AbcExtension
@@ -65,7 +65,7 @@ C, D, E, F,|G, A, B, C|D E F G|A B c d|e f g a|b c' d' e'|f' g' a' b'|]
 ```
 """
 
-html_body = markdown.markdown(text, extensions=[MyExtension(), ChordProExtension(), TabExtension(), AbcExtension()])
+html_body = markdown.markdown(text, extensions=[ChordSheetExtension(), ChordProExtension(), TabExtension(), AbcExtension()])
 
 final_html = f"""
 <!DOCTYPE html>
