@@ -6,6 +6,7 @@ from .abc import AbcExtension
 from .fountain import FountainExtension
 from .strumming import StrummingExtension
 from .diagrams import ChordDiagramExtension
+from .asciidoc import AsciidocExtension
 
 class ChordsMDExtension(Extension):
     def __init__(self, **kwargs):
@@ -17,6 +18,7 @@ class ChordsMDExtension(Extension):
             'fountain': [True, 'Enable Fountain screenplay (```fountain)'],
             'strumming': [True, 'Enable strumming patterns (```strum)'],
             'diagrams': [True, 'Enable chord diagrams (```chord diagrams)'],
+            'asciidoc': [True, 'Enable AsciiDoc-like formatting'],
         }
         super().__init__(**kwargs)
 
@@ -35,6 +37,8 @@ class ChordsMDExtension(Extension):
             StrummingExtension().extendMarkdown(md)
         if self.getConfig('diagrams'):
             ChordDiagramExtension().extendMarkdown(md)
+        if self.getConfig('asciidoc'):
+            AsciidocExtension().extendMarkdown(md)
 
 # Alias for backward compatibility if needed
 MyExtension = ChordSheetExtension

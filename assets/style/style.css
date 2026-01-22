@@ -291,3 +291,23 @@
 .fountain-screenplay u {
     text-decoration: underline;
 }
+/* Admonition Styles (AsciiDoc style) */
+.admonition {
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 5px solid #ccc;
+    background-color: #f9f9f9;
+}
+.admonition.note { border-left-color: #2196f3; background-color: #e3f2fd; }
+.admonition.tip { border-left-color: #4caf50; background-color: #e8f5e9; }
+.admonition.important { border-left-color: #ff9800; background-color: #fff3e0; }
+.admonition.warning { border-left-color: #f44336; background-color: #ffebee; }
+.admonition.caution { border-left-color: #9c27b0; background-color: #f3e5f5; }
+
+.admonition-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}

@@ -13,6 +13,8 @@ Convert plain text into professional-grade chord sheets, tablature (SVG), ABC mu
 - **Fountain**: Complete support for the Fountain screenplay format.
 - **Strumming Patterns**: Visual representation of guitar strumming with strong/weak beat distinction.
 - **Chord Diagrams**: Interactive guitar chord fingerings using `svguitar.js`.
+- **Text Formatting**: AsciiDoc-like styles for superscript, subscript, monospace, and highlights.
+- **Admonitions**: Styled boxes for NOTE, TIP, IMPORTANT, etc.
 
 ## Usage
 
@@ -77,6 +79,14 @@ Visual color-coded strumming guides.
 Renders fingering charts using `svguitar.js`.
 - Custom notation: `Name = positions | barres`.
 - Example: `C = X 3 2 o 1 O`.
+
+### 7. Text Formatting & Admonitions
+AsciiDoc-like shorthands for advanced text styles.
+- **Superscript**: `^super^` -> <sup>super</sup>
+- **Subscript**: `~sub~` -> <sub>sub</sub>
+- **Monospace**: `+code+` -> `code`
+- **Highlight**: `#mark#` -> <mark>mark</mark>
+- **Admonitions**: `NOTE:`, `TIP:`, `WARNING:`, etc. at line start.
 
 ## Configuration
 

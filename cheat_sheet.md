@@ -94,3 +94,17 @@ C D E F | G A B c
 - **T**: Title
 - **K**: Key
 - **[A-G]**: Notes
+
+## 8. Text Formatting & Admonitions (AsciiDoc style)
+Advanced styling for lyrics and notes.
+
+- **Bold**: `*text*`
+- **Italic**: `_text_`
+- **Strikethrough**: `[~]text[~]`
+- **Underline**: `[_]text[_]`
+- **Highlight**: `#mark#`
+- **Monospace**: `+code+`
+- **Superscript**: `^super^`
+- **Subscript**: `~sub~`
+- **Quotes**: `` ``double'' ``, `` `single' ``
+- **Admonitions**: `NOTE:`, `TIP:`, `IMPORTANT:`, `WARNING:`, `CAUTION:` (Must start at line beginning)
