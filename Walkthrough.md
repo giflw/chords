@@ -196,25 +196,30 @@ Integrated into ChordsMDExtension with strumming config option
 Use with ```strum or ```strumming blocks
 Supported Notation:
 
-D or d or ↓ - Downstroke (blue ↓)
-U or u or ↑ - Upstroke (red ↑)
+Downstrokes:
+
+V or D or ↓ - Strong downstroke (bold, larger, blue)
+v or d - Weak downstroke (lighter, smaller, blue)
+Upstrokes:
+
+A or ^ or U or ↑ - Strong upstroke (bold, larger, red)
+a or u - Weak upstroke (lighter, smaller, red)
+Other:
+
 X or x - Muted strum (gray ✕)
 - - Rest/pause
 | - Bar line separator
 Numbers - Beat markers
 ( ) - Grouping markers
-Features:
+Visual Distinction:
 
-Labeled patterns: Verse: D DU UDU
-Multiple patterns in one block
-Visual color-coded strokes
-Tooltips on hover
+Strong beats (uppercase): Bold, larger (28px), scale 1.1x
+Weak beats (lowercase): Normal weight, smaller (20px), 70% opacity
 Example:
 
 strum
-Verse: D DU UDU
-Chorus: D D DU | UDU D
-Bridge: 1 D 2 DU 3 UDU 4
+Verse: D du V au | D du V au
+Chorus: V V Au au | V V Au au
 
 
 ### 7.4. Chord Diagrams

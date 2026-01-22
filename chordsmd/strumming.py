@@ -45,7 +45,7 @@ class StrummingPreprocessor(Preprocessor):
         # A or ^ or U or ↑ = upstroke (uppercase = strong beat)
         # a or u = upstroke (lowercase = weak beat)
         # X or x = muted strum
-        # - = rest/pause
+        # - or . = rest/pause
         # | = bar line
         # ( ) = grouping
         # Numbers = beat numbers
@@ -83,7 +83,7 @@ class StrummingPreprocessor(Preprocessor):
                     elif char.upper() == 'X':
                         result.append('<span class="stroke muted" title="Muted">✕</span>')
                     # Rest
-                    elif char == '-':
+                    elif char in ['-', '.']:
                         result.append('<span class="stroke rest" title="Rest">-</span>')
                 result.append('</span>')
         
