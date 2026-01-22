@@ -2,23 +2,155 @@
 
 .chords-sheet {
     font-family: 'Roboto Mono', monospace;
-    white-space: pre-wrap; /* or normal, since we use spaces for padding? No, we use inline injection so spaces matter less, but monospaced helps alignment visual if raw */
+    white-space: pre-wrap;
+    /* or normal, since we use spaces for padding? No, we use inline injection so spaces matter less, but monospaced helps alignment visual if raw */
     /* Actually we stripped whitespace padding in merger? No, we preserved padding. */
+}
+
+/* Chord Sheet Container */
+.chords-sheet-container {
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Controls Bar */
+.chords-controls {
+    margin-bottom: 0;
+    padding: 12px 16px;
+    background: linear-gradient(to bottom, #f8f9fa, #f0f1f3);
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.chords-controls>div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chords-controls span:first-child {
+    font-size: 13px;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Modern Button Styles */
+.chords-controls button {
+    padding: 6px 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.chords-controls button:hover {
+    background: #f8f9fa;
+    border-color: #999;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.chords-controls button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Transpose Buttons */
+.transpose-down,
+.transpose-up {
+    min-width: 36px;
+    font-weight: 600;
+}
+
+.transpose-down:hover,
+.transpose-up:hover {
+    background: #e3f2fd;
+    border-color: #2196f3;
+    color: #1976d2;
+}
+
+/* Key Display */
+.key-display {
+    font-weight: 600;
+    min-width: 70px;
+    display: inline-block;
+    text-align: center;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    color: #1976d2;
+    font-size: 14px;
+}
+
+/* Column Buttons */
+.col-btn {
+    min-width: 40px;
+}
+
+.col-btn.active {
+    background: linear-gradient(to bottom, #2196f3, #1976d2) !important;
+    color: white !important;
+    border-color: #1565c0 !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3) !important;
+}
+
+.col-btn.active:hover {
+    background: linear-gradient(to bottom, #1e88e5, #1565c0) !important;
+    transform: translateY(-1px);
+}
+
+/* Chord Sheet Content */
+.chords-sheet {
+    padding: 20px;
+}
+
+.chords-sheet section {
+    margin-bottom: 24px;
+}
+
+.chords-sheet h3 {
+    color: #1976d2;
+    font-size: 18px;
+    margin: 0 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e3f2fd;
+}
+
+.chords-sheet p {
+    line-height: 1.8;
+    margin: 8px 0;
 }
 
 /* Realigning inline chords */
 .chord {
-    display: inline-block;
-    width: 0;
-    overflow: visible;
-    vertical-align: top;
-    position: relative;
+    content: attr(data-content);
+    position: absolute;
+    top: -1.2em;
+    left: 0;
+    font-size: 0.85em;
+    color: #0066cc;
     font-weight: bold;
-    color: #e91e63;
 }
 
 .chord::after {
-    content: attr(data-content); /* Wait, the text is inside the span */
+    content: attr(data-content);
+    /* Wait, the text is inside the span */
 }
 
 /* If text is inside span: <span class="chord">Am</span> */
@@ -31,11 +163,13 @@
    but showing its content offset. */
 .chord {
     width: 0;
-    white-space: pre; 
+    white-space: pre;
 }
+
 .chord {
     transform: translateY(-1.2em);
 }
+
 /* But if width is 0, it overlaps the text? 
    Yes, but that's what we want: "Am" above, text below.
    Wait, if we insert it *before* the character "B", 
