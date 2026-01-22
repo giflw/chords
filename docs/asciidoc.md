@@ -51,6 +51,14 @@ TIP: Remember to save your work.
 WARNING: This action cannot be undone.
 ```
 
+### Live Preview
+
+NOTE: This is a helpful note.
+
+TIP: Remember to save your work.
+
+WARNING: This action cannot be undone.
+
 ## CSS Styling
 
 Admonitions are styled using the following classes in `assets/style/style.css`:
