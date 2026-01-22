@@ -36,6 +36,9 @@ class ChordDiagramPreprocessor(Preprocessor):
             chord_name = chord_name.strip()
             definition = definition.strip()
             
+            # Save raw definition for display
+            raw_definition = definition
+            
             # Split barres if present
             barres = []
             if '|' in definition:
@@ -46,8 +49,8 @@ class ChordDiagramPreprocessor(Preprocessor):
                         fret, finger = barre.split('.')
                         barres.append({
                             'fret': int(fret),
-                            'fromString': 6,  # Will be adjusted
-                            'toString': 1,
+                            'fromString': 6,  # 6th string
+                            'toString': 1,    # 1st string
                             'finger': int(finger) if finger.isdigit() else None
                         })
             else:
@@ -55,11 +58,17 @@ class ChordDiagramPreprocessor(Preprocessor):
             
             # Parse positions: "2 0 4.1 4.2 4.3 0"
             # Format: fret or fret.finger or x/-
-            # Positions are from 6th string (low E) to 1st string (high E)
+            # User input is usually: 6th string (low E) to 1st string (high E)
+            # svguitar expects: [string_number, fret, finger]
+            # where string 6 is left (lowest) and 1 is right (highest)
+            # So we map index 0 -> string 6, index 1 -> string 5, etc.
             positions_str = positions_part.strip().split()
             positions = []
             
-            for string_num, pos in enumerate(positions_str, start=1):
+            for i, pos in enumerate(positions_str):
+                string_num = 6 - i # Map 0->6, 1->5, 2->4, 3->3, 4->2, 5->1
+                if string_num < 1: continue # Support max 6 strings
+                
                 pos = pos.strip()
                 if pos.lower() in ['x', '-']:
                     # Muted string
@@ -86,8 +95,8 @@ class ChordDiagramPreprocessor(Preprocessor):
             }
             
             html_parts.append(f'<div class="chord-diagram-container">')
-            html_parts.append(f'<div class="chord-name">{self.escape_html(chord_name)}</div>')
-            html_parts.append(f'<div id="{container_id}" class="chord-diagram-svg"></div>')
+            html_parts.append(f'<div class="chord-name">{self.escape_html(chord_name)} <span class="chord-notation">({self.escape_html(raw_definition)})</span></div>')
+            html_parts.append(f'<div id="{container_id}" class="chord-diagram-svg" style="max-height: 200px; max-width: 150px;"></div>')
             html_parts.append(f'<script>')
             html_parts.append(f'(function() {{')
             html_parts.append(f'  const init = function() {{')

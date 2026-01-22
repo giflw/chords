@@ -5,12 +5,32 @@ from chordsmd.tabs import TabExtension
 from chordsmd.abc import AbcExtension
 from chordsmd.fountain import FountainExtension
 from chordsmd.diagrams import ChordDiagramExtension
+from chordsmd.strumming import StrummingExtension
+from chordsmd.asciidoc import AsciidocExtension
 
 text = """
 # Demo
 
 This is a !!test!! of the extension.
 It should highlight !!multiple!! words.
+
+## Text Formatting (AsciiDoc)
+
+You can use *bold*, _italic_, +monospace+, and #highlighting#.
+Also supports [~]strikethrough[~], [_]underline[_], ^superscript^, and ~subscript~.
+``Double quotes'' and `single quotes' are also handled.
+
+## Admonitions
+
+NOTE: This is a note.
+
+TIP: This is a tip.
+
+WARNING: This is a warning.
+
+CAUTION: This is a caution.
+
+IMPORTANT: This is important.
 
 ## Chords
 Here are some chords: !!Am7!!, !!C/G!!, !!F#dim!!.
@@ -101,6 +121,14 @@ Am = x 0 2 2 1 0
 Em = 0 2 2 0 0 0
 B7 = x 2 1 2 0 2
 ```
+
+## Strumming Examples
+
+```strum
+Verse: D DU UDU
+Chorus: D D DU
+Bridge: (D UD) (D UD)
+```
 """
 
 html_body = markdown.markdown(text, extensions=[
@@ -109,7 +137,9 @@ html_body = markdown.markdown(text, extensions=[
     TabExtension(), 
     AbcExtension(), 
     FountainExtension(),
-    ChordDiagramExtension()
+    ChordDiagramExtension(),
+    StrummingExtension(),
+    AsciidocExtension()
 ])
 
 final_html = f"""
