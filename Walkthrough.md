@@ -147,3 +147,14 @@ Scene Numbers:
 All 12 Fountain tests passing! All 39 total tests passing (27 original + 12 Fountain).
 
 The implementation now fully complies with the Fountain specification.
+
+
+The ChordPro spec is extensive and includes:
+
+Metadata directives: title, subtitle, artist, composer, album, year, etc.
+Formatting directives: comment, comment_italic, comment_box, image, etc.
+Environment directives: start_of_chorus/end_of_chorus, start_of_verse, start_of_bridge, start_of_tab, etc.
+Chord diagrams: define directive for custom chord fingerings
+Transposition: transpose, capo directives
+Conditional directives: if/endif for platform-specific content
+Custom extensions: meta, sorttitle, duration, tempo, key, time, etc.

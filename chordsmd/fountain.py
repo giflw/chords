@@ -142,15 +142,17 @@ class FountainPreprocessor(Preprocessor):
             # Title page ends at first blank line
             if not line.strip():
                 break
-            # Check for key: value format
+            # Check for key: value format (key must contain lowercase or space)
             if ':' in line and not line.strip().startswith(' '):
                 key_match = re.match(r'^([^:]+):\s*(.*)$', line)
                 if key_match:
                     key = key_match.group(1).strip()
-                    value = key_match.group(2).strip()
-                    title_parts.append(f'<div class="title-{key.lower().replace(" ", "-")}">{self.apply_emphasis(value)}</div>')
-                    i += 1
-                    continue
+                    # Key must not be all uppercase (to avoid "FADE TO:")
+                    if not key.isupper():
+                        value = key_match.group(2).strip()
+                        title_parts.append(f'<div class="title-{key.lower().replace(" ", "-")}">{self.apply_emphasis(value)}</div>')
+                        i += 1
+                        continue
             # Not a title page
             break
         
