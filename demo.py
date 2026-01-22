@@ -2,6 +2,7 @@ import markdown
 from chordsmd import MyExtension
 from chordsmd.chordpro import ChordProExtension
 from chordsmd.tabs import TabExtension
+from chordsmd.abc import AbcExtension
 
 text = """
 # Demo
@@ -51,9 +52,20 @@ D|---2-----------2-----|
 A|-3-------------------|
 E|---------------------|
 ```
+
+## ABC Notation Example
+
+```abc
+X: 1
+T: Scale
+M: 4/4
+L: 1/4
+K: C
+C, D, E, F,|G, A, B, C|D E F G|A B c d|e f g a|b c' d' e'|f' g' a' b'|]
+```
 """
 
-html_body = markdown.markdown(text, extensions=[MyExtension(), ChordProExtension(), TabExtension()])
+html_body = markdown.markdown(text, extensions=[MyExtension(), ChordProExtension(), TabExtension(), AbcExtension()])
 
 final_html = f"""
 <!DOCTYPE html>
@@ -61,10 +73,12 @@ final_html = f"""
 <head>
     <meta charset="utf-8">
     <title>ChordsMD Demo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="assets/vendor/abcjs-basic-min.js"></script>
     <style>
         body {{ font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }}
         pre {{ background: #f4f4f4; padding: 10px; border-radius: 5px; }}
+        .abc-midi {{ margin-top: 10px; }}
     </style>
 </head>
 <body>
