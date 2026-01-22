@@ -49,5 +49,22 @@ Just text
         self.assertNotIn('<svg', html)
         self.assertIn('<pre>Not a tab', html)
 
+    def test_stroke_notation(self):
+        text = """
+```tab
+e|---0---|
+V   v A ^
+```
+"""
+        html = self.md.convert(text)
+        self.assertIn('<svg', html)
+        self.assertIn('↓', html)
+        self.assertIn('↑', html)
+        # Check for colors or styles if possible, but presence of arrows is a good start
+        self.assertIn('fill="#2196f3"', html) # Blue for down
+        self.assertIn('fill="#f44336"', html) # Red for up
+        self.assertIn('font-weight:bold', html) # Strong beat
+        self.assertIn('font-weight:normal', html) # Weak beat
+
 if __name__ == '__main__':
     unittest.main()

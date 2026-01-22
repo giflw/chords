@@ -63,7 +63,9 @@ Supported string labels:
 - `b` - Bend
 - `~` - Vibrato
 
-### Strumming Arrows
+### Stroke Notation (Strumming)
+
+Stroke notation can be added below the tab lines to indicate strumming patterns.
 
 ```tab
 e|---0---2---3---|
@@ -72,11 +74,19 @@ G|---0---2---0---|
 D|---2---0---0---|
 A|---3-------2---|
 E|-----------3---|
-  ↓   ↓ ↑ ↓   ↓ ↑
+  V   v A ^ ↓   ↑
 ```
 
-- `↓` - Downstroke
-- `↑` - Upstroke
+**Supported Symbols:**
+
+| Symbol | Type | Stroke | Styling |
+|--------|------|--------|---------|
+| `↓`, `V` | Strong | Downstroke | Bold, blue, full opacity |
+| `v` | Weak | Downstroke | Normal, blue, 70% opacity |
+| `↑`, `A` | Strong | Upstroke | Bold, red, full opacity |
+| `^` | Weak | Upstroke | Normal, red, 70% opacity |
+
+Symbols are automatically converted to visual arrows (`↓` or `↑`) in the SVG output with appropriate styling for strong/weak beats.
 
 ## Rendering
 
@@ -152,7 +162,7 @@ A block is identified as tablature if:
 1. Contains `|` characters
 2. Has string labels (e.g., `e|`, `B|`)
 3. High ratio of dashes and pipes (>60%)
-4. Contains arrow symbols (`↓`, `↑`)
+4. Contains stroke symbols (`↓`, `↑`, `V`, `v`, `A`, `^`)
 
 ### Rendering Process
 

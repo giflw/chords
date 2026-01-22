@@ -53,7 +53,7 @@ def render_tab_svg(ascii_tab):
         if not line: continue
         
         is_tab = i in tab_lines_indices
-        is_arrow = '↓' in line or '↑' in line
+        is_arrow = not is_tab and any(c in '↓↑VvA^' for c in line)
         
         if not (is_tab or is_arrow):
             continue
@@ -117,8 +117,15 @@ def render_tab_svg(ascii_tab):
             elif char in ('h', 'p', '/', '\\', 'x'):
                  svg_parts.append(f'<rect x="{cx-2}" y="{y-8}" width="{char_width}" height="16" fill="white" />')
                  svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="#000" style="font-size: 10px;">{escape(char)}</text>')
-            elif char in ('↓', '↑'):
-                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="blue" style="font-weight:bold;">{char}</text>')
+            elif char in ('↓', '↑', 'V', 'v', 'A', '^'):
+                 is_down = char in ('↓', 'V', 'v')
+                 is_strong = char in ('↓', 'V', 'A', '↑')
+                 color = "#2196f3" if is_down else "#f44336" # Use consistent colors with strumming
+                 weight = "bold" if is_strong else "normal"
+                 opacity = "1" if is_strong else "0.7"
+                 font_size = "14px" if is_strong else "12px"
+                 arrow_char = '↓' if is_down else '↑'
+                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="{color}" style="font-weight:{weight}; opacity:{opacity}; font-size:{font_size};">{arrow_char}</text>')
     
     # Connect vertical bars across strings?
     # A proper renderer would find columns of '|' and draw a single long line.
