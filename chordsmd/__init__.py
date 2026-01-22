@@ -25,12 +25,39 @@ class MyExtension(Extension):
 from markdown.inlinepatterns import Pattern
 from xml.etree import ElementTree
 
+from chordsmd.parser import parse_chord
+
 class HighlightPattern(Pattern):
     def handleMatch(self, m):
-        el = ElementTree.Element('span')
-        el.text = m.group(2)
-        el.set('class', 'custom-highlight')
-        return el
+        text = m.group(2)
+        chord_data = parse_chord(text)
+        
+        if chord_data:
+            el = ElementTree.Element('span')
+            el.set('class', 'chord')
+            
+            root_el = ElementTree.SubElement(el, 'span')
+            root_el.set('class', 'root')
+            root_el.text = chord_data['root']
+            
+            if chord_data['quality']:
+                qual_el = ElementTree.SubElement(el, 'span')
+                qual_el.set('class', 'quality')
+                qual_el.text = chord_data['quality']
+                
+            if chord_data['bass']:
+                bass_el = ElementTree.SubElement(el, 'span')
+                bass_el.set('class', 'bass')
+                # Conventionally display standard slash for bass
+                bass_el.text = '/' + chord_data['bass']
+                
+            return el
+        else:
+            # Fallback for non-chord text
+            el = ElementTree.Element('span')
+            el.text = text
+            el.set('class', 'custom-highlight')
+            return el
 
 class MyExtension(Extension):
     def extendMarkdown(self, md):

@@ -4,14 +4,16 @@ from chordsmd import MyExtension
 
 class TestMyExtension(unittest.TestCase):
     def test_highlight(self):
+        # "highlighted" is not a valid chord (starts with 'h'), so it should fallback to custom-highlight
         text = "This is !!highlighted!! text."
         expected = '<p>This is <span class="custom-highlight">highlighted</span> text.</p>'
         html = markdown.markdown(text, extensions=[MyExtension()])
         self.assertEqual(html, expected)
 
-    def test_multiple_highlights(self):
-        text = "!!one!! and !!two!!"
-        expected = '<p><span class="custom-highlight">one</span> and <span class="custom-highlight">two</span></p>'
+    def test_chord_rendering(self):
+        text = "Play !!Cmaj7!! now"
+        # We expect parsed chord structure
+        expected = '<p>Play <span class="chord"><span class="root">C</span><span class="quality">maj7</span></span> now</p>'
         html = markdown.markdown(text, extensions=[MyExtension()])
         self.assertEqual(html, expected)
 
