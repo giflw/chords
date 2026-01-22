@@ -95,9 +95,9 @@ def render_tab_svg(ascii_tab):
         
         if row['type'] == 'tab':
             # Label
-            svg_parts.append(f'<text x="5" y="{y+4}" fill="#000" style="font-weight:bold">{escape(row["label"])}</text>')
+            svg_parts.append(f'<text x="5" y="{y+4}" fill="rgb(0,0,0)" style="font-weight:bold">{escape(row["label"])}</text>')
             # Line
-            svg_parts.append(f'<line x1="{start_x}" y1="{y}" x2="{width-10}" y2="{y}" stroke="#999" stroke-width="1" />')
+            svg_parts.append(f'<line x1="{start_x}" y1="{y}" x2="{width-10}" y2="{y}" stroke="rgb(153,153,153)" stroke-width="1" />')
         else:
             # Arrow Line - No Line, No Label usually
             pass
@@ -111,12 +111,12 @@ def render_tab_svg(ascii_tab):
             
             if char.isdigit():
                 svg_parts.append(f'<rect x="{cx-2}" y="{y-8}" width="{char_width}" height="16" fill="white" />')
-                svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="#000">{char}</text>')
+                svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="rgb(0,0,0)">{char}</text>')
             elif char == '|':
-                svg_parts.append(f'<line x1="{cx+4}" y1="{y-line_height/2}" x2="{cx+4}" y2="{y+line_height/2}" stroke="#000" stroke-width="1.5" />')
+                svg_parts.append(f'<line x1="{cx+4}" y1="{y-line_height/2}" x2="{cx+4}" y2="{y+line_height/2}" stroke="rgb(0,0,0)" stroke-width="1.5" />')
             elif char in ('h', 'p', '/', '\\', 'x'):
                  svg_parts.append(f'<rect x="{cx-2}" y="{y-8}" width="{char_width}" height="16" fill="white" />')
-                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="#000" style="font-size: 10px;">{escape(char)}</text>')
+                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="rgb(0,0,0)" style="font-size: 10px;">{escape(char)}</text>')
             elif char in ('↓', '↑', 'V', 'v', 'A', '^'):
                  is_down = char in ('↓', 'V', 'v')
                  is_strong = char in ('↓', 'V', 'A', '↑')

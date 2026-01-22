@@ -7,7 +7,7 @@ from markdown.preprocessors import Preprocessor
 SUPERSCRIPT_RE = r'(\^)([^\^]+)\^'
 SUBSCRIPT_RE = r'((?<!\[)~)([^~]+)~'  # Avoid matching [~]
 MONOSPACE_RE = r'(\+)([^\+]+)\+'
-HIGHLIGHT_RE = r'((?<!\[)#)([^#]+)#'  # Avoid matching [#]
+HIGHLIGHT_RE = r'((?<!\[)#)([^\s#]+)#'  # Avoid matching [#] and exclude spaces to prevent SVG collision
 BOLD_RE = r'(\*)([^\*]+)\*'
 ITALIC_RE = r'(_)([^_]+)_'
 STRIKETHROUGH_RE = r'(\[~\])([^\[]+)\[~\]'
