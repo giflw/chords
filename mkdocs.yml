@@ -18,22 +18,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - chordsmd:
-      chords: true
-      tabs: true
-      abc: true
-      chordpro: true
-      fountain: true
-      strumming: true
-      diagrams: true
-      asciidoc: true
 
-extra_css:
-  - assets/style/style.css
-
-extra_javascript:
-  - assets/vendor/svguitar.umd.js
-  - https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js
+plugins:
+  - chordsmd
 
 nav:
   - Home: index.md

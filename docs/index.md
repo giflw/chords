@@ -110,12 +110,13 @@ md = markdown.Markdown(extensions=[
 
 Detailed specifications for each format can be found in the `docs/` directory:
 
-- [Chord Sheets](docs/chords.md)
-- [Tablature](docs/tabs.md)
-- [ChordPro](docs/chordpro.md)
-- [Fountain](docs/fountain.md)
-- [Strumming Patterns](docs/strumming.md)
-- [Chord Diagrams](docs/diagrams.md)
+- [Chord Sheets](chords.md)
+- [Tablature](tabs.md)
+- [ChordPro](chordpro.md)
+- [Fountain](fountain.md)
+- [Strumming Patterns](strumming.md)
+- [Chord Diagrams](diagrams.md)
+- [Text Formatting](asciidoc.md)
 
 ## Development & Testing
 

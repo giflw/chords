@@ -45,3 +45,37 @@ MyExtension = ChordSheetExtension
 
 def makeExtension(**kwargs):
     return ChordsMDExtension(**kwargs)
+
+# MkDocs Plugin Support
+try:
+    from mkdocs.plugins import BasePlugin
+    
+    class ChordsMDPlugin(BasePlugin):
+        """
+        MkDocs plugin that automatically configures ChordsMD extension
+        and injects required CSS/JS assets.
+        """
+        def on_config(self, config, **kwargs):
+            # 1. Register ChordsMD as a markdown extension if not already there
+            if 'chordsmd' not in config['markdown_extensions']:
+                config['markdown_extensions'].append('chordsmd')
+            
+            # 2. Add custom CSS
+            css_path = 'assets/style/style.css'
+            if css_path not in config['extra_css']:
+                config['extra_css'].append(css_path)
+            
+            # 3. Add custom JavaScript
+            js_paths = [
+                'assets/vendor/svguitar.umd.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js'
+            ]
+            for js in js_paths:
+                if js not in config['extra_javascript']:
+                    config['extra_javascript'].append(js)
+            
+            return config
+except ImportError:
+    # MkDocs not installed, plugin support disabled
+    class ChordsMDPlugin:
+        pass

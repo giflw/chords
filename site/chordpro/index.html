@@ -1,0 +1,1259 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ChordsMD Python Markdown extension suite.">
+      
+      
+        <meta name="author" content="ChordsMD Team">
+      
+      
+      
+        <link rel="prev" href="../tabs/">
+      
+      
+        <link rel="next" href="../fountain/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>ChordPro - ChordsMD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/style/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chordpro-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ChordsMD Documentation" class="md-header__button md-logo" aria-label="ChordsMD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ChordsMD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ChordPro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ChordsMD Documentation" class="md-nav__button md-logo" aria-label="ChordsMD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ChordsMD Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat_sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Format Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chord Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tabs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tablature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChordPro
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChordPro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directive-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directive Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directive Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatting Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Directives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Directives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chorus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chorus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tab Section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chord-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chord Grid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-chords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline Chords
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-from-full-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differences from Full Spec
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fountain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fountain Screenplay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strumming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strumming Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chord Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asciidoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Text Formatting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directive-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directive Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directive Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatting Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Directives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Directives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chorus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chorus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tab Section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chord-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chord Grid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Directives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-chords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline Chords
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differences-from-full-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differences from Full Spec
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chordpro-format">ChordPro Format</h1>
+<p><strong><strong>Extension:</strong></strong> <code>ChordProExtension</code><br />
+<strong><strong>Syntax:</strong></strong> <code>```chordpro</code><br />
+<strong><strong>Config Option:</strong></strong> <code>chordpro</code> (enabled by default)</p>
+<h2 id="overview">Overview</h2>
+<p>Complete implementation of the <a href="https://www.chordpro.org/">ChordPro specification</a>, a text-based format for lead sheets with chords and lyrics.</p>
+<h2 id="directive-reference">Directive Reference</h2>
+<h3 id="metadata-directives">Metadata Directives</h3>
+<p>Define song information and metadata.</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Short</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{title}</code></td>
+<td><code>{t}</code></td>
+<td>Song title</td>
+<td><code>{title: Amazing Grace}</code></td>
+</tr>
+<tr>
+<td><code>{subtitle}</code></td>
+<td><code>{st}</code></td>
+<td>Subtitle</td>
+<td><code>{subtitle: Traditional Hymn}</code></td>
+</tr>
+<tr>
+<td><code>{artist}</code></td>
+<td>-</td>
+<td>Artist name</td>
+<td><code>{artist: John Newton}</code></td>
+</tr>
+<tr>
+<td><code>{composer}</code></td>
+<td>-</td>
+<td>Composer</td>
+<td><code>{composer: John Newton}</code></td>
+</tr>
+<tr>
+<td><code>{lyricist}</code></td>
+<td>-</td>
+<td>Lyricist</td>
+<td><code>{lyricist: John Newton}</code></td>
+</tr>
+<tr>
+<td><code>{album}</code></td>
+<td>-</td>
+<td>Album name</td>
+<td><code>{album: Hymns Collection}</code></td>
+</tr>
+<tr>
+<td><code>{year}</code></td>
+<td>-</td>
+<td>Year</td>
+<td><code>{year: 1779}</code></td>
+</tr>
+<tr>
+<td><code>{key}</code></td>
+<td>-</td>
+<td>Musical key</td>
+<td><code>{key: G}</code></td>
+</tr>
+<tr>
+<td><code>{time}</code></td>
+<td>-</td>
+<td>Time signature</td>
+<td><code>{time: 4/4}</code></td>
+</tr>
+<tr>
+<td><code>{tempo}</code></td>
+<td>-</td>
+<td>Tempo (BPM)</td>
+<td><code>{tempo: 90}</code></td>
+</tr>
+<tr>
+<td><code>{capo}</code></td>
+<td>-</td>
+<td>Capo position</td>
+<td><code>{capo: 2}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formatting-directives">Formatting Directives</h3>
+<p>Control text appearance and layout.</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{comment}</code></td>
+<td><code>{c}</code></td>
+<td>Regular comment</td>
+</tr>
+<tr>
+<td><code>{comment_italic}</code></td>
+<td><code>{ci}</code></td>
+<td>Italic comment</td>
+</tr>
+<tr>
+<td><code>{comment_box}</code></td>
+<td><code>{cb}</code></td>
+<td>Boxed comment</td>
+</tr>
+<tr>
+<td><code>{highlight}</code></td>
+<td>-</td>
+<td>Highlighted text</td>
+</tr>
+</tbody>
+</table>
+<p><strong><strong>Examples:</strong></strong></p>
+<div class="chordpro-song">
+<div class="comment">Play softly</div>
+<div class="comment italic">With feeling</div>
+<div class="comment-box">Repeat 2x</div>
+<div class="highlight">Important section</div>
+</div>
+
+<h3 id="environment-directives">Environment Directives</h3>
+<p>Define song sections with start/end pairs.</p>
+<h4 id="chorus">Chorus</h4>
+<div class="chordpro-song">
+<div class="chorus"><div class="section-label">Chorus</div>
+<div class="lyrics-line"><span class="chord">G</span>Amazing <span class="chord">D</span>grace, how <span class="chord">C</span>sweet the <span class="chord">G</span>sound</div>
+</div>
+</div>
+
+<p>Short form: <code>{soc}</code> ... <code>{eoc}</code></p>
+<h4 id="verse">Verse</h4>
+<div class="chordpro-song">
+<div class="verse"><div class="section-label">Verse</div>
+<div class="lyrics-line"><span class="chord">G</span>'Twas grace that <span class="chord">D</span>taught my <span class="chord">C</span>heart to <span class="chord">G</span>fear</div>
+</div>
+</div>
+
+<p>Short form: <code>{sov}</code> ... <code>{eov}</code></p>
+<h4 id="bridge">Bridge</h4>
+<div class="chordpro-song">
+<div class="bridge"><div class="section-label">Bridge</div>
+<div class="lyrics-line"><span class="chord">Em</span>Through many <span class="chord">C</span>dangers, <span class="chord">G</span>toils and <span class="chord">D</span>snares</div>
+</div>
+</div>
+
+<p>Short form: <code>{sob}</code> ... <code>{eob}</code></p>
+<h4 id="tab-section">Tab Section</h4>
+<div class="chordpro-song">
+<div class="tab-section"><pre class="tab-content">
+e|---0---2---3---|
+B|---1---3---0---|
+</pre></div>
+</div>
+
+<p>Short form: <code>{sot}</code> ... <code>{eot}</code></p>
+<h4 id="chord-grid">Chord Grid</h4>
+<div class="chordpro-song">
+<div class="chord-grid">
+<div class="grid-line"><span class="grid-chord">G</span> <span class="grid-chord">D</span> <span class="grid-chord">Em</span> <span class="grid-chord">C</span></div>
+<div class="grid-line"><span class="grid-chord">G</span> <span class="grid-chord">D</span> <span class="grid-chord">C</span> <span class="grid-chord">G</span></div>
+</div>
+</div>
+
+<p>Short form: <code>{sog}</code> ... <code>{eog}</code></p>
+<h3 id="layout-directives">Layout Directives</h3>
+<p>Control page layout and breaks.</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{column_break}</code></td>
+<td><code>{colb}</code></td>
+<td>Force column break</td>
+</tr>
+<tr>
+<td><code>{new_page}</code></td>
+<td><code>{np}</code></td>
+<td>Force page break</td>
+</tr>
+<tr>
+<td><code>{new_song}</code></td>
+<td><code>{ns}</code></td>
+<td>Start new song</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inline-chords">Inline Chords</h2>
+<p>Chords are placed inline with lyrics using square brackets:</p>
+<div class="chordpro-song">
+<div class="lyrics-line"><span class="chord">Am</span>This is a <span class="chord">G</span>line with <span class="chord">C</span>chords</div>
+</div>
+
+<p>The chords appear above the text at the position where they're inserted.</p>
+<h2 id="complete-example">Complete Example</h2>
+<div class="chordpro-song">
+<h1 class="song-title">Amazing Grace</h1>
+<h2 class="song-subtitle">Traditional Hymn</h2>
+<div class="song-artist">Artist: John Newton</div>
+<div class="song-composer">Composer: John Newton</div>
+<div class="song-year">Year: 1779</div>
+<div class="song-key">Key: G</div>
+<div class="song-time">Time: 3/4</div>
+<div class="song-tempo">Tempo: 90</div>
+<div class="song-capo">Capo: 0</div>
+<div class="blank-line"></div>
+<div class="comment">Play gently</div>
+<div class="blank-line"></div>
+<div class="verse"><div class="section-label">Verse</div>
+<div class="lyrics-line"><span class="chord">G</span>Amazing <span class="chord">G7</span>grace, how <span class="chord">C</span>sweet the <span class="chord">G</span>sound</div>
+<div class="lyrics-line">That saved a wretch like me</div>
+<div class="lyrics-line"><span class="chord">G</span>I once was <span class="chord">G7</span>lost, but <span class="chord">C</span>now I'm <span class="chord">G</span>found</div>
+<div class="lyrics-line">Was <span class="chord">D</span>blind, but <span class="chord">D7</span>now I <span class="chord">G</span>see</div>
+</div>
+<div class="blank-line"></div>
+<div class="chorus"><div class="section-label">Chorus</div>
+<div class="lyrics-line">'Twas <span class="chord">G</span>grace that <span class="chord">D</span>taught my <span class="chord">Em</span>heart to <span class="chord">C</span>fear</div>
+<div class="lyrics-line">And <span class="chord">G</span>grace my <span class="chord">D</span>fears re<span class="chord">G</span>lieved</div>
+</div>
+<div class="blank-line"></div>
+<div class="comment-box">Repeat chorus 2x</div>
+<div class="blank-line"></div>
+<div class="bridge"><div class="section-label">Bridge</div>
+<div class="lyrics-line"><span class="chord">Em</span>Through many <span class="chord">C</span>dangers, <span class="chord">G</span>toils and <span class="chord">D</span>snares</div>
+<div class="lyrics-line">I <span class="chord">G</span>have al<span class="chord">C</span>ready <span class="chord">G</span>come</div>
+</div>
+</div>
+
+<h2 id="css-classes">CSS Classes</h2>
+<ul>
+<li><code>.chordpro-song</code> - Main container</li>
+<li><code>.song-title</code> - Title (h1)</li>
+<li><code>.song-subtitle</code> - Subtitle (h2)</li>
+<li><code>.song-artist</code>, <code>.song-composer</code>, etc. - Metadata</li>
+<li><code>.comment</code> - Regular comment</li>
+<li><code>.comment.italic</code> - Italic comment</li>
+<li><code>.comment-box</code> - Boxed comment</li>
+<li><code>.highlight</code> - Highlighted text</li>
+<li><code>.chorus</code>, <code>.verse</code>, <code>.bridge</code> - Section containers</li>
+<li><code>.section-label</code> - Section label</li>
+<li><code>.tab-section</code> - Tab container</li>
+<li><code>.tab-content</code> - Tab content (pre)</li>
+<li><code>.chord-grid</code> - Chord grid container</li>
+<li><code>.grid-line</code> - Grid line</li>
+<li><code>.grid-chord</code> - Individual chord in grid</li>
+<li><code>.lyrics-line</code> - Line with lyrics</li>
+<li><code>.lyrics-line .chord</code> - Inline chord</li>
+<li><code>.column-break</code> - Column break marker</li>
+<li><code>.page-break</code> - Page break marker</li>
+</ul>
+<h2 id="differences-from-full-spec">Differences from Full Spec</h2>
+<p>This implementation includes the most commonly used ChordPro features. Not implemented:
+- <code>{define}</code> chord diagrams (use separate diagram extension)
+- <code>{transpose}</code> directive (use interactive controls)
+- Conditional directives (<code>{if}</code>, <code>{endif}</code>)
+- Font and color directives
+- Custom metadata with <code>{meta}</code>
+- Delegated environments (ABC, Lilypond, SVG)</p>
+<p>For these features, use the appropriate ChordsMD extensions or external tools.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/vendor/svguitar.umd.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
+      
+    
+  </body>
+</html>

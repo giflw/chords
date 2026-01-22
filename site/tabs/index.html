@@ -1,0 +1,1253 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ChordsMD Python Markdown extension suite.">
+      
+      
+        <meta name="author" content="ChordsMD Team">
+      
+      
+      
+        <link rel="prev" href="../chords/">
+      
+      
+        <link rel="next" href="../chordpro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Tablature - ChordsMD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/style/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tablature-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ChordsMD Documentation" class="md-header__button md-logo" aria-label="ChordsMD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ChordsMD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tablature
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ChordsMD Documentation" class="md-nav__button md-logo" aria-label="ChordsMD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ChordsMD Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat_sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Format Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chord Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tablature
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tablature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-guitar-tablature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Guitar Tablature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bass-tablature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bass Tablature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fret-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fret Numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Symbols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stroke-notation-strumming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stroke Notation (Strumming)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#svg-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-riff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Riff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-strumming-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Strumming Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bass-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bass Line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svg-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chordpro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChordPro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fountain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fountain Screenplay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strumming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strumming Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chord Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asciidoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Text Formatting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-guitar-tablature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Guitar Tablature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bass-tablature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bass Tablature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fret-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fret Numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Symbols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stroke-notation-strumming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stroke Notation (Strumming)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#svg-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-riff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Riff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-strumming-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Strumming Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bass-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bass Line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svg-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVG Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tablature-format">Tablature Format</h1>
+<p><strong><strong>Extension:</strong></strong> <code>TabExtension</code><br />
+<strong><strong>Syntax:</strong></strong> <code>```tab</code><br />
+<strong><strong>Config Option:</strong></strong> <code>tabs</code> (enabled by default)</p>
+<h2 id="overview">Overview</h2>
+<p>ASCII tablature notation for guitar, bass, and other stringed instruments, rendered as SVG for clean, scalable display.</p>
+<h2 id="format-specification">Format Specification</h2>
+<h3 id="standard-guitar-tablature">Standard Guitar Tablature</h3>
+<p>Six strings from high E (top) to low E (bottom):</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 213 140" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;e\</text>&lt;line x1="40" y1="20" x2="203" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="12" width="9" height="16" fill="white" />&lt;text x="78" y="24" fill="</mark>000">0</text><rect x="110" y="12" width="9" height="16" fill="white" /><text x="114" y="24" fill="<mark>000"&gt;2\</text>\<rect x="146" y="12" width="9" height="16" fill="white" />&lt;text x="150" y="24" fill="</mark>000">3</text><line x1="188" y1="10.0" x2="188" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="44" fill="</mark>000" style="font-weight:bold">B</text><line x1="40" y1="40" x2="203" y2="40" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="30.0" x2="44" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="32" width="9" height="16" fill="white" /><text x="78" y="44" fill="<mark>000"&gt;1\</text>\<rect x="110" y="32" width="9" height="16" fill="white" />&lt;text x="114" y="44" fill="</mark>000">3</text><rect x="146" y="32" width="9" height="16" fill="white" /><text x="150" y="44" fill="<mark>000"&gt;0\</text>&lt;line x1="188" y1="30.0" x2="188" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="64" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="60" x2="203" y2="60" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="50.0" x2="44" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="52" width="9" height="16" fill="white" />&lt;text x="78" y="64" fill="</mark>000">0</text><rect x="110" y="52" width="9" height="16" fill="white" /><text x="114" y="64" fill="<mark>000"&gt;2\</text>\<rect x="146" y="52" width="9" height="16" fill="white" />&lt;text x="150" y="64" fill="</mark>000">0</text><line x1="188" y1="50.0" x2="188" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="84" fill="</mark>000" style="font-weight:bold">D</text><line x1="40" y1="80" x2="203" y2="80" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="70.0" x2="44" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="72" width="9" height="16" fill="white" /><text x="78" y="84" fill="<mark>000"&gt;2\</text>\<rect x="110" y="72" width="9" height="16" fill="white" />&lt;text x="114" y="84" fill="</mark>000">0</text><rect x="146" y="72" width="9" height="16" fill="white" /><text x="150" y="84" fill="<mark>000"&gt;0\</text>&lt;line x1="188" y1="70.0" x2="188" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="104" fill="<mark>000" style="font-weight:bold"&gt;A\</text>&lt;line x1="40" y1="100" x2="203" y2="100" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="90.0" x2="44" y2="110.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="92" width="9" height="16" fill="white" />&lt;text x="78" y="104" fill="</mark>000">3</text><rect x="146" y="92" width="9" height="16" fill="white" /><text x="150" y="104" fill="<mark>000"&gt;2\</text>&lt;line x1="188" y1="90.0" x2="188" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="124" fill="<mark>000" style="font-weight:bold"&gt;E\</text>&lt;line x1="40" y1="120" x2="203" y2="120" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="110.0" x2="44" y2="130.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="146" y="112" width="9" height="16" fill="white" />&lt;text x="150" y="124" fill="</mark>000">3</text><line x1="188" y1="110.0" x2="188" y2="130.0" stroke="#000" stroke-width="1.5" /></svg></p>
+<h3 id="bass-tablature">Bass Tablature</h3>
+<p>Four strings:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 222 100" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="20" x2="212" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="10.0" x2="197" y2="30.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="44" fill="<mark>000" style="font-weight:bold"&gt;D\</text>&lt;line x1="40" y1="40" x2="212" y2="40" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="30.0" x2="44" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="32" width="9" height="16" fill="white" />&lt;text x="78" y="44" fill="</mark>000">5</text><rect x="110" y="32" width="9" height="16" fill="white" /><text x="114" y="44" fill="<mark>000"&gt;7\</text>\<rect x="146" y="32" width="9" height="16" fill="white" />&lt;text x="150" y="44" fill="</mark>000">5</text><line x1="197" y1="30.0" x2="197" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="64" fill="</mark>000" style="font-weight:bold">A</text><line x1="40" y1="60" x2="212" y2="60" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="50.0" x2="44" y2="70.0" stroke="</mark>000" stroke-width="1.5" /><line x1="197" y1="50.0" x2="197" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="84" fill="</mark>000" style="font-weight:bold">E</text><line x1="40" y1="80" x2="212" y2="80" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="70.0" x2="44" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="72" width="9" height="16" fill="white" /><text x="78" y="84" fill="<mark>000"&gt;5\</text>\<rect x="146" y="72" width="9" height="16" fill="white" />&lt;text x="150" y="84" fill="</mark>000">5</text><line x1="197" y1="70.0" x2="197" y2="90.0" stroke="#000" stroke-width="1.5" /></svg></p>
+<h3 id="string-labels">String Labels</h3>
+<p>Supported string labels:
+- <strong><strong>Guitar</strong></strong>: <code>e</code>, <code>B</code>, <code>G</code>, <code>D</code>, <code>A</code>, <code>E</code>
+- <strong><strong>Bass</strong></strong>: <code>G</code>, <code>D</code>, <code>A</code>, <code>E</code>
+- <strong><strong>7-string</strong></strong>: <code>e</code>, <code>B</code>, <code>G</code>, <code>D</code>, <code>A</code>, <code>E</code>, <code>B</code> (low)
+- <strong><strong>Custom</strong></strong>: Any single character followed by <code>|</code></p>
+<h3 id="fret-numbers">Fret Numbers</h3>
+<ul>
+<li><strong><strong>Single digit</strong></strong>: <code>0-9</code></li>
+<li><strong><strong>Double digit</strong></strong>: <code>10</code>, <code>12</code>, <code>15</code>, etc.</li>
+<li><strong><strong>Hammer-on/Pull-off</strong></strong>: <code>5h7</code>, <code>7p5</code></li>
+<li><strong><strong>Slide</strong></strong>: <code>5/7</code>, <code>7\5</code></li>
+<li><strong><strong>Bend</strong></strong>: <code>7b9</code></li>
+<li><strong><strong>Vibrato</strong></strong>: <code>7~</code></li>
+</ul>
+<h3 id="special-symbols">Special Symbols</h3>
+<ul>
+<li><code>-</code> - No note played</li>
+<li><code>|</code> - Bar line</li>
+<li><code>x</code> - Muted/dead note</li>
+<li><code>h</code> - Hammer-on</li>
+<li><code>p</code> - Pull-off</li>
+<li><code>/</code> - Slide up</li>
+<li><code>\</code> - Slide down</li>
+<li><code>b</code> - Bend</li>
+<li><code>~</code> - Vibrato</li>
+</ul>
+<h3 id="stroke-notation-strumming">Stroke Notation (Strumming)</h3>
+<p>Stroke notation can be added below the tab lines to indicate strumming patterns.</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 213 160" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;e\</text>&lt;line x1="40" y1="20" x2="203" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="12" width="9" height="16" fill="white" />&lt;text x="78" y="24" fill="</mark>000">0</text><rect x="110" y="12" width="9" height="16" fill="white" /><text x="114" y="24" fill="<mark>000"&gt;2\</text>\<rect x="146" y="12" width="9" height="16" fill="white" />&lt;text x="150" y="24" fill="</mark>000">3</text><line x1="188" y1="10.0" x2="188" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="44" fill="</mark>000" style="font-weight:bold">B</text><line x1="40" y1="40" x2="203" y2="40" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="30.0" x2="44" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="32" width="9" height="16" fill="white" /><text x="78" y="44" fill="<mark>000"&gt;1\</text>\<rect x="110" y="32" width="9" height="16" fill="white" />&lt;text x="114" y="44" fill="</mark>000">3</text><rect x="146" y="32" width="9" height="16" fill="white" /><text x="150" y="44" fill="<mark>000"&gt;0\</text>&lt;line x1="188" y1="30.0" x2="188" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="64" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="60" x2="203" y2="60" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="50.0" x2="44" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="52" width="9" height="16" fill="white" />&lt;text x="78" y="64" fill="</mark>000">0</text><rect x="110" y="52" width="9" height="16" fill="white" /><text x="114" y="64" fill="<mark>000"&gt;2\</text>\<rect x="146" y="52" width="9" height="16" fill="white" />&lt;text x="150" y="64" fill="</mark>000">0</text><line x1="188" y1="50.0" x2="188" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="84" fill="</mark>000" style="font-weight:bold">D</text><line x1="40" y1="80" x2="203" y2="80" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="70.0" x2="44" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="72" width="9" height="16" fill="white" /><text x="78" y="84" fill="<mark>000"&gt;2\</text>\<rect x="110" y="72" width="9" height="16" fill="white" />&lt;text x="114" y="84" fill="</mark>000">0</text><rect x="146" y="72" width="9" height="16" fill="white" /><text x="150" y="84" fill="<mark>000"&gt;0\</text>&lt;line x1="188" y1="70.0" x2="188" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="104" fill="<mark>000" style="font-weight:bold"&gt;A\</text>&lt;line x1="40" y1="100" x2="203" y2="100" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="90.0" x2="44" y2="110.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="92" width="9" height="16" fill="white" />&lt;text x="78" y="104" fill="</mark>000">3</text><rect x="146" y="92" width="9" height="16" fill="white" /><text x="150" y="104" fill="<mark>000"&gt;2\</text>&lt;line x1="188" y1="90.0" x2="188" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="124" fill="<mark>000" style="font-weight:bold"&gt;E\</text>&lt;line x1="40" y1="120" x2="203" y2="120" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="110.0" x2="44" y2="130.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="146" y="112" width="9" height="16" fill="white" />&lt;text x="150" y="124" fill="</mark>000">3</text><line x1="188" y1="110.0" x2="188" y2="130.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="51" y="144" fill="</mark>2196f3" style="font-weight:bold; opacity:1; font-size:14px;">↓</text><text x="87" y="144" fill="<mark>2196f3" style="font-weight:normal; opacity:0.7; font-size:12px;"&gt;↓\</text>&lt;text x="105" y="144" fill="</mark>f44336" style="font-weight:bold; opacity:1; font-size:14px;">↑</text><text x="123" y="144" fill="<mark>f44336" style="font-weight:normal; opacity:0.7; font-size:12px;"&gt;↑\</text>&lt;text x="141" y="144" fill="</mark>2196f3" style="font-weight:bold; opacity:1; font-size:14px;">↓</text><text x="177" y="144" fill="#f44336" style="font-weight:bold; opacity:1; font-size:14px;">↑</text></svg></p>
+<p><strong><strong>Supported Symbols:</strong></strong></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+<th>Stroke</th>
+<th>Styling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>↓</code>, <code>V</code></td>
+<td>Strong</td>
+<td>Downstroke</td>
+<td>Bold, blue, full opacity</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>Weak</td>
+<td>Downstroke</td>
+<td>Normal, blue, 70% opacity</td>
+</tr>
+<tr>
+<td><code>↑</code>, <code>A</code></td>
+<td>Strong</td>
+<td>Upstroke</td>
+<td>Bold, red, full opacity</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Weak</td>
+<td>Upstroke</td>
+<td>Normal, red, 70% opacity</td>
+</tr>
+</tbody>
+</table>
+<p>Symbols are automatically converted to visual arrows (<code>↓</code> or <code>↑</code>) in the SVG output with appropriate styling for strong/weak beats.</p>
+<h2 id="rendering">Rendering</h2>
+<p>Tablature is rendered as SVG with:
+- <strong><strong>Monospace font</strong></strong> for alignment
+- <strong><strong>String lines</strong></strong> in gray
+- <strong><strong>Fret numbers</strong></strong> in black
+- <strong><strong>Arrows</strong></strong> in blue (down) and red (up)
+- <strong><strong>Automatic sizing</strong></strong> based on content</p>
+<h3 id="svg-features">SVG Features</h3>
+<ul>
+<li>Clean, scalable graphics</li>
+<li>Proper character spacing</li>
+<li>Aligned string lines</li>
+<li>Color-coded elements</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="simple-riff">Simple Riff</h3>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 222 140" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;e\</text>&lt;line x1="40" y1="20" x2="212" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="10.0" x2="197" y2="30.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="44" fill="<mark>000" style="font-weight:bold"&gt;B\</text>&lt;line x1="40" y1="40" x2="212" y2="40" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="30.0" x2="44" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="30.0" x2="197" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="64" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="60" x2="212" y2="60" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="50.0" x2="44" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="50.0" x2="197" y2="70.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="84" fill="<mark>000" style="font-weight:bold"&gt;D\</text>&lt;line x1="40" y1="80" x2="212" y2="80" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="70.0" x2="44" y2="90.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="72" width="9" height="16" fill="white" />&lt;text x="78" y="84" fill="</mark>000">5</text><rect x="110" y="72" width="9" height="16" fill="white" /><text x="114" y="84" fill="<mark>000"&gt;7\</text>\<rect x="146" y="72" width="9" height="16" fill="white" />&lt;text x="150" y="84" fill="</mark>000">5</text><line x1="197" y1="70.0" x2="197" y2="90.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="104" fill="</mark>000" style="font-weight:bold">A</text><line x1="40" y1="100" x2="212" y2="100" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="90.0" x2="44" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="92" width="9" height="16" fill="white" /><text x="78" y="104" fill="<mark>000"&gt;5\</text>\<rect x="110" y="92" width="9" height="16" fill="white" />&lt;text x="114" y="104" fill="</mark>000">7</text><rect x="146" y="92" width="9" height="16" fill="white" /><text x="150" y="104" fill="<mark>000"&gt;5\</text>&lt;line x1="197" y1="90.0" x2="197" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="124" fill="<mark>000" style="font-weight:bold"&gt;E\</text>&lt;line x1="40" y1="120" x2="212" y2="120" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="110.0" x2="44" y2="130.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="112" width="9" height="16" fill="white" />&lt;text x="78" y="124" fill="</mark>000">3</text><rect x="110" y="112" width="9" height="16" fill="white" /><text x="114" y="124" fill="<mark>000"&gt;5\</text>\<rect x="146" y="112" width="9" height="16" fill="white" />&lt;text x="150" y="124" fill="</mark>000">3</text><line x1="197" y1="110.0" x2="197" y2="130.0" stroke="#000" stroke-width="1.5" /></svg></p>
+<h3 id="with-techniques">With Techniques</h3>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 222 140" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;e\</text>&lt;line x1="40" y1="20" x2="212" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="12" width="9" height="16" fill="white" />&lt;text x="78" y="24" fill="</mark>000">1</text><rect x="83" y="12" width="9" height="16" fill="white" /><text x="87" y="24" fill="<mark>000"&gt;2\</text>\<rect x="92" y="12" width="9" height="16" fill="white" />&lt;text x="96" y="24" fill="</mark>000" style="font-size: 10px;">h</text><rect x="101" y="12" width="9" height="16" fill="white" /><text x="105" y="24" fill="<mark>000"&gt;1\</text>\<rect x="110" y="12" width="9" height="16" fill="white" />&lt;text x="114" y="24" fill="</mark>000">4</text><rect x="119" y="12" width="9" height="16" fill="white" /><text x="123" y="24" fill="<mark>000" style="font-size: 10px;"&gt;p\</text>\<rect x="128" y="12" width="9" height="16" fill="white" />&lt;text x="132" y="24" fill="</mark>000">1</text><rect x="137" y="12" width="9" height="16" fill="white" /><text x="141" y="24" fill="<mark>000"&gt;2\</text>&lt;line x1="197" y1="10.0" x2="197" y2="30.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="44" fill="<mark>000" style="font-weight:bold"&gt;B\</text>&lt;line x1="40" y1="40" x2="212" y2="40" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="30.0" x2="44" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="164" y="32" width="9" height="16" fill="white" />&lt;text x="168" y="44" fill="</mark>000">1</text><rect x="173" y="32" width="9" height="16" fill="white" /><text x="177" y="44" fill="<mark>000"&gt;5\</text>&lt;line x1="197" y1="30.0" x2="197" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="64" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="60" x2="212" y2="60" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="50.0" x2="44" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="50.0" x2="197" y2="70.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="84" fill="<mark>000" style="font-weight:bold"&gt;D\</text>&lt;line x1="40" y1="80" x2="212" y2="80" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="70.0" x2="44" y2="90.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="72" width="9" height="16" fill="white" />&lt;text x="78" y="84" fill="</mark>000">0</text><rect x="83" y="72" width="9" height="16" fill="white" /><text x="87" y="84" fill="<mark>000" style="font-size: 10px;"&gt;h\</text>\<rect x="92" y="72" width="9" height="16" fill="white" />&lt;text x="96" y="84" fill="</mark>000">2</text><rect x="101" y="72" width="9" height="16" fill="white" /><text x="105" y="84" fill="<mark>000" style="font-size: 10px;"&gt;p\</text>\<rect x="110" y="72" width="9" height="16" fill="white" />&lt;text x="114" y="84" fill="</mark>000">0</text><line x1="197" y1="70.0" x2="197" y2="90.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="104" fill="</mark>000" style="font-weight:bold">A</text><line x1="40" y1="100" x2="212" y2="100" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="90.0" x2="44" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><line x1="197" y1="90.0" x2="197" y2="110.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="124" fill="</mark>000" style="font-weight:bold">E</text><line x1="40" y1="120" x2="212" y2="120" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="110.0" x2="44" y2="130.0" stroke="</mark>000" stroke-width="1.5" /><line x1="197" y1="110.0" x2="197" y2="130.0" stroke="#000" stroke-width="1.5" /></svg></p>
+<h3 id="with-strumming-pattern">With Strumming Pattern</h3>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 249 160" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;e\</text>&lt;line x1="40" y1="20" x2="239" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="12" width="9" height="16" fill="white" />&lt;text x="78" y="24" fill="</mark>000">0</text><rect x="110" y="12" width="9" height="16" fill="white" /><text x="114" y="24" fill="<mark>000"&gt;0\</text>\<rect x="146" y="12" width="9" height="16" fill="white" />&lt;text x="150" y="24" fill="</mark>000">0</text><rect x="182" y="12" width="9" height="16" fill="white" /><text x="186" y="24" fill="<mark>000"&gt;0\</text>&lt;line x1="224" y1="10.0" x2="224" y2="30.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="44" fill="<mark>000" style="font-weight:bold"&gt;B\</text>&lt;line x1="40" y1="40" x2="239" y2="40" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="30.0" x2="44" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="32" width="9" height="16" fill="white" />&lt;text x="78" y="44" fill="</mark>000">1</text><rect x="110" y="32" width="9" height="16" fill="white" /><text x="114" y="44" fill="<mark>000"&gt;1\</text>\<rect x="146" y="32" width="9" height="16" fill="white" />&lt;text x="150" y="44" fill="</mark>000">1</text><rect x="182" y="32" width="9" height="16" fill="white" /><text x="186" y="44" fill="<mark>000"&gt;1\</text>&lt;line x1="224" y1="30.0" x2="224" y2="50.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="64" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="60" x2="239" y2="60" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="50.0" x2="44" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="52" width="9" height="16" fill="white" />&lt;text x="78" y="64" fill="</mark>000">0</text><rect x="110" y="52" width="9" height="16" fill="white" /><text x="114" y="64" fill="<mark>000"&gt;0\</text>\<rect x="146" y="52" width="9" height="16" fill="white" />&lt;text x="150" y="64" fill="</mark>000">0</text><rect x="182" y="52" width="9" height="16" fill="white" /><text x="186" y="64" fill="<mark>000"&gt;0\</text>&lt;line x1="224" y1="50.0" x2="224" y2="70.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="84" fill="<mark>000" style="font-weight:bold"&gt;D\</text>&lt;line x1="40" y1="80" x2="239" y2="80" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="70.0" x2="44" y2="90.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="72" width="9" height="16" fill="white" />&lt;text x="78" y="84" fill="</mark>000">2</text><rect x="110" y="72" width="9" height="16" fill="white" /><text x="114" y="84" fill="<mark>000"&gt;2\</text>\<rect x="146" y="72" width="9" height="16" fill="white" />&lt;text x="150" y="84" fill="</mark>000">2</text><rect x="182" y="72" width="9" height="16" fill="white" /><text x="186" y="84" fill="<mark>000"&gt;2\</text>&lt;line x1="224" y1="70.0" x2="224" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="104" fill="<mark>000" style="font-weight:bold"&gt;A\</text>&lt;line x1="40" y1="100" x2="239" y2="100" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="90.0" x2="44" y2="110.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="92" width="9" height="16" fill="white" />&lt;text x="78" y="104" fill="</mark>000">3</text><rect x="110" y="92" width="9" height="16" fill="white" /><text x="114" y="104" fill="<mark>000"&gt;3\</text>\<rect x="146" y="92" width="9" height="16" fill="white" />&lt;text x="150" y="104" fill="</mark>000">3</text><rect x="182" y="92" width="9" height="16" fill="white" /><text x="186" y="104" fill="<mark>000"&gt;3\</text>&lt;line x1="224" y1="90.0" x2="224" y2="110.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="124" fill="<mark>000" style="font-weight:bold"&gt;E\</text>&lt;line x1="40" y1="120" x2="239" y2="120" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="110.0" x2="44" y2="130.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="224" y1="110.0" x2="224" y2="130.0" stroke="</mark>000" stroke-width="1.5" /><text x="51" y="144" fill="<mark>2196f3" style="font-weight:bold; opacity:1; font-size:14px;"&gt;↓\</text>&lt;text x="87" y="144" fill="</mark>2196f3" style="font-weight:bold; opacity:1; font-size:14px;">↓</text><text x="105" y="144" fill="<mark>f44336" style="font-weight:bold; opacity:1; font-size:14px;"&gt;↑\</text>&lt;text x="123" y="144" fill="</mark>f44336" style="font-weight:bold; opacity:1; font-size:14px;">↑</text><text x="141" y="144" fill="<mark>2196f3" style="font-weight:bold; opacity:1; font-size:14px;"&gt;↓\</text>&lt;text x="159" y="144" fill="</mark>f44336" style="font-weight:bold; opacity:1; font-size:14px;">↑</text></svg></p>
+<h3 id="bass-line">Bass Line</h3>
+<p><svg xmlns="http://www.w3.org/2000/svg" class="tab-svg" viewBox="0 0 222 100" width="100%" style="font-family: monospace; font-size: 14px; background: white;"><text x="5" y="24" fill="<mark>000" style="font-weight:bold"&gt;G\</text>&lt;line x1="40" y1="20" x2="212" y2="20" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="10.0" x2="44" y2="30.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;line x1="197" y1="10.0" x2="197" y2="30.0" stroke="</mark>000" stroke-width="1.5" /><text x="5" y="44" fill="<mark>000" style="font-weight:bold"&gt;D\</text>&lt;line x1="40" y1="40" x2="212" y2="40" stroke="</mark>999" stroke-width="1" /><line x1="44" y1="30.0" x2="44" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;\<rect x="74" y="32" width="9" height="16" fill="white" />&lt;text x="78" y="44" fill="</mark>000">5</text><rect x="110" y="32" width="9" height="16" fill="white" /><text x="114" y="44" fill="<mark>000"&gt;5\</text>\<rect x="146" y="32" width="9" height="16" fill="white" />&lt;text x="150" y="44" fill="</mark>000">7</text><line x1="197" y1="30.0" x2="197" y2="50.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="64" fill="</mark>000" style="font-weight:bold">A</text><line x1="40" y1="60" x2="212" y2="60" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="50.0" x2="44" y2="70.0" stroke="</mark>000" stroke-width="1.5" /><line x1="197" y1="50.0" x2="197" y2="70.0" stroke="<mark>000" stroke-width="1.5" /&gt;&lt;text x="5" y="84" fill="</mark>000" style="font-weight:bold">E</text><line x1="40" y1="80" x2="212" y2="80" stroke="<mark>999" stroke-width="1" /&gt;&lt;line x1="44" y1="70.0" x2="44" y2="90.0" stroke="</mark>000" stroke-width="1.5" /><rect x="74" y="72" width="9" height="16" fill="white" /><text x="78" y="84" fill="<mark>000"&gt;5\</text>\<rect x="146" y="72" width="9" height="16" fill="white" />&lt;text x="150" y="84" fill="</mark>000">5</text><line x1="197" y1="70.0" x2="197" y2="90.0" stroke="#000" stroke-width="1.5" /></svg></p>
+<h2 id="css-classes">CSS Classes</h2>
+<ul>
+<li><code>.tab-svg</code> - SVG container</li>
+<li><code>.tab-block</code> - Tab block wrapper</li>
+</ul>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="detection-algorithm">Detection Algorithm</h3>
+<p>A block is identified as tablature if:
+1. Contains <code>|</code> characters
+2. Has string labels (e.g., <code>e|</code>, <code>B|</code>)
+3. High ratio of dashes and pipes (&gt;60%)
+4. Contains stroke symbols (<code>↓</code>, <code>↑</code>, <code>V</code>, <code>v</code>, <code>A</code>, <code>^</code>)</p>
+<h3 id="rendering-process">Rendering Process</h3>
+<ol>
+<li>Parse each line to extract string label and content</li>
+<li>Identify anchor column (most common non-dash character position)</li>
+<li>Calculate SVG dimensions based on content</li>
+<li>Render string lines, fret numbers, and symbols</li>
+<li>Add strumming arrows if present</li>
+</ol>
+<h3 id="svg-output">SVG Output</h3>
+<div class="highlight"><pre><span></span><code>&lt;svg class=&quot;tab-svg&quot; width=&quot;...&quot; height=&quot;...&quot;&gt;
+  &lt;text class=&quot;tab-string-label&quot;&gt;e&lt;/text&gt;
+  &lt;line class=&quot;tab-string-line&quot; .../&gt;
+  &lt;text class=&quot;tab-fret&quot;&gt;0&lt;/text&gt;
+  &lt;text class=&quot;tab-arrow down&quot;&gt;↓&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/vendor/svguitar.umd.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
+      
+    
+  </body>
+</html>
