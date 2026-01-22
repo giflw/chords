@@ -20,6 +20,16 @@ run = "python demo.py"
 description = "Serve documentation site"
 run = "mkdocs serve"
 
+[tasks.run_windows]
+description = "Run full development cycle and open demo on Windows CMD"
+run = [
+    "pip install -e .",
+    "pip install mkdocs-material pymdown-extensions pytest",
+    "pytest tests/",
+    "python demo.py",
+    "start demo.html"
+]
+
 [tasks.clean]
-description = "Remove generated files"
-run = "rm -f demo.html && rm -rf site/ && rm -rf .pytest_cache/"
+description = "Remove generated files (Windows compatible)"
+run = "python -c \"import os, shutil; [os.remove(f) for f in ['demo.html'] if os.path.exists(f)]; [shutil.rmtree(d) for d in ['site', '.pytest_cache'] if os.path.exists(d)]\""
