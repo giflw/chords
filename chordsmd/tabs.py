@@ -110,13 +110,13 @@ def render_tab_svg(ascii_tab):
             if char == ' ': continue
             
             if char.isdigit():
-                svg_parts.append(f'<rect x="{cx-2}" y="{y-8}" width="{char_width}" height="16" fill="white" />')
-                svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="rgb(0,0,0)">{char}</text>')
+                svg_parts.append(f'<rect x="{cx-1}" y="{y-9}" width="{char_width+2}" height="18" fill="white" />')
+                svg_parts.append(f'<text x="{cx+char_width/2}" y="{y}" fill="rgb(0,0,0)" text-anchor="middle" dominant-baseline="central">{char}</text>')
             elif char == '|':
-                svg_parts.append(f'<line x1="{cx+4}" y1="{y-line_height/2}" x2="{cx+4}" y2="{y+line_height/2}" stroke="rgb(0,0,0)" stroke-width="1.5" />')
+                svg_parts.append(f'<line x1="{cx+char_width/2}" y1="{y-line_height/2}" x2="{cx+char_width/2}" y2="{y+line_height/2}" stroke="rgb(0,0,0)" stroke-width="1.5" />')
             elif char in ('h', 'p', '/', '\\', 'x'):
-                 svg_parts.append(f'<rect x="{cx-2}" y="{y-8}" width="{char_width}" height="16" fill="white" />')
-                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="rgb(0,0,0)" style="font-size: 10px;">{escape(char)}</text>')
+                 svg_parts.append(f'<rect x="{cx-1}" y="{y-9}" width="{char_width+2}" height="18" fill="white" />')
+                 svg_parts.append(f'<text x="{cx+char_width/2}" y="{y}" fill="rgb(0,0,0)" text-anchor="middle" dominant-baseline="central" style="font-size: 10px;">{escape(char)}</text>')
             elif char in ('↓', '↑', 'V', 'v', 'A', '^'):
                  is_down = char in ('↓', 'V', 'v')
                  is_strong = char in ('↓', 'V', 'A', '↑')
@@ -125,7 +125,7 @@ def render_tab_svg(ascii_tab):
                  opacity = "1" if is_strong else "0.7"
                  font_size = "14px" if is_strong else "12px"
                  arrow_char = '↓' if is_down else '↑'
-                 svg_parts.append(f'<text x="{cx+2}" y="{y+4}" fill="{color}" style="font-weight:{weight}; opacity:{opacity}; font-size:{font_size};">{arrow_char}</text>')
+                 svg_parts.append(f'<text x="{cx+char_width/2}" y="{y}" fill="{color}" text-anchor="middle" dominant-baseline="central" style="font-weight:{weight}; opacity:{opacity}; font-size:{font_size};">{arrow_char}</text>')
     
     # Connect vertical bars across strings?
     # A proper renderer would find columns of '|' and draw a single long line.
