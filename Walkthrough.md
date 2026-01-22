@@ -1,0 +1,111 @@
+# Project Walkthrough: ChordsMD Extension
+
+This document serves as a comprehensive guide to the **ChordsMD** Python Markdown extension. It details the project's architecture, features, and testing strategy, providing a clear reference for current functionality and future development.
+
+## 1. Project Overview
+
+**Goal**: Create a robust Markdown extension to render musical notation, aiming for parity with popular sites like CifraClub and Ultimate-Guitar.
+**Core Features**:
+- **Chord Sheets**: Automatic merging of chords over lyrics, structured rendering.
+- **Tablature**: Dynamic SVG rendering of ASCII tabs, including arrow support.
+- **ABC Notation**: Standard music score rendering using `abcjs`.
+- **ChordPro**: Support for the ChordPro format.
+
+## 2. Architecture & Components
+
+The project is structured as a modular Python package `chordsmd`.
+
+### Main Entry Point ([__init__.py](file:///d:/Workspace/Antigravity/chordsmd/__init__.py))
+- **[ChordsMDExtension](file:///d:/Workspace/Antigravity/chordsmd/__init__.py#7-26)**: The unified extension class.
+- **Feature Flags**: Allows enabling/disabling specific features via config:
+  - `enable_chords`, `enable_tabs`, `enable_abc`, `enable_chordpro` (All `True` by default).
+
+### Modules
+- **[chordsheet.py](file:///d:/Workspace/Antigravity/chordsmd/chordsheet.py)**: Handles ` ```chords ` blocks.
+  - **[ChordSheetPreprocessor](file:///d:/Workspace/Antigravity/chordsmd/chordsheet.py#45-193)**: Parses blocks, detects section headers (`[Chorus]`), and merges chord lines with lyrics.
+  - **[InlineChordPattern](file:///d:/Workspace/Antigravity/chordsmd/chordsheet.py#13-44)**: internal `!!Chord!!` syntax handling.
+  - **Embedded Tabs**: Detects and renders ASCII tab blocks inside chord sheets.
+- **[tabs.py](file:///d:/Workspace/Antigravity/chordsmd/tabs.py)**: Handles ` ```tab ` blocks.
+  - **[render_tab_svg](file:///d:/Workspace/Antigravity/chordsmd/tabs.py#12-129)**: Converts ASCII tablature into SVG images. Supports standard tuning lines and articulated arrows (`↓`, `↑`).
+- **[abc.py](file:///d:/Workspace/Antigravity/chordsmd/abc.py)**: Handles ` ```abc ` blocks.
+  - Renders HTML container for `abcjs` to process (requires `abcjs` library).
+- **[chordpro.py](file:///d:/Workspace/Antigravity/chordsmd/chordpro.py)**: Basic support for ` ```chordpro ` syntax.
+- **[parser.py](file:///d:/Workspace/Antigravity/chordsmd/parser.py)**: Logic for parsing chord symbols (Root, Quality, Bass).
+- **[merger.py](file:///d:/Workspace/Antigravity/chordsmd/merger.py)**: Helper to merge chord lines above lyric lines with HTML spans.
+
+## 3. Key Features in Detail
+
+### Chord Sheets
+Example Input:
+```markdown
+\```chords
+[Verse 1]
+Em7           G
+    Today is gonna be the day
+\```
+```
+**Output**: HTML structure with `h3` headers and lyrics line with chords positioned above (using CSS or spans). Chords are parsed into `<span class="root">E</span><span class="quality">m7</span>`.
+
+### Tablature (SVG)
+Example Input:
+```markdown
+\```tab
+e|---0---|
+B|---1---|
+\```
+```
+**Output**: A generated `<svg>` element drawing the staff lines and notes.
+**Arrows**: Supports `↓` and `↑` for strumming patterns, rendered as markers.
+
+### ABC Notation
+Example Input:
+```markdown
+\```abc
+X:1
+T:Scale
+K:C
+C D E F | G A B c
+\```
+```
+**Output**: `<div>` wrapper. Requires `abcjs-basic-min.js` (managed in `assets/vendor`).
+
+## 4. Testing & Validation
+
+### Real-World Validation (`tests/test_real_world.py`)
+We validate against real song data extracted from CifraClub and Ultimate-Guitar.
+- **Assets**: Raw text files stored in `tests/assets/`:
+  - `wonderwall.txt` (Oasis) - Mixed chords and tabs.
+  - `hotel_california.txt` (Eagles) - Standard chord sheet.
+  - `wish_you_were_here.txt` (Pink Floyd) - Slash chords and foreign keys.
+- **Tests**: Verify that:
+  - Lyrics are preserved.
+  - Chords are parsed into structured HTML (Root/Quality/Bass).
+  - Embedded tabs are detected and rendered as SVG.
+  - Arrows are correctly handled.
+
+### Unit Tests
+- `tests/test_chordsheet.py`: Block parsing, orphans, padding.
+- `tests/test_tabs.py`: Tab rendering logic.
+- `tests/test_config.py`: Enabling/disabling extensions.
+
+### Visual Verification (`demo.py`)
+A script that generates `demo.html` showcasing all features.
+- Links to local `assets/style/style.css` and `assets/vendor/abcjs-basic-min.js`.
+- Useful for inspecting the final visual layout.
+
+## 5. Usage
+
+```python
+import markdown
+from chordsmd import ChordsMDExtension
+
+text = "..."
+html = markdown.markdown(text, extensions=[ChordsMDExtension()])
+```
+
+## 6. Development Status
+- **Refactoring**: `blocks.py` was deprecated and moved to `chordsheet.py`. `ChordsmdExtension` was renamed to `ChordsMDExtension`.
+- **Versioning**: Git history tracks major updates (Tab support, Real-world tests, Unified Extension).
+
+---
+*Last Updated: 2026-01-21*
