@@ -83,6 +83,7 @@ final_html = f"""
 </head>
 <body>
 {html_body}
+<pre id="source" style="display:none">{text}</pre>
 </body>
 </html>
 """
