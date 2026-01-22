@@ -1,5 +1,6 @@
 import markdown
 from chordsmd import MyExtension
+from chordsmd.chordpro import ChordProExtension
 
 text = """
 # Demo
@@ -25,7 +26,20 @@ This is a song
       G
 About chords
 ```
+
+## ChordPro Example
+
+```chordpro
+{title: ChordPro Song}
+{st: Subtitle Here}
+
+[Am]This is a [G]ChordPro [C]line.
+
+{soc}
+[F]Chorus [C]Text
+{eoc}
+```
 """
 
-html = markdown.markdown(text, extensions=[MyExtension()])
+html = markdown.markdown(text, extensions=[MyExtension(), ChordProExtension()])
 print(html)
